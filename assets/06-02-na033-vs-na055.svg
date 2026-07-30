@@ -1,0 +1,104 @@
+<svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 6-2. 개구수 0.33과 0.55의 노광당 해상도 차이와 패터닝 스텝 축소</title>
+<desc id="dsc">NA 0.33과 NA 0.55의 노광 1회당 해상도를 13 대 8의 실비율 라인/스페이스 패턴으로 같은 스케일 바 위에 놓고, 그 아래에 멀티패터닝 스텝 열을 세로로 겹쳐 배치했습니다. 스텝 개수는 본문이 명시하지 않으므로 구체 수치 없이 파선 밴드와 미확정 배지로만 표기했습니다. 그림에 쓰인 픽셀 축척은 1 nm 당 2 px입니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 열 제목 -->
+<text class="t14 mid" x="200" y="24">NA 0.33</text>
+<text class="t14 mid" x="560" y="24">NA 0.55 (High-NA)</text>
+
+<!-- 행 1 : 노광당 해상도 — 동일 스케일 피처 스트립 (창 폭 300 px = 150 nm) -->
+<text class="t11" x="30" y="44">노광당 해상도</text>
+<rect class="h" x="50"  y="52" width="300" height="68"/>
+<rect class="h" x="410" y="52" width="300" height="68"/>
+
+<!-- NA 0.33 : 라인 폭 26 px = 13 nm, 스페이스 26 px -->
+<rect class="s" x="57"  y="52" width="26" height="68"/>
+<rect class="s" x="109" y="52" width="26" height="68"/>
+<rect class="s" x="161" y="52" width="26" height="68"/>
+<rect class="s" x="213" y="52" width="26" height="68"/>
+<rect class="s" x="265" y="52" width="26" height="68"/>
+<rect class="s" x="317" y="52" width="26" height="68"/>
+
+<!-- NA 0.55 : 라인 폭 16 px = 8 nm, 스페이스 16 px (강조색 + 45° 해칭) -->
+<rect x="424" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect x="456" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect x="488" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect x="520" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect x="552" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect x="584" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect x="616" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect x="648" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect x="680" y="52" width="16" height="68" fill="url(#hatch)"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="424" y="52" width="16" height="68"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="456" y="52" width="16" height="68"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="488" y="52" width="16" height="68"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="520" y="52" width="16" height="68"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="552" y="52" width="16" height="68"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="584" y="52" width="16" height="68"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="616" y="52" width="16" height="68"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="648" y="52" width="16" height="68"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="680" y="52" width="16" height="68"/>
+
+<text class="t11 mid" x="200" y="136">13 nm</text>
+<text class="t11 mid" x="560" y="136">8 nm</text>
+<text class="t11 mid" x="490" y="154">피처 미세도 약 1.7배</text>
+<text class="t11 mid" x="652" y="154">밀도 약 3배</text>
+
+<!-- 공통 스케일 바 : 두 열을 관통, 300 px = 150 nm -->
+<line class="h" x1="230" y1="176" x2="530" y2="176"/>
+<line class="h" x1="230" y1="176" x2="230" y2="183"/>
+<line class="h" x1="330" y1="176" x2="330" y2="183"/>
+<line class="h" x1="430" y1="176" x2="430" y2="183"/>
+<line class="h" x1="530" y1="176" x2="530" y2="183"/>
+<text class="t11 mid" x="230" y="196">0</text>
+<text class="t11 mid" x="330" y="196">50</text>
+<text class="t11 mid" x="430" y="196">100</text>
+<text class="t11 mid" x="530" y="196">150 nm</text>
+
+<!-- 행 2 : 멀티패터닝 스텝 -->
+<text class="t11" x="30" y="214">멀티패터닝 스텝</text>
+<text class="t14 mid" x="200" y="230">…</text>
+<rect class="s d" x="120" y="234" width="160" height="20"/>
+<rect class="s" x="120" y="262" width="160" height="20"/>
+<rect class="s" x="120" y="290" width="160" height="20"/>
+<rect class="s" x="120" y="318" width="160" height="20"/>
+<rect class="s d" x="480" y="290" width="160" height="20"/>
+<rect class="s" x="480" y="318" width="160" height="20"/>
+
+<text class="t11 mid" x="380" y="292">스텝 감소</text>
+<line class="k-emph d" stroke-width="2" x1="292" y1="300" x2="468" y2="300" marker-end="url(#ar)"/>
+<text class="t11 mid" x="380" y="322">[미확정]</text>
+
+<!-- 행 3·4 : 대표 장비 · 장비 가격 (좌열은 값 없음) -->
+<text class="t11" x="30" y="372">대표 장비</text>
+<text class="t11 mid" x="200" y="372">—</text>
+<text class="t11 mid" x="560" y="372">ASML TWINSCAN EXE:5200B</text>
+<text class="t11" x="30" y="400">장비 가격</text>
+<text class="t11 mid" x="200" y="400">—</text>
+<text class="t11 mid" x="560" y="400">대당 약 4억 달러 수준</text>
+</svg>

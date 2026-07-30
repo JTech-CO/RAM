@@ -4,14 +4,19 @@
 > 이 문서 모음집의 모든 수치는 여기에 등록된 출처로 소급됩니다.
 > 반도체 수치는 6개월이면 낡습니다. 인용 전 각 항목의 확인일과 등급을 확인하십시오.
 
-**근거 자료는 두 묶음입니다.**
+**근거 자료는 세 묶음입니다.**
 
-| 묶음 | 조사일 | 담당 범위 |
-|---|---|---|
-| v3 소스 팩 | 2026-07-28 | 5계층·공정(노광·식각·본딩)·CXL·워크로드·시장 |
-| [v4 부록](_internal/RAM-source-pack-v4-addendum.md) | 2026-07-29 | DRAM 커패시터 제조 공정, 셀 트랜지스터, 리텐션·refresh, Row Hammer, ECC, 계층별 신뢰성 |
+| 묶음 | 조사일 | 담당 범위 | 저장소 내 위치 |
+|---|---|---|---|
+| v3 소스 팩 | 2026-07-28 | 5계층·공정(노광·식각·본딩)·CXL·워크로드·시장 | `_internal/RAM-source-pack.md` |
+| [v4 부록](_internal/RAM-source-pack-v4-addendum.md) | 2026-07-29 | DRAM 커패시터 제조 공정, 셀 트랜지스터, 리텐션·refresh, Row Hammer, ECC, 계층별 신뢰성 | `_internal/RAM-source-pack-v4-addendum.md` |
+| **v5 조사** | 2026-07-29 | DRAM 뱅크·랭크·서브채널, 코어 타이밍, 대역폭 효율 / 웨이퍼 테스트(EDS), 리던던시·리페어, 적층 수율 | `_internal/research-v5/` (6종). **통합 부록 없이 조사 파일이 곧 근거**입니다 |
+
+v4 부록의 원 조사 파일 6종도 `_internal/research-v4/`에 있습니다. 부록은 이들을 통합·정리한 것이며, 개별 출처 URL과 확인 경로는 조사 파일 쪽이 더 상세합니다.
 
 v4 부록의 전체 출처 인덱스는 해당 파일 10절에, **확인 실패 항목 전체 목록은 11절**에 있습니다. 아래 8절은 그중 핵심만 옮긴 것입니다.
+
+**v5 조사 파일은 `_internal/research-v5/`에 있습니다.** 조사에서 인용된 **1차 출처는 아래 2·3·6절 인덱스에도 직접 등록**해 두었습니다. v5 서술의 근거를 확인할 때는 조사 파일과 함께 [02-dram.md](02-dram.md) 10절, [08-test-yield.md](08-test-yield.md) 6절의 각주·참고 문헌을 보십시오. 두 문서의 각주가 1차 자료의 리비전·발행일·확인 경로(원문 직접 확인 / 검색 요약 경유 / 접근 실패)를 항목별로 밝히고 있습니다.
 
 각 문서의 `참고 문헌` 절은 이 인덱스를 가리킵니다. 본문에서 특정 수치의 근거를 추적할 때는 해당 문서의 각주 → 이 인덱스의 등급별 절 순서로 따라오십시오.
 
@@ -60,6 +65,8 @@ v4 부록의 전체 출처 인덱스는 해당 파일 10절에, **확인 실패 
 |---|---|---|
 | **JEDEC** (`jedec.org`) | **JESD270-4** — HBM4, 2025-04 공개 | [03-hbm.md](03-hbm.md) |
 | JEDEC | **JESD209-6** — LPDDR6, 2025-07 공개 | DDR6 계열 중 최초 확정 표준. [02-dram.md](02-dram.md) |
+| JEDEC | **JESD79-4** — DDR4 SDRAM, **2012-09 원판** | 로컬 확보본이 원판이라 이후 개정 반영 여부를 확인할 수 없고, **DDR4-2666 이상 speed bin의 타이밍 열이 전부 TBD**입니다. 고속 DDR4 값의 근거는 마이크론 데이터시트가 유일합니다. [02-dram.md](02-dram.md) |
+| JEDEC | **"Proposed DDR5 Full spec (JESD79-5)" Rev0.1** — JC42.3 위원회 회람본 | **`T0 (초안)` · [미비준]**. 뱅크 구성·어드레싱, DDR5-6400 A/B/C bin, tCCD_L·tCCD_L_WR, §4.23 PPR 및 MR25 guard key 조항의 근거. **표 다수에 "No Ballot"이 붙어 있고 CL·MR6·MR12가 TBD입니다.** 이 초안의 bin 목록에 DDR5-4800이 없고, tWR 45 ns에는 "currently defined as" 단서가 붙어 있어 두 값 모두 이 모음집에서 인용하지 않습니다. [02-dram.md](02-dram.md), [08-test-yield.md](08-test-yield.md) |
 | JEDEC | DDR5 MRDIMM / MDB / MRCD | MDB 표준 공개, MRCD 진행 중, Gen2 로드맵 진행(2026-04) |
 | JEDEC | JC-40 / JC-45 / **JC-42.3** | JC-42.3에서 DDR6 타이밍·시그널링 파라미터 조율 중 |
 | JEDEC | HBM4E 패키지 높이 | **통합 표준 부재. 825~900 µm 논의 중, 2026-07 현재 확정 발표 확인되지 않음** |
@@ -84,6 +91,17 @@ v4 부록의 전체 출처 인덱스는 해당 파일 10절에, **확인 실패 
 | **SanDisk 뉴스룸** | HBF Fact Sheet, SK하이닉스 MOU(2025-08-06), OCP 킥오프(2026-02-25) | [04](04-hbf.md) |
 | **Kioxia** | BiCS10 발표 (332층, 29 Gb/mm² 초과, 4,800 MT/s) | [05](05-nand.md) |
 | **마이크론** (`micron.com/products/memory/cxl-memory`) | CZ120 / CZ122 CXL 메모리 확장 | [부록 A](appendix-a-cxl.md) |
+
+**데이터시트·기술 노트 (v5에서 신규 등록)** — 조사 파일과 별개로 1차 자료를 직접 등재합니다.
+
+| 출처 | 리비전 / 발행 | 주요 인용 항목 | 관련 문서 |
+|---|---|---|---|
+| **마이크론 16 Gb DDR4 SDRAM 데이터시트** | Rev. H, **2021-08** | DDR4-1600 / DDR4-3200 speed bin 표와 AC 타이밍(tRCD·tAA·tRP·tRAS), 부품 등급 -125E / -062Y / -062E / -062, tCCD_S·tCCD_L 규정값, tFAW의 페이지 크기 의존, 뱅크 그룹의 인과("8n 프리페치에 머문 데 따른 페널티"), CS_n의 랭크 정의, 3DS와 DDP의 구분, PRECHARGE / ARRAY RESTORE 서술 | [02](02-dram.md) |
+| **마이크론 16 Gb DDR5 SDRAM Die Rev D 데이터시트** | doc rev F, **2024-04** | DDR5-5600 / 6400 speed bin(-56B, -64B), 16 Gb 뱅크 구성, 32 ms / 8,192 REF, x4 RMW Suppression, ECS Writeback Suppression. 같은 표의 **DDR5-7200은 "Advance(개발 중)"이므로 인용하지 않습니다** | [02](02-dram.md), [07](07-reliability.md) |
+| **삼성 DDR5 UDIMM 데이터시트** | Rev. 1.0, **2021-03** | DDR5-4800B 전체 타이밍(40-39-39, tRC 48.000 ns 숫자 명시), 채널 A/B 핀 구성과 CB0–CB3 체크비트, 모듈 구성표(랭크 수), tREFIsb 계산식, On-Die ECC / ECC Transparency and Error Scrub / CRC의 기능 항목 분리, 3DS logical rank 표현 | [02](02-dram.md), [07](07-reliability.md) |
+| **마이크론 32 GB DDR5 RDIMM 데이터시트** | Rev. F, **2022-12** | "32GB (x80, ECC, DR)" 제품 구성. 서브채널 40비트의 "32 데이터 + 8 ECC" 분해는 **산술 유도**이며 명시 문자열은 미확인 | [02](02-dram.md), [07](07-reliability.md) |
+| **삼성반도체 「반도체 8대 공정」 8탄 — EDS** | 원문 직접 확인 | EDS 정의와 단계 구성(ET Test & WBI → Hot/Cold Test → Repair/Final Test → Inking), ET의 소자 파라미터(DC) 검사 정의, WBI 설명, "수선이 끝나면 Final Test 공정을 통해 재차 검증". **삼성전자 반도체 뉴스룸 EDS 편은 같은 공정을 5단계로 쓰며 두 공식 서술이 상충합니다**(후자는 검색 요약 경유 `2차 인용`) | [08](08-test-yield.md), [06](06-process.md) |
+| **마이크론 TN-29-59 "Bad Block Management in NAND Flash Memory"** | Rev. H, **2011-04** | 공장 불량 블록 표식 위치와 FFh 규칙, 표식 소실 경고(지워지면 복구 불가), reserved block 용도, 수명 누적 불량 상한 2%. **2011년 평면(planar) NAND 기준이며 현행 3D NAND 적용 근거 없음.** 원본 PDF 추출 실패로 재호스팅본 확인 | [08](08-test-yield.md), [05](05-nand.md) |
 
 ### 3-2. 로직·장비
 
@@ -155,6 +173,7 @@ JEDEC 사이트에서 DDR6 관련 문서는 대부분 유료 회원 전용이라
 | **NVMe offloading I/O 분석** | CHEOPS '25 | DOI 10.1145/3719330.3721230 | [부록 B](appendix-b-workloads.md) |
 | **3nm GAA-FET SRAM self-heating/방사선** | SJSU, Sandia, 2026-07 | — | [01](01-sram.md) |
 | **DRAM 셀 커패시턴스 역사** | IEEE JSSC 1985 (1Mb, 32 fF), IEEE JSSC 1988 (16Mb, 33 fF), IEDM 2004 MESH capacitor (30 fF) | — | [02](02-dram.md) |
+| **Cai 2017** (v5에서 인덱스 등재) | Y. Cai, S. Ghose, E. F. Haratsch, Y. Luo, O. Mutlu, "Error Characterization, Mitigation, and Recovery in Flash-Memory-Based Solid-State Drives," *Proceedings of the IEEE*, **2017** — v5에서 추가로 쓴 항목은 bad block table 작성(컨트롤러가 최초 전원 인가 시 전수 스캔), OBB의 plane 내 리매핑과 superpage 병렬도 유지, GBB의 블록 단위 격리 처리, ECC 강도와 over-provisioning의 경쟁 관계입니다. **수치·비교 기준은 전부 평면(planar) NAND**이며, 같은 논문이 인용한 "OBB 2% 미만"의 원출처는 위키(T4)입니다 | — | [08](08-test-yield.md), [05](05-nand.md), [07](07-reliability.md) |
 
 **등급 예외 1건**: Counterpoint Research, "Scaling to 1,000-Layer 3D NAND in the AI Era"는 소스 자료에서 논문 목록 끝에 놓여 있었으나, 실제로는 **장비사(Lam) 후원 백서**이므로 동료평가 논문(T2)이 아니라 **T3(분석기관)**으로 취급합니다. 인용 시 후원 관계를 함께 밝힙니다. → [05-nand.md](05-nand.md), [06-process.md](06-process.md)
 
@@ -217,6 +236,23 @@ JEDEC 사이트에서 DDR6 관련 문서는 대부분 유료 회원 전용이라
 | TechInsights의 7.8F² 기준 근거 | **원문 미확인** | [02-dram.md](02-dram.md) |
 | 4F²의 이론적 밀도 이득 "약 30%" | **수치 정합 불일치** — 셀 면적비 2/3를 밀도로 환산하면 1.5배(약 50%)이며, 30%는 면적 축소율(약 33%)에 가까움. 셀 층위인지 다이 층위인지 명시한 1차 자료 미확인 | [02-dram.md](02-dram.md), [00-memory-hierarchy.md](00-memory-hierarchy.md) |
 
+**v5 조사에서 추가된 항목 (2026-07-29)**
+
+| 항목 | 상태 | 확정 시 갱신할 문서 |
+|---|---|---|
+| DRAM 예비 행·열의 비율 | **확인 실패** — 상용 제품의 spare row/column 비율을 밝힌 T0~T2.5 근거 없음. 검색에 섞여 나오는 값들은 **특허 명세의 예시 계산과 소형 학술 예제의 BISR 면적 오버헤드**이며 상용 비율이 아님. Dell KB 000053203(T1)도 "소자와 용량에 따라 다르다"고만 기술. **어떤 수치도 인용 금지** | [08-test-yield.md](08-test-yield.md) |
+| HBM 실제 스택 수율 | **확인 실패 (v5 조사의 최대 공백)** — 어느 세대·어느 업체도 제조사 공식 수치가 없음. T3 추정치가 가장 활발히 유통되는 영역 | [08-test-yield.md](08-test-yield.md), [03-hbm.md](03-hbm.md) |
+| HBM 리던던시·TSV repair의 규격상 지위 | **확인 실패** — JESD235 계열 원문 미확보. 확보된 TSV 리던던시 수치는 전부 **학계 제안 아키텍처의 시뮬레이션값**이며 제품 사양이 아님 | [08-test-yield.md](08-test-yield.md), [03-hbm.md](03-hbm.md) |
+| 번인(WBI)의 조건 — 온도·전압·지속 시간 | **[미공개]** — 삼성·SK하이닉스 공식 자료 모두 "고온·고전압"이라고만 기술 | [08-test-yield.md](08-test-yield.md) |
+| 테스트 비용 비중 | **확인 실패** — 분모가 **매출**("IC 매출의 2~3% 미만", ITRS 2015)인지 **제조원가**("총 제조원가의 2% 관행값", T3)인지가 자료마다 다르고, 둘 다 원문 접근 실패. 메모리 특정 비중은 확보 불가 | [08-test-yield.md](08-test-yield.md) |
+| KGD 테스트의 결함 검출률 | **확인 실패** — 유통되는 검출률 수치의 출처가 **AI 생성 요약 사이트**이며 원 출처 불명. 같은 성격으로 적층 패키지 폐기 금액도 **개인 블로그** 출처 | [08-test-yield.md](08-test-yield.md) |
+| 컬럼(열) 리페어의 규격상 지위 | **확인 실패** — JEDEC PPR은 원문이 "Fail Row address repair"이며 **행 수리만 규정.** 컬럼 리페어가 패키지 후에 가능한지 규격 근거 없음 | [08-test-yield.md](08-test-yield.md), [07-reliability.md](07-reliability.md) |
+| DDR4 PPR 도입 시점의 1차 근거 | **확인 실패** — 로컬 확보본이 JESD79-4 **2012-09 원판**이라 이후 개정 반영 여부를 확인할 수 없음. "DDR4부터 PPR"이라는 통설의 1차 근거를 얻지 못해 DDR5 초안 기준으로만 서술 | [08-test-yield.md](08-test-yield.md), [07-reliability.md](07-reliability.md) |
+| DDR5 비준본의 tWR·tRAS 확정값 | **[미비준]** — 초안의 tWR 45 ns에 "currently defined as" 단서가 붙고 MR6 인코딩이 전부 TBD. 또한 DDR5-4800 / 5600 / 6400의 tCCD_L·tCCD_L_WR·tRRD·tFAW는 초안이 DDR5-4000까지만 담고 있어 **확인 실패** | [02-dram.md](02-dram.md) |
+| DDR3 코어 타이밍의 1차 자료 | **확인 실패** — T0/T1 원문 확보 3회 시도 후 실패. 그래서 근거 구간을 DDR4-1600 ~ DDR5-6400으로 한정했고, **"DDR3부터 3세대에 걸친 정체"라고 쓰지 않음** | [02-dram.md](02-dram.md) |
+
+> 08이 소유한 확인 실패 항목의 전체 목록(20건)은 [08-test-yield.md](08-test-yield.md) 5절에 있습니다. 위 표는 그중 다른 문서에도 영향을 주는 것만 옮긴 것입니다.
+
 ---
 
 ## 10. 갱신 이력
@@ -225,6 +261,7 @@ JEDEC 사이트에서 DDR6 관련 문서는 대부분 유료 회원 전용이라
 |---|---|
 | 2026-07-28 | 초판. 소스 팩 v3 기준으로 전 문서 작성 및 출처 인덱스 구축 |
 | 2026-07-29 | v4 부록 조사 반영. [06-process.md](06-process.md)에 5절(DRAM 셀을 만든다는 것) 신설, [07-reliability.md](07-reliability.md) 신설. v3 정정 2건(MESH 세대 표기, Lam Cryo 3.0 수치 혼합), 상충 1건 병기(3D NAND 100:1 도달 시점) |
+| 2026-07-29 | **v5 조사 반영.** [08-test-yield.md](08-test-yield.md) 신설(세 번째 횡단 챕터 — EDS, 리던던시·리페어, 적층 수율, KGD). [02-dram.md](02-dram.md) 확장 — 3절에 코어 타이밍 파라미터·지연 분해·뱅크 병렬성 소절(3-5 ~ 3-7), 6절에 조직 구조·뱅크 그룹·서브채널과 랭크 소절(6-5 ~ 6-7) 추가. v4 정정 1건(**DDR5 체크비트 비율 25%는 RDIMM 한정**이며 삼성 ECC UDIMM은 x72로 12.5%), 상충 1건 병기(삼성 공식 EDS 서술의 4단계 / 5단계). **v5 조사 파일은 저장소에 없으며 1차 출처만 2·3·6절에 등재** |
 
 **v4에서 새로 확인된 주요 오인용 함정** — 인용 전 반드시 확인하십시오.
 
@@ -236,6 +273,11 @@ JEDEC 사이트에서 DDR6 관련 문서는 대부분 유료 회원 전용이라
 | HKMG를 DRAM "셀 트랜지스터"에 적용한다고 서술 | HKMG는 **주변/코어 트랜지스터**용입니다. 셀 매몰 워드라인 쪽은 DWMG(워크펑션 분할)입니다 |
 | ZAZ를 "3층 샌드위치"로 서술 | Al₂O₃는 ALD 4~5 사이클 미만이라 **별개 층이 아니라 도판트**이며, 역할도 유전율이 아니라 **누설 차단**입니다 |
 | NAND P/E 사이클 수치를 현행 3D NAND에 적용 | 확보된 값은 **2017년 발표, 평면(planar) NAND 기준**입니다 |
+| **(v5)** "DDR5는 32뱅크"를 조건 없이 서술 | **16 Gb 이상 x4/x8 한정**입니다. 8 Gb는 16뱅크(8 BG × 2), x16은 전 밀도에서 16뱅크(4 BG × 4). 같은 이유로 "DDR4는 16뱅크"도 x4/x8 한정이며 x16은 8뱅크입니다. **밀도와 DQ 폭을 반드시 병기**하십시오 |
+| **(v5)** 랭크를 병렬성 계층으로 서술 | 랭크는 **DQ 버스를 공유**합니다. 병렬화되는 것은 뱅크 상태(열린 행)이지 데이터 전송이 아닙니다. 한 랭크 안의 칩 여러 개도 병렬성이 아니라 **데이터 폭을 만드는 수단**이며, 1차 정의는 오직 "CS_n 하나를 공유하는 칩 집합"입니다 |
+| **(v5)** 서브채널을 SDRAM 레벨 구조로 서술 | 서브채널은 **모듈(DIMM) 레벨 구조**입니다. DDR5 SDRAM 컴포넌트 사양 초안에 `sub-channel` 문자열이 **0건**이고, 제조사 데이터시트는 `Channel A / Channel B`라고 부릅니다. 분할의 인과도 성능·동시성이 아니라 **BL16으로 128B가 된 것을 32-bit 분할로 64B 캐시라인에 다시 맞춘 것**이며, 동시성 증가는 원인이 아니라 결과입니다 |
+| **(v5)** 디바이스 타이밍과 시스템 지연을 같은 값으로 취급 | 데이터시트 타이밍만으로 계산되는 최악값은 **약 54 ns**(row conflict)입니다. 통용되는 "DDR5 native 약 80~100 ns"는 **컨트롤러·큐잉·링크를 포함한 시스템 값**입니다. 두 값의 차이가 어디에 얼마씩 배분되는지는 **확인 실패**이므로 추정하지 마십시오 |
+| **(v5)** HBM 수율 추정치를 확정 사실로 인용 | 어느 세대·어느 업체도 **제조사 공식 스택 수율 수치가 없습니다.** 유통되는 값은 익명 소식통 기반 T3 추정치이며, KGD 검출률과 폐기 금액은 각각 AI 생성 요약 사이트와 개인 블로그가 출처입니다. 어떤 수치를 만나든 (a) 세대·업체, (b) 시점, (c) 발화 주체, (d) 다이 수율인지 스택 수율인지를 먼저 확인하십시오 |
 
 **갱신 규칙**
 

@@ -1,0 +1,114 @@
+<svg viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 6-8. 다섯 계층이 서로 다른 경로로 본딩에 수렴하는 구조</title>
+<desc id="dsc">다섯 계층의 서로 다른 병목을 좌측에 세로로 놓고, 각 계층이 붙이는 대상과 접합 방식을 거쳐 하나의 본딩 지점으로 모이는 형태를 표시합니다. 세로 순서는 본문 표의 행 순서일 뿐 서열이 아닙니다. NAND 병목의 100:1 급 종횡비는 도달 시점을 두고 두 계열이 상충하는 상태여서 미확정으로 표기했고, DRAM의 VCT 4F² + 하이브리드 본딩은 현행 양산이 아니라 지목된 다음 변곡점이므로 점선으로, HBM의 HCB 전환 구간은 벤더 목표치이므로 점선으로 두었습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 좌열 : 계층 병목 5개 (테두리 = 계층 고정색) -->
+<rect class="f-sram k-sram" fill-opacity="0.15" stroke-width="2" x="20" y="50"  width="270" height="76" rx="2"/>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="20" y="140" width="270" height="76" rx="2"/>
+<rect class="f-hbm k-hbm"   fill-opacity="0.15" stroke-width="2" x="20" y="230" width="270" height="76" rx="2"/>
+<rect class="f-hbf k-hbf"   fill-opacity="0.15" stroke-width="2" x="20" y="320" width="270" height="76" rx="2"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="20" y="410" width="270" height="76" rx="2"/>
+
+<text class="t14" x="34" y="74">SRAM</text>
+<text class="t11" x="34" y="96">비트셀이 로직만큼 줄지 않아</text>
+<text class="t11" x="34" y="112">면적으로 용량을 못 늘림</text>
+
+<text class="t14" x="34" y="164">DRAM</text>
+<text class="t11" x="34" y="190">셀 컨택 개구 마진 소진, 6F² 한계</text>
+
+<text class="t14" x="34" y="254">HBM</text>
+<text class="t11" x="34" y="280">775 µm 높이 제한과 16단 발열</text>
+
+<text class="t14" x="34" y="344">HBF</text>
+<text class="t11" x="34" y="366">서브어레이 병렬 접근을 위해</text>
+<text class="t11" x="34" y="382">주변회로가 대량 필요</text>
+
+<text class="t14" x="34" y="434">NAND</text>
+<text class="t11" x="34" y="456">100:1 급 종횡비, [미확정]</text>
+<text class="t11" x="34" y="472">다이 면적과 성능 동시 확보</text>
+
+<!-- 좌열 → 중앙 화살표 5개 (전부 같은 굵기·같은 색) -->
+<line class="s" x1="292" y1="88"  x2="316" y2="88"  marker-end="url(#ar)"/>
+<line class="s" x1="292" y1="178" x2="316" y2="178" marker-end="url(#ar)"/>
+<line class="s" x1="292" y1="268" x2="316" y2="268" marker-end="url(#ar)"/>
+<line class="s" x1="292" y1="358" x2="316" y2="358" marker-end="url(#ar)"/>
+<line class="s" x1="292" y1="448" x2="316" y2="448" marker-end="url(#ar)"/>
+
+<!-- 중앙 : 붙이는 대상 5개 (좌열과 같은 y) -->
+<rect class="f-sram k-sram" fill-opacity="0.15" stroke-width="2" x="320" y="50"  width="240" height="76" rx="2"/>
+<text class="t12 mid" x="440" y="92">3D 적층 캐시</text>
+
+<rect class="f-dram k-dram d" fill-opacity="0.15" stroke-width="2" x="320" y="140" width="240" height="76" rx="2"/>
+<text class="t12 mid" x="440" y="172">VCT 4F² + 하이브리드 본딩</text>
+<text class="t11 mid" x="440" y="192">[미확정]</text>
+
+<rect class="f-hbm k-hbm"   fill-opacity="0.15" stroke-width="2" x="320" y="230" width="120" height="76" rx="2"/>
+<rect class="f-hbm k-hbm d" fill-opacity="0.15" stroke-width="2" x="440" y="230" width="120" height="76" rx="2"/>
+<text class="t12 mid" x="380" y="272">MR-MUF</text>
+<text class="t12 mid" x="500" y="264">→ HCB</text>
+<text class="t11 mid" x="500" y="284">[벤더 목표치]</text>
+
+<rect class="f-hbf k-hbf" fill-opacity="0.15" stroke-width="2" x="320" y="320" width="240" height="76" rx="2"/>
+<text class="t12 mid" x="440" y="352">CBA</text>
+<text class="t12 mid" x="440" y="372">+ TSV 적층</text>
+
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="320" y="410" width="240" height="76" rx="2"/>
+<text class="t12 mid" x="440" y="452">CBA / CoP</text>
+
+<!-- 중앙 → 접합 방식 연결선 -->
+<line class="h" x1="560" y1="88"  x2="580" y2="88"/>
+<line class="h" x1="560" y1="178" x2="580" y2="178"/>
+<line class="h" x1="560" y1="268" x2="580" y2="268"/>
+<line class="h" x1="560" y1="358" x2="580" y2="358"/>
+<line class="h" x1="560" y1="448" x2="580" y2="448"/>
+
+<!-- 접합 방식 밴드 : 인접한 같은 묶음(HBF·NAND)은 한 칸으로 병합 -->
+<rect class="h" x="580" y="50"  width="134" height="76"  rx="2"/>
+<text class="t14 mid" x="647" y="93">다이 대 다이</text>
+<rect class="h" x="580" y="140" width="134" height="76"  rx="2"/>
+<text class="t14 mid" x="647" y="183">웨이퍼 대 웨이퍼</text>
+<rect class="h" x="580" y="230" width="134" height="76"  rx="2"/>
+<text class="t14 mid" x="647" y="273">다이 대 다이</text>
+<rect class="h" x="580" y="320" width="134" height="166" rx="2"/>
+<text class="t14 mid" x="647" y="408">웨이퍼 대 웨이퍼</text>
+
+<!-- 수렴 화살표 5개 : 한 점으로 모임 -->
+<line class="s" x1="716" y1="88"  x2="821" y2="243" marker-end="url(#ar)"/>
+<line class="s" x1="716" y1="178" x2="821" y2="254" marker-end="url(#ar)"/>
+<line class="s" x1="716" y1="268" x2="821" y2="265" marker-end="url(#ar)"/>
+<line class="s" x1="716" y1="358" x2="821" y2="276" marker-end="url(#ar)"/>
+<line class="s" x1="716" y1="448" x2="821" y2="287" marker-end="url(#ar)"/>
+
+<!-- 수렴점 : 구조선 굵기 2 + 45° 해칭 (강조색 미사용) -->
+<rect x="825" y="228" width="120" height="12" fill="url(#hatch)"/>
+<rect x="825" y="290" width="120" height="12" fill="url(#hatch)"/>
+<rect x="825" y="240" width="12"  height="50" fill="url(#hatch)"/>
+<rect x="933" y="240" width="12"  height="50" fill="url(#hatch)"/>
+<rect class="s" x="825" y="228" width="120" height="74" rx="2"/>
+<text class="t14 mid" x="885" y="270">본딩</text>
+</svg>

@@ -36,7 +36,7 @@ RAIDR(ISCA 2012)가 제시한 리텐션 분포는 60 nm 공정 데이터 기준�
 
 디바이스 전체의 리텐션 시간은 **가장 누설이 심한 셀 하나가 결정합니다.** 즉 DDR3·DDR4가 요구하는 64 ms라는 기준은 전체의 10⁻⁸ 수준 비율에 해당하는 셀 때문에 나머지 전부가 치르는 비용입니다(DDR5는 32 ms — 2-2절). 리텐션 인지 refresh 연구 전체가 여기서 출발합니다.
 
-[비교도 - DRAM 셀 리텐션 시간 분포, 64 ms에서 좌측 절단된 형태 + 수율 선별 기준선 표시]
+![그림 7-1. DRAM 셀 리텐션 시간 분포와 64 ms 절단선 (60 nm 공정 데이터, RAIDR / ISCA 2012 기준)](assets/07-01-dram-retention-left-truncation.svg)
 
 *그림 7-1. DRAM 셀 리텐션 시간 분포와 64 ms 절단선 (60 nm 공정 데이터, RAIDR / ISCA 2012 기준)*
 
@@ -123,7 +123,7 @@ aggressor row를 짧은 시간 안에 반복해서 activate·precharge하면, �
 
 수치를 인용하기 전에 용어부터 갈라야 합니다. **MAC(Maximum Activate Count)** 은 JEDEC이 DDR4 모드레지스터 상에서 정의한 *스펙상 보장 한도*이고, **HC_first / N_RH**는 *논문의 실측 값*입니다. "MAC이 4.8K로 떨어졌다"는 두 개념을 섞은 틀린 문장입니다.
 
-[비교도 - Row Hammer 임계값 세대별 추이, DDR3 69.2K / DDR4 10K / LPDDR4 4.8K 로그 스케일]
+![그림 7-2. Row Hammer 임계값의 세대별 추이 (실측 N_RH. 칩 제조 시기는 DDR3 2010–2013년, DDR4·LPDDR4 2019–2020년)](assets/07-02-rowhammer-threshold-trend.svg)
 
 *그림 7-2. Row Hammer 임계값의 세대별 추이 (실측 N_RH. 칩 제조 시기는 DDR3 2010–2013년, DDR4·LPDDR4 2019–2020년)*
 
@@ -211,6 +211,8 @@ x4의 내부 read-modify-write는 초안상의 규정으로 끝나지 않습니�
 | Micron DDR5 **RDIMM** | 있음 (같은 세대 DDR5 다이) | 있음 — 제품명 자체가 **"32GB (x80, ECC, DR)"** | T1 |
 
 같은 DDR5 세대에서 **온다이 ECC는 양쪽 다 있고 시스템 ECC는 RDIMM에만 있습니다.** x80은 40비트 서브채널 2개를 의미하며, DDR4 ECC DIMM의 x72와 대비됩니다. 다만 서브채널 40비트를 "데이터 32 + ECC 8"로 분해하는 것은 **산술 유도**이며, 그 문자열을 명시한 1차 자료는 확인하지 못했습니다[^07-module].
+
+**여기서 나오는 체크비트 비율은 모듈 종류와 함께 읽어야 합니다.** x80(서브채널당 32 + 8비트)이 함의하는 **체크비트 25%는 RDIMM 한정 값**입니다. 삼성 ECC UDIMM은 서브채널당 (32 + 4)비트로 총 **x72이고 비율은 12.5%**이며, 채널별 체크비트 핀이 CB0–CB3 넉 장뿐입니다. 위 표의 삼성 UDIMM 행이 시스템 ECC "없음"인 것은 NECC(x64) 구성 기준이고, 같은 제조사의 ECC UDIMM(x72)은 별도 구성입니다. **"DDR5의 체크비트는 25%"라는 일반화는 RDIMM에만 성립합니다.** 모듈 종류별 폭과 그 산술은 [02-dram.md](02-dram.md)가 소유합니다[^07-module].
 
 Chipkill에 관해서는 조심해야 합니다. 인용 가능한 정의는 2009년 논문의 것 — 인접 4비트까지 정정하므로 x4 DRAM 칩 하나가 완전히 고장나도 동작한다는 설명 — 뿐이며, 이는 DDR2 시대 기준입니다. 서버 RDIMM이 x4를 선호해 온 구조적 이유(칩 하나가 코드의 정정 폭 안에 들어가야 "칩 하나 사망"을 흡수할 수 있다)는 지금도 유효하지만, **DDR5의 40비트 서브채널에서 chipkill이 어떻게 성립하는지는 확인하지 못했습니다**[^07-module].
 
@@ -477,7 +479,7 @@ HBM3(JESD238, 2022년 1월 발행)는 on-die에 **symbol-based ECC**를 도입�
 
 [^07-alias]: 코드워드 4분할(Q1~Q4)과 앨리어싱 방향 규정, 그리고 다른 H-matrix를 쓰더라도 이 매핑 규칙은 반드시 지켜야 한다는 조항은 **T0 (초안)** §4.29 기준입니다. 목적 설명("still appear as a double bit fail to the system-level error correction", 4분할은 "to align with system-level error correction coverage")은 Micron 백서(T1) 원문입니다. 확인 2026-07-29.
 
-[^07-module]: 삼성 DDR5 UDIMM(Rev 1.0 / 2021-03)이 On-Die ECC / ECC Transparency and Error Scrub / CRC를 각각 별도 기능 항목으로 나열하고, Micron RDIMM은 제품명이 "32GB (x80, ECC, DR) 288-Pin DDR5 RDIMM"입니다(T1). 서브채널 40비트를 데이터 32 + ECC 8로 분해하는 것은 **산술 유도**이며 해당 문자열을 명시한 1차 자료는 확인하지 못했습니다. SECDED와 Chipkill 정의(인접 4비트 정정 → x4 칩 하나 고장 흡수)는 **2009년 논문(DDR2 시대)** 기준이며, **DDR5의 40비트 서브채널에서 chipkill이 어떻게 성립하는지는 미확인**입니다. "SDDC"라는 용어 자체가 확보 자료에 없습니다. 확인 2026-07-29.
+[^07-module]: 삼성 DDR5 UDIMM(Rev 1.0 / 2021-03)이 On-Die ECC / ECC Transparency and Error Scrub / CRC를 각각 별도 기능 항목으로 나열하고, Micron RDIMM은 제품명이 "32GB (x80, ECC, DR) 288-Pin DDR5 RDIMM"입니다(T1). 서브채널 40비트를 데이터 32 + ECC 8로 분해하는 것은 **산술 유도**이며 해당 문자열을 명시한 1차 자료는 확인하지 못했습니다. **체크비트 비율은 모듈 종류에 종속됩니다** — 마이크론 RDIMM은 총 x80(서브채널당 32 + 8)으로 **25%**, 삼성 ECC UDIMM은 총 x72(서브채널당 32 + 4, 핀 이름 CB0–CB3)로 **12.5%**입니다(T1, 삼성 DDR5 UDIMM Rev 1.0 / 2021-03의 채널별 CB 핀 구성 및 모듈 구성표). **따라서 "DDR5는 체크비트가 25%"라는 일반화는 RDIMM에만 성립합니다.** 확인 2026-07-29. SECDED와 Chipkill 정의(인접 4비트 정정 → x4 칩 하나 고장 흡수)는 **2009년 논문(DDR2 시대)** 기준이며, **DDR5의 40비트 서브채널에서 chipkill이 어떻게 성립하는지는 미확인**입니다. "SDDC"라는 용어 자체가 확보 자료에 없습니다. 확인 2026-07-29.
 
 [^07-ecs]: "The DRAM will not write the corrected data back to the array during a read cycle."는 **T0 (초안)** §4.29 원문입니다. 반면 **초안 본문에는 ECS 기능 설명 절 자체가 없습니다**(전문 검색 0건). 초안에 있는 것은 MR15("ECS Threshold") 레지스터 껍데기뿐이며 임계값 필드가 `TBD`, OP[4:0]이 `RFU`입니다. 따라서 ECS의 동작(라이트백, 수동 MPC / 자동, 권장 24시간 주기, 임계값 초과 시 오류 개수·최다 오류 행 보고)은 **Micron 백서 단일 출처**이며 JEDEC 비준본과 대조하지 못했습니다(T1 `단일 출처`). 온다이 ECC의 실시간 호스트 보고 유무는 표준 문구로 확정하지 못했고 삼성 문서의 "ECC Transparency" 내용도 확인하지 못했으므로, **"아무것도 알리지 않는다"고 단정하지 마십시오.** 확인 2026-07-29.
 

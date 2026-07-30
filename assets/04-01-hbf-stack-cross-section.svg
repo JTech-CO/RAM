@@ -1,0 +1,131 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 4-1. HBF 스택 단면 구조. TSV로 관통 적층된 NAND 다이와 CBA 본딩 계면, 인터포저 위 가속기 인접 배치</title>
+<desc id="dsc">실리콘 인터포저 위에 가속기 다이와 HBF 스택이 나란히 놓인 수직 단면으로, 스택은 BiCS NAND 다이 16장을 TSV로 관통 적층하고 다이 1장을 확대한 콜아웃에서 셀 웨이퍼와 CMOS 주변회로 웨이퍼가 미세 구리 패드로 접합된 CBA 2층 구조를 보입니다. 16-die × 256 Gb는 벤더 목표치이며, 스택 하단의 컨트롤러 역할 분담과 패키징·전기 인터페이스 수치는 미공개이므로 그리지 않았습니다. 다이 두께 12 px, 접합 갭 4 px, 피치 16 px, 스택 폭 140 px, 인터포저 상면 y=340은 HBM 스택 단면 그림과 공유하는 px 단위입니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- ================= 좌: 본체 단면 (인터포저 상면 y=340, 다이 두께 12 / 갭 4 / 피치 16 / 스택 폭 140) ================= -->
+
+<!-- 패키지 기판 -->
+<rect class="s" x="20" y="376" width="360" height="20"/>
+<text class="t12 mid" x="200" y="390">패키지 기판 (package substrate)</text>
+
+<!-- 실리콘 인터포저 -->
+<rect class="s" x="30" y="340" width="340" height="32"/>
+<line class="h" x1="100" y1="345" x2="300" y2="345"/>
+<line class="h" x1="100" y1="349" x2="300" y2="349"/>
+<line class="h" x1="100" y1="353" x2="300" y2="353"/>
+<text class="t12 mid" x="200" y="366">실리콘 인터포저 (silicon interposer)</text>
+
+<!-- 가속기 다이 -->
+<rect class="s" x="45" y="300" width="130" height="40"/>
+<text class="t12 mid" x="110" y="324">가속기 (accelerator)</text>
+
+<!-- 가속기 ↔ 스택 인터포저 배선 -->
+<line class="s" x1="178" y1="310" x2="212" y2="310" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="t11 mid" x="195" y="302">수 mm</text>
+
+<!-- HBF 스택 외곽 그룹선 -->
+<rect class="k-hbf" fill="none" stroke-width="2" x="214" y="62" width="152" height="264"/>
+
+<!-- BiCS NAND 다이 16장 -->
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="68"  width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="84"  width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="100" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="116" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="132" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="148" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="164" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="180" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="196" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="212" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="228" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="244" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="260" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="276" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="292" width="140" height="12"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="220" y="308" width="140" height="12"/>
+
+<!-- TSV : 최상단 다이에서 인터포저 상면까지 끊기지 않고 관통 -->
+<line class="s" x1="244" y1="68" x2="244" y2="340"/>
+<line class="s" x1="276" y1="68" x2="276" y2="340"/>
+<line class="s" x1="308" y1="68" x2="308" y2="340"/>
+<line class="s" x1="340" y1="68" x2="340" y2="340"/>
+
+<!-- 접속 단자열 -->
+<line class="h" x1="228" y1="326" x2="228" y2="340"/>
+<line class="h" x1="260" y1="326" x2="260" y2="340"/>
+<line class="h" x1="292" y1="326" x2="292" y2="340"/>
+<line class="h" x1="324" y1="326" x2="324" y2="340"/>
+<line class="h" x1="356" y1="326" x2="356" y2="340"/>
+
+<!-- 좌측 라벨 열 -->
+<text class="t14 end" x="206" y="76">HBF</text>
+<line class="h" x1="210" y1="130" x2="222" y2="130"/>
+<text class="t12 end" x="206" y="134">BiCS NAND 다이 × 16단</text>
+<line class="h" x1="210" y1="194" x2="244" y2="194"/>
+<text class="t12 end" x="206" y="198">관통 실리콘 비아 (TSV)</text>
+
+<!-- [벤더 목표치] 배지 상자 -->
+<rect class="k-emph d" fill="none" stroke-width="1" x="230" y="20" width="164" height="36"/>
+<text class="t11" x="238" y="36">16-die × 256 Gb</text>
+<text class="t11" x="238" y="50">[벤더 목표치]</text>
+<line class="h" x1="290" y1="56" x2="290" y2="62"/>
+
+<!-- ================= 지시선 + 절단 표시 (배율 상이) ================= -->
+<line class="h" x1="362" y1="164" x2="402" y2="78"/>
+<line class="h" x1="375.5" y1="123.2" x2="384.5" y2="127.4"/>
+<line class="h" x1="379.5" y1="114.6" x2="388.5" y2="118.8"/>
+<line class="h" x1="362" y1="176" x2="402" y2="218"/>
+<line class="h" x1="376.4" y1="198.4" x2="383.6" y2="191.4"/>
+<line class="h" x1="380.4" y1="202.6" x2="387.6" y2="195.6"/>
+
+<!-- ================= 우: CBA 콜아웃 ================= -->
+<text class="t14" x="402" y="54">CBA (CMOS Bonded Array)</text>
+<text class="t12" x="402" y="72">셀 웨이퍼 (cell wafer)</text>
+<text class="t11 end" x="712" y="72">수천 개 독립 서브어레이</text>
+
+<!-- 셀 웨이퍼 -->
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="402" y="78" width="310" height="58"/>
+<path class="h" fill="none" d="M408,86 h6 v12 h-6 z M418,86 h6 v12 h-6 z M428,86 h6 v12 h-6 z M438,86 h6 v12 h-6 z M448,86 h6 v12 h-6 z M458,86 h6 v12 h-6 z M468,86 h6 v12 h-6 z M478,86 h6 v12 h-6 z M488,86 h6 v12 h-6 z M498,86 h6 v12 h-6 z M508,86 h6 v12 h-6 z M518,86 h6 v12 h-6 z M528,86 h6 v12 h-6 z M538,86 h6 v12 h-6 z M548,86 h6 v12 h-6 z M558,86 h6 v12 h-6 z M568,86 h6 v12 h-6 z M578,86 h6 v12 h-6 z M588,86 h6 v12 h-6 z M598,86 h6 v12 h-6 z M608,86 h6 v12 h-6 z M618,86 h6 v12 h-6 z M628,86 h6 v12 h-6 z M638,86 h6 v12 h-6 z M648,86 h6 v12 h-6 z M658,86 h6 v12 h-6 z M668,86 h6 v12 h-6 z M678,86 h6 v12 h-6 z M688,86 h6 v12 h-6 z M698,86 h6 v12 h-6 z"/>
+<path class="h" fill="none" d="M411,98 v12 M421,98 v12 M431,98 v12 M441,98 v12 M451,98 v12 M461,98 v12 M471,98 v12 M481,98 v12 M491,98 v12 M501,98 v12 M511,98 v12 M521,98 v12 M531,98 v12 M541,98 v12 M551,98 v12 M561,98 v12 M571,98 v12 M581,98 v12 M591,98 v12 M601,98 v12 M611,98 v12 M621,98 v12 M631,98 v12 M641,98 v12 M651,98 v12 M661,98 v12 M671,98 v12 M681,98 v12 M691,98 v12 M701,98 v12"/>
+<rect x="404" y="114" width="306" height="18" fill="url(#hatch)"/>
+
+<!-- 접합 계면 : 미세 구리 패드 + 점선 계면선 -->
+<text class="t11" x="402" y="149">미세 구리 패드 본딩</text>
+<line class="k-emph d" stroke-width="2" x1="402" y1="152" x2="712" y2="152"/>
+<rect class="f-emph" x="510" y="147" width="12" height="10"/>
+<rect class="f-emph" x="546" y="147" width="12" height="10"/>
+<rect class="f-emph" x="582" y="147" width="12" height="10"/>
+<rect class="f-emph" x="618" y="147" width="12" height="10"/>
+<rect class="f-emph" x="654" y="147" width="12" height="10"/>
+<rect class="f-emph" x="690" y="147" width="12" height="10"/>
+
+<!-- CMOS 주변회로 웨이퍼 -->
+<rect class="s" x="402" y="166" width="310" height="52"/>
+<text class="t12" x="408" y="184">CMOS 주변회로 웨이퍼 (CMOS wafer)</text>
+<path class="h" fill="none" d="M408,192 v22 M420,192 v22 M432,192 v22 M444,192 v22 M456,192 v22 M468,192 v22 M480,192 v22 M492,192 v22 M504,192 v22 M516,192 v22 M528,192 v22 M540,192 v22 M552,192 v22 M564,192 v22 M576,192 v22 M588,192 v22 M600,192 v22 M612,192 v22 M624,192 v22 M636,192 v22 M648,192 v22 M660,192 v22 M672,192 v22 M684,192 v22 M696,192 v22 M708,192 v22"/>
+</svg>

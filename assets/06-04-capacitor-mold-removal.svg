@@ -1,0 +1,116 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 6-4. 커패시터 몰드의 형성과 제거 — 거푸집이 사라지고 기둥만 남는다</title>
+<desc id="dsc">DRAM 커패시터 형성을 몰드 산화막 적층 · 홀 식각 · TiN 하부 전극 ALD · wet dip-out 네 단계로 좌에서 우로 배열한 수직 단면입니다. 마지막 두 칸을 붙여 놓아 몰드가 사라지고 TiN 실린더만 지지막에 물려 남는 대비가 보이게 했고, 세장비는 축약 없이 실비율(높이 340 px = 1,000 nm, 0.34 px/nm)로 그렸습니다. 홀 직경은 본문이 정확한 nm 값을 제시하지 않으므로 배지로 한정했습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- ===== 칸 1 : 몰드 산화막 적층 ===== -->
+<path fill="url(#dots)" d="M190,108h90v340h-90Z"/>
+<path fill="url(#hatch)" d="M190,120h90v14h-90Z M190,270h90v14h-90Z"/>
+<path class="s" d="M190,108H280 M190,108V448 M280,108V448"/>
+<path class="s" d="M190,120h90v14h-90Z M190,270h90v14h-90Z"/>
+<path class="s" d="M190,448H207 M227,448H243 M263,448H280 M190,460H207 M227,460H243 M263,460H280 M190,448V460 M280,448V460"/>
+<path class="h" d="M190,452H207 M227,452H243 M263,452H280 M190,456H207 M227,456H243 M263,456H280"/>
+<path class="s" d="M190,460V484H280V460"/>
+<path class="s" d="M207,448V472H227V448 M243,448V472H263V448"/>
+
+<!-- ===== 칸 2 : 홀 식각 (HAR) ===== -->
+<path fill="url(#dots)" fill-rule="evenodd" d="M340,108h90v340h-90Z M359,108h16v340h-16Z M395,108h16v340h-16Z"/>
+<path fill="url(#hatch)" fill-rule="evenodd" d="M340,120h90v14h-90Z M359,120h16v14h-16Z M395,120h16v14h-16Z M340,270h90v14h-90Z M359,270h16v14h-16Z M395,270h16v14h-16Z"/>
+<path class="s" d="M340,108H359 M375,108H395 M411,108H430 M340,108V448 M430,108V448"/>
+<path class="s" d="M340,120H359 M375,120H395 M411,120H430 M340,134H359 M375,134H395 M411,134H430 M340,120V134 M430,120V134"/>
+<path class="s" d="M340,270H359 M375,270H395 M411,270H430 M340,284H359 M375,284H395 M411,284H430 M340,270V284 M430,270V284"/>
+<path class="s" d="M340,448H357 M377,448H393 M413,448H430 M340,460H357 M377,460H393 M413,460H430 M340,448V460 M430,448V460"/>
+<path class="h" d="M340,452H357 M377,452H393 M413,452H430 M340,456H357 M377,456H393 M413,456H430"/>
+<path class="s" d="M340,460V484H430V460"/>
+<path class="s" d="M357,448V472H377V448 M393,448V472H413V448"/>
+<path class="s" d="M359,108V448H375V108 M395,108V448H411V108"/>
+
+<!-- ===== 칸 3 : 하부 전극 증착 — TiN ALD ===== -->
+<path fill="url(#dots)" fill-rule="evenodd" d="M490,108h90v340h-90Z M509,108h16v340h-16Z M545,108h16v340h-16Z"/>
+<path fill="url(#hatch)" fill-rule="evenodd" d="M490,120h90v14h-90Z M509,120h16v14h-16Z M545,120h16v14h-16Z M530,120h10v14h-10Z M490,270h90v14h-90Z M509,270h16v14h-16Z M545,270h16v14h-16Z M530,270h10v14h-10Z"/>
+<path class="s" d="M490,108H509 M525,108H545 M561,108H580 M490,108V448 M580,108V448"/>
+<path class="s" d="M490,120H509 M525,120H530 M540,120H545 M561,120H580 M490,134H509 M525,134H530 M540,134H545 M561,134H580 M490,120V134 M530,120V134 M540,120V134 M580,120V134"/>
+<path class="s" d="M490,270H509 M525,270H530 M540,270H545 M561,270H580 M490,284H509 M525,284H530 M540,284H545 M561,284H580 M490,270V284 M530,270V284 M540,270V284 M580,270V284"/>
+<path class="s" d="M490,448H507 M527,448H543 M563,448H580 M490,460H507 M527,460H543 M563,460H580 M490,448V460 M580,448V460"/>
+<path class="h" d="M490,452H507 M527,452H543 M563,452H580 M490,456H507 M527,456H543 M563,456H580"/>
+<path class="s" d="M490,460V484H580V460"/>
+<path class="s" d="M507,448V472H527V448 M543,448V472H563V448"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M509,108V448H525V108Z M513,108V444H521V108Z"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M545,108V448H561V108Z M549,108V444H557V108Z"/>
+
+<!-- ===== 칸 4 : 몰드 제거 (wet dip-out) ===== -->
+<path fill="url(#hatch)" fill-rule="evenodd" d="M600,120h90v14h-90Z M619,120h16v14h-16Z M655,120h16v14h-16Z M640,120h10v14h-10Z M600,270h90v14h-90Z M619,270h16v14h-16Z M655,270h16v14h-16Z M640,270h10v14h-10Z"/>
+<path class="k-emph d" stroke-width="2" fill="none" d="M600,108H690 M600,108V448 M690,108V448"/>
+<path class="s" d="M600,120H619 M635,120H640 M650,120H655 M671,120H690 M600,134H619 M635,134H640 M650,134H655 M671,134H690 M600,120V134 M640,120V134 M650,120V134 M690,120V134"/>
+<path class="s" d="M600,270H619 M635,270H640 M650,270H655 M671,270H690 M600,284H619 M635,284H640 M650,284H655 M671,284H690 M600,270V284 M640,270V284 M650,270V284 M690,270V284"/>
+<path class="s" d="M600,448H617 M637,448H653 M673,448H690 M600,460H617 M637,460H653 M673,460H690 M600,448V460 M690,448V460"/>
+<path class="h" d="M600,452H617 M637,452H653 M673,452H690 M600,456H617 M637,456H653 M673,456H690"/>
+<path class="s" d="M600,460V484H690V460"/>
+<path class="s" d="M617,448V472H637V448 M653,448V472H673V448"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M619,108V448H635V108Z M623,108V444H631V108Z"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M655,108V448H671V108Z M659,108V444H667V108Z"/>
+
+<!-- 단계명 -->
+<text class="t14 mid" x="235" y="36">몰드 산화막 적층</text>
+<text class="t14 mid" x="385" y="36">홀 식각 (HAR)</text>
+<text class="t14 mid" x="535" y="36">하부 전극 증착</text>
+<text class="t14 mid" x="535" y="54">— TiN ALD</text>
+<text class="t14 mid" x="645" y="36">몰드 제거</text>
+<text class="t14 mid" x="645" y="54">(wet dip-out)</text>
+
+<!-- 칸 3 → 칸 4 전이 (물질 흐름이므로 실선) -->
+<path class="k-emph" stroke-width="2" d="M578,94H628" marker-end="url(#ar)"/>
+<text class="t11 mid" x="608" y="84">BOE 또는 HF</text>
+
+<!-- 재료·부품 라벨 -->
+<text class="t12 mid" x="515" y="76">하부 전극 (TiN)</text>
+<path class="h" d="M515,80L511,104"/>
+<text class="t12 end" x="178" y="131">지지막 (Si₃N₄)</text>
+<path class="h" d="M182,127H198"/>
+<text class="t12 end" x="178" y="204">몰드 산화막 (mold)</text>
+<path class="h" d="M182,200H198"/>
+<text class="t12 end" x="178" y="458">식각 정지막 (SiN 계열)</text>
+<path class="h" d="M182,454H198"/>
+<text class="t12 end" x="178" y="486">스토리지 노드 컨택</text>
+<text class="t12 end" x="178" y="502">(SNC)</text>
+<path class="h" d="M182,482L212,472"/>
+
+<!-- 기둥 치수 : 높이(세로) · 지름(가로, 확대 지시선) -->
+<path class="h" d="M671,108H710 M671,448H710"/>
+<path class="h" d="M706,108V448" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="t11 mid" transform="translate(722,278) rotate(-90)">높이 약 1,000 nm (≈ 1 µm)</text>
+<path class="h" d="M655,425L750,405 M671,425L860,405"/>
+<path class="h" d="M750,405H860" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="t11 mid" x="805" y="396">지름 수십 nm 급</text>
+<text class="t11 mid" x="805" y="424">[미공개]</text>
+
+<!-- 스케일 바 (#14 와 같은 단위) -->
+<path class="h" d="M700,500H870 M700,494V506 M870,494V506"/>
+<text class="t11 mid" x="785" y="490">0.5 µm (500 nm)</text>
+
+<text class="t11 mid" x="400" y="504">공정 순서 →</text>
+</svg>

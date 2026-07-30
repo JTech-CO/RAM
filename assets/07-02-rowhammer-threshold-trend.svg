@@ -1,0 +1,84 @@
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">Row Hammer 임계값의 세대별 추이 (실측 N_RH. 칩 제조 시기는 DDR3 2010–2013년, DDR4·LPDDR4 2019–2020년)</title>
+<desc id="dsc">DDR3·DDR4·LPDDR4의 비트플립 임계 activation 횟수를 로그 스케일 가로 막대로 비교합니다. 값은 ABACuS(USENIX Security 2024)의 실측 N_RH이며 JEDEC MAC과 다른 개념입니다. DDR3는 139K~140K 및 100K 이상이라는 서술이 병존하므로 미확정 범위를 점선 연장부로 병기했습니다. DDR5 세대의 실측 임계값은 확인되지 않아 이 그림에 없습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 로그 눈금 격자선 (1K / 10K / 100K) -->
+<line x1="150" y1="44" x2="150" y2="300" class="h"/>
+<line x1="375" y1="44" x2="375" y2="300" class="h"/>
+<line x1="600" y1="44" x2="600" y2="300" class="h"/>
+
+<!-- 1행 DDR3 : 1K → 69.2K -->
+<rect x="150" y="78" width="414" height="32" class="f-dram" fill-opacity="0.15"/>
+<rect x="150" y="78" width="414" height="32" class="k-dram" fill="none" stroke-width="2"/>
+<rect x="564" y="78" width="68.9" height="32" class="h d" fill="none"/>
+
+<!-- 2행 DDR4 : 1K → 10K -->
+<rect x="150" y="146" width="225" height="32" class="f-dram" fill-opacity="0.15"/>
+<rect x="150" y="146" width="225" height="32" class="k-dram" fill="none" stroke-width="2"/>
+
+<!-- 3행 LPDDR4 : 1K → 4.8K (강조: 해칭 + 강조색 테두리) -->
+<rect x="150" y="214" width="153.3" height="32" class="f-dram" fill-opacity="0.15"/>
+<rect x="150" y="214" width="153.3" height="32" fill="url(#hatch)"/>
+<rect x="150" y="214" width="153.3" height="32" class="k-emph" fill="none" stroke-width="2"/>
+
+<!-- 14.4배 치수선 -->
+<line x1="303.3" y1="272" x2="564" y2="272" class="h k-emph d"/>
+<line x1="303.3" y1="266" x2="303.3" y2="278" class="h k-emph"/>
+<line x1="564" y1="266" x2="564" y2="278" class="h k-emph"/>
+<text class="t12 mid" x="433.6" y="262">14.4배</text>
+
+<!-- 가로축 -->
+<line x1="150" y1="300" x2="640" y2="300" class="h"/>
+<line x1="150" y1="300" x2="150" y2="306" class="h"/>
+<line x1="375" y1="300" x2="375" y2="306" class="h"/>
+<line x1="600" y1="300" x2="600" y2="306" class="h"/>
+<text class="t11 mid" x="150" y="318">1K</text>
+<text class="t11 mid" x="375" y="318">10K</text>
+<text class="t11 mid" x="600" y="318">100K</text>
+<text class="t14 mid" x="395" y="348">비트플립 임계 activation 횟수 (실측 N_RH, 로그 스케일)</text>
+
+<!-- 행 라벨 열 -->
+<text class="t14" x="16" y="90">DDR3</text>
+<text class="t11" x="16" y="106">2010–2013년 제조 칩</text>
+<text class="t14" x="16" y="158">DDR4</text>
+<text class="t11" x="16" y="174">2019–2020년 제조 칩</text>
+<text class="t14" x="16" y="226">LPDDR4</text>
+<text class="t11" x="16" y="242">2019–2020년 제조 칩</text>
+
+<!-- 값 배지 · 배수 라벨 -->
+<text class="t11 mid" x="564" y="72">약 69.2K</text>
+<text class="t12" x="648" y="98">기준</text>
+<text class="t12 end" x="708" y="60">수만~십수만 회 수준</text>
+<text class="t11 end" x="708" y="132">[미확정] 139K~140K · 100K 이상 병존</text>
+
+<text class="t11" x="383" y="166">10K</text>
+<text class="t12" x="415" y="166">6.9배 감소</text>
+
+<text class="t11" x="311" y="234">4.8K</text>
+<text class="t12" x="345" y="234">14.4배 감소</text>
+</svg>

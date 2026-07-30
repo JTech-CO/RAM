@@ -1,0 +1,123 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 5-1. FG와 CTF의 전하 저장 방식 대비</title>
+<desc id="dsc">좌우 동일 축척 셀 단면. FG는 절연층에 둘러싸인 전도체 저장층이 셀마다 분리되어 있고 전하가 층 내부를 자유롭게 이동하며 인접 셀로 간섭 경로가 이어지는 반면, CTF는 두 셀에 걸쳐 이어지는 부도체(질화물층)의 트랩 사이트에 전하가 고정 포획되어 같은 경로가 끊깁니다. CTF의 셀 간 간섭 해결과 면적 축소 효과는 SK하이닉스 뉴스룸 발표(제조사 전언) 기준이며 제3자 실측으로 교차 확인된 값이 아닙니다. 막 두께·문턱 전압·간섭 감소율 등 수치는 본문에 없어 표기하지 않았습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 열 제목 : 좌 FG (films x120~390, center 255) / 우 CTF (films x420~690, center 555) -->
+<text class="t14 mid" x="255" y="36">FG (Floating Gate)</text>
+<text class="t14 mid" x="555" y="36">CTF (Charge Trap Flash)</text>
+
+<!-- 중앙 분리선 -->
+<line class="h d" x1="405" y1="44" x2="405" y2="330"/>
+
+<!-- 행 라벨 (좌우 두 열의 층 y좌표가 동일하므로 한 번만 표기) -->
+<text class="t12 end" x="104" y="76">워드라인 (WL)</text>
+<text class="t12 end" x="104" y="103">절연층</text>
+<text class="t12 end" x="104" y="193">절연층</text>
+<text class="t12 end" x="104" y="220">채널</text>
+
+<!-- ================= 좌열 FG ================= -->
+<!-- 워드라인 : 두 셀을 가로질러 하나로 -->
+<rect class="s" x="120" y="60" width="270" height="24"/>
+<!-- 상부 절연층 -->
+<rect x="120" y="84" width="270" height="30" fill="url(#hatch)"/>
+<rect class="h" x="120" y="84" width="270" height="30"/>
+<!-- 하부 절연층 -->
+<rect x="120" y="174" width="270" height="30" fill="url(#hatch)"/>
+<rect class="h" x="120" y="174" width="270" height="30"/>
+<!-- 채널 -->
+<rect class="s" x="120" y="204" width="270" height="24"/>
+<!-- FG 저장층 : 셀마다 분리, 균일 단색 채움 -->
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="130" y="114" width="100" height="60"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="280" y="114" width="100" height="60"/>
+<text class="t12 mid" x="180" y="132">전도체</text>
+<text class="t12 mid" x="330" y="132">전도체</text>
+<!-- 전하 : 균일 간격 4개/셀 -->
+<circle class="f-emph" cx="150" cy="150" r="3"/>
+<circle class="f-emph" cx="170" cy="150" r="3"/>
+<circle class="f-emph" cx="190" cy="150" r="3"/>
+<circle class="f-emph" cx="210" cy="150" r="3"/>
+<circle class="f-emph" cx="300" cy="150" r="3"/>
+<circle class="f-emph" cx="320" cy="150" r="3"/>
+<circle class="f-emph" cx="340" cy="150" r="3"/>
+<circle class="f-emph" cx="360" cy="150" r="3"/>
+<!-- 층 내부 자유 이동 : 양방향 화살표 (좌열에만 존재) -->
+<line class="k-emph" stroke-width="2" fill="none" x1="140" y1="164" x2="220" y2="164" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<line class="k-emph" stroke-width="2" fill="none" x1="290" y1="164" x2="370" y2="164" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<!-- 셀 간 간섭 경로 : 두 저장층을 잇는 점선 화살표 -->
+<line class="k-emph d" stroke-width="2" fill="none" x1="230" y1="150" x2="278" y2="150" marker-end="url(#ar)"/>
+<!-- 터널링 주입 : 채널 → 저장층 -->
+<line class="s" x1="155" y1="228" x2="155" y2="176" marker-end="url(#ar)"/>
+<text class="t11 mid" x="155" y="248">터널링 주입</text>
+<!-- 전하 탈출 차단 : 상부 절연층에서 끊김 -->
+<line class="s" x1="350" y1="114" x2="350" y2="100" marker-end="url(#ar)"/>
+<line class="s" x1="340" y1="96" x2="360" y2="96"/>
+<text class="t11 mid" x="350" y="54">전하 탈출 차단</text>
+
+<!-- ================= 우열 CTF (좌열 +300, 각 층 y좌표 동일) ================= -->
+<rect class="s" x="420" y="60" width="270" height="24"/>
+<rect x="420" y="84" width="270" height="30" fill="url(#hatch)"/>
+<rect class="h" x="420" y="84" width="270" height="30"/>
+<rect x="420" y="174" width="270" height="30" fill="url(#hatch)"/>
+<rect class="h" x="420" y="174" width="270" height="30"/>
+<rect class="s" x="420" y="204" width="270" height="24"/>
+<!-- CTF 저장층 : 두 셀에 걸쳐 끊기지 않고 이어짐, 점 패턴 채움 -->
+<rect x="430" y="114" width="250" height="60" fill="url(#dots)"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="430" y="114" width="250" height="60"/>
+<text class="t12 mid" x="555" y="130">부도체(질화물층)</text>
+<!-- 전하 : 불규칙 위치 4개/셀, 이동 화살표 없음 -->
+<circle class="f-emph" cx="452" cy="146" r="3"/>
+<circle class="f-emph" cx="478" cy="162" r="3"/>
+<circle class="f-emph" cx="506" cy="145" r="3"/>
+<circle class="f-emph" cx="524" cy="160" r="3"/>
+<circle class="f-emph" cx="592" cy="146" r="3"/>
+<circle class="f-emph" cx="614" cy="161" r="3"/>
+<circle class="f-emph" cx="640" cy="144" r="3"/>
+<circle class="f-emph" cx="664" cy="159" r="3"/>
+<!-- 같은 위치·같은 점선 + 이중 사선 차단 -->
+<line class="k-emph d" stroke-width="2" fill="none" x1="530" y1="150" x2="578" y2="150" marker-end="url(#ar)"/>
+<line class="k-emph" stroke-width="2" x1="547" y1="141" x2="555" y2="159"/>
+<line class="k-emph" stroke-width="2" x1="555" y1="141" x2="563" y2="159"/>
+<!-- 터널링 주입 : 좌열과 동일 위치 -->
+<line class="s" x1="455" y1="228" x2="455" y2="176" marker-end="url(#ar)"/>
+<text class="t11 mid" x="455" y="248">터널링 주입</text>
+<!-- 전하 탈출 차단 -->
+<line class="s" x1="650" y1="114" x2="650" y2="100" marker-end="url(#ar)"/>
+<line class="s" x1="640" y1="96" x2="660" y2="96"/>
+<text class="t11 mid" x="650" y="54">전하 탈출 차단</text>
+
+<!-- 간섭 라벨 : 각 열의 경로 x중심에 세로 정렬 -->
+<text class="t12 mid" x="255" y="256">셀 간 간섭</text>
+<text class="t12 mid" x="555" y="256">셀 간 간섭 해결</text>
+
+<!-- 대비 요약 2행 : 좌우 동일 baseline -->
+<line class="h" x1="120" y1="340" x2="690" y2="340"/>
+<text class="t12" x="120" y="362">저장 매체: 절연층으로 둘러싸인 전도체</text>
+<text class="t12" x="420" y="362">저장 매체: 부도체(질화물층)</text>
+<text class="t12" x="120" y="386">전하 상태: 도체 내부에 축적</text>
+<text class="t12" x="420" y="386">전하 상태: 트랩 사이트에 포획</text>
+</svg>

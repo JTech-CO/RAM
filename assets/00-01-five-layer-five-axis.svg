@@ -1,0 +1,148 @@
+<svg viewBox="0 0 960 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 0-1. 5계층과 5개 정렬 축의 좌표계</title>
+<desc id="dsc">관례적 5단 피라미드(SRAM·HBM·DRAM·HBF·NAND)와 A1~A5 다섯 정렬 축의 좌표값을 같은 행에 정렬해, 피라미드의 상하 순서가 어느 단일 축으로도 재현되지 않음을 보입니다. HBF 행의 값은 SanDisk 공개분 기반 벤더 목표치이며 비트당 비용 실측치는 미공개(2026-07 기준)입니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- ================= 좌 패널 : 관례 피라미드 (x 0~250) ================= -->
+<path d="M95,70 L155,70 L173,138 L77,138 Z"    class="f-sram k-sram" fill-opacity="0.15" stroke-width="2"/>
+<path d="M77,142 L173,142 L191,210 L59,210 Z"  class="f-hbm k-hbm"   fill-opacity="0.15" stroke-width="2"/>
+<path d="M59,214 L191,214 L209,282 L41,282 Z"  class="f-dram k-dram" fill-opacity="0.15" stroke-width="2"/>
+<path d="M41,286 L209,286 L227,354 L23,354 Z"  class="f-hbf k-hbf d" fill-opacity="0.15" stroke-width="2"/>
+<path d="M23,358 L227,358 L245,426 L5,426 Z"   class="f-nand k-nand" fill-opacity="0.15" stroke-width="2"/>
+
+<text class="t14 mid" x="125" y="101">SRAM</text>
+<text class="t11 mid" x="125" y="117">6T</text>
+<text class="t14 mid" x="125" y="173">HBM</text>
+<text class="t11 mid" x="125" y="189">1T1C + TSV 적층</text>
+<text class="t14 mid" x="125" y="245">DRAM (DDR5)</text>
+<text class="t11 mid" x="125" y="261">1T1C</text>
+<text class="t14 mid" x="125" y="317">HBF</text>
+<text class="t11 mid" x="125" y="333">CTF + TSV 적층</text>
+<text class="t14 mid" x="125" y="389">NAND (SSD)</text>
+<text class="t11 mid" x="125" y="405">CTF (구세대 FG)</text>
+
+<text class="t14 mid" x="125" y="452" fill="var(--hint)">관례 피라미드</text>
+
+<!-- ================= 우 패널 : A1~A5 5축 좌표 (x 270~940) ================= -->
+
+<!-- 열 헤더 : 축 이름 2줄(12px) + 단위(11px) -->
+<text class="t12 mid" x="337" y="16">A1 접근 지연</text>
+<text class="t12 mid" x="337" y="31">(Access Latency)</text>
+<text class="t11 mid" x="337" y="46">ns / µs</text>
+<text class="t12 mid" x="471" y="16">A2 대역폭</text>
+<text class="t12 mid" x="471" y="31">(Bandwidth)</text>
+<text class="t11 mid" x="471" y="46">GB/s ~ TB/s</text>
+<text class="t12 mid" x="605" y="16">A3 용량</text>
+<text class="t12 mid" x="605" y="31">(Capacity)</text>
+<text class="t11 mid" x="605" y="46">MB ~ TB</text>
+<text class="t12 mid" x="739" y="16">A4 비트당 비용</text>
+<text class="t12 mid" x="739" y="31">(Cost per bit)</text>
+<text class="t11 mid" x="739" y="46">$/GB</text>
+<text class="t12 mid" x="873" y="16">A5 프로세서 결합도</text>
+<text class="t12 mid" x="873" y="31">(Coupling)</text>
+<text class="t11 end" x="938" y="46">온다이 / 인터포저 / PCB / PCIe</text>
+
+<!-- 패키징 띠 -->
+<text class="t11 mid" x="337" y="60" fill="var(--hint)">셀 지배</text>
+<text class="t11 mid" x="471" y="60" fill="var(--hint)">패키징 가능</text>
+<text class="t11 mid" x="605" y="60" fill="var(--hint)">부분적</text>
+<text class="t11 mid" x="739" y="60" fill="var(--hint)">지불 항목</text>
+<text class="t11 mid" x="873" y="60" fill="var(--hint)">패키징 결정</text>
+
+<!-- 헤더 구분선 · 격자선 -->
+<line class="h" x1="270" y1="66" x2="940" y2="66"/>
+<line class="h" x1="270" y1="140" x2="940" y2="140"/>
+<line class="h" x1="270" y1="212" x2="940" y2="212"/>
+<line class="h" x1="270" y1="284" x2="940" y2="284"/>
+<line class="h" x1="270" y1="356" x2="940" y2="356"/>
+<line class="h" x1="404" y1="70" x2="404" y2="426"/>
+<line class="h" x1="538" y1="70" x2="538" y2="426"/>
+
+<!-- 행 좌단 계층색 띠 (같은 y = 같은 계층) -->
+<line class="k-sram" stroke-width="4" x1="272" y1="70"  x2="272" y2="138"/>
+<line class="k-hbm"  stroke-width="4" x1="272" y1="142" x2="272" y2="210"/>
+<line class="k-dram" stroke-width="4" x1="272" y1="214" x2="272" y2="282"/>
+<line class="k-hbf"  stroke-width="4" x1="272" y1="286" x2="272" y2="354"/>
+<line class="k-nand" stroke-width="4" x1="272" y1="358" x2="272" y2="426"/>
+
+<!-- A1 동률 : 해칭 (셀 배경, 텍스트 아래) -->
+<rect x="280" y="154" width="110" height="36" fill="url(#hatch)"/>
+<rect x="280" y="226" width="110" height="36" fill="url(#hatch)"/>
+
+<!-- 셀 값 25개 -->
+<text class="t11 mid" x="337" y="108">~1 ns 이하</text>
+<text class="t11 mid" x="471" y="108">수 TB/s (온칩)</text>
+<text class="t11 mid" x="605" y="108">수 MB ~ 수십 MB</text>
+<text class="t11 mid" x="739" y="108">매우 높음</text>
+<text class="t11 mid" x="873" y="108">온다이</text>
+
+<text class="t11 mid" x="337" y="180">10~100 ns</text>
+<text class="t11 mid" x="471" y="180">~2 TB/s (HBM4 스택)</text>
+<text class="t11 mid" x="605" y="180">36~48 GB (스택)</text>
+<text class="t11 mid" x="739" y="180">높음</text>
+<text class="t11 mid" x="873" y="180">인터포저 (수 mm)</text>
+
+<text class="t11 mid" x="337" y="252">10~100 ns</text>
+<text class="t11 mid" x="471" y="252">~50 GB/s (모듈)</text>
+<text class="t11 mid" x="605" y="252">수 GB ~ 수십 GB</text>
+<text class="t11 mid" x="739" y="252">중간</text>
+<text class="t11 mid" x="873" y="252">PCB (수십 cm)</text>
+
+<text class="t11 mid" x="337" y="316">10~20 µs</text>
+<text class="t11 mid" x="337" y="331">[벤더 목표치]</text>
+<text class="t11 mid" x="471" y="316">1.6 TB/s (Gen1)</text>
+<text class="t11 mid" x="471" y="331">[벤더 목표치]</text>
+<text class="t11 mid" x="605" y="316">512 GB (Gen1 스택)</text>
+<text class="t11 mid" x="605" y="331">[벤더 목표치]</text>
+<text class="t11 mid" x="739" y="316">낮음</text>
+<text class="t11 mid" x="739" y="331">[미공개]</text>
+<text class="t11 mid" x="873" y="324">인터포저 / D2D</text>
+
+<text class="t11 mid" x="337" y="396">50~100 µs</text>
+<text class="t11 mid" x="471" y="396">~7 GB/s</text>
+<text class="t11 mid" x="605" y="396">수 TB</text>
+<text class="t11 mid" x="739" y="396">매우 낮음</text>
+<text class="t11 mid" x="873" y="396">PCIe (수십 cm+)</text>
+
+<!-- 불확실성 표기 : HBF 행 전체 점선 (1px 보조선 색) -->
+<rect class="h d" x="278" y="286" width="658" height="68"/>
+
+<!-- 강조 1 : A1 동률 (2px 구조선 점선 브래킷) -->
+<path class="s d" d="M386,146 L396,146 L396,278 L386,278"/>
+<text class="t12 end" x="390" y="206">동률</text>
+
+<!-- 강조 2 : A3 역전 (HBF → HBM 상향 점선 화살표) -->
+<line class="s d" x1="664" y1="302" x2="664" y2="188" marker-end="url(#ar)"/>
+<text class="t12 end" x="658" y="228">역전</text>
+
+<!-- 강조 3 : A4 열 순서 역전 (2px 구조선 점선 테두리 + 상향 점선 화살표) -->
+<rect class="s d" x="672" y="70" width="134" height="356"/>
+<line class="s d" x1="792" y1="412" x2="792" y2="84" marker-end="url(#ar)"/>
+<text class="t12 end" x="786" y="228">순서 역전</text>
+
+<text class="t14 mid" x="605" y="452" fill="var(--hint)">5축 좌표</text>
+</svg>

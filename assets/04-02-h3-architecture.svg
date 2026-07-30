@@ -1,0 +1,112 @@
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 4-2. H³ 아키텍처. GPU shoreline에 직결된 HBM 뒤로 D2D 인터페이스를 경유해 HBF 스택이 daisy-chain으로 붙고, base die 안에 LHB SRAM이 놓인다</title>
+<desc id="dsc">인터포저 위에서 GPU의 유한한 shoreline에 HBM만 직결하고, HBM base die의 D2D 인터페이스를 경유해 HBF 스택을 daisy-chain으로 잇는 좌우 물리 배치입니다. base die 안의 address decoder / router와 prefetch 전용 SRAM인 LHB가 내부 블록으로 드러나며, LHB 용량 약 40 MB와 면적 약 8 mm²는 Capacity_LHB = 2 × BW_HBF × Latency_HBF 식에서 나온 계산값입니다. H³는 논문 제안 구성이며 출시 제품의 배치도가 아닙니다. D2D 전기 사양, HBF 컨트롤러 역할 분담, 전력·열은 미공개이므로 그리지 않았습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- ================= 데이터 배치 라벨 상자 (같은 높이 정렬) ================= -->
+<rect class="h" x="206" y="96" width="208" height="42"/>
+<text class="t11" x="214" y="116">HBM: 생성 중 갱신되는 KV cache,</text>
+<text class="t11" x="214" y="132">activation</text>
+<rect class="h" x="440" y="96" width="244" height="42"/>
+<text class="t11" x="448" y="116">HBF: model weight, 사전 계산된</text>
+<text class="t11" x="448" y="132">공유 KV cache (CAG)</text>
+
+<!-- ================= 통합 주소 공간 (논리 관계 : 점선) ================= -->
+<rect class="s d" fill="none" x="200" y="148" width="514" height="176"/>
+<text class="t12 end" x="708" y="164">통합 주소 공간</text>
+
+<!-- ================= 실리콘 인터포저 ================= -->
+<rect class="s" x="10" y="324" width="690" height="24"/>
+<text class="t12 mid" x="500" y="340">실리콘 인터포저 (silicon interposer)</text>
+
+<!-- ================= GPU 다이 ================= -->
+<rect class="s" x="20" y="224" width="156" height="100"/>
+<text class="t14 mid" x="98" y="278">GPU</text>
+
+<!-- ================= shoreline 밴드 (유일한 강조 : 강조색 + 45° 해칭 + 점선 테두리) ================= -->
+<rect class="f-emph" fill-opacity="0.15" x="176" y="224" width="12" height="100"/>
+<rect x="176" y="224" width="12" height="100" fill="url(#hatch)"/>
+<rect class="k-emph d" fill="none" stroke-width="2" x="176" y="224" width="12" height="100"/>
+<line class="h" x1="176" y1="214" x2="188" y2="214"/>
+<line class="h" x1="176" y1="210" x2="176" y2="218"/>
+<line class="h" x1="188" y1="210" x2="188" y2="218"/>
+<line class="h" x1="176" y1="336" x2="188" y2="336"/>
+<line class="h" x1="176" y1="332" x2="176" y2="340"/>
+<line class="h" x1="188" y1="332" x2="188" y2="340"/>
+<text class="t12 mid" x="182" y="204">shoreline</text>
+
+<!-- ================= HBM 스택 ================= -->
+<text class="t14 mid" x="310" y="164">HBM</text>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="210" y="170" width="200" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="210" y="186" width="200" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="210" y="202" width="200" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="210" y="218" width="200" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="210" y="234" width="200" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="210" y="250" width="200" height="12"/>
+
+<!-- HBM ↔ GPU 직결선 : shoreline 밴드를 관통 -->
+<line class="s" x1="164" y1="228" x2="210" y2="228"/>
+<line class="s" x1="164" y1="244" x2="210" y2="244"/>
+<line class="s" x1="164" y1="260" x2="210" y2="260"/>
+
+<!-- base die (다이 3장 두께로 확대, 좌우 끝에 절단 표시) -->
+<rect class="s" x="210" y="268" width="200" height="56"/>
+<path class="s" d="M202,308 L214,302 L202,296 L214,290"/>
+<path class="s" d="M406,308 L418,302 L406,296 L418,290"/>
+<text class="t12" x="216" y="280">base die</text>
+
+<!-- base die 내부 블록 3개 -->
+<rect class="s" x="216" y="284" width="50" height="32"/>
+<text class="t11 mid" x="241" y="304">D2D PHY</text>
+<rect class="s" x="274" y="284" width="104" height="32"/>
+<text class="t11 mid" x="326" y="298">address decoder</text>
+<text class="t11 mid" x="326" y="312">/ router</text>
+<rect class="f-sram k-sram" fill-opacity="0.15" stroke-width="2" x="384" y="284" width="16" height="32"/>
+
+<!-- ================= D2D · daisy-chain ================= -->
+<text class="t12" x="420" y="164">D2D (die-to-die) 인터페이스</text>
+<line class="h" x1="432" y1="168" x2="432" y2="292"/>
+<line class="s" x1="412" y1="296" x2="444" y2="296" marker-end="url(#ar)"/>
+<line class="s" x1="526" y1="296" x2="598" y2="296" marker-end="url(#ar)"/>
+<text class="t11 mid" x="562" y="288">daisy-chain</text>
+<line class="s" x1="680" y1="296" x2="694" y2="296" marker-end="url(#ar)"/>
+<text class="t14 mid" x="706" y="301">…</text>
+
+<!-- ================= HBF 스택 2개 ================= -->
+<text class="t14 mid" x="485" y="186">HBF</text>
+<rect class="f-hbf k-hbf" fill-opacity="0.15" stroke-width="2" x="446" y="194" width="78" height="130"/>
+<path class="h" fill="none" d="M446,204 h78 M446,214 h78 M446,224 h78 M446,234 h78 M446,244 h78 M446,254 h78 M446,264 h78 M446,274 h78 M446,284 h78 M446,294 h78 M446,304 h78 M446,314 h78"/>
+<rect class="f-hbf k-hbf" fill-opacity="0.15" stroke-width="2" x="600" y="194" width="78" height="130"/>
+<path class="h" fill="none" d="M600,204 h78 M600,214 h78 M600,224 h78 M600,234 h78 M600,244 h78 M600,254 h78 M600,264 h78 M600,274 h78 M600,284 h78 M600,294 h78 M600,304 h78 M600,314 h78"/>
+
+<!-- ================= LHB 면적 지시선 ================= -->
+<path class="h" fill="none" d="M392,316 L392,366 L440,366"/>
+<text class="t12" x="446" y="362">LHB (Latency Hiding Buffer)</text>
+<text class="t11" x="446" y="378">prefetch 전용 SRAM</text>
+<text class="t11" x="586" y="378">약 40 MB (계산값)</text>
+<text class="t11" x="446" y="394">약 8 mm² — base die 약 121 mm²의 6.7% (계산값)</text>
+</svg>

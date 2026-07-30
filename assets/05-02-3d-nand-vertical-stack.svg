@@ -1,0 +1,128 @@
+<svg viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 5-2. 3D NAND의 수직 적층 단면과 채널 홀 종횡비</title>
+<desc id="dsc">셀 어레이 웨이퍼를 세로로 관통하는 채널 홀 1개의 평면 수직 단면입니다. 워드라인 판은 상하 6장씩만 그리고 나머지는 절단 표시로 축약했으며, 하단에 미세 구리 패드 본딩 계면과 CMOS 주변회로 웨이퍼를 둡니다. 좌측 깊이 스케일 바는 100 nm 눈금으로 #24(DRAM 커패시터)와 같은 단위이며, 절단 표시 위·아래로 실제 그려진 구간에만 적용되고 축약된 구간은 포함하지 않습니다. 면적 밀도 29 Gb/mm² 초과는 Kioxia/SanDisk 발표 기준이며 제3자 다이 분석으로 교차 확인된 값이 아닙니다. 우측 종횡비 눈금은 96층·400층·1,000층 세 세대 값만 담으며 332층의 종횡비는 본문에 없어 표기하지 않았습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 상단 라벨 : 셀 어레이 웨이퍼 x130~480, 채널 홀 중심 x=247 -->
+<text class="t14" x="130" y="20">셀 어레이 웨이퍼</text>
+<text class="t11 end" x="480" y="20">면적 밀도 29 Gb/mm² 초과</text>
+<text class="t12 mid" x="247" y="38">채널 홀</text>
+<line class="h" x1="247" y1="42" x2="247" y2="50"/>
+<text class="t12 end" x="480" y="38">워드라인 (WL)</text>
+<line class="h" x1="440" y1="42" x2="440" y2="52"/>
+
+<!-- 깊이 스케일 바 : 34 px = 100 nm (#24와 동일 단위·동일 px-per-nm) -->
+<line class="h" x1="62" y1="60" x2="62" y2="196"/>
+<line class="h" x1="56" y1="60" x2="68" y2="60"/>
+<line class="h" x1="56" y1="94" x2="68" y2="94"/>
+<line class="h" x1="56" y1="128" x2="68" y2="128"/>
+<line class="h" x1="56" y1="162" x2="68" y2="162"/>
+<line class="h" x1="56" y1="196" x2="68" y2="196"/>
+<text class="t11 end" x="52" y="64">0</text>
+<text class="t11 end" x="52" y="132">200</text>
+<text class="t11 end" x="52" y="200">400 nm</text>
+
+<!-- 층수 치수선 -->
+<line class="h" x1="110" y1="50" x2="110" y2="370" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="t12 mid" x="100" y="130" transform="rotate(-90 100 130)">332층 (BiCS10)</text>
+
+<!-- ===== 셀 어레이 상부 구간 y 50~196 : 워드라인 판 6장 + 층간 절연막 ===== -->
+<path class="s" d="M130,196 L130,50 L480,50 L480,196"/>
+<rect x="130" y="64" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="88" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="112" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="136" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="160" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="184" width="350" height="12" fill="url(#hatch)"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="52" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="76" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="100" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="124" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="148" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="172" width="350" height="12"/>
+
+<!-- ===== 절단 표시 : 지그재그 2줄 (구조선 굵기, 축약이 눈에 띄어야 함) ===== -->
+<polyline class="s" points="130,196 155,208 180,196 205,208 230,196 255,208 280,196 305,208 330,196 355,208 380,196 405,208 430,196 455,208 480,196"/>
+<polyline class="s" points="130,212 155,224 180,212 205,224 230,212 255,224 280,212 305,224 330,212 355,224 380,212 405,224 430,212 455,224 480,212"/>
+<text class="t11 end" x="104" y="214">층 축약 — 절단 표시</text>
+
+<!-- ===== 셀 어레이 하부 구간 y 224~370 ===== -->
+<path class="s" d="M130,224 L130,370 L480,370 L480,224"/>
+<rect x="130" y="224" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="248" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="272" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="296" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="320" width="350" height="12" fill="url(#hatch)"/>
+<rect x="130" y="344" width="350" height="12" fill="url(#hatch)"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="236" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="260" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="284" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="308" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="332" width="350" height="12"/>
+<rect class="k-nand" fill="none" stroke-width="2" x="130" y="356" width="350" height="12"/>
+
+<!-- ===== 채널 홀 : 폭 14 px : 표시 높이 320 px = 1 : 22.9 ===== -->
+<line class="h" x1="242" y1="50" x2="242" y2="196"/>
+<line class="h" x1="246" y1="50" x2="246" y2="196"/>
+<line class="h" x1="250" y1="50" x2="250" y2="196"/>
+<line class="h" x1="242" y1="224" x2="242" y2="370"/>
+<line class="h" x1="246" y1="224" x2="246" y2="370"/>
+<line class="h" x1="250" y1="224" x2="250" y2="370"/>
+<line class="k-emph d" stroke-width="2" fill="none" x1="240" y1="50" x2="240" y2="196"/>
+<line class="k-emph d" stroke-width="2" fill="none" x1="254" y1="50" x2="254" y2="196"/>
+<line class="k-emph d" stroke-width="2" fill="none" x1="240" y1="224" x2="240" y2="370"/>
+<line class="k-emph d" stroke-width="2" fill="none" x1="254" y1="224" x2="254" y2="370"/>
+
+<!-- ===== 본딩 계면 y 370~398 ===== -->
+<rect class="k-emph d" fill="none" stroke-width="2" x="130" y="370" width="350" height="28"/>
+<rect class="s" x="162" y="378" width="16" height="12"/>
+<rect class="s" x="216" y="378" width="16" height="12"/>
+<rect class="s" x="270" y="378" width="16" height="12"/>
+<rect class="s" x="324" y="378" width="16" height="12"/>
+<rect class="s" x="378" y="378" width="16" height="12"/>
+<rect class="s" x="432" y="378" width="16" height="12"/>
+<text class="t12 end" x="124" y="388">미세 구리 패드</text>
+<line class="h" x1="128" y1="384" x2="160" y2="384"/>
+
+<!-- ===== CMOS 주변회로 웨이퍼 y 398~470 (로직 공정 — NAND색 미사용) ===== -->
+<rect class="s" x="130" y="398" width="350" height="72"/>
+<text class="t12 mid" x="305" y="438">CMOS 주변회로 웨이퍼</text>
+<text class="t12 mid" x="305" y="492">CBA (CMOS Bonded to Array) / 삼성 CoP (Cell-on-Periphery)</text>
+
+<!-- ===== 우측 여백 : 세대별 종횡비 눈금 (셀 어레이와 보조선으로 분리) ===== -->
+<line class="h" x1="496" y1="50" x2="496" y2="370"/>
+<text class="t12" x="508" y="38">종횡비 (AR)</text>
+<line class="h" x1="520" y1="90" x2="520" y2="360"/>
+<line class="h" x1="514" y1="350" x2="526" y2="350"/>
+<line class="h" x1="514" y1="300" x2="526" y2="300"/>
+<line class="h d" x1="514" y1="100" x2="526" y2="100"/>
+<text class="t11" x="530" y="354">96층 약 50:1</text>
+<text class="t11" x="530" y="304">400층 60:1 초과</text>
+<text class="t11" x="530" y="104">1,000층 100:1 접근</text>
+<rect class="h d" x="530" y="110" width="71" height="17"/>
+<text class="t11" x="534" y="122">[벤더 목표치]</text>
+</svg>

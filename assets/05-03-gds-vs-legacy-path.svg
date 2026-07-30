@@ -1,0 +1,68 @@
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 5-3. 전통적 저장 경로와 GPU Direct Storage 경로 비교</title>
+<desc id="dsc">좌→우 단일 방향 2행 흐름도입니다. 상단은 SSD에서 CPU 호스트 DRAM을 거쳐 GPU로 가는 전통 경로이고, 하단은 NVMe 컨트롤러와 GPU를 PCIe P2P DMA로 직결해 호스트 DRAM 경유가 사라진 GDS 경로입니다. 두 행에 같은 크기·같은 좌표의 2열 자리를 두어 하단이 비었음을 형태로 남겼고, PCIe 병목 밴드는 두 행에 똑같이 걸립니다. GPU 안의 HBM 상자는 대비 참조점이며 대역폭 수치는 본문에 없어 표기하지 않았습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- ===== PCIe 병목 밴드 : 두 행을 관통하는 세로 밴드 (해칭 + 파선 테두리) ===== -->
+<text class="t12 mid" x="245" y="34">PCIe</text>
+<text class="t12 mid" x="245" y="52">병목</text>
+<rect x="214" y="62" width="62" height="290" fill="url(#hatch)"/>
+<rect class="k-emph d" fill="none" stroke-width="2" x="214" y="62" width="62" height="290"/>
+<text class="t11 mid" x="245" y="372">약 7 GB/s (PCIe 4.0급)</text>
+<text class="t11 mid" x="245" y="390">수십 cm 이상</text>
+
+<!-- ===== 상단 행 : 전통 경로 (y 80~180) ===== -->
+<text class="t14" x="20" y="66">전통 경로</text>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="60" y="80" width="140" height="100"/>
+<text class="t12 mid" x="130" y="135">SSD (NVMe)</text>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="290" y="80" width="140" height="100"/>
+<text class="t12 mid" x="360" y="135">CPU 호스트 DRAM</text>
+<rect class="s" x="520" y="80" width="140" height="100"/>
+<text class="t12 mid" x="590" y="104">GPU</text>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="545" y="118" width="90" height="34"/>
+<text class="t12 mid" x="590" y="140">HBM</text>
+<line class="s" x1="204" y1="130" x2="286" y2="130" marker-end="url(#ar)"/>
+<line class="s" x1="434" y1="130" x2="516" y2="130" marker-end="url(#ar)"/>
+
+<!-- 중간 복사 : 호스트 DRAM 상자 하단의 되꺾임 -->
+<path class="k-emph d" fill="none" stroke-width="2" d="M336,180 L336,198 L384,198 L384,182" marker-end="url(#ar)"/>
+<text class="t12 mid" x="360" y="214">중간 복사</text>
+
+<!-- ===== 하단 행 : GDS 경로 (y 250~350, 상단과 동일 열 좌표·동일 상자 크기) ===== -->
+<text class="t14" x="20" y="236">GPU Direct Storage (GDS)</text>
+<text class="t11 mid" x="360" y="242">호스트 DRAM 경유 제거</text>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="60" y="250" width="140" height="100"/>
+<text class="t12 mid" x="130" y="296">SSD (NVMe)</text>
+<text class="t11 mid" x="130" y="316">NVMe 컨트롤러</text>
+<rect class="h d" x="290" y="250" width="140" height="100"/>
+<rect class="s" x="520" y="250" width="140" height="100"/>
+<text class="t12 mid" x="590" y="274">GPU</text>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="545" y="288" width="90" height="34"/>
+<text class="t12 mid" x="590" y="310">HBM</text>
+<line class="s" x1="204" y1="300" x2="516" y2="300" marker-end="url(#ar)"/>
+<text class="t12 mid" x="475" y="292">PCIe P2P DMA</text>
+</svg>

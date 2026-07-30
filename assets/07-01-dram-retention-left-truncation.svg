@@ -1,0 +1,85 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">DRAM 셀 리텐션 시간 분포와 64 ms 절단선 (60 nm 공정 데이터, RAIDR / ISCA 2012 기준)</title>
+<desc id="dsc">리텐션 시간 로그축 위에 그린 DRAM 셀 분포 개형과 64 ms 수율 선별 기준선. 분포 근거는 RAIDR(ISCA 2012)의 60 nm 공정 데이터이며 세로 방향은 눈금 없는 개형입니다. 64 ms 왼쪽은 해당 다이가 폐기되어 공개 분포에 데이터가 없으므로 비워 둡니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 데이터 부재 구간: 축 왼쪽 끝(64 ms의 1/2) ~ 64 ms -->
+<rect x="88" y="44" width="99" height="300" fill="url(#hatch)"/>
+<path d="M88,44 H187 V344 H88" class="h k-emph d"/>
+
+<!-- 세로축(눈금 없음) -->
+<line x1="88" y1="44" x2="88" y2="344" class="h"/>
+
+<!-- 가로축(로그 스케일) + 오른쪽 절단 표시 -->
+<line x1="88" y1="344" x2="598" y2="344" class="h"/>
+<line x1="610" y1="344" x2="680" y2="344" class="h"/>
+<line x1="594" y1="352" x2="604" y2="336" class="h"/>
+<line x1="604" y1="352" x2="614" y2="336" class="h"/>
+
+<!-- 눈금 -->
+<line x1="187" y1="344" x2="187" y2="350" class="h"/>
+<line x1="286.3" y1="344" x2="286.3" y2="350" class="h"/>
+<line x1="385.7" y1="344" x2="385.7" y2="350" class="h"/>
+<line x1="485" y1="344" x2="485" y2="350" class="h"/>
+<line x1="581" y1="344" x2="581" y2="350" class="h"/>
+
+<!-- 수치 앵커 지시선 (눈금 → 곡선) -->
+<line x1="286.3" y1="344" x2="286.3" y2="315.2" class="h"/>
+<line x1="385.7" y1="344" x2="385.7" y2="272.7" class="h"/>
+
+<!-- 분포 곡선 좌측 꼬리 (개형) -->
+<polyline class="s k-dram" points="187.0,335.0 207.5,332.3 227.9,329.0 248.4,325.0 268.8,320.1 289.3,314.3 309.7,307.5 330.2,299.7 350.6,290.7 371.1,280.6 391.5,269.4 412.0,257.1 432.4,243.9 452.9,229.8 473.3,215.2 493.8,200.3 514.2,185.4 534.7,170.7 555.1,156.7 575.6,143.7 596.0,132.1"/>
+
+<!-- 64 ms 절단선 -->
+<line x1="187" y1="44" x2="187" y2="344" class="s k-emph"/>
+
+<!-- 라벨 -->
+<text class="t14" x="196" y="58">64 ms — 수율 선별 기준 (screening threshold)</text>
+<text class="t11 end" x="676" y="80">총 셀 수 10¹¹ 초과 (32GB 시스템)</text>
+
+<text class="t14 mid" transform="translate(118,230) rotate(-90)">다이 폐기 영역</text>
+<text class="t12 mid" transform="translate(156,230) rotate(-90)">공개 분포에 데이터 없음</text>
+
+<text class="t11 end" x="380" y="250">256 ms 미달 셀 1,000개 미만</text>
+<text class="t14" x="200" y="272">leaky 셀 범주</text>
+<text class="t11" x="200" y="298">128 ms 미달 셀 약 30개</text>
+<text class="t12" x="470" y="252">범주별 로그정규 분포</text>
+<text class="t11" x="400" y="336">기준을 결정하는 셀 비율 10⁻⁸ 수준</text>
+
+<text class="t14 mid" transform="translate(640,228) rotate(-90)">normal 셀 범주 — 대다수 1초 이상</text>
+
+<!-- 축 눈금 라벨 -->
+<text class="t11 mid" x="187" y="362">64</text>
+<text class="t11 mid" x="286.3" y="362">128</text>
+<text class="t11 mid" x="385.7" y="362">256</text>
+<text class="t11 mid" x="485" y="362">512</text>
+<text class="t11 mid" x="581" y="362">1,000</text>
+
+<text class="t12 mid" x="187" y="384">DDR3·DDR4 refresh window</text>
+<text class="t14 mid" x="384" y="406">셀 리텐션 시간 (ms, 로그 스케일)</text>
+<text class="t14 mid" transform="translate(64,194) rotate(-90)">셀 개체수 (개형, 눈금 없음)</text>
+</svg>

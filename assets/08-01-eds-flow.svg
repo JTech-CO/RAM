@@ -1,0 +1,130 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 8-1. EDS의 기능 흐름과 리페어 후 재검증 루프</title>
+<desc id="dsc">웨이퍼 테스트(EDS)의 기능 단위 여섯 개를 검사 레인과 수선 레인 두 행으로 배치하고, 고온·저온 시험에서 리페어로 내려갔다가 최종 시험으로 되돌아오는 재검증 꺾임을 강조합니다. 단계 번호는 붙이지 않았습니다. 삼성 공식 서술이 4단계와 5단계로 갈리기 때문에 기능 단위로만 재구성한 것입니다. 번인의 온도·전압·지속 시간은 어느 공식 자료에도 없어 미공개로 두었고, 고온 85~90 ℃ / 저온 -5~-40 ℃가 번인 조건인지 고온·저온 기능 시험 조건인지 원문 맥락이 불확실해 별도 점선 박스에 미확정 배지와 함께 분리했습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 범위 띠 : 3단계 골격 중 첫 칸만 실선 (이 그림의 범위) -->
+<rect class="s" x="76" y="16" width="172" height="26"/>
+<rect class="h" x="283" y="16" width="172" height="26"/>
+<rect class="h" x="490" y="16" width="172" height="26"/>
+<text class="t12 mid" x="162" y="34">웨이퍼 테스트 (EDS)</text>
+<text class="t12 mid" x="369" y="34" fill="var(--hint)">패키지 테스트</text>
+<text class="t12 mid" x="576" y="34" fill="var(--hint)">모듈 테스트</text>
+<line class="h" x1="248" y1="29" x2="281" y2="29" marker-end="url(#ar)"/>
+<line class="h" x1="455" y1="29" x2="488" y2="29" marker-end="url(#ar)"/>
+
+<!-- 공정 경계 -->
+<line class="h d" x1="42" y1="60" x2="42" y2="372"/>
+<line class="h d" x1="680" y1="60" x2="680" y2="372"/>
+<text class="t12 mid" x="26" y="216" transform="rotate(-90 26 216)">FAB 공정</text>
+<text class="t12 mid" x="696" y="216" transform="rotate(-90 696 216)">패키지 공정</text>
+
+<!-- 레인 라벨 -->
+<text class="t12" x="48" y="137">검사</text>
+<text class="t12" x="48" y="313">수선</text>
+
+<!-- 강조 그룹 박스 : 리페어 + 최종 시험 -->
+<rect class="k-emph d" fill="none" stroke-width="2" x="396" y="84" width="166" height="288"/>
+
+<!-- 검사 레인 상자 5개 -->
+<rect class="s" x="76" y="94" width="92" height="78"/>
+<text class="t12 mid" x="122" y="111">소자 파라미터 검사</text>
+<text class="t11 mid" x="122" y="124">(ET, Electrical Test)</text>
+<text class="t11 mid" x="122" y="139">개별 소자의</text>
+<text class="t11 mid" x="122" y="152">DC 파라미터</text>
+
+<rect class="s" x="186" y="94" width="92" height="78"/>
+<text class="t12 mid" x="232" y="111">웨이퍼 번인</text>
+<text class="t11 mid" x="232" y="124">(WBI, Wafer Burn In)</text>
+<text class="t11 mid" x="232" y="139">열 + AC/DC 전압</text>
+<rect class="h d" x="205" y="148" width="54" height="16"/>
+<text class="t11 mid" x="232" y="160">[미공개]</text>
+
+<rect class="s" x="296" y="94" width="92" height="78"/>
+<text class="t12 mid" x="342" y="111">고온·저온 시험</text>
+<text class="t11 mid" x="342" y="124">(Hot / Cold Test)</text>
+<text class="t11 mid" x="342" y="139">고온·저온</text>
+<text class="t11 mid" x="342" y="152">양극단에서의</text>
+<text class="t11 mid" x="342" y="165">기능 유지</text>
+
+<rect class="s" x="460" y="94" width="92" height="78"/>
+<text class="t12 mid" x="506" y="111">최종 시험</text>
+<text class="t11 mid" x="506" y="124">(Final Test)</text>
+<text class="t11 mid" x="506" y="139">수선한 칩의</text>
+<text class="t11 mid" x="506" y="152">재검증</text>
+
+<rect class="s" x="570" y="94" width="92" height="78"/>
+<text class="t12 mid" x="616" y="111">잉킹</text>
+<text class="t11 mid" x="616" y="124">(Inking)</text>
+<text class="t11 mid" x="616" y="139">되살릴 수 없는 칩에</text>
+<text class="t11 mid" x="616" y="152">잉크로 표시</text>
+
+<!-- 수선 레인 상자 1개 -->
+<rect class="s" x="406" y="270" width="92" height="78"/>
+<text class="t12 mid" x="452" y="287">리페어</text>
+<text class="t11 mid" x="452" y="300">(Repair)</text>
+<text class="t11 mid" x="452" y="315">불량 위치를</text>
+<text class="t11 mid" x="452" y="328">예비 행·열로 치환</text>
+
+<!-- 판정 라벨 (상자 좌측 정렬) -->
+<text class="t11" x="78"  y="188" fill="var(--hint)">규격 이탈 여부</text>
+<text class="t11" x="188" y="188" fill="var(--hint)">초기 불량 선별</text>
+<text class="t11" x="298" y="188" fill="var(--hint)">기능 양·불량</text>
+<text class="t11" x="462" y="188" fill="var(--hint)">최종 양품 판정</text>
+<text class="t11" x="572" y="188" fill="var(--hint)">후속 공정 제외</text>
+<text class="t11" x="408" y="364" fill="var(--hint)">수선 가능 / 불가</text>
+
+<!-- 번인 조건 미공개 주석 -->
+<text class="t11 mid" x="232" y="206" fill="var(--hint)">온도·전압·지속 시간 [미공개]</text>
+<text class="t11 mid" x="232" y="220" fill="var(--hint)">(2026-07 기준)</text>
+
+<!-- 순차 화살표 -->
+<line class="s" x1="168" y1="133" x2="184" y2="133" marker-end="url(#ar)"/>
+<line class="s" x1="278" y1="133" x2="294" y2="133" marker-end="url(#ar)"/>
+<line class="s" x1="552" y1="133" x2="568" y2="133" marker-end="url(#ar)"/>
+<line class="s" x1="662" y1="133" x2="678" y2="133" marker-end="url(#ar)"/>
+
+<!-- 꺾임 : 고온·저온 시험 → 리페어 -->
+<line class="s" x1="342" y1="174" x2="414" y2="266" marker-end="url(#ar)"/>
+<text class="t11 end" x="362" y="214">불량 위치</text>
+
+<!-- 꺾임 : 리페어 → 최종 시험 (강조 : 색 + 45° 해칭) -->
+<rect x="479" y="203" width="12" height="30" fill="url(#hatch)" transform="rotate(-11.2 485 218)"/>
+<rect class="k-emph d" fill="none" stroke-width="2" x="479" y="203" width="12" height="30" transform="rotate(-11.2 485 218)"/>
+<line class="k-emph" fill="none" stroke-width="2" x1="485" y1="266" x2="504" y2="184"/>
+<path class="f-emph" d="M506,174 L507.9,184.7 L500.1,182.9 Z"/>
+<text class="t11" x="512" y="222">수선 가능</text>
+
+<!-- 분기 : 리페어 → 잉킹 -->
+<path class="s" d="M498,309 L650,309 L650,176" marker-end="url(#ar)"/>
+<text class="t11 mid" x="596" y="301">수선 불가</text>
+
+<!-- 시험 온도 범위 : 귀속 미확정이므로 상자에 직결하지 않음 -->
+<rect class="h d" x="396" y="378" width="304" height="38"/>
+<text class="t11" x="408" y="396">메모리 시험 온도 범위 — 고온 85~90 ℃ / 저온 -5~-40 ℃</text>
+<text class="t11" x="408" y="411">[미확정]</text>
+</svg>

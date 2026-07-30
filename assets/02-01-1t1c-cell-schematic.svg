@@ -1,0 +1,89 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 2-1. 1T1C DRAM 셀 회로도와 센스앰프 위치</title>
+<desc id="dsc">수평 워드라인이 셀 트랜지스터의 게이트를, 수직 비트라인이 한쪽 단자를 잡고, 반대쪽 단자가 storage node를 거쳐 셀 커패시턴스 Cc로 내려가며, 비트라인 말단에 기생 커패시턴스 Cp와 센스앰프가 붙어 Cc와 Cp가 같은 노드에 병렬로 매달림을 보입니다. charge sharing과 restore 두 동작의 경로만 강조하고 커패시턴스 수치는 그림 2-3이 갖습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 강조 구간 : 셀 커패시터 ↔ 비트라인 ↔ 센스앰프 (점선 사각) -->
+<rect class="s d k-emph" x="132" y="190" width="574" height="160" rx="2"/>
+
+<!-- 워드라인 : 게이트 높이 y=100 에서 캔버스 폭 관통 -->
+<line class="s" x1="24" y1="100" x2="696" y2="100"/>
+
+<!-- 셀 트랜지스터 : 게이트판 y=150, 채널바 y=162 -->
+<line class="s" x1="260" y1="100" x2="260" y2="150"/>
+<line class="s" x1="232" y1="150" x2="288" y2="150"/>
+<line class="s" x1="232" y1="162" x2="288" y2="162"/>
+
+<!-- 소스 단자 → storage node → 셀 커패시터 -->
+<path class="s" d="M232,162 L170,162 L170,272"/>
+<!-- 드레인 단자 → 비트라인 -->
+<line class="s" x1="288" y1="162" x2="360" y2="162"/>
+<!-- 비트라인 : 수직, 하단에서 Cp 로 -->
+<line class="s" x1="360" y1="162" x2="360" y2="272"/>
+
+<!-- 셀 커패시터 Cc : 평행판 2줄 (상판 = storage node 측) -->
+<line class="s k-dram" x1="140" y1="272" x2="200" y2="272"/>
+<line class="s k-dram" x1="140" y1="288" x2="200" y2="288"/>
+<circle class="f-dram" cx="170" cy="162" r="4"/>
+<!-- 공통 플레이트 → 접지 -->
+<line class="s" x1="170" y1="288" x2="170" y2="324"/>
+<line class="s" x1="157" y1="324" x2="183" y2="324"/>
+<line class="s" x1="162" y1="330" x2="178" y2="330"/>
+<line class="s" x1="166" y1="336" x2="174" y2="336"/>
+
+<!-- 비트라인 기생 커패시턴스 Cp : 보조선 톤 -->
+<line class="h" x1="330" y1="272" x2="390" y2="272"/>
+<line class="h" x1="330" y1="288" x2="390" y2="288"/>
+<line class="h" x1="360" y1="288" x2="360" y2="324"/>
+<line class="h" x1="347" y1="324" x2="373" y2="324"/>
+<line class="h" x1="352" y1="330" x2="368" y2="330"/>
+<line class="h" x1="356" y1="336" x2="364" y2="336"/>
+
+<!-- 센스앰프 : 비트라인 하단 우측, 입력 1개 -->
+<line class="s" x1="360" y1="216" x2="496" y2="216" marker-end="url(#ar)"/>
+<rect class="s" x="500" y="194" width="196" height="48" rx="2"/>
+
+<!-- charge sharing : 셀 커패시터 → 비트라인 (실선 강조) -->
+<line class="s k-emph" x1="200" y1="258" x2="330" y2="204" marker-end="url(#ar)"/>
+<!-- restore : 센스앰프 → 비트라인 → 셀 커패시터 (실선 강조) -->
+<line class="s k-emph" x1="496" y1="234" x2="374" y2="234" marker-end="url(#ar)"/>
+<line class="s k-emph" x1="346" y1="244" x2="214" y2="292" marker-end="url(#ar)"/>
+
+<!-- 라벨 -->
+<text class="t14" x="28" y="32">1T1C</text>
+<text class="t12" x="28" y="92">워드라인 (Word Line, WL)</text>
+<text class="t12" x="296" y="144">셀 트랜지스터</text>
+<text class="t12 end" x="162" y="150">storage node</text>
+<text class="t12" x="370" y="180">비트라인 (Bit Line, BL)</text>
+<text class="t12 end" x="126" y="268">셀 커패시터</text>
+<text class="t11 end" x="126" y="286">셀 커패시턴스 Cc</text>
+<text class="t12" x="188" y="316">공통 플레이트</text>
+<text class="t11" x="400" y="286">비트라인 기생 커패시턴스 Cp</text>
+<text class="t12 mid" x="598" y="223">센스앰프 (sense amplifier)</text>
+<text class="t11" x="204" y="204">charge sharing</text>
+<text class="t11" x="404" y="254">restore</text>
+</svg>

@@ -32,7 +32,7 @@ HBM (High Bandwidth Memory)은 새로운 셀이 아닙니다. 저장 소자는 [
 
 ## 2. 셀 구조 — 왜 이렇게 생겼는가
 
-[구조도 - HBM 스택 단면, TSV 관통 DRAM 다이 12단 + 로직 base die + 실리콘 인터포저 위 GPU 병렬 배치]
+![그림 3-1. HBM 스택 단면과 인터포저 위 GPU 병렬 배치](assets/03-01-hbm-stack-interposer.svg)
 
 *그림 3-1. HBM 스택 단면과 인터포저 위 GPU 병렬 배치*
 
@@ -62,7 +62,7 @@ base die가 로직 공정으로 넘어가면 PHY, 테스트 회로, 채널 라�
 
 ## 3. 왜 빠른가 / 느린가 — 물리적 근거
 
-[비교도 - DDR5 vs HBM3E vs HBM4 버스 폭, 64 / 1024 / 2048-bit 시각화]
+![그림 3-2. DDR5·HBM3E·HBM4의 버스 폭 비교](assets/03-02-bus-width-comparison.svg)
 
 *그림 3-2. DDR5·HBM3E·HBM4의 버스 폭 비교*
 

@@ -1,0 +1,73 @@
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 0-2. SRAM·DRAM·NAND의 면적당 비트 밀도 (로그 스케일, 2D/3D 구분)</title>
+<desc id="dsc">면적당 비트 밀도를 4데케이드 로그 축의 가로 막대로 비교하고, NAND의 층당 환산 밀도를 점선·해칭 막대로 병기해 DRAM 기준선보다 왼쪽에 놓임을 보입니다. 층당 환산치 0.087 Gb/mm²/층은 공개 밀도값과 층수로부터 이 문서가 산출한 계산값이며 제조사 발표치가 아닙니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 데케이드 격자선 : x(v) = 150 + 135 × (log10(v) + 2) -->
+<line class="h" x1="150" y1="80" x2="150" y2="330"/>
+<line class="h" x1="285" y1="80" x2="285" y2="330"/>
+<line class="h" x1="420" y1="80" x2="420" y2="330"/>
+<line class="h" x1="555" y1="80" x2="555" y2="330"/>
+<line class="h" x1="690" y1="80" x2="690" y2="330"/>
+<line class="h" x1="150" y1="330" x2="690" y2="330"/>
+
+<!-- 계층명 (좌측 라벨 열 x 20~145, 우측 정렬) -->
+<text class="t12 end" x="145" y="114">SRAM</text>
+<text class="t12 end" x="145" y="184">DRAM</text>
+<text class="t12 end" x="145" y="254">NAND</text>
+<text class="t11 end" x="145" y="299">NAND 층당 환산</text>
+
+<!-- 막대 3개 : 실측 공개값 -->
+<rect class="f-sram k-sram" fill-opacity="0.15" stroke-width="2" x="150" y="90"  width="78.3"  height="40"/>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="150" y="160" width="221.2" height="40"/>
+<rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="150" y="230" width="467.4" height="40"/>
+
+<!-- 파생 막대 : 층당 환산 (채움 없음 + 45° 해칭 + 점선 테두리) -->
+<rect x="150" y="282" width="126.8" height="26" fill="url(#hatch)"/>
+<rect class="k-nand d" fill="none" stroke-width="2" x="150" y="282" width="126.8" height="26"/>
+
+<!-- DRAM 기준 세로 점선 (강조) -->
+<line class="k-emph d" stroke-width="2" x1="371.2" y1="160" x2="371.2" y2="310"/>
+
+<!-- 값 라벨 · 차원 배지 -->
+<text class="t11" x="236.3" y="106">0.038 Gb/mm² (38.1 Mb/mm²)</text>
+<text class="t11" x="236.3" y="121">2D (셀 1층)</text>
+<text class="t11" x="379.2" y="176">0.435 Gb/mm² (범위 0.43~0.45)</text>
+<text class="t11" x="379.2" y="191">2D (셀 1층)</text>
+<text class="t11" x="625.4" y="246">29 Gb/mm² 초과</text>
+<text class="t11" x="625.4" y="261">3D (332층 적층)</text>
+<text class="t11" x="286" y="320">0.087 Gb/mm²/층 (계산값)</text>
+
+<!-- 축 눈금 · 축 라벨 -->
+<text class="t11 mid" x="150" y="348">0.01</text>
+<text class="t11 mid" x="285" y="348">0.1</text>
+<text class="t11 mid" x="420" y="348">1</text>
+<text class="t11 mid" x="555" y="348">10</text>
+<text class="t11 mid" x="690" y="348">100</text>
+<text class="t11 mid" x="420" y="372">면적당 비트 밀도 (Gb/mm², 로그 스케일)</text>
+<text class="t11 mid" x="420" y="390">배율 약 1 : 11 : 760</text>
+</svg>

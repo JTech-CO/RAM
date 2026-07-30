@@ -1,0 +1,123 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 6-5. 지지대의 개구와 몰드 식각액의 경로 — 다단 배치는 특허 실시례 기준</title>
+<desc id="dsc">실린더 전극 5개를 상부·중간 두 장의 지지대가 수평으로 잡는 수직 단면과, 같은 지지대 레벨을 위에서 본 평면을 나란히 놓았습니다. dip-out 식각액은 셀 영역 주변 공간에서 측면으로 들어와 지지대를 관통하는 개구를 통해서만 몰드에 도달하므로, 개구를 지나지 않는 경로는 그리지 않았습니다. 상부와 중간 두 레벨의 다단 배치는 특허 실시례를 근거로 하며 현행 양산 세대의 단수는 확인되지 않았습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- ===== 좌 패널 : 수직 단면 ===== -->
+<!-- 몰드 산화막 잔여 (개구 아래 구간은 이미 비워진 상태) -->
+<path fill="url(#dots)" fill-rule="evenodd" d="M160,124h340v146h-340Z M182,124h16v146h-16Z M252,124h16v146h-16Z M322,124h16v146h-16Z M392,124h16v146h-16Z M462,124h16v146h-16Z M217,124h16v146h-16Z M287,124h16v146h-16Z M357,124h16v146h-16Z M427,124h16v146h-16Z"/>
+<path fill="url(#dots)" fill-rule="evenodd" d="M160,284h340v146h-340Z M182,284h16v146h-16Z M252,284h16v146h-16Z M322,284h16v146h-16Z M392,284h16v146h-16Z M462,284h16v146h-16Z M217,284h16v96h-16Z M287,284h16v96h-16Z M357,284h16v96h-16Z M427,284h16v96h-16Z"/>
+<path class="s" d="M160,124V270 M500,124V270 M160,284V430 M500,284V430"/>
+
+<!-- 지지대 판 2장 (사선 해칭, #24 지지막과 동일) -->
+<path fill="url(#hatch)" fill-rule="evenodd" d="M160,110h340v14h-340Z M182,110h16v14h-16Z M252,110h16v14h-16Z M322,110h16v14h-16Z M392,110h16v14h-16Z M462,110h16v14h-16Z M217,110h16v14h-16Z M287,110h16v14h-16Z M357,110h16v14h-16Z M427,110h16v14h-16Z"/>
+<path fill="url(#hatch)" fill-rule="evenodd" d="M160,270h340v14h-340Z M182,270h16v14h-16Z M252,270h16v14h-16Z M322,270h16v14h-16Z M392,270h16v14h-16Z M462,270h16v14h-16Z M217,270h16v14h-16Z M287,270h16v14h-16Z M357,270h16v14h-16Z M427,270h16v14h-16Z"/>
+<path class="s" d="M160,110H182 M198,110H217 M233,110H252 M268,110H287 M303,110H322 M338,110H357 M373,110H392 M408,110H427 M443,110H462 M478,110H500 M160,124H182 M198,124H217 M233,124H252 M268,124H287 M303,124H322 M338,124H357 M373,124H392 M408,124H427 M443,124H462 M478,124H500 M160,110V124 M500,110V124"/>
+<path class="s" d="M160,270H182 M198,270H217 M233,270H252 M268,270H287 M303,270H322 M338,270H357 M373,270H392 M408,270H427 M443,270H462 M478,270H500 M160,284H182 M198,284H217 M233,284H252 M268,284H287 M303,284H322 M338,284H357 M373,284H392 M408,284H427 M443,284H462 M478,284H500 M160,270V284 M500,270V284"/>
+
+<!-- 개구 가장자리 (강조 : 굵기 2 + 점선) -->
+<path class="k-emph d" stroke-width="2" d="M217,110V124 M233,110V124 M287,110V124 M303,110V124 M357,110V124 M373,110V124 M427,110V124 M443,110V124 M217,270V284 M233,270V284 M287,270V284 M303,270V284 M357,270V284 M373,270V284 M427,270V284 M443,270V284"/>
+
+<!-- 기판측 층 -->
+<path class="s" d="M160,430H500 M160,430V440H500V430 M160,440V464H500V440"/>
+
+<!-- 실린더 전극 5개 (#24 와 같은 폭·같은 색) -->
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M182,90V430H198V90Z M186,90V426H194V90Z"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M252,90V430H268V90Z M256,90V426H264V90Z"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M322,90V430H338V90Z M326,90V426H334V90Z"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M392,90V430H408V90Z M396,90V426H404V90Z"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" fill-rule="evenodd" d="M462,90V430H478V90Z M466,90V426H474V90Z"/>
+
+<!-- 식각액 경로 : 측면 유입 → 개구 통과 (개구를 지나지 않는 경로 없음) -->
+<path class="k-emph" stroke-width="2" d="M44,78H225V376" marker-end="url(#ar)"/>
+<path class="s" d="M556,78H435V376" marker-end="url(#ar)"/>
+<text class="t11 mid" x="330" y="40">식각액 (BOE 또는 HF)</text>
+<text class="t11" x="44" y="70">측면 유입</text>
+<text class="t11 end" x="556" y="70">측면 유입</text>
+
+<!-- 좌굴 길이 : 지지대 사이 구간(실선) vs 지지대 없을 때 전체 높이(파선) -->
+<path class="h" d="M500,124H532 M500,270H532 M478,90H556 M500,430H556"/>
+<path class="h" d="M526,124V270" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<path class="h d" d="M550,90V430" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="t11 mid" transform="translate(514,197) rotate(-90)">좌굴 길이</text>
+
+<!-- 좌 패널 라벨 -->
+<text class="t12 mid" x="295" y="62">개구 (aperture)</text>
+<path class="h" d="M295,66V108"/>
+<text class="t12 end" x="148" y="113">상부 지지대</text>
+<text class="t12 end" x="148" y="127">(upper supporter)</text>
+<path class="h" d="M152,117H162"/>
+<text class="t12 end" x="148" y="273">중간 지지대</text>
+<text class="t12 end" x="148" y="287">(intermediate supporter)</text>
+<path class="h" d="M152,277H162"/>
+<text class="t12 end" x="148" y="200">몰드 산화막 (mold)</text>
+<path class="h" d="M152,196H170"/>
+<text class="t12 end" x="148" y="350">하부 전극 (TiN)</text>
+<path class="h" d="M152,346H182"/>
+<text class="t11" x="40" y="478">지지대 재료 — SiN / SiCN / SiON</text>
+<text class="t14 mid" x="330" y="480">수직 단면</text>
+
+<!-- ===== 우 패널 : 지지대 평면 ===== -->
+<path fill="url(#hatch)" fill-rule="evenodd" d="M640,105h180v120h-180Z M682,130a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M722,130a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M762,130a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M662,165a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M702,165a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M742,165a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M782,165a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M682,200a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M722,200a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M762,200a8,8 0 1,0 16,0a8,8 0 1,0 -16,0Z M679,153a11,11 0 1,0 22,0a11,11 0 1,0 -22,0Z M719,153a11,11 0 1,0 22,0a11,11 0 1,0 -22,0Z M759,153a11,11 0 1,0 22,0a11,11 0 1,0 -22,0Z M679,177a11,11 0 1,0 22,0a11,11 0 1,0 -22,0Z M719,177a11,11 0 1,0 22,0a11,11 0 1,0 -22,0Z M759,177a11,11 0 1,0 22,0a11,11 0 1,0 -22,0Z"/>
+<path class="s" d="M640,105h180v120h-180Z"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="690" cy="130" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="730" cy="130" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="770" cy="130" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="670" cy="165" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="710" cy="165" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="750" cy="165" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="790" cy="165" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="690" cy="200" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="730" cy="200" r="8"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="770" cy="200" r="8"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="690" cy="153" r="11"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="730" cy="153" r="11"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="770" cy="153" r="11"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="690" cy="177" r="11"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="730" cy="177" r="11"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="770" cy="177" r="11"/>
+<text class="t14 mid" x="730" y="250">평면 (지지대 레벨)</text>
+
+<!-- 상충 2열 : 같은 크기의 소형 평면 2개 -->
+<path fill="url(#hatch)" fill-rule="evenodd" d="M600,386h106v46h-106Z M611,409a7,7 0 1,0 14,0a7,7 0 1,0 -14,0Z M647,409a7,7 0 1,0 14,0a7,7 0 1,0 -14,0Z M683,409a7,7 0 1,0 14,0a7,7 0 1,0 -14,0Z M632,409a4,4 0 1,0 8,0a4,4 0 1,0 -8,0Z M668,409a4,4 0 1,0 8,0a4,4 0 1,0 -8,0Z"/>
+<path class="s" d="M600,386h106v46h-106Z"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="618" cy="409" r="7"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="654" cy="409" r="7"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="690" cy="409" r="7"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="636" cy="409" r="4"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="672" cy="409" r="4"/>
+<text class="t11 mid" x="653" y="452">개구 작음 → 몰드 잔류</text>
+
+<path fill="url(#hatch)" fill-rule="evenodd" d="M754,386h106v46h-106Z M765,409a7,7 0 1,0 14,0a7,7 0 1,0 -14,0Z M801,409a7,7 0 1,0 14,0a7,7 0 1,0 -14,0Z M837,409a7,7 0 1,0 14,0a7,7 0 1,0 -14,0Z M780,409a10,10 0 1,0 20,0a10,10 0 1,0 -20,0Z M816,409a10,10 0 1,0 20,0a10,10 0 1,0 -20,0Z"/>
+<path class="s" d="M754,386h106v46h-106Z"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="772" cy="409" r="7"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="808" cy="409" r="7"/>
+<circle class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" cx="844" cy="409" r="7"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="790" cy="409" r="10"/>
+<circle class="k-emph d" fill="none" stroke-width="2" cx="826" cy="409" r="10"/>
+<text class="t11 mid" x="807" y="452">개구 큼 → 기둥 붕괴</text>
+</svg>

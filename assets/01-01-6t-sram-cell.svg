@@ -1,0 +1,128 @@
+<svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 1-1. 6T SRAM 셀 회로도</title>
+<desc id="dsc">교차 결합 인버터 쌍(PMOS 2개·NMOS 2개, 4T)이 두 저장 노드를 전원 레일과 접지 레일에 붙들고, 워드라인이 여는 패스게이트 2개(2T)가 그 노드를 비트라인 쌍에 차동으로 연결하는 6T SRAM 셀의 회로도입니다. 강조색 배선은 교차 결합 경로와 그것이 닫는 래치 고리입니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 묶음 박스 : 4T 래치(강조 점선) / 2T 패스게이트(보조선) -->
+<rect class="s k-emph d" x="210" y="134" width="300" height="206"/>
+<rect class="h" x="122" y="214" width="56" height="48"/>
+<rect class="h" x="542" y="214" width="56" height="48"/>
+
+<!-- 비트라인 쌍 (수직) · 워드라인 (수평) : 교차점 x=90 / x=630 에 접속점 없음 -->
+<line class="s" x1="90"  y1="30" x2="90"  y2="430"/>
+<line class="s" x1="630" y1="30" x2="630" y2="430"/>
+<line class="s" x1="36"  y1="64" x2="684" y2="64"/>
+
+<!-- 전원 레일 y=104 · 접지 레일 y=356 + 표준 접지 기호 3단 -->
+<line class="s" x1="230" y1="104" x2="490" y2="104"/>
+<line class="s" x1="230" y1="356" x2="490" y2="356"/>
+<line class="s" x1="360" y1="356" x2="360" y2="370"/>
+<line class="s" x1="342" y1="370" x2="378" y2="370"/>
+<line class="s" x1="350" y1="377" x2="370" y2="377"/>
+<line class="s" x1="357" y1="384" x2="363" y2="384"/>
+
+<!-- 좌 인버터 : PMOS 상단(y 148~176) / NMOS 하단(y 296~324), 채널 x=250 · 게이트 x=258 -->
+<line class="s k-sram" x1="250" y1="148" x2="250" y2="176"/>
+<line class="s k-sram" x1="258" y1="148" x2="258" y2="176"/>
+<circle class="s k-sram" cx="262.5" cy="162" r="4.5"/>
+<path class="s" d="M250 152 H238 V104"/>
+<path class="s" d="M250 172 H225 V300"/>
+<line class="s k-sram" x1="250" y1="296" x2="250" y2="324"/>
+<line class="s k-sram" x1="258" y1="296" x2="258" y2="324"/>
+<path class="s" d="M250 320 H238 V356"/>
+<line class="s" x1="250" y1="300" x2="225" y2="300"/>
+
+<!-- 우 인버터 : x=360 대칭, 채널 x=470 · 게이트 x=462 -->
+<line class="s k-sram" x1="470" y1="148" x2="470" y2="176"/>
+<line class="s k-sram" x1="462" y1="148" x2="462" y2="176"/>
+<circle class="s k-sram" cx="457.5" cy="162" r="4.5"/>
+<path class="s" d="M470 152 H482 V104"/>
+<path class="s" d="M470 172 H495 V300"/>
+<line class="s k-sram" x1="470" y1="296" x2="470" y2="324"/>
+<line class="s k-sram" x1="462" y1="296" x2="462" y2="324"/>
+<path class="s" d="M470 320 H482 V356"/>
+<line class="s" x1="470" y1="300" x2="495" y2="300"/>
+
+<!-- 교차 결합 배선(강조 실선) : 좌 출력 x=225 → 우 게이트 x=420, 우 출력 x=495 → 좌 게이트 x=300 -->
+<line class="s k-emph" x1="267" y1="162" x2="300" y2="162"/>
+<line class="s k-emph" x1="258" y1="310" x2="300" y2="310"/>
+<line class="s k-emph" x1="300" y1="162" x2="300" y2="310"/>
+<line class="s k-emph" x1="453" y1="162" x2="420" y2="162"/>
+<line class="s k-emph" x1="462" y1="310" x2="420" y2="310"/>
+<line class="s k-emph" x1="420" y1="162" x2="420" y2="310"/>
+<line class="s k-emph" x1="300" y1="214" x2="495" y2="214"/>
+<line class="s k-emph" x1="225" y1="286" x2="420" y2="286"/>
+<circle class="f-emph" cx="300" cy="214" r="3"/>
+<circle class="f-emph" cx="495" cy="214" r="3"/>
+<circle class="f-emph" cx="420" cy="286" r="3"/>
+<circle class="f-emph" cx="225" cy="286" r="3"/>
+
+<!-- 패스게이트 2개 : 채널 y=238 · 게이트 y=226, 게이트 리드는 워드라인에 접속(dot) -->
+<line class="s k-sram" x1="135" y1="238" x2="165" y2="238"/>
+<line class="s k-sram" x1="135" y1="226" x2="165" y2="226"/>
+<line class="s" x1="150" y1="226" x2="150" y2="64"/>
+<path class="s" d="M139 238 V250 H90"/>
+<path class="s" d="M161 238 V250 H225"/>
+<line class="s k-sram" x1="555" y1="238" x2="585" y2="238"/>
+<line class="s k-sram" x1="555" y1="226" x2="585" y2="226"/>
+<line class="s" x1="570" y1="226" x2="570" y2="64"/>
+<path class="s" d="M581 238 V250 H630"/>
+<path class="s" d="M559 238 V250 H495"/>
+<circle cx="150" cy="64"  r="3" fill="var(--stroke)"/>
+<circle cx="570" cy="64"  r="3" fill="var(--stroke)"/>
+<circle cx="90"  cy="250" r="3" fill="var(--stroke)"/>
+<circle cx="630" cy="250" r="3" fill="var(--stroke)"/>
+
+<!-- 저장 노드 2개 -->
+<circle cx="225" cy="250" r="3.5" fill="var(--stroke)"/>
+<circle cx="495" cy="250" r="3.5" fill="var(--stroke)"/>
+<line class="h" x1="208" y1="264" x2="221" y2="252"/>
+<line class="h" x1="512" y1="264" x2="499" y2="252"/>
+
+<!-- 차동 표시 -->
+<line class="h" x1="96" y1="412" x2="624" y2="412" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+<!-- 라벨 -->
+<text class="t12" x="170" y="54">워드라인 (WL)</text>
+<text class="t11" x="98"  y="92">BL</text>
+<text class="t11 end" x="622" y="92">BLB</text>
+<text class="t12 mid" x="360" y="96">전원 레일 (VDD)</text>
+<text class="t14 mid" x="360" y="126">교차 결합 인버터 쌍 (래치)</text>
+<text class="t11 end" x="502" y="126">4T</text>
+<text class="t11 mid" x="250" y="146">PMOS</text>
+<text class="t11 mid" x="250" y="338">NMOS</text>
+<text class="t12 end" x="204" y="276">저장 노드 (H)</text>
+<text class="t12"     x="516" y="276">저장 노드 (L)</text>
+<text class="t11" x="182" y="224">2T</text>
+<text class="t11 end" x="538" y="224">2T</text>
+<text class="t12 mid" x="150" y="294">패스게이트</text>
+<text class="t12 mid" x="150" y="309">(액세스 트랜지스터)</text>
+<text class="t12" x="498" y="360">접지 (GND)</text>
+<text class="t14 mid" x="360" y="400">비트라인 쌍 (BL / BLB)</text>
+<text class="t11 mid" x="360" y="428">차동 (differential)</text>
+<text class="t14 end" x="706" y="428">합계 6T</text>
+</svg>

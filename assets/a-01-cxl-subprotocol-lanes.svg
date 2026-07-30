@@ -1,0 +1,90 @@
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 A-1. 단일 PCIe 링크 위를 동시에 흐르는 CXL 서브프로토콜 3종과 데이터 방향</title>
+<desc id="dsc">호스트와 디바이스를 잇는 하나의 PCIe 물리 계층 위에 CXL.io·CXL.cache·CXL.mem 세 레인이 병렬로 놓이고, CXL.cache는 디바이스에서 호스트로, CXL.mem은 호스트에서 디바이스로 방향이 서로 반대임을 보입니다. 세 레인은 별도의 물리 링크가 아니라 하나의 기반 바를 공유하며, 하단의 Type 1·2·3 조합은 이 방향 조합이 곧 디바이스 분류의 근거임을 색 키로 연결합니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 일관성 도메인 포위선 : 호스트 캐시 + CXL.cache 레인 + 디바이스 캐시 (배경에 먼저) -->
+<rect class="h d" x="42" y="170" width="616" height="70"/>
+<text class="t12 mid" x="430" y="164">일관성 도메인</text>
+
+<!-- 호스트 열 : x 36~184 -->
+<rect class="s" x="36" y="76" width="148" height="210"/>
+<text class="t14 mid" x="110" y="66">호스트 (Host)</text>
+<rect class="s" x="48" y="176" width="124" height="46"/>
+<text class="t12 mid" x="110" y="203">호스트 캐시</text>
+
+<!-- 디바이스 열 : x 516~664 -->
+<rect class="s" x="516" y="76" width="148" height="210"/>
+<text class="t14 mid" x="590" y="66">디바이스 (Device)</text>
+<rect class="s" x="528" y="176" width="124" height="46"/>
+<text class="t12 mid" x="590" y="203">디바이스 캐시</text>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="528" y="250" width="124" height="32"/>
+<text class="t12 mid" x="590" y="270">디바이스 부착 DRAM</text>
+
+<!-- 레인 1 : CXL.io (방향 표기 없음) -->
+<rect class="s" x="184" y="92" width="332" height="30"/>
+<text class="t12" x="194" y="111">CXL.io</text>
+<text class="t11" x="194" y="138">디바이스 발견 · 설정 · DMA</text>
+<text class="t11" x="194" y="153">모든 CXL 디바이스에 필수</text>
+
+<!-- 레인 2 : CXL.cache (디바이스 → 호스트) -->
+<rect class="f-emph k-emph d" fill-opacity="0.15" stroke-width="2" x="184" y="184" width="332" height="30"/>
+<text class="t12" x="194" y="203">CXL.cache</text>
+<text class="t11" x="274" y="203">디바이스 → 호스트</text>
+<line class="s" x1="500" y1="199" x2="384" y2="199" marker-end="url(#ar)"/>
+<text class="t11" x="194" y="232">호스트 메모리 캐싱 · 캐시라인 64B</text>
+
+<!-- 레인 3 : CXL.mem (호스트 → 디바이스) -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="184" y="250" width="332" height="30"/>
+<text class="t12" x="194" y="269">CXL.mem</text>
+<text class="t11" x="274" y="269">호스트 → 디바이스</text>
+<line class="s" x1="384" y1="265" x2="500" y2="265" marker-end="url(#ar)"/>
+<text class="t11" x="194" y="296">물리 주소 공간 편입 · load/store</text>
+<line class="k-dram" stroke-width="2" x1="516" y1="265" x2="528" y2="265"/>
+
+<!-- 단일 기반 바 : 세 레인의 x 범위를 빠짐없이 덮음 -->
+<rect class="h" x="184" y="306" width="332" height="26"/>
+<text class="t12" x="194" y="323">PCIe 물리 계층 (PCIe PHY)</text>
+<text class="t11 end" x="506" y="323">PCIe PHY 재사용</text>
+
+<!-- Type 조합 스트립 : 색 키 열은 io / cache / mem 순으로 고정 -->
+<rect class="s" x="184" y="340" width="250" height="16"/>
+<rect class="s" x="192" y="343" width="16" height="10"/>
+<rect class="f-emph k-emph d" fill-opacity="0.15" stroke-width="2" x="214" y="343" width="16" height="10"/>
+<text class="t11" x="262" y="352">Type 1 = io + cache</text>
+
+<rect class="s" x="184" y="358" width="250" height="16"/>
+<rect class="s" x="192" y="361" width="16" height="10"/>
+<rect class="f-emph k-emph d" fill-opacity="0.15" stroke-width="2" x="214" y="361" width="16" height="10"/>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="236" y="361" width="16" height="10"/>
+<text class="t11" x="262" y="370">Type 2 = io + cache + mem</text>
+
+<rect class="s" x="184" y="376" width="250" height="16"/>
+<rect class="s" x="192" y="379" width="16" height="10"/>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="236" y="379" width="16" height="10"/>
+<text class="t11" x="262" y="388">Type 3 = io + mem</text>
+</svg>

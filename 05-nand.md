@@ -20,7 +20,7 @@ NAND는 또한 이 문서 모음집에서 두 방향으로 뻗는 분기점입�
 
 ## 2. 셀 구조 — 왜 이렇게 생겼는가
 
-[셀 구조도 - CTF 방식, 질화물 트랩층에 전하 저장, FG와의 대비 표기]
+![그림 5-1. FG와 CTF의 전하 저장 방식 대비](assets/05-01-ctf-vs-fg-charge-storage.svg)
 
 *그림 5-1. FG와 CTF의 전하 저장 방식 대비*
 
@@ -80,7 +80,7 @@ DRAM의 접근 지연이 10~100 ns 범위인 것과 대비하면 NAND의 랜덤 
 
 ## 4. 왜 비싼가 / 싼가 — 면적·공정 근거
 
-[단면도 - 3D NAND 수직 적층 구조, 332층 채널 홀 관통 + CBA 본딩 계면, 종횡비 강조]
+![그림 5-2. 3D NAND의 수직 적층 단면과 채널 홀 종횡비](assets/05-02-3d-nand-vertical-stack.svg)
 
 *그림 5-2. 3D NAND의 수직 적층 단면과 채널 홀 종횡비*
 
@@ -236,7 +236,7 @@ Kioxia는 218층 BiCS8에서 이 방식을 최초로 양산 적용했고, 경쟁
 
 ## 8. AI 워크로드에서의 실제 역할
 
-[흐름도 - 전통적 SSD→CPU DRAM→GPU 경로 vs GDS의 PCIe P2P DMA 직결 경로 비교]
+![그림 5-3. 전통적 저장 경로와 GPU Direct Storage 경로 비교](assets/05-03-gds-vs-legacy-path.svg)
 
 *그림 5-3. 전통적 저장 경로와 GPU Direct Storage 경로 비교*
 

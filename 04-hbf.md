@@ -38,7 +38,7 @@ A1~A5 다섯 축의 정의 자체는 [00-memory-hierarchy.md](00-memory-hierarch
 
 ## 2. 셀 구조 — 왜 이렇게 생겼는가
 
-[구조도 - HBF 스택 단면, TSV 적층 NAND 다이 16단 + CBA 구조, 인터포저 위 가속기 인접 배치]
+![그림 4-1. HBF 스택 단면 구조. TSV로 관통 적층된 NAND 다이와 CBA 본딩 계면, 인터포저 위 가속기 인접 배치](assets/04-01-hbf-stack-cross-section.svg)
 
 *그림 4-1. HBF 스택 단면 구조. TSV로 관통 적층된 NAND 다이와 CBA 본딩 계면, 인터포저 위 가속기 인접 배치*
 
@@ -231,7 +231,7 @@ GPU와 DRAM의 통상 수명은 5~7년으로 잡히는 반면, NAND의 수명은
 
 ### 8-1. H³ — HBM 뒤에 HBF를 다는 구성
 
-[구조도 - H³ 아키텍처, GPU shoreline에 HBM 직결 + HBM base die 뒤로 D2D 경유 HBF daisy-chain + base die 내 LHB SRAM]
+![그림 4-2. H³ 아키텍처. GPU shoreline에 직결된 HBM 뒤로 D2D 인터페이스를 경유해 HBF 스택이 daisy-chain으로 붙고, base die 안에 LHB SRAM이 놓인다](assets/04-02-h3-architecture.svg)
 
 *그림 4-2. H³ 아키텍처. GPU shoreline에 직결된 HBM 뒤로 D2D 인터페이스를 경유해 HBF 스택이 daisy-chain으로 붙고, base die 안에 LHB SRAM이 놓인다*
 
@@ -287,7 +287,7 @@ Llama 3.1 405B FP8 모델과 NVIDIA B200을 기준으로, HBM-only 구성 대비
 
 세 조건을 모두 만족하는 대표 사례로 **CAG(Cache-Augmented Generation)** 가 거론됩니다[^04-cag]. 결론만 요약하면, 문서 집합의 KV cache를 사전에 한 번 계산해 두고 이후 다수 요청이 그 결과를 공유하는 방식이므로 — 한 번 쓰고 여러 번 읽으며, 읽을 위치가 미리 정해져 있고, 큰 덩어리 단위로 읽힙니다.
 
-[흐름도 - RAG vs CAG 비교, RAG는 매 요청 retrieve+KV 재계산 / CAG는 사전 1회 KV 생성 후 다중 요청 공유]
+![그림 4-3. RAG와 CAG의 데이터 흐름 비교. CAG는 사전 1회 생성한 KV cache를 다중 요청이 공유한다](assets/04-03-rag-vs-cag-flow.svg)
 
 *그림 4-3. RAG와 CAG의 데이터 흐름 비교. CAG는 사전 1회 생성한 KV cache를 다중 요청이 공유한다*
 

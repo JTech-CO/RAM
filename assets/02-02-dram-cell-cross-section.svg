@@ -1,0 +1,103 @@
+<svg viewBox="0 0 560 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 2-2. 1T1C DRAM 셀의 수직 단면 — 실린더형 커패시터, 매몰 워드라인(Buried WL), 비트라인 컨택</title>
+<desc id="dsc">기판에 잠긴 매몰 워드라인 두 개 사이 중앙에서 비트라인 컨택이, 바깥쪽에서 storage node contact 두 개가 올라가고 그 위에 실린더형 커패시터가 서는 정투영 수직 단면입니다. 강조는 storage node contact 하나이며, 인접 셀 사이 간격은 치수선으로만 표시하고 어떤 치수 수치도 넣지 않습니다. 실린더 몸통은 절단 표시로 축약했습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 기판 : 45° 사선 해칭 (매몰 워드라인·채널 영역은 빈 영역으로 남김) -->
+<path fill="url(#hatch)" fill-rule="evenodd" d="M70,380 H430 V470 H70 Z M126,380 H232 V392 H126 Z M268,380 H374 V392 H268 Z M160,394 H196 V444 H160 Z M304,394 H340 V444 H304 Z"/>
+<rect class="s" x="70" y="380" width="360" height="90"/>
+
+<!-- 셀 트랜지스터 채널 영역 : 기판 표면부 -->
+<rect class="s" x="126" y="380" width="106" height="12"/>
+<rect class="s" x="268" y="380" width="106" height="12"/>
+
+<!-- 매몰 워드라인 : 기판 상면보다 완전히 아래 -->
+<rect class="s" x="160" y="394" width="36" height="50"/>
+<rect class="s" x="304" y="394" width="36" height="50"/>
+
+<!-- 비트라인 컨택 + 비트라인 -->
+<rect class="s" x="232" y="344" width="36" height="36"/>
+<rect class="s" x="206" y="326" width="88" height="18"/>
+
+<!-- storage node contact : 강조 (점선 테두리 동반) -->
+<rect class="f-emph k-emph d" fill-opacity="0.15" stroke-width="2" x="100" y="340" width="26" height="40"/>
+<rect class="f-emph k-emph d" fill-opacity="0.15" stroke-width="2" x="374" y="340" width="26" height="40"/>
+
+<!-- 인접 셀 storage node contact 사이 간격 (수치 없음) -->
+<line class="h" x1="228" y1="352" x2="128" y2="352" marker-end="url(#ar)"/>
+<line class="h" x1="272" y1="352" x2="372" y2="352" marker-end="url(#ar)"/>
+
+<!-- 실린더형 커패시터 : U자 단면 2개 -->
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" d="M83,104 L83,340 L143,340 L143,104 L133,104 L133,330 L93,330 L93,104 Z"/>
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" d="M357,104 L357,340 L417,340 L417,104 L407,104 L407,330 L367,330 L367,104 Z"/>
+
+<!-- 유전체 : 실린더 내벽을 따르는 등간격 보조선 -->
+<path class="h" d="M97,104 L97,326 L129,326 L129,104"/>
+<path class="h" d="M371,104 L371,326 L403,326 L403,104"/>
+
+<!-- 절단 표시 : 실린더 몸통 축약 -->
+<path class="h" d="M75,232 L97,226 L113,240 L129,226 L151,232"/>
+<path class="h" d="M75,252 L97,246 L113,260 L129,246 L151,252"/>
+<path class="h" d="M349,232 L371,226 L387,240 L403,226 L425,232"/>
+<path class="h" d="M349,252 L371,246 L387,260 L403,246 L425,252"/>
+
+<!-- 공통 플레이트 : 실린더 내부와 상부를 덮는 층 -->
+<line class="s" x1="76" y1="84" x2="424" y2="84"/>
+<line class="s" x1="76" y1="84" x2="76" y2="104"/>
+<line class="s" x1="424" y1="84" x2="424" y2="104"/>
+<line class="s" x1="76" y1="104" x2="93" y2="104"/>
+<line class="s" x1="133" y1="104" x2="367" y2="104"/>
+<line class="s" x1="407" y1="104" x2="424" y2="104"/>
+
+<!-- 높이 지시선 : 기판 상면 → 커패시터 상단 (방향만) -->
+<line class="h" x1="40" y1="104" x2="76" y2="104"/>
+<line class="h" x1="40" y1="380" x2="70" y2="380"/>
+<line class="h" x1="48" y1="104" x2="48" y2="380" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+<!-- 지시선 -->
+<line class="h" x1="158" y1="142" x2="145" y2="142"/>
+<line class="h" x1="158" y1="178" x2="129" y2="178"/>
+<line class="h" x1="158" y1="280" x2="146" y2="324"/>
+<line class="h" x1="276" y1="360" x2="270" y2="360"/>
+<line class="h" x1="408" y1="358" x2="402" y2="358"/>
+<line class="h" x1="436" y1="388" x2="376" y2="388"/>
+<line class="h" x1="436" y1="448" x2="428" y2="448"/>
+<line class="h" x1="342" y1="486" x2="336" y2="448"/>
+
+<!-- 라벨 -->
+<text class="t12" x="76" y="76">공통 플레이트</text>
+<text class="t12" x="162" y="146">실린더형 커패시터</text>
+<text class="t12" x="162" y="182">유전체</text>
+<text class="t12" x="162" y="282">storage node</text>
+<text class="t12" x="176" y="318">비트라인 (Bit Line, BL)</text>
+<text class="t12" x="280" y="364">비트라인 컨택</text>
+<text class="t12" x="412" y="362">storage node contact</text>
+<text class="t12" x="440" y="392">셀 트랜지스터</text>
+<text class="t12" x="440" y="452">기판</text>
+<text class="t12 mid" x="250" y="494">매몰 워드라인 (Buried WL)</text>
+<text class="t11 end" x="42" y="246">Z</text>
+</svg>

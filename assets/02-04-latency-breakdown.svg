@@ -1,0 +1,145 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 2-4. 세 접근 시나리오의 지연 누적과 세대 간 ns 정체</title>
+<desc id="dsc">가로축을 ns로 둔 누적 가로 막대 5행으로, 각 행을 CL(tAA)·tRCD·tRP 세 구간으로 쌓아 누적점이 row hit·row miss·row conflict와 겹치게 했습니다. DDR4-1600과 DDR4-3200 두 행의 막대 길이가 13.75 / 27.50 / 41.25 ns로 완전히 같고 DDR5-6400이 48.00 ns로 더 깁니다. 값은 데이터시트 min 값의 산술 합이며 디바이스 구간만 다룹니다. 클럭 수는 축이 아니라 우측 텍스트 열로만 둡니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 가로축 : x = 232 + 5.4667 × (ns), 선형 스케일 -->
+<line class="h" x1="232" y1="38" x2="232" y2="340"/>
+<line class="h" x1="232" y1="340" x2="580" y2="340"/>
+<line class="h" x1="232" y1="340" x2="232" y2="346"/>
+<line class="h" x1="286.67" y1="340" x2="286.67" y2="346"/>
+<line class="h" x1="341.33" y1="340" x2="341.33" y2="346"/>
+<line class="h" x1="396" y1="340" x2="396" y2="346"/>
+<line class="h" x1="450.67" y1="340" x2="450.67" y2="346"/>
+<line class="h" x1="505.33" y1="340" x2="505.33" y2="346"/>
+<line class="h" x1="560" y1="340" x2="560" y2="346"/>
+<text class="t11 mid" x="232" y="358">0</text>
+<text class="t11 mid" x="286.67" y="358">10</text>
+<text class="t11 mid" x="341.33" y="358">20</text>
+<text class="t11 mid" x="396" y="358">30</text>
+<text class="t11 mid" x="450.67" y="358">40</text>
+<text class="t11 mid" x="505.33" y="358">50</text>
+<text class="t11 mid" x="560" y="358">60</text>
+<text class="t14 mid" x="396" y="380">지연 (ns)</text>
+<text class="t11 mid" x="396" y="402">데이터시트 min 값의 산술 합 (계산값) — 커맨드 핀 → DQ 핀 구간</text>
+
+<!-- 시나리오 이름 : 최상단 행에만 -->
+<text class="t12 mid" x="307.17" y="34">row hit</text>
+<text class="t12 mid" x="382.33" y="34">row miss</text>
+<text class="t12 mid" x="457.5" y="34">row conflict</text>
+
+<!-- 1행 : DDR4-1600 -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="232" y="44" width="75.17" height="24"/>
+<rect fill="url(#hatch)" x="307.17" y="44" width="75.17" height="24"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="307.17" y="44" width="75.17" height="24"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="382.33" y="44" width="75.17" height="24"/>
+<text class="t12 mid" x="269.58" y="60">CL (tAA)</text>
+<text class="t12 mid" x="344.75" y="60">tRCD</text>
+<text class="t12 mid" x="419.92" y="60">tRP</text>
+<line class="h" x1="307.17" y1="68" x2="307.17" y2="73"/>
+<line class="h" x1="382.33" y1="68" x2="382.33" y2="73"/>
+<line class="h" x1="457.5" y1="68" x2="457.5" y2="73"/>
+<text class="t11 end" x="303.17" y="82">13.75 ns</text>
+<text class="t11 end" x="378.33" y="82">27.50 ns</text>
+<text class="t11" x="461.5" y="82">41.25 ns</text>
+
+<!-- 2행 : DDR4-3200 -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="232" y="100" width="75.17" height="24"/>
+<rect fill="url(#hatch)" x="307.17" y="100" width="75.17" height="24"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="307.17" y="100" width="75.17" height="24"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="382.33" y="100" width="75.17" height="24"/>
+<line class="h" x1="307.17" y1="124" x2="307.17" y2="129"/>
+<line class="h" x1="382.33" y1="124" x2="382.33" y2="129"/>
+<line class="h" x1="457.5" y1="124" x2="457.5" y2="129"/>
+<text class="t11 end" x="303.17" y="138">13.75 ns</text>
+<text class="t11 end" x="378.33" y="138">27.50 ns</text>
+<text class="t11" x="461.5" y="138">41.25 ns</text>
+
+<!-- 3행 : DDR5-4800B -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="232" y="156" width="87.47" height="24"/>
+<rect fill="url(#hatch)" x="319.47" y="156" width="87.47" height="24"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="319.47" y="156" width="87.47" height="24"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="406.93" y="156" width="87.47" height="24"/>
+<line class="h" x1="319.47" y1="180" x2="319.47" y2="185"/>
+<line class="h" x1="406.93" y1="180" x2="406.93" y2="185"/>
+<line class="h" x1="494.4" y1="180" x2="494.4" y2="185"/>
+<text class="t11 end" x="315.47" y="194">16.00 ns</text>
+<text class="t11 end" x="402.93" y="194">32.00 ns</text>
+<text class="t11" x="498.4" y="194">48.00 ns</text>
+
+<!-- 4행 : DDR5-6400 (마이크론) -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="232" y="212" width="87.47" height="24"/>
+<rect fill="url(#hatch)" x="319.47" y="212" width="87.47" height="24"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="319.47" y="212" width="87.47" height="24"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="406.93" y="212" width="87.47" height="24"/>
+<line class="h" x1="319.47" y1="236" x2="319.47" y2="241"/>
+<line class="h" x1="406.93" y1="236" x2="406.93" y2="241"/>
+<line class="h" x1="494.4" y1="236" x2="494.4" y2="241"/>
+<text class="t11 end" x="315.47" y="250">16.00 ns</text>
+<text class="t11 end" x="402.93" y="250">32.00 ns</text>
+<text class="t11" x="498.4" y="250">48.00 ns</text>
+
+<!-- 5행 : DDR5-6400C (JEDEC 초안) — 전 구간 점선 -->
+<rect class="f-dram k-dram d" fill-opacity="0.15" stroke-width="2" x="232" y="268" width="98.4" height="24"/>
+<rect fill="url(#hatch)" x="330.4" y="268" width="98.4" height="24"/>
+<rect class="k-dram d" fill="none" stroke-width="2" x="330.4" y="268" width="98.4" height="24"/>
+<rect class="k-dram d" fill="none" stroke-width="2" x="428.8" y="268" width="98.4" height="24"/>
+<line class="h" x1="330.4" y1="292" x2="330.4" y2="297"/>
+<line class="h" x1="428.8" y1="292" x2="428.8" y2="297"/>
+<line class="h" x1="527.2" y1="292" x2="527.2" y2="297"/>
+<text class="t11 end" x="326.4" y="306">18.00 ns</text>
+<text class="t11 end" x="424.8" y="306">36.00 ns</text>
+<text class="t11" x="531.2" y="306">54.00 ns</text>
+
+<!-- 강조 1 : DDR4 두 행의 완전한 동일 길이 -->
+<rect class="s d k-emph" x="226" y="38" width="290" height="104" rx="2"/>
+<line class="s d k-emph" x1="307.17" y1="44" x2="307.17" y2="124"/>
+<line class="s d k-emph" x1="382.33" y1="44" x2="382.33" y2="124"/>
+<line class="s d k-emph" x1="457.5" y1="44" x2="457.5" y2="322"/>
+
+<!-- 강조 2 : 2행 끝 41.25 → 4행 끝 48.00 -->
+<line class="s d k-emph" x1="494.4" y1="236" x2="494.4" y2="322"/>
+<line class="s d k-emph" x1="457.5" y1="322" x2="494.4" y2="322"/>
+<text class="t11" x="500" y="326">약 16% 증가</text>
+
+<!-- 행 라벨 -->
+<text class="t12" x="8" y="60">DDR4-1600 (-125E, 11-11-11)</text>
+<text class="t12" x="8" y="116">DDR4-3200 (-062E, 22-22-22)</text>
+<text class="t12" x="8" y="172">DDR5-4800B (삼성, 40-39-39)</text>
+<text class="t12" x="8" y="228">DDR5-6400 (마이크론 -64B, 52-52-52)</text>
+<text class="t12" x="8" y="284">DDR5-6400C (JEDEC 초안)</text>
+<rect class="s d k-emph" x="166" y="270" width="58" height="20" rx="2"/>
+<text class="t11 mid" x="195" y="284">[미비준]</text>
+
+<!-- 클럭 수 열 : 축이 아닌 텍스트 전용 열 -->
+<text class="t14 mid" x="640" y="30">row conflict 클럭 수</text>
+<text class="t11 mid" x="640" y="60">33 CK</text>
+<text class="t11 mid" x="640" y="116">66 CK</text>
+<text class="t11 mid" x="640" y="172">118 CK</text>
+<text class="t11 mid" x="640" y="228">156 CK</text>
+<text class="t11 mid" x="640" y="284">CL 미정 (초안 TBD)</text>
+</svg>

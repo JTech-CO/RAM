@@ -1,0 +1,81 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 6-1. 8대 공정의 순서와 전공정 반복 루프</title>
+<desc id="dsc">8대 공정 단계를 좌에서 우로 일렬 배치하고 전공정과 후공정을 파선으로 나눈 뒤, 산화부터 금속배선과 CMP까지가 되도는 반복 루프를 표시합니다. 반복 횟수는 본문이 수백 번으로만 서술하므로 구체 숫자를 넣지 않았고, 이 문서가 다루는 네 항목만 해칭과 강조 테두리로 구분했습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 전공정 / 후공정 구분선 : ⑥ 금속배선(우단 636)과 ⑦ EDS(좌단 680) 사이 -->
+<line class="h d" x1="658" y1="50" x2="658" y2="200"/>
+<text class="t14 mid" x="330" y="40">전공정 (Fab)</text>
+<text class="t14 mid" x="778" y="40">후공정</text>
+
+<!-- 단계 상자 8개 : 폭 92, 높이 60, y 70~130 (전부 동일 크기) -->
+<rect class="s" x="24"  y="70" width="92" height="60" rx="2"/>
+<rect class="s" x="128" y="70" width="92" height="60" rx="2"/>
+<rect class="s" x="680" y="70" width="92" height="60" rx="2"/>
+
+<!-- 강조 4개 : ③ ④ ⑤ ⑧ — 강조색 테두리 + 45° 해칭 밴드 -->
+<rect x="233" y="115" width="90" height="13" fill="url(#hatch)"/>
+<rect x="337" y="115" width="90" height="13" fill="url(#hatch)"/>
+<rect x="441" y="115" width="90" height="13" fill="url(#hatch)"/>
+<rect x="785" y="115" width="90" height="13" fill="url(#hatch)"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="232" y="70" width="92" height="60" rx="2"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="336" y="70" width="92" height="60" rx="2"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="440" y="70" width="92" height="60" rx="2"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="784" y="70" width="92" height="60" rx="2"/>
+<rect class="s" x="544" y="70" width="92" height="60" rx="2"/>
+
+<!-- 단계 라벨 : 번호 기호 + 항목명 2줄 -->
+<text class="t12 mid" x="70"  y="92">①</text><text class="t12 mid" x="70"  y="110">웨이퍼 제조</text>
+<text class="t12 mid" x="174" y="92">②</text><text class="t12 mid" x="174" y="110">산화</text>
+<text class="t12 mid" x="278" y="92">③</text><text class="t12 mid" x="278" y="110">포토(노광)</text>
+<text class="t12 mid" x="382" y="92">④</text><text class="t12 mid" x="382" y="110">식각</text>
+<text class="t12 mid" x="486" y="92">⑤</text><text class="t12 mid" x="486" y="110">증착·이온주입</text>
+<text class="t12 mid" x="590" y="92">⑥</text><text class="t12 mid" x="590" y="110">금속배선</text>
+<text class="t12 mid" x="726" y="92">⑦</text><text class="t12 mid" x="726" y="110">EDS</text>
+<text class="t12 mid" x="830" y="92">⑧</text><text class="t12 mid" x="830" y="110">패키징</text>
+
+<!-- 단계 연결 화살표 7개 (실선 = 물질·공정 흐름) -->
+<line class="s" x1="118" y1="100" x2="126" y2="100" marker-end="url(#ar)"/>
+<line class="s" x1="222" y1="100" x2="230" y2="100" marker-end="url(#ar)"/>
+<line class="s" x1="326" y1="100" x2="334" y2="100" marker-end="url(#ar)"/>
+<line class="s" x1="430" y1="100" x2="438" y2="100" marker-end="url(#ar)"/>
+<line class="s" x1="534" y1="100" x2="542" y2="100" marker-end="url(#ar)"/>
+<line class="s" x1="640" y1="100" x2="676" y2="100" marker-end="url(#ar)"/>
+<line class="s" x1="774" y1="100" x2="782" y2="100" marker-end="url(#ar)"/>
+
+<!-- 전공정 반복 루프 : ⑥ 금속배선 → CMP → ② 산화 -->
+<path class="s" d="M590,130 L590,200 L560,200"/>
+<path class="s" d="M480,200 L174,200 L174,133" marker-end="url(#ar)"/>
+<rect class="h d" fill="none" x="480" y="186" width="80" height="28" rx="2"/>
+<text class="t11 mid" x="520" y="204">CMP</text>
+<text class="t11 mid" x="320" y="219">수백 회 반복</text>
+
+<!-- 강조 범례 -->
+<rect x="24" y="254" width="24" height="14" fill="url(#hatch)"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="24" y="254" width="24" height="14"/>
+<text class="t11" x="58" y="265">이 문서가 다루는 4개 항목 — ③ 노광 · ④ 식각 · ⑤ 증착 · ⑧ 패키징(본딩)</text>
+</svg>

@@ -1,0 +1,119 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 6-6. 매몰 워드라인과 saddle fin — 유효 채널 길이가 늘어나는 경로</title>
+<desc id="dsc">왼쪽은 트렌치에 묻힌 TiN/W 2층 매몰 워드라인 단면으로, 트렌치 벽을 U자로 도는 유효 채널 경로를 두 접합을 직선으로 잇는 평면 투영 길이와 나란히 놓았습니다. 게이트 상단이 접합과 수직으로 겹치는 구간만 GIDL로 표시했고, 리세스 깊이 치수선에서 GIDL 쪽과 구동력 쪽으로 화살표를 갈라 하나의 노브가 두 방향을 정함을 나타냈습니다. 오른쪽은 직교 방향 단면으로 STI를 더 깎아 돌출시킨 활성 실리콘 fin과 그 3면을 감싼 게이트입니다. 두 패널은 같은 축척과 같은 기판 기준선을 씁니다. 리세스 깊이·게이트 길이·fin 높이의 구체 nm 값은 본문에 없으므로 표기하지 않았습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<text class="t14 mid" x="215" y="32">매몰 워드라인 (Buried WL, bWL)</text>
+<text class="t14 mid" x="717" y="32">Saddle-Fin (S-Fin)</text>
+<path class="h" d="M556,45V430"/>
+
+<!-- ===== 좌 패널 : 매몰 워드라인 ===== -->
+<!-- STI 산화막 (점 해칭) -->
+<path fill="url(#dots)" d="M50,150h55v120h-55Z M325,150h55v120h-55Z"/>
+<path class="s" d="M50,150h55v120h-55Z M325,150h55v120h-55Z"/>
+<!-- 기판 실리콘 (가로 해칭) -->
+<path class="h" d="M105,232H170 M260,232H325 M105,248H170 M260,248H325 M105,264H170 M260,264H325 M50,280H170 M260,280H380 M50,296H170 M260,296H380 M50,312H380 M50,328H170 M260,328H380 M50,344H380 M160,360H380 M50,376H380 M50,392H380"/>
+<path class="s" d="M50,150H380 M50,150V400H380V150"/>
+<!-- 접합 (소스/드레인) -->
+<path class="s" d="M105,150V225H170 M260,225H325V150"/>
+<!-- 캡핑 절연막 (세로 해칭) -->
+<path class="h" d="M178,156V206 M186,156V206 M194,156V206 M202,156V206 M210,156V206 M218,156V206 M226,156V206 M234,156V206 M242,156V206 M250,156V206"/>
+<path class="s" d="M170,150V210H260V150"/>
+<!-- W (트렌치 충전) -->
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" d="M178,210V288Q178,292 182,292H248Q252,292 252,288V210Z"/>
+<!-- TiN 배리어 (사선 해칭) -->
+<path fill="url(#hatch)" fill-rule="evenodd" d="M170,210V292Q170,300 178,300H252Q260,300 260,292V210Z M178,210V288Q178,292 182,292H248Q252,292 252,288V210Z"/>
+<path class="k-dram" stroke-width="2" fill="none" d="M170,210V292Q170,300 178,300H252Q260,300 260,292V210 M178,210V288Q178,292 182,292H248Q252,292 252,288V210"/>
+<!-- 게이트 산화막 (트렌치 내벽을 따르는 얇은 선) -->
+<path class="s" stroke-width="1" d="M170,150V292Q170,300 178,300H252Q260,300 260,292V150"/>
+<!-- DWMG 분할선 -->
+<path class="h d" d="M178,250H252"/>
+
+<!-- GIDL 구간 : 게이트 상단 × 접합의 수직 겹침만 -->
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M150,210h20v15h-20Z M260,210h20v15h-20Z"/>
+
+<!-- U자 유효 채널 경로 + 45° 티크 -->
+<path class="k-emph" stroke-width="2" fill="none" d="M164,225V292Q164,306 176,306H254Q266,306 266,292V225"/>
+<path class="k-emph" stroke-width="1" d="M161,237L167,243 M161,262L167,268 M161,282L167,288 M187,303L193,309 M212,303L218,309 M237,303L243,309 M263,237L269,243 M263,262L269,268 M263,282L269,288"/>
+<text class="t11 mid" x="215" y="332">유효 채널 길이</text>
+
+<!-- 평면 투영 길이 -->
+<path class="h d" d="M137,132H293"/>
+<path class="h" d="M137,126V138 M293,126V138"/>
+<text class="t11 mid" x="215" y="122">평면 투영 길이</text>
+
+<!-- 리세스 깊이 치수선 + 양방향 지시 -->
+<path class="h" d="M262,210H404 M380,150H404"/>
+<path class="h" d="M396,150V210" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text class="t11" x="386" y="142">리세스 깊이</text>
+<path class="h d" d="M390,166L286,212" marker-end="url(#ar)"/>
+<path class="h d" d="M390,192L268,286" marker-end="url(#ar)"/>
+
+<!-- 좌 패널 부품 라벨 -->
+<text class="t12" x="50" y="60">접합 (소스/드레인)</text>
+<path class="h" d="M110,64L125,158"/>
+<text class="t12" x="50" y="80">게이트 트렌치</text>
+<path class="h" d="M130,76L170,152"/>
+<text class="t12" x="290" y="60">TiN 배리어</text>
+<path class="h" d="M300,64L256,208"/>
+<text class="t12" x="288" y="80">캡핑 절연막</text>
+<path class="h" d="M288,84L262,168"/>
+<text class="t12" x="50" y="366">게이트 산화막</text>
+<path class="h" d="M142,362L176,304"/>
+<text class="t12 mid" x="215" y="275">W</text>
+<text class="t12 mid" transform="translate(78,215) rotate(-90)">STI 산화막</text>
+
+<!-- 좌 패널 우측 라벨 열 -->
+<text class="t11" x="386" y="240">GIDL</text>
+<text class="t11" x="386" y="254">(Gate-Induced Drain Leakage)</text>
+<path class="h" d="M384,247L286,222"/>
+<text class="t11" x="386" y="300">DWMG</text>
+<text class="t11" x="386" y="314">(dual work-function metal gate)</text>
+<text class="t11" x="386" y="336">GIDL 억제 워크펑션 — 상부</text>
+<path class="h" d="M382,332L256,230"/>
+<text class="t11" x="386" y="354">Vth·구동력 워크펑션</text>
+<text class="t11" x="386" y="368">— 채널 중앙 하부</text>
+<path class="h" d="M382,358L256,278"/>
+
+<!-- ===== 우 패널 : Saddle-Fin ===== -->
+<path fill="url(#dots)" d="M600,250h100v70h-100Z M740,250h100v70h-100Z"/>
+<path class="h" d="M700,200H740 M700,216H740 M700,232H740 M700,248H740 M700,264H740 M700,280H740 M700,296H740 M700,312H740 M600,336H840 M600,352H660 M775,352H840 M600,368H840 M600,384H840"/>
+<path class="s" d="M600,250H700V190H740V250H840 M600,250V400H840V250 M600,320H700 M740,320H840 M700,250V320 M740,250V320"/>
+
+<!-- 원 STI 상면 (더 깎아 낸 깊이) -->
+<path class="h d" d="M600,190H684 M756,190H840"/>
+<path class="h" d="M630,190V250" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+<!-- fin 의 좌·상·우 3면을 감싼 게이트 -->
+<path class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" d="M684,250V174H756V250H740V190H700V250Z"/>
+
+<text class="t12" x="612" y="290">STI 산화막</text>
+<text class="t12 mid" x="717" y="356">활성 실리콘 fin</text>
+<path class="h" d="M717,346V256"/>
+<text class="t11 mid" x="717" y="110">셀 워드라인 아래</text>
+<path class="h" d="M717,118V170"/>
+</svg>

@@ -1,0 +1,172 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">HBM 스택 단면과 인터포저 위 GPU 병렬 배치</title>
+<desc id="dsc">실리콘 인터포저 위에 GPU 다이와 HBM 스택이 나란히 놓이고, 스택은 TSV가 관통하는 DRAM 다이 12단과 최하단 로직 base die로 구성된다. 수직 방향(µm)과 수평 방향(mm)은 서로 다른 배율로 그렸습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- ===== 공유 px 단위 (#10과 동일) : 다이 12 / 갭 4 / 피치 16 / 스택 폭 140 ===== -->
+<!-- 인터포저 상면 y=340, 두께 16. 스택 = 13장 x 16 = 208 → 상면 y=132 -->
+
+<!-- 실리콘 인터포저 (재료 해칭 + 구조선 테두리) -->
+<rect x="40" y="340" width="640" height="16" fill="url(#hatch)"/>
+<rect class="s" x="40" y="340" width="640" height="16"/>
+
+<!-- 인터포저 내부 신호선 다발 : base die 하단 ↔ GPU 다이 하단 -->
+<path class="s" d="M130,340 L130,344 L360,344 L360,340"/>
+<path class="s" d="M126,340 L126,348 L364,348 L364,340"/>
+<path class="s" d="M122,340 L122,352 L368,352 L368,340"/>
+
+<!-- ===== 좌측 상세 HBM 스택 : x 60~200 ===== -->
+<!-- 로직 base die (강조색 + 45도 해칭) -->
+<rect class="f-emph" fill-opacity="0.15" x="60" y="324" width="140" height="12"/>
+<rect fill="url(#hatch)" x="60" y="324" width="140" height="12"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="60" y="324" width="140" height="12"/>
+
+<!-- DRAM 다이 12장 (아래에서 위로) -->
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="308" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="292" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="276" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="260" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="244" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="228" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="212" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="196" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="180" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="164" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="148" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="60" y="132" width="140" height="12"/>
+
+<!-- keep-out 영역 : TSV 좌우 인접 띠, 다이 2장에만 표시 (보조선 실선 + 135도 성긴 해칭) -->
+<rect class="h" x="82" y="180" width="12" height="12"/>
+<line class="h" x1="82" y1="186" x2="88" y2="192"/>
+<line class="h" x1="82" y1="180" x2="94" y2="192"/>
+<line class="h" x1="88" y1="180" x2="94" y2="186"/>
+<rect class="h" x="110" y="180" width="12" height="12"/>
+<line class="h" x1="110" y1="186" x2="116" y2="192"/>
+<line class="h" x1="110" y1="180" x2="122" y2="192"/>
+<line class="h" x1="116" y1="180" x2="122" y2="186"/>
+<rect class="h" x="138" y="180" width="12" height="12"/>
+<line class="h" x1="138" y1="186" x2="144" y2="192"/>
+<line class="h" x1="138" y1="180" x2="150" y2="192"/>
+<line class="h" x1="144" y1="180" x2="150" y2="186"/>
+<rect class="h" x="166" y="180" width="12" height="12"/>
+<line class="h" x1="166" y1="186" x2="172" y2="192"/>
+<line class="h" x1="166" y1="180" x2="178" y2="192"/>
+<line class="h" x1="172" y1="180" x2="178" y2="186"/>
+<rect class="h" x="82" y="196" width="12" height="12"/>
+<line class="h" x1="82" y1="202" x2="88" y2="208"/>
+<line class="h" x1="82" y1="196" x2="94" y2="208"/>
+<line class="h" x1="88" y1="196" x2="94" y2="202"/>
+<rect class="h" x="110" y="196" width="12" height="12"/>
+<line class="h" x1="110" y1="202" x2="116" y2="208"/>
+<line class="h" x1="110" y1="196" x2="122" y2="208"/>
+<line class="h" x1="116" y1="196" x2="122" y2="202"/>
+<rect class="h" x="138" y="196" width="12" height="12"/>
+<line class="h" x1="138" y1="202" x2="144" y2="208"/>
+<line class="h" x1="138" y1="196" x2="150" y2="208"/>
+<line class="h" x1="144" y1="196" x2="150" y2="202"/>
+<rect class="h" x="166" y="196" width="12" height="12"/>
+<line class="h" x1="166" y1="202" x2="172" y2="208"/>
+<line class="h" x1="166" y1="196" x2="178" y2="208"/>
+<line class="h" x1="172" y1="196" x2="178" y2="202"/>
+
+<!-- 관통 실리콘 비아 (TSV) : 다이 12장 + base die 를 모두 관통해 인터포저 상면까지 -->
+<line class="s" x1="88" y1="132" x2="88" y2="340"/>
+<line class="s" x1="116" y1="132" x2="116" y2="340"/>
+<line class="s" x1="144" y1="132" x2="144" y2="340"/>
+<line class="s" x1="172" y1="132" x2="172" y2="340"/>
+
+<!-- ===== 우측 약식 HBM 스택 : x 520~660, 좌측과 동일 높이/폭 ===== -->
+<rect class="f-emph" fill-opacity="0.15" x="520" y="324" width="140" height="12"/>
+<rect fill="url(#hatch)" x="520" y="324" width="140" height="12"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="520" y="324" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="308" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="292" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="276" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="260" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="244" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="228" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="212" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="196" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="180" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="164" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="148" width="140" height="12"/>
+<rect class="f-hbm k-hbm" fill-opacity="0.15" stroke-width="2" x="520" y="132" width="140" height="12"/>
+
+<!-- ===== GPU 다이 : 인터포저 위 다이 1장 두께 ===== -->
+<rect class="s" x="250" y="324" width="220" height="12"/>
+
+<!-- ===== 치수선 ===== -->
+<!-- 스택 높이 : 인터포저 상면 → 스택 상면 -->
+<line class="h" x1="44" y1="132" x2="60" y2="132"/>
+<line class="h" x1="48" y1="132" x2="48" y2="340" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<!-- GPU ↔ 우측 스택 수평 거리 -->
+<line class="h" x1="470" y1="330" x2="520" y2="330" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+<!-- ===== 마이크로범프 확대 콜아웃 (다이 4·5 사이 갭 1개) ===== -->
+<rect class="h" x="150" y="256" width="50" height="4"/>
+<line class="h d" x1="200" y1="256" x2="320" y2="220"/>
+<line class="h d" x1="200" y1="260" x2="320" y2="248"/>
+<line class="s" x1="320" y1="220" x2="490" y2="220"/>
+<line class="s" x1="320" y1="248" x2="490" y2="248"/>
+<rect class="s" x="330" y="220" width="16" height="28"/>
+<rect class="s" x="364" y="220" width="16" height="28"/>
+<rect class="s" x="398" y="220" width="16" height="28"/>
+<rect class="s" x="432" y="220" width="16" height="28"/>
+<rect class="s" x="466" y="220" width="16" height="28"/>
+<line class="h" x1="338" y1="260" x2="372" y2="260" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+<!-- ===== 지시선 ===== -->
+<line class="h" x1="214" y1="136" x2="200" y2="138"/>
+<line class="h" x1="214" y1="174" x2="172" y2="170"/>
+<line class="h" x1="214" y1="196" x2="178" y2="186"/>
+<line class="h" x1="214" y1="218" x2="192" y2="202"/>
+<path class="h" d="M206,304 L206,330 L194,330"/>
+
+<!-- ===== 라벨 ===== -->
+<text class="t14 mid" x="130" y="100">HBM 스택</text>
+<text class="t14 mid" x="590" y="100">HBM 스택</text>
+<text class="t11" x="24" y="124">패키지 높이 규격 775 µm</text>
+
+<text class="t12" x="218" y="140">DRAM 다이</text>
+<text class="t11" x="218" y="156">12단</text>
+<text class="t12" x="218" y="178">관통 실리콘 비아 (TSV)</text>
+<text class="t12" x="218" y="200">keep-out 영역</text>
+<text class="t12" x="218" y="222">셀 배열</text>
+
+<text class="t12" x="320" y="212">마이크로범프 (microbump)</text>
+<text class="t11" x="380" y="264">pad pitch 10 µm</text>
+
+<text class="t12" x="214" y="300">로직 base die</text>
+<text class="t11" x="214" y="316">4~5 nm 로직 공정</text>
+
+<text class="t14 mid" x="360" y="316">GPU 다이</text>
+<text class="t11 mid" x="495" y="322">수 mm</text>
+
+<text class="t11 mid" x="150" y="376">스택당 신호선 2048개</text>
+<text class="t14 mid" x="480" y="376">실리콘 인터포저 (silicon interposer)</text>
+<text class="t11 end" x="700" y="402">수직·수평 배율 다름</text>
+</svg>

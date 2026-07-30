@@ -1,0 +1,136 @@
+<svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 A-2. CXL 1.1 → 2.0 → 3.x의 3단계 확장 구조</title>
+<desc id="dsc">세 패널의 호스트 행·스위치 행·메모리 장치 행을 같은 y 좌표로 정렬해 연결 방식의 진화를 비교합니다. 2.0의 MLD는 논리 chunk 하나마다 실선이 정확히 하나만 닿는 동적 할당이고, 3.x의 GFAM에는 실선 셋이 같은 블록으로 수렴하는 동시 접근입니다. 3.x 패널의 점선 외곽은 표준은 확정이나 실리콘 배치가 후행함을 뜻합니다. 각 패널의 호스트 2~3개와 패브릭 노드 4개는 개념 표현용 최소 개수이며 실제 규모가 아닙니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 3.x 패널 외곽 : 배치 미확정 표기 -->
+<rect class="s d" x="664" y="22" width="272" height="406"/>
+
+<!-- 패널 진행 방향 -->
+<line class="h" x1="302" y1="170" x2="338" y2="170" marker-end="url(#ar)"/>
+<line class="h" x1="622" y1="170" x2="658" y2="170" marker-end="url(#ar)"/>
+
+<!-- ============ 패널 1 : CXL 1.1 (x 20~320) ============ -->
+<text class="t14 mid" x="170" y="40">CXL 1.1</text>
+<text class="t12 mid" x="170" y="60">단일 노드 용량 확장</text>
+
+<rect class="s" x="110" y="100" width="120" height="40"/>
+<text class="t12 mid" x="170" y="124">호스트</text>
+
+<text class="t11 mid" x="170" y="228">스위치 없음</text>
+
+<line class="s" x1="140" y1="140" x2="105" y2="300" marker-end="url(#ar)"/>
+<line class="s" x1="200" y1="140" x2="235" y2="300" marker-end="url(#ar)"/>
+
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="50" y="300" width="110" height="50"/>
+<text class="t12 mid" x="105" y="330">CXL 디바이스</text>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="180" y="300" width="110" height="50"/>
+<text class="t12 mid" x="235" y="330">CXL 디바이스</text>
+
+<!-- ============ 패널 2 : CXL 2.0 (x 340~640) ============ -->
+<text class="t14 mid" x="490" y="40">CXL 2.0</text>
+<text class="t12 mid" x="490" y="60">스위치와 메모리 풀링</text>
+
+<rect class="s" x="356" y="100" width="90" height="40"/>
+<text class="t12 mid" x="401" y="124">호스트 1</text>
+<rect class="s" x="470" y="100" width="90" height="40"/>
+<text class="t12 mid" x="515" y="124">호스트 2</text>
+
+<line class="s" x1="401" y1="140" x2="401" y2="200" marker-end="url(#ar)"/>
+<line class="s" x1="515" y1="140" x2="470" y2="200" marker-end="url(#ar)"/>
+
+<rect class="s" x="348" y="200" width="152" height="40"/>
+<text class="t12 mid" x="424" y="224">CXL 스위치 1단</text>
+
+<rect class="h" x="528" y="204" width="104" height="32"/>
+<text class="t12 mid" x="580" y="224">Fabric Manager</text>
+<line class="h d" x1="526" y1="220" x2="504" y2="220"/>
+
+<!-- 귀속 실선 : chunk 하나당 정확히 1개 -->
+<line class="s" x1="401" y1="240" x2="406" y2="300" marker-end="url(#ar)"/>
+<line class="s" x1="470" y1="240" x2="490" y2="300" marker-end="url(#ar)"/>
+
+<text class="t11 mid" x="574" y="294">미할당</text>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="364" y="300" width="84" height="50"/>
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="448" y="300" width="84" height="50"/>
+<rect x="532" y="300" width="84" height="50" fill="url(#hatch)"/>
+<rect class="h" x="532" y="300" width="84" height="50"/>
+<rect class="k-dram" fill="none" stroke-width="2" x="364" y="300" width="252" height="50"/>
+<text class="t12 mid" x="406" y="330">논리 chunk</text>
+
+<text class="t12 mid" x="490" y="368">다중 논리 디바이스 (MLD)</text>
+<text class="t11" x="366" y="386">동적 할당</text>
+<text class="t11 end" x="614" y="386">충돌 영역 없음</text>
+<rect class="s" x="405" y="396" width="170" height="22"/>
+<text class="t11 mid" x="490" y="411">2026년 현재 양산 제품 대부분</text>
+
+<!-- ============ 패널 3 : CXL 3.x (x 660~940) ============ -->
+<text class="t14 mid" x="800" y="40">CXL 3.x</text>
+<text class="t12 mid" x="800" y="60">패브릭과 다중 호스트 동시 접근</text>
+<text class="t11 mid" x="800" y="78">3.0 (2022) · 3.1 (2023) · 3.2 (2024)</text>
+
+<rect class="s" x="674" y="100" width="72" height="40"/>
+<text class="t12 mid" x="710" y="124">호스트 1</text>
+<rect class="s" x="764" y="100" width="72" height="40"/>
+<text class="t12 mid" x="800" y="124">호스트 2</text>
+<rect class="s" x="854" y="100" width="72" height="40"/>
+<text class="t12 mid" x="890" y="124">호스트 3</text>
+
+<line class="s" x1="710" y1="140" x2="700" y2="219" marker-end="url(#ar)"/>
+<line class="s" x1="800" y1="140" x2="730" y2="200" marker-end="url(#ar)"/>
+<line class="s" x1="890" y1="140" x2="762" y2="219" marker-end="url(#ar)"/>
+
+<!-- PBR 패브릭 : 마름모 배치 4노드 + 노드 간 연결 -->
+<line class="s" x1="724" y1="211" x2="706" y2="220"/>
+<line class="s" x1="736" y1="211" x2="754" y2="220"/>
+<line class="s" x1="706" y1="230" x2="724" y2="239"/>
+<line class="s" x1="754" y1="230" x2="736" y2="239"/>
+<line class="s" x1="706" y1="225" x2="754" y2="225"/>
+<line class="s" x1="730" y1="212" x2="730" y2="238"/>
+<rect class="s" x="724" y="200" width="12" height="12"/>
+<rect class="s" x="694" y="219" width="12" height="12"/>
+<rect class="s" x="754" y="219" width="12" height="12"/>
+<rect class="s" x="724" y="238" width="12" height="12"/>
+<text class="t12 end" x="930" y="214">포트 기반 라우팅 (PBR)</text>
+<text class="t11 end" x="930" y="232">mesh / dragonfly / 3D torus</text>
+
+<!-- 동일 GFAM 블록으로 수렴하는 실선 3개 -->
+<path class="k-emph" fill="none" stroke-width="2" d="M700,231 L752,282 L752,290"/>
+<path class="k-emph" fill="none" stroke-width="2" d="M730,250 L800,282 L800,290"/>
+<path class="k-emph" fill="none" stroke-width="2" d="M760,231 L848,282 L848,290"/>
+<path class="f-emph" d="M747,290 L757,290 L752,300 Z"/>
+<path class="f-emph" d="M795,290 L805,290 L800,300 Z"/>
+<path class="f-emph" d="M843,290 L853,290 L848,300 Z"/>
+
+<rect x="740" y="300" width="120" height="50" fill="url(#hatch)"/>
+<rect class="k-emph" fill="none" stroke-width="2" x="740" y="300" width="120" height="50"/>
+<text class="t12 mid" x="800" y="368">전역 패브릭 부착 메모리 (GFAM)</text>
+<text class="t11" x="668" y="386">다중 호스트 동시 접근</text>
+<text class="t11 end" x="932" y="386">하드웨어 캐시 일관성</text>
+<rect class="s d" x="727" y="396" width="146" height="22"/>
+<text class="t11 mid" x="800" y="411">사양 선행 · 실리콘 후행</text>
+</svg>

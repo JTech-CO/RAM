@@ -1,0 +1,101 @@
+<svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 6-3. HAR 채널 홀의 대표적 프로파일 결함 3종</title>
+<desc id="dsc">ONON 다층막을 관통하는 3D NAND 채널 홀의 정상 프로파일과 bowing·twisting·tilting 세 결함을 같은 깊이 축에 나란히 놓고, 정상 기준선을 벗어난 구간만 해칭으로 표시합니다. 아래 밴드는 홀 하나의 형상이 아니라 홀끼리의 CD·깊이 편차를 따로 다룹니다. 깊이 축은 절단 표시로 축약했으며 종횡비 수치는 본문이 두 계열을 병기 중이므로 표기하지 않습니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- ONON 질화막 밴드 (점 해칭) : 홀 내부는 evenodd 로 비움 -->
+<path fill="url(#dots)" fill-rule="evenodd" d="M90,62h176v11h-176Z M90,84h176v11h-176Z M90,106h176v11h-176Z M90,128h176v11h-176Z M90,150h176v11h-176Z M90,172h176v8h-176Z M90,200h176v11h-176Z M90,222h176v11h-176Z M90,244h176v11h-176Z M90,266h176v11h-176Z M90,288h176v11h-176Z M90,310h176v11h-176Z M152,62L152,318L204,318L204,62Z"/>
+<path fill="url(#dots)" fill-rule="evenodd" d="M275,62h176v11h-176Z M275,84h176v11h-176Z M275,106h176v11h-176Z M275,128h176v11h-176Z M275,150h176v11h-176Z M275,172h176v8h-176Z M275,200h176v11h-176Z M275,222h176v11h-176Z M275,244h176v11h-176Z M275,266h176v11h-176Z M275,288h176v11h-176Z M275,310h176v11h-176Z M337,62L330.2,110L325,147L329,180L331.4,200L335.2,240L336.1,280L337,318L389,318L389.9,280L390.8,240L394.6,200L397,180L401,147L395.8,110L389,62Z"/>
+<path fill="url(#dots)" fill-rule="evenodd" d="M460,62h176v11h-176Z M460,84h176v11h-176Z M460,106h176v11h-176Z M460,128h176v11h-176Z M460,150h176v11h-176Z M460,172h176v8h-176Z M460,200h176v11h-176Z M460,222h176v11h-176Z M460,244h176v11h-176Z M460,266h176v11h-176Z M460,288h176v11h-176Z M460,310h176v11h-176Z M522,62L522,200L512,230L507,260L520,290L536,318L588,318L572,290L559,260L564,230L574,200L574,62Z"/>
+<path fill="url(#dots)" fill-rule="evenodd" d="M645,62h176v11h-176Z M645,84h176v11h-176Z M645,106h176v11h-176Z M645,128h176v11h-176Z M645,150h176v11h-176Z M645,172h176v8h-176Z M645,200h176v11h-176Z M645,222h176v11h-176Z M645,244h176v11h-176Z M645,266h176v11h-176Z M645,288h176v11h-176Z M645,310h176v11h-176Z M707,62L720.8,180L723.2,200L737,318L789,318L775.2,200L772.8,180L759,62Z"/>
+
+<!-- 정상 기준선 : 칸 1 의 좌·우 벽 x 를 네 칸 전부에 파선으로 -->
+<path class="h d" d="M152,62V318 M204,62V318 M337,62V318 M389,62V318 M522,62V318 M574,62V318 M707,62V318 M759,62V318"/>
+
+<!-- 다층막 외곽 (상단 개구는 끊고, 절단 구간 y180~200 은 비움) -->
+<path class="s" d="M90,180V62H152 M204,62H266V180 M90,200V332H266V200"/>
+<path class="s" d="M275,180V62H337 M389,62H451V180 M275,200V332H451V200"/>
+<path class="s" d="M460,180V62H522 M574,62H636V180 M460,200V332H636V200"/>
+<path class="s" d="M645,180V62H707 M759,62H821V180 M645,200V332H821V200"/>
+
+<!-- 정상 대비 이탈 구간 (강조 윤곽 + 45° 해칭) -->
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M337,62L330.2,110L325,147L329,180L337,180Z"/>
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M389,62L395.8,110L401,147L397,180L389,180Z"/>
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M522,200L512,230L507,260L520,290L536,318L522,318Z"/>
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M574,200L564,230L559,260L572,290L588,318L574,318Z"/>
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M707,62L720.8,180L707,180Z"/>
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M707,200L723.2,200L737,318L707,318Z"/>
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M759,62L772.8,180L759,180Z"/>
+<path class="k-emph" stroke-width="2" fill="url(#hatch)" d="M759,200L775.2,200L789,318L759,318Z"/>
+
+<!-- 홀 벽 -->
+<path class="s" d="M152,62V180 M204,62V180 M152,200V318H204V200"/>
+<path class="s" d="M337,62L330.2,110L325,147L329,180 M389,62L395.8,110L401,147L397,180 M331.4,200L335.2,240L336.1,280L337,318L389,318L389.9,280L390.8,240L394.6,200"/>
+<path class="s" d="M522,62V180 M574,62V180 M522,200L512,230L507,260L520,290L536,318L588,318L572,290L559,260L564,230L574,200"/>
+<path class="s" d="M707,62L720.8,180 M759,62L772.8,180 M723.2,200L737,318L789,318L775.2,200"/>
+
+<!-- 깊이 축 + 절단 표시 -->
+<path class="h" d="M76,62V180 M76,200V318 M72,62H80 M72,318H80 M68,186L84,176 M68,196L84,186"/>
+<text class="t11 end" x="72" y="66">0</text>
+<text class="t11 end" x="72" y="322">깊이 6~10 µm</text>
+<text class="t11 mid" transform="translate(44,140) rotate(-90)">깊이 축 축약</text>
+
+<!-- 홀 직경 치수선 -->
+<path class="h" d="M152,45H204" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<path class="h" d="M152,49V62 M204,49V62"/>
+<text class="t11 mid" x="178" y="36">홀 직경 100 nm 미만</text>
+<text class="t11 end" x="821" y="54">ONON (oxide/nitride) 다층막</text>
+
+<!-- 칸 제목 · 현상 -->
+<text class="t14 mid" x="178" y="348">정상 프로파일</text>
+<text class="t14 mid" x="363" y="348">bowing</text>
+<text class="t14 mid" x="548" y="348">twisting</text>
+<text class="t14 mid" x="733" y="348">tilting</text>
+<text class="t11 mid" x="363" y="364">홀 중간이 옆으로 부풂</text>
+<text class="t11 mid" x="548" y="364">홀이 깊이 방향으로 비틀림</text>
+<text class="t11 mid" x="733" y="364">홀 전체가 기울어짐</text>
+
+<!-- 하단 밴드 : 홀 간 편차 (홀 하나의 형상이 아니라 홀끼리의 문제) -->
+<path class="h" d="M76,376H821"/>
+<text class="t14" x="76" y="396">홀 간 편차</text>
+<text class="t11" x="76" y="414">웨이퍼 내 홀끼리 CD·깊이가 어긋남</text>
+
+<path class="h" d="M369,396H746"/>
+<path class="h d" d="M369,448H746"/>
+
+<path class="s" d="M386,396V442H414V396"/>
+<path class="s" d="M495,396V456H515V396"/>
+<path class="s" d="M593,396V436H627V396"/>
+<path class="s" d="M703,396V451H727V396"/>
+
+<path class="h" d="M386,388H414 M495,388H515 M593,388H627 M703,388H727" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<path class="h" d="M386,384V396 M414,384V396 M495,384V396 M515,384V396 M593,384V396 M627,384V396 M703,384V396 M727,384V396"/>
+
+<path class="h" d="M424,396V442 M525,396V456 M637,396V436 M737,396V451" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+<path class="k-emph d" stroke-width="2" d="M400,448V442 M505,448V456 M610,448V436 M715,448V451"/>
+</svg>

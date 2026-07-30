@@ -1,0 +1,90 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">그림 2-3. DRAM 셀 커패시턴스 추이 — "일정 유지" 원칙이 깨지는 변곡점</title>
+<desc id="dsc">셀 커패시턴스를 시기순 세로 막대 5개로 놓아 1985~2004년의 약 30 fF 평탄 구간과 D1z/D1a 이후 하강 구간이 갈리는 지점을 변곡점 선으로 표시합니다. 가로축은 등간격 범주축이며 연도 비례 축이 아닙니다. 부등호 값은 열린 화살촉으로, D1c 값은 전망치이므로 점선 막대와 배지로, ITRS 가정치는 시계열 밖 분리 영역에 무채색 점선으로 두어 현행 실측값과 구분합니다.</desc>
+<style>
+  :root{ --stroke:#1F2328; --hint:#8B949E; }
+  @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
+  .s{ stroke:var(--stroke); fill:none; stroke-width:2; stroke-linejoin:round; stroke-linecap:round; }
+  .h{ stroke:var(--hint); fill:none; stroke-width:1; }
+  .d{ stroke-dasharray:4 3; }
+  text{ fill:var(--stroke); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  .t14{ font-size:14px; } .t12{ font-size:12px; } .t11{ font-size:11px; }
+  .mid{ text-anchor:middle; } .end{ text-anchor:end; }
+  .f-sram{ fill:#0072B2; } .f-dram{ fill:#009E73; } .f-hbm{ fill:#56B4E9; }
+  .f-hbf{ fill:#CC79A7; }  .f-nand{ fill:#E69F00; } .f-emph{ fill:#D55E00; }
+  .k-sram{ stroke:#0072B2; } .k-dram{ stroke:#009E73; } .k-hbm{ stroke:#56B4E9; }
+  .k-hbf{ stroke:#CC79A7; }  .k-nand{ stroke:#E69F00; } .k-emph{ stroke:#D55E00; }
+</style>
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 Z" fill="var(--stroke)"/>
+  </marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="var(--stroke)" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="3" cy="3" r="1" fill="var(--hint)"/>
+  </pattern>
+</defs>
+
+<!-- 축 : y = 240 - 5.5 × (fF), 선형 스케일 -->
+<line class="h" x1="76" y1="44" x2="76" y2="240"/>
+<line class="h" x1="76" y1="240" x2="700" y2="240"/>
+<line class="h" x1="70" y1="240" x2="76" y2="240"/>
+<line class="h" x1="70" y1="185" x2="76" y2="185"/>
+<line class="h" x1="70" y1="130" x2="76" y2="130"/>
+<line class="h" x1="70" y1="75" x2="76" y2="75"/>
+<text class="t11 end" x="64" y="244">0</text>
+<text class="t11 end" x="64" y="189">10</text>
+<text class="t11 end" x="64" y="134">20</text>
+<text class="t11 end" x="64" y="79">30</text>
+<text class="t14" x="16" y="32">셀 커패시턴스 (fF)</text>
+
+<!-- 평탄 기준선 -->
+<line class="h d" x1="80" y1="75" x2="419" y2="75"/>
+<text class="t11" x="82" y="68">약 30 fF 유지</text>
+
+<!-- 변곡점 : 막대 3과 막대 4 사이 -->
+<line class="s d k-emph" x1="421" y1="58" x2="421" y2="250"/>
+<text class="t11" x="426" y="52">변곡점</text>
+
+<!-- 막대 1 : 1985년, 32 fF -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="184" y="64" width="54" height="176"/>
+<text class="t11 mid" x="211" y="56">32 fF</text>
+
+<!-- 막대 2 : 1988년, 33 fF -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="268" y="58.5" width="54" height="181.5"/>
+<text class="t11 mid" x="295" y="50">33 fF</text>
+
+<!-- 막대 3 : 2004년, 30 fF 초과 (위쪽 열린 화살촉) -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="352" y="75" width="54" height="165"/>
+<path class="s k-dram" d="M365,68 L379,58 L393,68"/>
+<text class="t11 mid" x="376" y="50">30 fF/cell 초과</text>
+
+<!-- 막대 4 : D1z / D1a, 10 fF 미만 (아래쪽 열린 화살촉) -->
+<rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="436" y="185" width="54" height="55"/>
+<path class="s k-dram" d="M449,187 L463,197 L477,187"/>
+<text class="t11 mid" x="463" y="177">10 fF 미만</text>
+
+<!-- 막대 5 : D1c, 5 ~ 6 fF (점선 테두리·채움 없음 + 범위 막대) -->
+<rect class="s d k-dram" fill="none" x="520" y="207" width="54" height="33"/>
+<line class="h" x1="520" y1="212.5" x2="574" y2="212.5"/>
+<line class="h" x1="547" y1="207" x2="547" y2="212.5"/>
+<text class="t11 mid" x="547" y="199">5 ~ 6 fF</text>
+<rect class="s d k-emph" x="514" y="163" width="66" height="22" rx="2"/>
+<text class="t11 mid" x="547" y="178">[미확정]</text>
+
+<!-- 시계열 밖 분리 영역 -->
+<line class="h" x1="600" y1="44" x2="600" y2="250"/>
+<rect class="h d" fill="none" x="626" y="102.5" width="54" height="137.5"/>
+<text class="t11 mid" x="653" y="94">최소 25 fF</text>
+<text class="t11 mid" x="653" y="78">현행 아님</text>
+
+<!-- 범주 라벨 -->
+<text class="t12 end" x="211" y="252" transform="rotate(-45 211 252)">1985년 1Mb DRAM (0.9 µm)</text>
+<text class="t12 end" x="295" y="252" transform="rotate(-45 295 252)">1988년 16Mb DRAM (0.6 µm)</text>
+<text class="t12 end" x="379" y="252" transform="rotate(-45 379 252)">2004년 MESH 커패시터 (80 nm COB DRAM)</text>
+<text class="t12 end" x="463" y="252" transform="rotate(-45 463 252)">D1z / D1a 세대</text>
+<text class="t12 end" x="547" y="252" transform="rotate(-45 547 252)">D1c 세대 (전망)</text>
+<text class="t12 end" x="653" y="252" transform="rotate(-45 653 252)">ITRS 가정치 (레거시)</text>
+</svg>
