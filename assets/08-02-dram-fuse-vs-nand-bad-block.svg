@@ -28,8 +28,8 @@
 </defs>
 
 <!-- 열 헤더 -->
-<text class="t12 mid" x="249" y="34">DRAM — 하드웨어 퓨즈 치환</text>
-<text class="t12 mid" x="550" y="34">NAND — 소프트웨어 리매핑</text>
+<text class="t12 mid" x="249" y="34">DRAM - 하드웨어 퓨즈 치환</text>
+<text class="t12 mid" x="550" y="34">NAND - 소프트웨어 리매핑</text>
 
 <!-- 열 분리선 · 행 분리선 -->
 <line class="h d" x1="392" y1="50" x2="392" y2="534"/>
@@ -104,7 +104,7 @@
 <rect class="s" x="596" y="90" width="104" height="114"/>
 <text class="t11 mid" x="648" y="108">컨트롤러</text>
 <text class="t11 mid" x="648" y="121">(controller)</text>
-<text class="t11 mid" x="648" y="134">— 다이 외부</text>
+<text class="t11 mid" x="648" y="134"> - 다이 외부</text>
 <rect class="h" x="616" y="146" width="64" height="48"/>
 <line class="h" x1="648" y1="146" x2="648" y2="194"/>
 <line class="h" x1="616" y1="162" x2="680" y2="162"/>
@@ -115,11 +115,11 @@
 
 <!-- ===== 밴드 B · 좌열 DRAM ===== -->
 <text class="t11 mid" x="249" y="282">퓨즈 (fuse)</text>
-<text class="t11 mid" x="249" y="295">— 물리적으로 파괴된 구조</text>
+<text class="t11 mid" x="249" y="295"> - 물리적으로 파괴된 구조</text>
 <rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="170" y="306" width="68" height="28"/>
 <rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="260" y="306" width="68" height="28"/>
 <text class="t11 mid" x="249" y="352">비휘발</text>
-<text class="t11 mid" x="249" y="372">되돌릴 수 없음 —</text>
+<text class="t11 mid" x="249" y="372">되돌릴 수 없음 - </text>
 <text class="t11 mid" x="249" y="385">소프트웨어가 손댈 수 없음</text>
 <text class="t11 mid" x="249" y="408">소실 경로 없음</text>
 
@@ -169,9 +169,9 @@
 <rect class="k-emph d" fill="none" stroke-width="2" x="514" y="470" width="32" height="24"/>
 <rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="554" y="470" width="32" height="24"/>
 <rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="594" y="470" width="32" height="24"/>
-<text class="t11" x="430" y="522">블록 단위 격리 —</text>
+<text class="t11" x="430" y="522">블록 단위 격리 - </text>
 <text class="t11" x="430" y="535">예비 블록 교체 아님</text>
 
 <!-- 근거 -->
-<text class="t11 mid" x="356" y="552" fill="var(--hint)">근거: Micron TN-29-59 Rev. H (2011-04) · Cai 등 (2017) — 둘 다 평면 NAND 기준</text>
+<text class="t11 mid" x="356" y="552" fill="var(--hint)">근거: Micron TN-29-59 Rev. H (2011-04) · Cai 등 (2017) - 둘 다 평면 NAND 기준</text>
 </svg>

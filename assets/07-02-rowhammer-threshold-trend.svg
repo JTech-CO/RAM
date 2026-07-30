@@ -1,5 +1,5 @@
 <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
-<title id="ttl">Row Hammer 임계값의 세대별 추이 (실측 N_RH. 칩 제조 시기는 DDR3 2010–2013년, DDR4·LPDDR4 2019–2020년)</title>
+<title id="ttl">그림 7-2. Row Hammer 임계값의 세대별 추이 (실측 N_RH. 칩 제조 시기는 DDR3 2010–2013년, DDR4·LPDDR4 2019–2020년)</title>
 <desc id="dsc">DDR3·DDR4·LPDDR4의 비트플립 임계 activation 횟수를 로그 스케일 가로 막대로 비교합니다. 값은 ABACuS(USENIX Security 2024)의 실측 N_RH이며 JEDEC MAC과 다른 개념입니다. DDR3는 139K–140K 및 100K 이상이라는 서술이 병존하므로 미확정 범위를 점선 연장부로 병기했습니다. DDR5 세대의 실측 임계값은 확인되지 않아 이 그림에 없습니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }

@@ -1,5 +1,5 @@
 <svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
-<title id="ttl">그림 6-4. 커패시터 몰드의 형성과 제거 — 거푸집이 사라지고 기둥만 남는다</title>
+<title id="ttl">그림 6-4. 커패시터 몰드의 형성과 제거 - 거푸집이 사라지고 기둥만 남는다</title>
 <desc id="dsc">DRAM 커패시터 형성을 몰드 산화막 적층 · 홀 식각 · TiN 하부 전극 ALD · wet dip-out 네 단계로 좌에서 우로 배열한 수직 단면입니다. 마지막 두 칸을 붙여 놓아 몰드가 사라지고 TiN 실린더만 지지막에 물려 남는 대비가 보이게 했고, 세장비는 축약 없이 실비율(높이 340 px = 1,000 nm, 0.34 px/nm)로 그렸습니다. 홀 직경은 본문이 정확한 nm 값을 제시하지 않으므로 배지로 한정했습니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }
@@ -49,7 +49,7 @@
 <path class="s" d="M357,448V472H377V448 M393,448V472H413V448"/>
 <path class="s" d="M359,108V448H375V108 M395,108V448H411V108"/>
 
-<!-- ===== 칸 3 : 하부 전극 증착 — TiN ALD ===== -->
+<!-- ===== 칸 3 : 하부 전극 증착 - TiN ALD ===== -->
 <path fill="url(#dots)" fill-rule="evenodd" d="M490,108h90v340h-90Z M509,108h16v340h-16Z M545,108h16v340h-16Z"/>
 <path fill="url(#hatch)" fill-rule="evenodd" d="M490,120h90v14h-90Z M509,120h16v14h-16Z M545,120h16v14h-16Z M530,120h10v14h-10Z M490,270h90v14h-90Z M509,270h16v14h-16Z M545,270h16v14h-16Z M530,270h10v14h-10Z"/>
 <path class="s" d="M490,108H509 M525,108H545 M561,108H580 M490,108V448 M580,108V448"/>
@@ -78,7 +78,7 @@
 <text class="t14 mid" x="235" y="36">몰드 산화막 적층</text>
 <text class="t14 mid" x="385" y="36">홀 식각 (HAR)</text>
 <text class="t14 mid" x="535" y="36">하부 전극 증착</text>
-<text class="t14 mid" x="535" y="54">— TiN ALD</text>
+<text class="t14 mid" x="535" y="54"> - TiN ALD</text>
 <text class="t14 mid" x="645" y="36">몰드 제거</text>
 <text class="t14 mid" x="645" y="54">(wet dip-out)</text>
 

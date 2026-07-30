@@ -1,5 +1,5 @@
 <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
-<title id="ttl">DRAM 셀 리텐션 시간 분포와 64 ms 절단선 (60 nm 공정 데이터, RAIDR / ISCA 2012 기준)</title>
+<title id="ttl">그림 7-1. DRAM 셀 리텐션 시간 분포와 64 ms 절단선 (60 nm 공정 데이터, RAIDR / ISCA 2012 기준)</title>
 <desc id="dsc">리텐션 시간 로그축 위에 그린 DRAM 셀 분포 개형과 64 ms 수율 선별 기준선. 분포 근거는 RAIDR(ISCA 2012)의 60 nm 공정 데이터이며 세로 방향은 눈금 없는 개형입니다. 64 ms 왼쪽은 해당 다이가 폐기되어 공개 분포에 데이터가 없으므로 비워 둡니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }
@@ -58,7 +58,7 @@
 <line x1="187" y1="44" x2="187" y2="344" class="s k-emph"/>
 
 <!-- 라벨 -->
-<text class="t14" x="196" y="58">64 ms — 수율 선별 기준 (screening threshold)</text>
+<text class="t14" x="196" y="58">64 ms - 수율 선별 기준 (screening threshold)</text>
 <text class="t11 end" x="676" y="80">총 셀 수 10¹¹ 초과 (32GB 시스템)</text>
 
 <text class="t14 mid" transform="translate(118,230) rotate(-90)">다이 폐기 영역</text>
@@ -70,7 +70,7 @@
 <text class="t12" x="470" y="252">범주별 로그정규 분포</text>
 <text class="t11" x="400" y="336">기준을 결정하는 셀 비율 10⁻⁸ 수준</text>
 
-<text class="t14 mid" transform="translate(640,228) rotate(-90)">normal 셀 범주 — 대다수 1초 이상</text>
+<text class="t14 mid" transform="translate(640,228) rotate(-90)">normal 셀 범주 - 대다수 1초 이상</text>
 
 <!-- 축 눈금 라벨 -->
 <text class="t11 mid" x="187" y="362">64</text>

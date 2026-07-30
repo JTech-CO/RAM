@@ -37,7 +37,7 @@
 <rect class="s" x="128" y="70" width="92" height="60" rx="2"/>
 <rect class="s" x="680" y="70" width="92" height="60" rx="2"/>
 
-<!-- 강조 4개 : ③ ④ ⑤ ⑧ — 강조색 테두리 + 45° 해칭 밴드 -->
+<!-- 강조 4개 : ③ ④ ⑤ ⑧ - 강조색 테두리 + 45° 해칭 밴드 -->
 <rect x="233" y="115" width="90" height="13" fill="url(#hatch)"/>
 <rect x="337" y="115" width="90" height="13" fill="url(#hatch)"/>
 <rect x="441" y="115" width="90" height="13" fill="url(#hatch)"/>
@@ -77,5 +77,5 @@
 <!-- 강조 범례 -->
 <rect x="24" y="254" width="24" height="14" fill="url(#hatch)"/>
 <rect class="k-emph" fill="none" stroke-width="2" x="24" y="254" width="24" height="14"/>
-<text class="t11" x="58" y="265">이 문서가 다루는 4개 항목 — ③ 노광 · ④ 식각 · ⑤ 증착 · ⑧ 패키징(본딩)</text>
+<text class="t11" x="58" y="265">이 문서가 다루는 4개 항목 - ③ 노광 · ④ 식각 · ⑤ 증착 · ⑧ 패키징(본딩)</text>
 </svg>

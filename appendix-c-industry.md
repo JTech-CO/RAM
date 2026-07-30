@@ -53,7 +53,7 @@ HBM4의 기술 사양, 세대별 대역폭, base die 로직화, NVIDIA Rubin 실
 
 ---
 
-## 3. 2026 메모리 시장 — 강세와 약세 양측 병기
+## 3. 2026 메모리 시장 - 강세와 약세 양측 병기
 
 2026년 메모리 시황을 보는 관측은 갈립니다. 아래는 강세 견해와 약세 견해를 **같은 비중으로** 나열한 것이며, 이 문서는 어느 쪽이 맞는지 판정하지 않습니다.
 
@@ -84,7 +84,7 @@ HBM4의 기술 사양, 세대별 대역폭, base die 로직화, NVIDIA Rubin 실
 
 ---
 
-## 4. 장비 시장 — 표준 하나가 시장을 흔든다
+## 4. 장비 시장 - 표준 하나가 시장을 흔든다
 
 JEDEC이 HBM4E의 패키지 높이 제한을 **825–900 µm 범위로 완화하는 방안을 논의 중**입니다. 2026-07 현재 확정 발표는 확인되지 않았습니다 **[미확정]**[^c-hbm4e-height]. HBM4E에는 통합 JEDEC 표준 자체가 없으며, 이 절의 서술은 전부 논의 단계 항목을 전제로 합니다.
 
@@ -107,7 +107,7 @@ JEDEC이 HBM4E의 패키지 높이 제한을 **825–900 µm 범위로 완화하
 
 ---
 
-## 5. 일본 — 소재·장비 공급망
+## 5. 일본 - 소재·장비 공급망
 
 이 절의 출처는 미국 상무부 국제무역청의 일본 반도체 국가별 상업 가이드(trade.gov, 2025-11-20 갱신)입니다. 등급은 T0이며, 소재 점유율 항목은 원문이 2024-06 Brookings 자료를 인용한 값입니다.
 
@@ -172,13 +172,13 @@ SK하이닉스가 1a에서 1c로 가며 DRAM의 EUV 레이어 수를 늘려 온 
 
 ## 7. 참고 문헌
 
-- **HBM 시장 규모** — FinancialContent(546억 달러), Introl(580억 달러). 2026년 전망치, 2025년 실적 약 380억 달러. 소스 팩 3-3절 (T3)
-- **2026 메모리 시황(강세)** — DRAM 3사 CapEx 상향 및 출하 확대 시점, TrendForce(2026 Q1 NAND 가격), Gartner(2026년 DRAM 가격), SK하이닉스(2027년 공급 부족 언급). 소스 팩 11절 (T3)
-- **2026 메모리 시황(약세)** — Raymond James, DRAM·NAND ASP 2026년 중반 정점 가능성. 소스 팩 11절 (T3)
-- **HBM4E 패키지 높이 완화 논의** — TrendForce, ZDNet Korea, 조선일보, 뉴시스 (2026-03-06 / 2026-03-30 / 2026-04-01 보도). 2026-07 현재 확정 발표 미확인. 소스 팩 3-3절 (T3)
-- **TC 본더 시장 점유율 및 본딩 진영 영향** — 소스 팩 6-4절 (T3)
-- **하이브리드 본딩 필수 견해 / HBM5 20-Hi 채택 전망** — SK하이닉스 패키지개발 담당 임원 발언(조선일보), 업계 전망. 소스 팩 3-3, 6-4절 (T3)
-- **일본 반도체 시장·정부 지원·소재 점유율·Rapidus** — U.S. Department of Commerce, International Trade Administration, *Japan Country Commercial Guide: Semiconductors*, `trade.gov/country-commercial-guides/japan-semiconductors` (2025-11-20 갱신). 소재 점유율은 원문이 2024-06 Brookings 자료를 인용 (T0)
+- **HBM 시장 규모** - FinancialContent(546억 달러), Introl(580억 달러). 2026년 전망치, 2025년 실적 약 380억 달러. 소스 팩 3-3절 (T3)
+- **2026 메모리 시황(강세)** - DRAM 3사 CapEx 상향 및 출하 확대 시점, TrendForce(2026 Q1 NAND 가격), Gartner(2026년 DRAM 가격), SK하이닉스(2027년 공급 부족 언급). 소스 팩 11절 (T3)
+- **2026 메모리 시황(약세)** - Raymond James, DRAM·NAND ASP 2026년 중반 정점 가능성. 소스 팩 11절 (T3)
+- **HBM4E 패키지 높이 완화 논의** - TrendForce, ZDNet Korea, 조선일보, 뉴시스 (2026-03-06 / 2026-03-30 / 2026-04-01 보도). 2026-07 현재 확정 발표 미확인. 소스 팩 3-3절 (T3)
+- **TC 본더 시장 점유율 및 본딩 진영 영향** - 소스 팩 6-4절 (T3)
+- **하이브리드 본딩 필수 견해 / HBM5 20-Hi 채택 전망** - SK하이닉스 패키지개발 담당 임원 발언(조선일보), 업계 전망. 소스 팩 3-3, 6-4절 (T3)
+- **일본 반도체 시장·정부 지원·소재 점유율·Rapidus** - U.S. Department of Commerce, International Trade Administration, *Japan Country Commercial Guide: Semiconductors*, `trade.gov/country-commercial-guides/japan-semiconductors` (2025-11-20 갱신). 소재 점유율은 원문이 2024-06 Brookings 자료를 인용 (T0)
 
 전체 출처 인덱스와 등급 정의는 [SOURCES.md](SOURCES.md)를 참조하십시오.
 

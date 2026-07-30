@@ -1,5 +1,5 @@
 <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
-<title id="ttl">그림 6-5. 지지대의 개구와 몰드 식각액의 경로 — 다단 배치는 특허 실시례 기준</title>
+<title id="ttl">그림 6-5. 지지대의 개구와 몰드 식각액의 경로 - 다단 배치는 특허 실시례 기준</title>
 <desc id="dsc">실린더 전극 5개를 상부·중간 두 장의 지지대가 수평으로 잡는 수직 단면과, 같은 지지대 레벨을 위에서 본 평면을 나란히 놓았습니다. dip-out 식각액은 셀 영역 주변 공간에서 측면으로 들어와 지지대를 관통하는 개구를 통해서만 몰드에 도달하므로, 개구를 지나지 않는 경로는 그리지 않았습니다. 상부와 중간 두 레벨의 다단 배치는 특허 실시례를 근거로 하며 현행 양산 세대의 단수는 확인되지 않았습니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }
@@ -78,7 +78,7 @@
 <path class="h" d="M152,196H170"/>
 <text class="t12 end" x="148" y="350">하부 전극 (TiN)</text>
 <path class="h" d="M152,346H182"/>
-<text class="t11" x="40" y="478">지지대 재료 — SiN / SiCN / SiON</text>
+<text class="t11" x="40" y="478">지지대 재료 - SiN / SiCN / SiON</text>
 <text class="t14 mid" x="330" y="480">수직 단면</text>
 
 <!-- ===== 우 패널 : 지지대 평면 ===== -->

@@ -1,4 +1,4 @@
-# 05. NAND — 3차원으로 도망친 메모리
+# 05. NAND - 3차원으로 도망친 메모리
 
 > **최종 검증: 2026-07-29**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
@@ -18,7 +18,7 @@ NAND는 또한 이 문서 모음집에서 두 방향으로 뻗는 분기점입�
 
 ---
 
-## 2. 셀 구조 — 왜 이렇게 생겼는가
+## 2. 셀 구조 - 왜 이렇게 생겼는가
 
 ![그림 5-1. FG와 CTF의 전하 저장 방식 대비](assets/05-01-ctf-vs-fg-charge-storage.svg)
 
@@ -43,7 +43,7 @@ FG → CTF 전환은 단순한 성능 개선이 아니라 **3D 적층을 가능�
 
 이 문서에서 "NAND 셀"이라고 쓸 때는 별도 표기가 없는 한 CTF 셀을 가리킵니다.
 
-### 2-3. 쓰기와 읽기 — 동작 원리
+### 2-3. 쓰기와 읽기 - 동작 원리
 
 - **쓰기**: 고전압을 인가하면 터널링으로 전자가 저장층에 주입됩니다. 인가를 멈추면 절연층이 전자의 탈출을 차단하므로 전원 없이도 상태가 유지됩니다. 이것이 비휘발성의 물리적 근거입니다.
 - **읽기**: 저장된 전하량에 따라 셀의 문턱 전압이 달라집니다. 읽기는 이 **문턱 전압을 측정하는 동작**입니다.
@@ -53,7 +53,7 @@ SRAM의 읽기가 래치 전압을 비트라인으로 전달하는 것으로 끝
 
 ---
 
-## 3. 왜 빠른가 / 느린가 — 물리적 근거
+## 3. 왜 빠른가 / 느린가 - 물리적 근거
 
 NAND의 A1이 나쁜 이유는 세 가지가 겹치기 때문이며, 셋 다 셀과 배열 구조에서 직접 파생됩니다.
 
@@ -78,7 +78,7 @@ DRAM의 접근 지연이 10–100 ns 범위인 것과 대비하면, NAND의 랜�
 
 ---
 
-## 4. 왜 비싼가 / 싼가 — 면적·공정 근거
+## 4. 왜 비싼가 / 싼가 - 면적·공정 근거
 
 ![그림 5-2. 3D NAND의 수직 적층 단면과 채널 홀 종횡비](assets/05-02-3d-nand-vertical-stack.svg)
 
@@ -148,11 +148,15 @@ Kioxia/SanDisk가 발표한 BiCS10의 수치를 보면 적층 세대 전환이 �
 
 Kioxia/SanDisk는 같은 계열 기술인 MSA-CBA를 1,000층 **[벤더 목표치]** 기술에 적용하는 내용을 VLSI 2026에서 발표했습니다[^05-msa-cba]. 1,000층 구간에서는 이런 종류의 구동·배선 최적화가 선택이 아니라 필수 조건이 됩니다(7절).
 
-### 4-5. 3D 전환이 바꾼 것 — 밀도만이 아니다
+### 4-5. 3D 전환이 바꾼 것 - 밀도만이 아니다
 
-Z축으로 방향을 튼 결과는 밀도에만 나타나지 않았습니다. Cai 등이 2017년에 발표한 조사는 read disturb가 20–24 nm 급 **평면(planar) NAND**에서 주요 오류원이었으나 3D NAND는 feature size가 커서 그 영향이 작다고 기술합니다[^05-3d-reliability]. 같은 자료는 평면 미세화에서 심각했던 셀 간 program interference도 3D의 큰 공정 치수에서는 문제가 되지 않아 제조사들이 one-shot programming으로 회귀했다고 적었습니다. 또 P/E 내구성이 1자릿수 이상 증가했다고 보고합니다. 다만 개선 후 절대값은 그 자료에 제시되지 않았습니다. 이 절과 4-2절을 함께 놓으면, 평면 경쟁에서 이탈한 것은 밀도만이 아니라 미세화가 깎아내던 신뢰성 여유도 일부 되돌려 받은 선택이었습니다.
+Z축으로 방향을 튼 결과는 밀도에만 나타나지 않았습니다. Cai 등이 2017년에 발표한 조사는 read disturb가 20–24 nm 급 **평면(planar) NAND**에서 주요 오류원이었으나 3D NAND는 feature size가 커서 그 영향이 작다고 기술합니다[^05-3d-reliability]. 같은 자료는 평면 미세화에서 심각했던 셀 간 program interference도 3D의 큰 공정 치수에서는 문제가 되지 않아 제조사들이 one-shot programming으로 회귀했다고 적었습니다. 또 P/E 내구성이 1자릿수 이상 증가했다고 보고합니다. 다만 개선 후 절대값은 그 자료에 제시되지 않았습니다.
 
-한쪽만 적으면 왜곡입니다. 같은 전환이 평면 세대에 없던 오류원을 새로 만들었습니다. 전하 트랩 셀은 전하가 z 방향으로도 이동할 수 있어 리텐션 누설에는 오히려 더 취약합니다. Luo 등이 2018년에 실제 3D NAND 칩을 측정해 보고한 층간 공정 편차·early retention loss·retention interference도 평면 NAND에 없던 항목입니다[^05-3d-reliability]. 층을 쌓는 것은 같은 문제를 더 많이 만드는 일이 아니라 **지배적 실패 양식을 바꾸는 일**입니다. 덧붙여 이 계층에서 내구성과 리텐션은 별개 지표가 아닙니다 — 같은 2017년 자료는 SSD 수명을 **최소 리텐션 보증을 지키면서 수행 가능한 P/E 사이클 수**로 정의합니다[^05-lifetime-def]. 세대별 P/E 사이클 수치와 각 오류 기구의 상세는 [07-reliability.md](07-reliability.md)에서 다룹니다.
+이 절과 4-2절을 함께 놓으면, 평면 경쟁에서 이탈한 것은 밀도만이 아니라 미세화가 깎아내던 신뢰성 여유도 일부 되돌려 받은 선택이었습니다.
+
+한쪽만 적으면 왜곡입니다. 같은 전환이 평면 세대에 없던 오류원을 새로 만들었습니다. 전하 트랩 셀은 전하가 z 방향으로도 이동할 수 있어 리텐션 누설에는 오히려 더 취약합니다. Luo 등이 2018년에 실제 3D NAND 칩을 측정해 보고한 층간 공정 편차·early retention loss·retention interference도 평면 NAND에 없던 항목입니다[^05-3d-reliability]. 층을 쌓는 것은 같은 문제를 더 많이 만드는 일이 아니라 **지배적 실패 양식을 바꾸는 일**입니다.
+
+덧붙여 이 계층에서 내구성과 리텐션은 별개 지표가 아닙니다. 같은 2017년 자료는 SSD 수명을 **최소 리텐션 보증을 지키면서 수행 가능한 P/E 사이클 수**로 정의합니다[^05-lifetime-def]. 세대별 P/E 사이클 수치와 각 오류 기구의 상세는 [07-reliability.md](07-reliability.md)에서 다룹니다.
 
 ---
 
@@ -218,7 +222,7 @@ NAND는 노광 의존도가 낮은 대신 **HAR(고종횡비) 채널 홀 식각*
 
 세 항목 모두 양산 사양이 아닙니다. 삼성의 900층은 셀 동작을 확인한 연구 소자 단계이고, Kioxia/SanDisk의 1,000층은 기술 발표이며, SK하이닉스의 2030년은 공개된 목표 시점입니다. 인용 시 이 구분을 유지해야 합니다.
 
-### 7-3. CBA / CoP — 셀과 주변회로를 따로 만들어 붙인다
+### 7-3. CBA / CoP - 셀과 주변회로를 따로 만들어 붙인다
 
 3D NAND의 두 번째 공정 축은 웨이퍼 대 웨이퍼 본딩입니다.
 
@@ -230,7 +234,7 @@ Kioxia는 218층 BiCS8에서 이 방식을 최초로 양산 적용했고, 경쟁
 
 극저온 식각, ALE, 웨이퍼 warpage 보상, 워드라인 금속화, 본딩 방식 비교 등 공정 자체의 상세는 이 문서의 범위가 아닙니다.
 
-→ 공정 상세: [06-process.md](06-process.md) — 채널 홀 식각은 4절, 본딩은 6절입니다.
+→ 공정 상세: [06-process.md](06-process.md) - 채널 홀 식각은 4절, 본딩은 6절입니다.
 
 ---
 
@@ -248,7 +252,7 @@ NAND는 AI 서버에서 연산에 직접 참여하지 않지만, 다음 세 역�
 **(2) KV cache swap-out 대상**
 vLLM 등 서빙 프레임워크는 비활성 세션의 KV cache를 GPU 메모리에서 밀어냅니다. 이 데이터는 CPU DRAM을 거쳐 SSD로 내려갑니다. 3절에서 정리한 대로 NAND는 큰 단위로 묶어 순차 접근할 때 실효 대역폭이 유지되므로, 세션 단위로 통째로 내리고 올리는 이 패턴은 NAND의 특성과 비교적 잘 맞습니다.
 
-**(3) GPU Direct Storage — 경로 단축**
+**(3) GPU Direct Storage - 경로 단축**
 NVIDIA GPU Direct Storage(GDS)는 PCIe P2P DMA로 NVMe 컨트롤러와 GPU가 직접 전송하게 하여 **호스트 DRAM 경유를 제거**합니다[^05-gds]. 전통 경로가 SSD → CPU DRAM → GPU였다면 GDS는 중간 복사를 없앱니다.
 
 세 항목 모두 A1이 µs 단위여도 감당 가능한 패턴이라는 공통점이 있습니다. 한 번 적재해 반복 읽거나, 큰 단위로 묶어 옮기거나, 접근 시점이 예측 가능한 경우입니다. 반대로 토큰 단위의 랜덤 소량 접근은 NAND에 맞지 않습니다.
@@ -261,7 +265,7 @@ NVIDIA GPU Direct Storage(GDS)는 PCIe P2P DMA로 NVMe 컨트롤러와 GPU가 �
 
 **구조적 한계는 셀이 아니라 경로에 있습니다.** GDS로 호스트 DRAM 경유를 제거해도 Flash에서 GPU로 가는 데이터는 여전히 PCIe를 거쳐야 하고, PCIe 대역폭은 HBM 대비 낮습니다. 즉 NAND 쪽 밀도를 아무리 올려도, 컨트롤러와 소프트웨어 경로를 아무리 최적화해도, **PCIe를 지나는 한 병목은 남습니다**[^05-gds].
 
-이 지점이 정확히 [04-hbf.md](04-hbf.md)가 노리는 자리입니다. HBF는 NAND 셀을 그대로 두고 A5(결합도)를 PCIe에서 인터포저로 끌어올려 이 병목을 우회하려는 시도입니다. 셀에서 오는 한계 — A1 µs 단위, page 입도, 쓰기 내구성 제한 — 는 HBF에서도 그대로 남으며, 이 점이 HBF가 축마다 소속이 갈리는 이유입니다.
+이 지점이 정확히 [04-hbf.md](04-hbf.md)가 노리는 자리입니다. HBF는 NAND 셀을 그대로 두고 A5(결합도)를 PCIe에서 인터포저로 끌어올려 이 병목을 우회하려는 시도입니다. 셀에서 오는 한계(A1 µs 단위, page 입도, 쓰기 내구성 제한)는 HBF에서도 그대로 남으며, 이 점이 HBF가 축마다 소속이 갈리는 이유입니다.
 
 한편 NAND 자신의 한계는 다른 방향을 가리킵니다. 4절에서 본 밀도 우위는 적층에서 나왔고, 7절에서 본 대로 적층의 다음 단계는 100:1에 접근하는 종횡비 식각과 웨이퍼 본딩입니다. 셀 설계로 풀 수 있는 문제가 아닙니다.
 
@@ -275,18 +279,18 @@ NAND가 틀리는 방식도 셀 설계로 지워지지 않습니다. 마모는 �
 
 ## 10. 참고 문헌
 
-- **SK하이닉스 뉴스룸** (T1) — CTF 구조 및 국내 최초 상용화, Research Inside 3D NAND CTI, 1,000층 목표
-- **Kioxia / SanDisk** (T1) — BiCS10 발표(332층, 29 Gb/mm² 초과, 4,800 MT/s), BiCS8 CBA 양산, MSA-CBA
-- **삼성전자 반도체 뉴스룸** (T1) — V-NAND 세대 및 CoP 구조
-- **NVIDIA** (T1) — GPUDirect Storage `docs.nvidia.com/gpudirect-storage/`
-- **Blocks & Files** (T3) — 332층 BiCS10 샘플링(2026-07-03), 삼성 900층(2026-05-28)
-- **SemiEngineering** (T3) — "Metrology Digs Deep To Produce Next-Generation 3D NAND"(2025-12), "Flash Getting Stacked High-Bandwidth Version"(2026-05)
-- **TrendForce** (T3) — 400층 NAND 동향
-- **Tom's Hardware** (T3) — BiCS10
-- **Counterpoint Research** — "Scaling to 1,000-Layer 3D NAND in the AI Era" (Lam 후원 백서)
-- **TechInsights 다이 분석** (T2.5) — DRAM 면적당 밀도 비교값(4-2절 층당 환산 비교의 대조군)
-- **Cai, Ghose, Haratsch, Luo, Mutlu** (T2) — "Error Characterization, Mitigation, and Recovery in Flash-Memory-Based Solid-State Drives", *Proceedings of the IEEE*, **2017년 발표**. 수치·비교 기준은 **평면(planar) NAND**
-- **Luo, Ghose, Cai, Haratsch, Mutlu** (T2) — "Improving 3D NAND Flash Memory Lifetime by Tolerating Early Retention Loss and Process Variation", **2018**. 실제 3D NAND 칩 실측
+- **SK하이닉스 뉴스룸** (T1) - CTF 구조 및 국내 최초 상용화, Research Inside 3D NAND CTI, 1,000층 목표
+- **Kioxia / SanDisk** (T1) - BiCS10 발표(332층, 29 Gb/mm² 초과, 4,800 MT/s), BiCS8 CBA 양산, MSA-CBA
+- **삼성전자 반도체 뉴스룸** (T1) - V-NAND 세대 및 CoP 구조
+- **NVIDIA** (T1) - GPUDirect Storage `docs.nvidia.com/gpudirect-storage/`
+- **Blocks & Files** (T3) - 332층 BiCS10 샘플링(2026-07-03), 삼성 900층(2026-05-28)
+- **SemiEngineering** (T3) - "Metrology Digs Deep To Produce Next-Generation 3D NAND"(2025-12), "Flash Getting Stacked High-Bandwidth Version"(2026-05)
+- **TrendForce** (T3) - 400층 NAND 동향
+- **Tom's Hardware** (T3) - BiCS10
+- **Counterpoint Research** - "Scaling to 1,000-Layer 3D NAND in the AI Era" (Lam 후원 백서)
+- **TechInsights 다이 분석** (T2.5) - DRAM 면적당 밀도 비교값(4-2절 층당 환산 비교의 대조군)
+- **Cai, Ghose, Haratsch, Luo, Mutlu** (T2) - "Error Characterization, Mitigation, and Recovery in Flash-Memory-Based Solid-State Drives", *Proceedings of the IEEE*, **2017년 발표**. 수치·비교 기준은 **평면(planar) NAND**
+- **Luo, Ghose, Cai, Haratsch, Mutlu** (T2) - "Improving 3D NAND Flash Memory Lifetime by Tolerating Early Retention Loss and Process Variation", **2018**. 실제 3D NAND 칩 실측
 - 전체 출처 인덱스는 [SOURCES.md](SOURCES.md), 이미지 원문 문자열은 [assets/IMAGE-MANIFEST.md](assets/IMAGE-MANIFEST.md)를 참조하십시오.
 
 [^05-ctf-comm]: CTF는 전하를 도체가 아닌 부도체(질화물층)에 저장하는 방식으로, 셀 간 간섭 해결과 셀 면적 축소·read/write 성능 확보를 동시에 달성한 것으로 소개됩니다. 국내 최초 상용화 주체는 SK하이닉스 뉴스룸 발표 기준(T1). 확인 2026-07-28. 상세는 [SOURCES.md](SOURCES.md) 참조.
@@ -297,7 +301,7 @@ NAND가 틀리는 방식도 셀 설계로 지워지지 않습니다. 마모는 �
 
 [^05-page]: NAND 접근 입도 약 4KB page. 일반 통용 값. 확인 2026-07-28.
 
-[^05-bics10-density]: BiCS10 — 332 active layers, 면적 밀도 29 Gb/mm² 초과, PCIe 5.0/6.0 데이터센터 SSD 타깃, 2026년 여름 샘플 출하. Kioxia/SanDisk 발표 기준(T1). 면적 밀도 우위는 제조사 주장이며 제3자 다이 분석으로 교차 확인된 값이 아닙니다. 확인 2026-07-28.
+[^05-bics10-density]: BiCS10 - 332 active layers, 면적 밀도 29 Gb/mm² 초과, PCIe 5.0/6.0 데이터센터 SSD 타깃, 2026년 여름 샘플 출하. Kioxia/SanDisk 발표 기준(T1). 면적 밀도 우위는 제조사 주장이며 제3자 다이 분석으로 교차 확인된 값이 아닙니다. 확인 2026-07-28.
 
 [^05-bics10-mt]: BiCS10 전송률 4,800 MT/s. Kioxia/SanDisk 발표 기준(T1). NAND 다이 인터페이스 전송률이며 SSD 체감 대역폭과는 다른 층위의 값입니다. 확인 2026-07-28.
 
@@ -309,9 +313,9 @@ NAND가 틀리는 방식도 셀 설계로 지워지지 않습니다. 마모는 �
 
 [^05-density-ratio]: BiCS10 층당 환산 밀도 = 29 Gb/mm² ÷ 332층 ≈ 0.087 Gb/mm²/층. 대조군 DRAM 0.435 Gb/mm²는 D1b 세대 16 Gb 3사 다이 분석 중앙값(T2.5, TechInsights). NAND 원값은 T1. 서로 다른 등급·측정 방식의 값을 나눈 개략 환산이므로 자릿수 비교 용도로만 사용하십시오. 계층 간 비교의 전체 맥락은 [00-memory-hierarchy.md](00-memory-hierarchy.md) 참조. 확인 2026-07-28.
 
-[^05-layer-race]: 적층 경쟁 현황(2026-07 기준) — SK하이닉스 V9 321층 양산 중(triple string stack), 삼성 V9 286–290층 양산 중, 삼성 V10 400+층(triple stack, CoP, 1 Tbit die), Kioxia/SanDisk BiCS8 218층(CBA 최초 양산), 마이크론 G8 276층 양산 중·Gen7 400층 직행 준비, Solidigm 192층 QLC, YMTC 300급. T1/T3 종합. 삼성 V10의 양산 상태는 공개 자료에서 확인되지 않았습니다. 확인 2026-07-28.
+[^05-layer-race]: 적층 경쟁 현황(2026-07 기준) - SK하이닉스 V9 321층 양산 중(triple string stack), 삼성 V9 286–290층 양산 중, 삼성 V10 400+층(triple stack, CoP, 1 Tbit die), Kioxia/SanDisk BiCS8 218층(CBA 최초 양산), 마이크론 G8 276층 양산 중·Gen7 400층 직행 준비, Solidigm 192층 QLC, YMTC 300급. T1/T3 종합. 삼성 V10의 양산 상태는 공개 자료에서 확인되지 않았습니다. 확인 2026-07-28.
 
-[^05-har]: 채널 홀 종횡비 추이 — 96층 약 50:1, 400층 60:1 초과, 1,000층 100:1 접근. T1/T3. 확인 2026-07-28.
+[^05-har]: 채널 홀 종횡비 추이 - 96층 약 50:1, 400층 60:1 초과, 1,000층 100:1 접근. T1/T3. 확인 2026-07-28.
 
 [^05-flux]: 종횡비 100:1에서 중성 반응종 flux가 표면 대비 약 1.3%까지 감소하며, 근본 문제는 반응이 아니라 transport입니다. T1/T3. 확인 2026-07-28.
 
@@ -323,7 +327,7 @@ NAND가 틀리는 방식도 셀 설계로 지워지지 않습니다. 마모는 �
 
 [^05-cba-nikkei]: CBA(CMOS Bonded to Array)는 셀 웨이퍼와 CMOS 주변회로 웨이퍼를 각각 최적 공정으로 제작한 뒤 미세 구리 패드로 본딩하는 방식입니다. Kioxia가 218층 BiCS8에서 최초 양산했으며 경쟁 제품 대비 read/write가 20–30% 빠르다고 보도되었습니다(T3, Nikkei 인용). 삼성은 같은 접근을 CoP로 명명합니다. 공정 상세는 [06-process.md](06-process.md) 참조. 확인 2026-07-28.
 
-[^05-3d-reliability]: 3D 전환의 신뢰성 효과는 양방향입니다. **개선축** — read disturb는 20–24 nm 급에서 주요 오류원이었으나 feature size가 크면 영향이 작고, 셀 간 program interference는 3D의 큰 공정 치수에서 문제가 되지 않아 제조사들이 one-shot programming으로 회귀했으며, 트랜지스터가 커져 P/E 내구성이 1자릿수 이상 증가했습니다. 출처: Cai, Ghose, Haratsch, Luo, Mutlu, "Error Characterization, Mitigation, and Recovery in Flash-Memory-Based Solid-State Drives", *Proceedings of the IEEE*, **2017년 발표**(T2). **비교 기준은 평면(planar) NAND**이며, 같은 자료의 3D 관측 시점은 48–64층·feature size 50–54 nm(평면 15–19 nm 대비)입니다. **개선 후 P/E 절대값은 이 자료에 제시되지 않았으므로 임의 환산을 하지 마십시오.** **악화축** — 전하 트랩 셀은 전하가 z 방향으로도 이동해 리텐션 누설에 더 취약하고(같은 자료), 층간 공정 편차·early retention loss·retention interference는 Luo, Ghose, Cai, Haratsch, Mutlu(**2018**, 실제 3D NAND 칩 실측, T2)가 보고한 평면 세대에 없던 오류원입니다. 층간 편차 배수는 측정 축(층 위치 기준 / MSB 페이지 기준)에 따라 값이 달라지므로 이 문서에서는 배수를 인용하지 않았습니다. 상세는 [07-reliability.md](07-reliability.md) 참조. 확인 2026-07-29.
+[^05-3d-reliability]: 3D 전환의 신뢰성 효과는 양방향입니다. **개선축** - read disturb는 20–24 nm 급에서 주요 오류원이었으나 feature size가 크면 영향이 작고, 셀 간 program interference는 3D의 큰 공정 치수에서 문제가 되지 않아 제조사들이 one-shot programming으로 회귀했으며, 트랜지스터가 커져 P/E 내구성이 1자릿수 이상 증가했습니다. 출처: Cai, Ghose, Haratsch, Luo, Mutlu, "Error Characterization, Mitigation, and Recovery in Flash-Memory-Based Solid-State Drives", *Proceedings of the IEEE*, **2017년 발표**(T2). **비교 기준은 평면(planar) NAND**이며, 같은 자료의 3D 관측 시점은 48–64층·feature size 50–54 nm(평면 15–19 nm 대비)입니다. **개선 후 P/E 절대값은 이 자료에 제시되지 않았으므로 임의 환산을 하지 마십시오.** **악화축** - 전하 트랩 셀은 전하가 z 방향으로도 이동해 리텐션 누설에 더 취약하고(같은 자료), 층간 공정 편차·early retention loss·retention interference는 Luo, Ghose, Cai, Haratsch, Mutlu(**2018**, 실제 3D NAND 칩 실측, T2)가 보고한 평면 세대에 없던 오류원입니다. 층간 편차 배수는 측정 축(층 위치 기준 / MSB 페이지 기준)에 따라 값이 달라지므로 이 문서에서는 배수를 인용하지 않았습니다. 상세는 [07-reliability.md](07-reliability.md) 참조. 확인 2026-07-29.
 
 [^05-lifetime-def]: SSD 수명은 **최소 리텐션 보증(minimum retention guarantee)을 지키면서 수행 가능한 P/E 사이클 수**로 정의되며, RBER이 ECC 정정 한계를 넘으면 데이터 손실이 발생합니다. 출처: Cai et al., *Proceedings of the IEEE*, **2017년 발표**(T2), **평면 NAND 기준**. 따라서 P/E 사이클 수치는 셀의 물리 상수가 아니라 셀·ECC·리텐션 요구의 3자 함수이며, 세대와 측정 기준을 밝히지 않은 인용은 성립하지 않습니다. 세대별 수치는 [07-reliability.md](07-reliability.md)에서 다룹니다. 확인 2026-07-29.
 

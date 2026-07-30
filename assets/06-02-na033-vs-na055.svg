@@ -31,7 +31,7 @@
 <text class="t14 mid" x="200" y="24">NA 0.33</text>
 <text class="t14 mid" x="560" y="24">NA 0.55 (High-NA)</text>
 
-<!-- 행 1 : 노광당 해상도 — 동일 스케일 피처 스트립 (창 폭 300 px = 150 nm) -->
+<!-- 행 1 : 노광당 해상도 - 동일 스케일 피처 스트립 (창 폭 300 px = 150 nm) -->
 <text class="t11" x="30" y="44">노광당 해상도</text>
 <rect class="h" x="50"  y="52" width="300" height="68"/>
 <rect class="h" x="410" y="52" width="300" height="68"/>
@@ -96,9 +96,9 @@
 
 <!-- 행 3·4 : 대표 장비 · 장비 가격 (좌열은 값 없음) -->
 <text class="t11" x="30" y="372">대표 장비</text>
-<text class="t11 mid" x="200" y="372">—</text>
+<text class="t11 mid" x="200" y="372"> — </text>
 <text class="t11 mid" x="560" y="372">ASML TWINSCAN EXE:5200B</text>
 <text class="t11" x="30" y="400">장비 가격</text>
-<text class="t11 mid" x="200" y="400">—</text>
+<text class="t11 mid" x="200" y="400"> — </text>
 <text class="t11 mid" x="560" y="400">대당 약 4억 달러 수준</text>
 </svg>

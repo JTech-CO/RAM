@@ -1,4 +1,4 @@
-# 04. HBF — 축마다 소속이 갈리는 계층
+# 04. HBF - 축마다 소속이 갈리는 계층
 
 > **최종 검증: 2026-07-28**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
@@ -10,7 +10,7 @@ HBF(High Bandwidth Flash)는 NAND 셀을 TSV로 수직 적층하고 가속기 �
 
 > **이 문서의 집필 정책 (소스 팩 3-4절 확정)**
 > HBF는 **2026-07-28 시점에 공개된 정보만으로** 서술합니다. 미공개 스펙에 대한 추정·유추, "~일 것으로 보인다" 류의 서술을 사용하지 않습니다. 공개되지 않은 항목은 `**[미공개]** (2026-07 기준)`으로 명시하고, 스펙이 공개되면 해당 절을 전면 갱신합니다.
-> 그 결과 이 문서에는 다른 계층 문서라면 채워져 있을 자리 — 패키지 규격, 인터페이스 사양, 전력 프로파일, 비트당 비용 — 이 비어 있습니다. 그 공백을 추정으로 메우지 않는 것이 이 문서의 서술 방침이며, 공백의 목록 자체가 2026년 7월 현재 HBF의 상태입니다.
+> 그 결과 이 문서에는 다른 계층 문서라면 채워져 있을 자리 - 패키지 규격, 인터페이스 사양, 전력 프로파일, 비트당 비용 - 이 비어 있습니다. 그 공백을 추정으로 메우지 않는 것이 이 문서의 서술 방침이며, 공백의 목록 자체가 2026년 7월 현재 HBF의 상태입니다.
 
 ---
 
@@ -18,9 +18,9 @@ HBF(High Bandwidth Flash)는 NAND 셀을 TSV로 수직 적층하고 가속기 �
 
 HBF는 **SanDisk의 BiCS NAND 다이를 TSV로 수직 적층하고, HBM과 유사한 물리적 형상으로 가속기 인접에 배치한 비휘발성 메모리 계층**입니다.
 
-### 논지 — 단일 위치에 고정되지 않는 계층
+### 논지 - 단일 위치에 고정되지 않는 계층
 
-이 문서 모음집이 다루는 다섯 계층 중 HBF만 계층 피라미드의 한 칸에 고정되지 않습니다. 다른 계층도 축을 바꾸면 순위가 뒤집히기는 합니다 — HBM은 A2·A5에서 DDR5 DRAM을 앞서지만 A3·A4에서는 오히려 밀립니다. 그러나 순위가 바뀌어도 어느 계열에 속하는지는 달라지지 않습니다. HBF는 그렇지 않습니다. **어느 축으로 재느냐에 따라 소속 자체가 바뀝니다.**
+이 문서 모음집이 다루는 다섯 계층 중 HBF만 계층 피라미드의 한 칸에 고정되지 않습니다. 다른 계층도 축을 바꾸면 순위가 뒤집히기는 합니다. HBM은 A2·A5에서 DDR5 DRAM을 앞서지만 A3·A4에서는 오히려 밀립니다. 그러나 순위가 바뀌어도 어느 계열에 속하는지는 달라지지 않습니다. HBF는 그렇지 않습니다. **어느 축으로 재느냐에 따라 소속 자체가 바뀝니다.**
 
 | 축 묶음 | 소속 |
 |---|---|
@@ -36,7 +36,7 @@ A1–A5 다섯 축의 정의 자체는 [00-memory-hierarchy.md](00-memory-hierar
 
 ---
 
-## 2. 셀 구조 — 왜 이렇게 생겼는가
+## 2. 셀 구조 - 왜 이렇게 생겼는가
 
 ![그림 4-1. HBF 스택 단면 구조. TSV로 관통 적층된 NAND 다이와 CBA 본딩 계면, 인터포저 위 가속기 인접 배치](assets/04-01-hbf-stack-cross-section.svg)
 
@@ -44,11 +44,11 @@ A1–A5 다섯 축의 정의 자체는 [00-memory-hierarchy.md](00-memory-hierar
 
 ### 2-1. 셀은 새로 설계되지 않았다
 
-HBF의 저장 소자는 SanDisk의 **BiCS NAND** 다이 그 자체입니다. 새 셀도, 새 저장 원리도 아닙니다. CTF(Charge Trap Flash) 방식의 전하 저장, 문턱 전압 측정 기반 읽기, 블록 단위 erase — 셀 수준의 동작은 SSD에 들어가는 NAND와 동일합니다. 셀 구조의 상세는 [05-nand.md](05-nand.md)가 소유하므로 이 문서에서 되풀이하지 않습니다.
+HBF의 저장 소자는 SanDisk의 **BiCS NAND** 다이 그 자체입니다. 새 셀도, 새 저장 원리도 아닙니다. CTF(Charge Trap Flash) 방식의 전하 저장, 문턱 전압 측정 기반 읽기, 블록 단위 erase까지 셀 수준의 동작은 SSD에 들어가는 NAND와 동일합니다. 셀 구조의 상세는 [05-nand.md](05-nand.md)가 소유하므로 이 문서에서 되풀이하지 않습니다.
 
 따라서 HBF에서 새로운 것은 셀이 아니라 **셀을 꺼내오는 방식과 셀이 놓이는 위치** 두 가지입니다. 앞의 것이 CBA이고, 뒤의 것이 TSV 적층과 인터포저 인접 배치입니다.
 
-### 2-2. CBA — 순차 접근 구조를 수천 갈래로 쪼개는 일
+### 2-2. CBA - 순차 접근 구조를 수천 갈래로 쪼개는 일
 
 SanDisk가 HBF의 핵심 기술로 제시한 것은 **CBA(CMOS Bonded Array)** 입니다[^04-cba]. NAND의 전통적 배열은 단일 대형 배열에 순차적으로 접근하는 구조이고, 이 구조에서는 배열 하나가 한 번에 하나의 동작만 처리합니다. 대역폭이 낮은 근본 원인이 여기 있습니다.
 
@@ -72,7 +72,7 @@ Gen1의 스택 구성으로는 **16-die × 256 Gb** **[벤더 목표치]** 가 �
 
 ---
 
-## 3. 왜 빠른가 / 느린가 — 물리적 근거
+## 3. 왜 빠른가 / 느린가 - 물리적 근거
 
 HBF의 성능 서술에서 대역폭과 지연은 **서로 다른 층위에서 결정되며, 개선 수단이 공유되지 않습니다.**
 
@@ -101,7 +101,7 @@ HBM 용량 격차가 HBF 등장의 직접 동기였다는 맥락은 [03-hbm.md](
 
 ---
 
-## 4. 왜 비싼가 / 싼가 — 면적·공정 근거
+## 4. 왜 비싼가 / 싼가 - 면적·공정 근거
 
 HBF의 비트당 비용이 HBM보다 낮을 것으로 논의되는 근거는 두 가지이며, 둘 다 셀과 공정 구조에서 나옵니다.
 
@@ -134,13 +134,13 @@ HBF의 비트당 비용이 HBM보다 낮을 것으로 논의되는 근거는 두
 
 세 약점은 모두 공개된 특성만으로 도출되며, 전부 **셀에서 오고 패키징으로 해소되지 않습니다.**
 
-**(1) A1 지연 — 약 10–20 µs, HBM 대비 약 100배.** **[벤더 목표치]**
+**(1) A1 지연 - 약 10–20 µs, HBM 대비 약 100배.** **[벤더 목표치]**
 셀 차원의 한계이므로 서브어레이를 더 쪼개도, 적층을 더 높여도, 인터포저 거리를 더 줄여도 내려가지 않습니다. HBF를 쓰는 모든 아키텍처는 이 지연을 **줄이려 하지 않고 숨기려 합니다**. 8절의 LHB가 그 대응입니다.
 
-**(2) 쓰기 내구성 — erase/write 사이클의 물리적 수명 제한.**
+**(2) 쓰기 내구성 - erase/write 사이클의 물리적 수명 제한.**
 NAND 셀에는 P/E 사이클 한계가 있고, 이는 HBF에도 그대로 따라옵니다. 결과적으로 **학습(training) 워크로드에 부적합**합니다. 학습은 가중치와 옵티마이저 상태를 반복적으로 갱신하므로 쓰기 빈도가 구조적으로 높습니다. HBF의 목표 시장이 추론으로 좁혀지는 것은 마케팅상의 포지셔닝이 아니라 셀 수명에서 오는 제약입니다. P/E 사이클과 DWPD 상당치의 정량 스펙은 **[미공개]** (2026-07 기준)입니다.
 
-**(3) 접근 입도 — NAND page 단위 약 4KB.**
+**(3) 접근 입도 - NAND page 단위 약 4KB.**
 HBM4는 32B fine-grained access를 제공합니다. 랜덤 소량 접근 패턴에서는 4KB를 읽어 32B만 쓰는 상황이 반복되고, 그 결과 **명목 대역폭이 아무리 높아도 실효 대역폭이 급락합니다.** 이 약점은 1.6 TB/s라는 수치를 무의미하게 만들 수 있으므로, HBF의 성능은 항상 "어떤 접근 패턴에서"라는 조건과 함께 읽어야 합니다. 8절의 워크로드 3조건 중 세 번째가 이 약점을 겨냥합니다.
 
 ---
@@ -179,10 +179,10 @@ HBF의 표준화는 JEDEC이 아니라 **OCP(Open Compute Project)의 전용 워
 
 아래 여섯 항목은 **[미공개]** 상태이며, 이 문서는 값을 추정하지 않습니다.
 
-1. **최종 패키징 규격** — 높이, 핀 배치, footprint 세부
+1. **최종 패키징 규격** - 높이, 핀 배치, footprint 세부
 2. **전기 인터페이스 최종 사양 및 프로토콜**
-3. **컨트롤러 분담 구조** — host / base die / HBF 컨트롤러 간 역할 경계
-4. **쓰기 내구성 정량 스펙** — P/E 사이클, DWPD 상당치
+3. **컨트롤러 분담 구조** - host / base die / HBF 컨트롤러 간 역할 경계
+4. **쓰기 내구성 정량 스펙** - P/E 사이클, DWPD 상당치
 5. **전력 프로파일, 열 설계 조건**
 6. **가격·비트당 비용 실측치**
 
@@ -211,7 +211,7 @@ HBF의 CBA는 새로 발명된 기술이 아닙니다. Kioxia가 **218층 BiCS8�
 **(1) 수명 mismatch.**
 GPU와 DRAM의 통상 수명은 5–7년으로 잡히는 반면, NAND의 수명은 절대 연수가 아니라 **사용 패턴에 의존**합니다[^04-lifetime]. 쓰기가 많은 워크로드에서는 훨씬 빨리 소진되고, 읽기 위주라면 훨씬 오래 갑니다. 문제는 HBF를 GPU와 동일 패키지에 통합할 경우 **부분 교체가 불가능**하다는 점입니다. 수명이 먼저 다한 쪽 때문에 멀쩡한 쪽까지 함께 폐기해야 하는 구조가 됩니다.
 
-**(2) 인터페이스 선택지 두 가지 — 어느 쪽으로 갈지는 [미공개]입니다.**
+**(2) 인터페이스 선택지 두 가지 - 어느 쪽으로 갈지는 [미공개]입니다.**
 
 | 선택지 | 장점 | 제약 | 출처 |
 |---|---|---|---|
@@ -229,7 +229,7 @@ GPU와 DRAM의 통상 수명은 5–7년으로 잡히는 반면, NAND의 수명�
 
 ## 8. AI 워크로드에서의 실제 역할
 
-### 8-1. H³ — HBM 뒤에 HBF를 다는 구성
+### 8-1. H³ - HBM 뒤에 HBF를 다는 구성
 
 ![그림 4-2. H³ 아키텍처. GPU shoreline에 직결된 HBM 뒤로 D2D 인터페이스를 경유해 HBF 스택이 daisy-chain으로 붙고, base die 안에 LHB SRAM이 놓인다](assets/04-02-h3-architecture.svg)
 
@@ -243,7 +243,7 @@ SK하이닉스 연구진이 제안한 **H³(Hybrid Architecture using High Bandw
 - GPU에는 HBM과 HBF가 **통합 주소 공간**으로 보이며, base die의 address decoder/router가 요청을 어느 쪽으로 보낼지 분기합니다.
 - 데이터 배치는 접근 특성에 따라 갈립니다. **HBF에는 model weight와 CAG 방식으로 사전 계산된 공유 KV cache**를, **HBM에는 생성 중에 계속 갱신되는 KV cache와 activation**을 둡니다. 쓰기가 잦은 쪽을 HBM에 남기는 배치이며, 5절 (2)번 약점에 대한 직접적 대응입니다.
 
-### 8-2. LHB — 지연을 줄이지 않고 숨긴다
+### 8-2. LHB - 지연을 줄이지 않고 숨긴다
 
 H³의 핵심 부품은 base die 안에 두는 prefetch 전용 SRAM, **LHB(Latency Hiding Buffer)** 입니다. 이름 그대로 지연을 줄이는 것이 아니라 가리는 장치입니다. HBF에서 다음 데이터를 미리 끌어오는 동안 앞서 받아 둔 데이터를 소비하게 만들어, 10–20 µs가 연산 시간 뒤에 묻히도록 합니다.
 
@@ -277,7 +277,7 @@ Llama 3.1 405B FP8 모델과 NVIDIA B200을 기준으로, HBM-only 구성 대비
 
 이 수치는 시뮬레이션 결과이며 실물 측정치가 아닙니다. 실제 HBF 샘플은 6-3절 일정표대로 2026년 하반기 전망일 뿐, 2026-07 시점에 실측 데이터는 없습니다.
 
-### 8-4. HBF에 맞는 워크로드 — 세 조건
+### 8-4. HBF에 맞는 워크로드 - 세 조건
 
 5절의 3대 약점을 뒤집으면 HBF가 성립하는 조건이 그대로 나옵니다.
 
@@ -299,7 +299,7 @@ CAG의 동작 원리, RAG와의 정량 비교, 서빙 프레임워크에서의 �
 
 8절의 세 조건은 HBF가 성립하는 조건인 동시에, **성립하지 않는 조건의 목록**이기도 합니다. HBF를 둘러싼 논의에서 가장 자주 생략되는 부분이 이쪽이므로 별도로 다룹니다.
 
-### 9-1. sparse attention 계열 — 예측 가능성이 무너지는 지점
+### 9-1. sparse attention 계열 - 예측 가능성이 무너지는 지점
 
 8절 조건 2번(접근 패턴 예측 가능)은 KV cache 접근이 결정론적이라는 전제 위에 서 있습니다. 그런데 추론 효율화 연구의 상당 부분이 **KV cache 접근을 동적으로 만드는 방향**으로 진행되고 있습니다.
 
@@ -313,7 +313,7 @@ CAG의 동작 원리, RAG와의 정량 비교, 서빙 프레임워크에서의 �
 
 반대로 위·아래 행은 HBF에 유리합니다. DeepSeek이 압축 KV를 SSD storage에 보관해 재사용 이점을 살린다고 소개한 것은 아래 행 방향의 사례입니다. **결론은 "HBF가 sparse attention과 맞지 않는다"가 아니라, 어느 계열이 주류가 되느냐에 따라 HBF의 유효성이 갈린다는 것**입니다. 이는 소자 성능이 아니라 모델 아키텍처 쪽에서 결정되는 변수이며, HBF 진영이 통제할 수 없는 종류의 위험입니다.
 
-### 9-2. MoE weight 저장소 — 라우터 결정이 늦게 나온다
+### 9-2. MoE weight 저장소 - 라우터 결정이 늦게 나온다
 
 HBF의 유력 용도로 MoE(Mixture-of-Experts) 모델의 expert weight 저장이 거론됩니다. 전체 expert 중 일부만 활성화되므로 용량은 크고 접근은 희소한, 계층 분리에 어울리는 구조로 보이기 때문입니다.
 
@@ -335,15 +335,15 @@ sparse attention 계열의 상세, MoE offloading 논쟁의 전개, 서빙 프�
 
 우회의 한계를 보려면 셀 자체를 봐야 합니다.
 
-→ [05-nand.md](05-nand.md) — HBF의 셀은 결국 NAND입니다. 셀 차원에서 무엇이 한계이고 무엇이 아직 남아 있는지를 확인합니다.
+→ [05-nand.md](05-nand.md) - HBF의 셀은 결국 NAND입니다. 셀 차원에서 무엇이 한계이고 무엇이 아직 남아 있는지를 확인합니다.
 
 ---
 
 ## 10. 참고 문헌
 
-- SanDisk 뉴스룸 — HBF Fact Sheet, SK하이닉스 MOU(2025-08-06), HBF Spec. Standardization Consortium Kick-Off(2026-02-25) (T1)
-- SK하이닉스 뉴스룸 — HBF 표준화 관련 게시(2026-02-26) (T1)
-- Open Compute Project — HBF 표준화 워크스트림(2026-02 개설) (T0)
+- SanDisk 뉴스룸 - HBF Fact Sheet, SK하이닉스 MOU(2025-08-06), HBF Spec. Standardization Consortium Kick-Off(2026-02-25) (T1)
+- SK하이닉스 뉴스룸 - HBF 표준화 관련 게시(2026-02-26) (T1)
+- Open Compute Project - HBF 표준화 워크스트림(2026-02 개설) (T0)
 - M. Ha, E. Kim, H. Kim, "H³: Hybrid Architecture using High Bandwidth Memory and High Bandwidth Flash for Cost-Efficient LLM Inference," *IEEE Computer Architecture Letters*, 2026. DOI: 10.1109/LCA.2026.3660969 (T2)
 - B. J. Chan et al., "Don't Do RAG: When Cache-Augmented Generation is All You Need for Knowledge Tasks," WWW 2025. arXiv:2412.15605 (T2)
 - G. Xiao et al., StreamingLLM. arXiv:2309.17453 (ICLR 2024) (T2)
@@ -351,10 +351,10 @@ sparse attention 계열의 상세, MoE offloading 논쟁의 전개, 서빙 프�
 - Quest. arXiv:2406.10774 (ICML 2024) (T2)
 - K. Kyung, S. Yun, J. H. Ahn (SNU), "SSD Offloading for LLM Mixture-of-Experts Weights Considered Harmful in Energy Efficiency," *IEEE Computer Architecture Letters*, 2025. arXiv:2508.06978 (T2)
 - HAVEN. arXiv:2603.01175 (T2)
-- SemiEngineering — "Flash Getting Stacked High-Bandwidth Version"(2026-05) (T3)
-- TrendForce — HBF 표준화 동향 (T3)
-- Kioxia — BiCS8 / BiCS10 발표 자료 (T1)
-- KAIST TERALAB — "2026 HBF Workload and Roadmap" (T3)
+- SemiEngineering - "Flash Getting Stacked High-Bandwidth Version"(2026-05) (T3)
+- TrendForce - HBF 표준화 동향 (T3)
+- Kioxia - BiCS8 / BiCS10 발표 자료 (T1)
+- KAIST TERALAB - "2026 HBF Workload and Roadmap" (T3)
 
 [^04-cba]: CBA(CMOS Bonded Array) 구조, BiCS NAND TSV 적층, HBM4와의 footprint·PHY 근접성은 SanDisk 공개 발표 기준(T1). 확인 2026-07-28. 상세 출처는 [SOURCES.md](SOURCES.md)를 참조하십시오.
 

@@ -45,7 +45,7 @@
 <text class="t11 mid" x="505.33" y="358">50</text>
 <text class="t11 mid" x="560" y="358">60</text>
 <text class="t14 mid" x="396" y="380">지연 (ns)</text>
-<text class="t11 mid" x="396" y="402">데이터시트 min 값의 산술 합 (계산값) — 커맨드 핀 → DQ 핀 구간</text>
+<text class="t11 mid" x="396" y="402">데이터시트 min 값의 산술 합 (계산값) - 커맨드 핀 → DQ 핀 구간</text>
 
 <!-- 시나리오 이름 : 최상단 행에만 -->
 <text class="t12 mid" x="307.17" y="34">row hit</text>
@@ -103,7 +103,7 @@
 <text class="t11 end" x="402.93" y="250">32.00 ns</text>
 <text class="t11" x="498.4" y="250">48.00 ns</text>
 
-<!-- 5행 : DDR5-6400C (JEDEC 초안) — 전 구간 점선 -->
+<!-- 5행 : DDR5-6400C (JEDEC 초안) - 전 구간 점선 -->
 <rect class="f-dram k-dram d" fill-opacity="0.15" stroke-width="2" x="232" y="268" width="98.4" height="24"/>
 <rect fill="url(#hatch)" x="330.4" y="268" width="98.4" height="24"/>
 <rect class="k-dram d" fill="none" stroke-width="2" x="330.4" y="268" width="98.4" height="24"/>

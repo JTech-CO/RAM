@@ -1,5 +1,5 @@
 <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
-<title id="ttl">그림 2-3. DRAM 셀 커패시턴스 추이 — "일정 유지" 원칙이 깨지는 변곡점</title>
+<title id="ttl">그림 2-3. DRAM 셀 커패시턴스 추이 - "일정 유지" 원칙이 깨지는 변곡점</title>
 <desc id="dsc">셀 커패시턴스를 시기순 세로 막대 5개로 놓아 1985–2004년의 약 30 fF 평탄 구간과 D1z/D1a 이후 하강 구간이 갈리는 지점을 변곡점 선으로 표시합니다. 가로축은 등간격 범주축이며 연도 비례 축이 아닙니다. 부등호 값은 열린 화살촉으로, D1c 값은 전망치이므로 점선 막대와 배지로, ITRS 가정치는 시계열 밖 분리 영역에 무채색 점선으로 두어 현행 실측값과 구분합니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }

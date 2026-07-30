@@ -67,7 +67,7 @@
 
 <!-- 좌 : 비트라인 (셀과 같은 층) -->
 <rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="172" y="40" width="16" height="156"/>
-<!-- 우 : buried bitline (셀 아래 독립 공간 — 가려짐) -->
+<!-- 우 : buried bitline (셀 아래 독립 공간 - 가려짐) -->
 <rect class="f-dram k-dram" fill-opacity="0.15" stroke-opacity="0.45" stroke-width="2" x="528" y="40" width="24" height="156"/>
 
 <!-- 워드라인 (좌우 공통 수평 배선) -->

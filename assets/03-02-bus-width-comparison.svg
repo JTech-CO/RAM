@@ -1,5 +1,5 @@
 <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
-<title id="ttl">DDR5·HBM3E·HBM4의 버스 폭 비교</title>
+<title id="ttl">그림 3-2. DDR5·HBM3E·HBM4의 버스 폭 비교</title>
 <desc id="dsc">버스 폭은 64에서 2048-bit로 32배 늘어나는 반면 핀당 전송률은 약 6에서 8 GT/s로 1.3배에 그친다. 두 패널은 각각 자기 축을 가지며 스케일을 공유하지 않습니다. DDR5의 약 6 GT/s는 모듈 약 50 GB/s를 64-bit로 나눈 계산값입니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }
@@ -28,7 +28,7 @@
 </defs>
 
 <!-- ===== 상단 주 패널 : 버스 폭. x 150(0) – 690(2048), 1 bit = 0.263672 px ===== -->
-<text class="t14" x="150" y="44">버스 폭 (bit) — 선형 눈금</text>
+<text class="t14" x="150" y="44">버스 폭 (bit) - 선형 눈금</text>
 
 <!-- 막대 : 64 / 1024 / 2048 → 16.875 / 270 / 540 px -->
 <rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="150" y="96" width="16.875" height="44"/>
@@ -121,7 +121,7 @@
 <text class="t11" x="176" y="246">독립 채널 32개</text>
 
 <!-- ===== 하단 보조 패널 : 핀당 전송률. x 150(0) – 470(8 GT/s), 1 GT/s = 40 px ===== -->
-<text class="t14" x="150" y="342">핀당 전송률 (GT/s) — 선형 눈금</text>
+<text class="t14" x="150" y="342">핀당 전송률 (GT/s) - 선형 눈금</text>
 
 <!-- DDR5 약 6 GT/s → 240 px, 환산값이므로 점선 테두리 -->
 <rect class="f-dram" fill-opacity="0.15" x="150" y="350" width="240" height="18"/>

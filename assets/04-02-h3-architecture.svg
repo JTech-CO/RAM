@@ -108,5 +108,5 @@
 <text class="t12" x="446" y="362">LHB (Latency Hiding Buffer)</text>
 <text class="t11" x="446" y="378">prefetch 전용 SRAM</text>
 <text class="t11" x="586" y="378">약 40 MB (계산값)</text>
-<text class="t11" x="446" y="394">약 8 mm² — base die 약 121 mm²의 6.7% (계산값)</text>
+<text class="t11" x="446" y="394">약 8 mm² - base die 약 121 mm²의 6.7% (계산값)</text>
 </svg>

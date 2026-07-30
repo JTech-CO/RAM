@@ -1,5 +1,5 @@
 <svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
-<title id="ttl">그림 6-6. 매몰 워드라인과 saddle fin — 유효 채널 길이가 늘어나는 경로</title>
+<title id="ttl">그림 6-6. 매몰 워드라인과 saddle fin - 유효 채널 길이가 늘어나는 경로</title>
 <desc id="dsc">왼쪽은 트렌치에 묻힌 TiN/W 2층 매몰 워드라인 단면으로, 트렌치 벽을 U자로 도는 유효 채널 경로를 두 접합을 직선으로 잇는 평면 투영 길이와 나란히 놓았습니다. 게이트 상단이 접합과 수직으로 겹치는 구간만 GIDL로 표시했고, 리세스 깊이 치수선에서 GIDL 쪽과 구동력 쪽으로 화살표를 갈라 하나의 노브가 두 방향을 정함을 나타냈습니다. 오른쪽은 직교 방향 단면으로 STI를 더 깎아 돌출시킨 활성 실리콘 fin과 그 3면을 감싼 게이트입니다. 두 패널은 같은 축척과 같은 기판 기준선을 씁니다. 리세스 깊이·게이트 길이·fin 높이의 구체 nm 값은 본문에 없으므로 표기하지 않았습니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }
@@ -93,10 +93,10 @@
 <path class="h" d="M384,247L286,222"/>
 <text class="t11" x="386" y="300">DWMG</text>
 <text class="t11" x="386" y="314">(dual work-function metal gate)</text>
-<text class="t11" x="386" y="336">GIDL 억제 워크펑션 — 상부</text>
+<text class="t11" x="386" y="336">GIDL 억제 워크펑션 - 상부</text>
 <path class="h" d="M382,332L256,230"/>
 <text class="t11" x="386" y="354">Vth·구동력 워크펑션</text>
-<text class="t11" x="386" y="368">— 채널 중앙 하부</text>
+<text class="t11" x="386" y="368"> - 채널 중앙 하부</text>
 <path class="h" d="M382,358L256,278"/>
 
 <!-- ===== 우 패널 : Saddle-Fin ===== -->

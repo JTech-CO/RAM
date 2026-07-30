@@ -1,4 +1,4 @@
-# 01. SRAM — 래치로 만든 메모리
+# 01. SRAM - 래치로 만든 메모리
 
 > **최종 검증: 2026-07-29**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
@@ -12,11 +12,11 @@
 
 SRAM (Static Random Access Memory)은 **6T 셀**, 즉 교차 결합된 인버터가 만드는 래치 하나로 비트 한 개를 저장하는 메모리입니다. 저장 노드를 전하량이 아니라 **구동 중인 논리 전압**으로 유지하므로 리프레시가 필요 없고, 읽어도 저장 값이 무너지지 않습니다.
 
-이 구조가 접근 지연 1 ns 이하[^01-latency]라는 계층 최상단 위치를 만들어냅니다. 대가는 면적입니다. 비트 하나에 트랜지스터 6개를 쓰는 이상, 면적당 밀도는 TSMC N2 매크로 기준 38.1 Mb/mm²[^01-macro-n2]에 머뭅니다. SRAM 챕터의 논지는 이 한 줄로 요약됩니다 — **속도는 셀 구조가 공짜로 주고, 비용도 같은 셀 구조가 청구합니다.**
+이 구조가 접근 지연 1 ns 이하[^01-latency]라는 계층 최상단 위치를 만들어냅니다. 대가는 면적입니다. 비트 하나에 트랜지스터 6개를 쓰는 이상, 면적당 밀도는 TSMC N2 매크로 기준 38.1 Mb/mm²[^01-macro-n2]에 머뭅니다. SRAM 챕터의 논지는 이 한 줄로 요약됩니다. **속도는 셀 구조가 공짜로 주고, 비용도 같은 셀 구조가 청구합니다.**
 
 ---
 
-## 2. 셀 구조 — 왜 이렇게 생겼는가
+## 2. 셀 구조 - 왜 이렇게 생겼는가
 
 ![그림 1-1. 6T SRAM 셀 회로도](assets/01-01-6t-sram-cell.svg)
 
@@ -48,7 +48,7 @@ SRAM (Static Random Access Memory)은 **6T 셀**, 즉 교차 결합된 인버터
 
 ---
 
-## 3. 왜 빠른가 / 느린가 — 물리적 근거
+## 3. 왜 빠른가 / 느린가 - 물리적 근거
 
 SRAM의 읽기는 **래치가 이미 구동하고 있는 전압을 패스게이트 너머 비트라인으로 전달하는 것이 전부**입니다. 워드라인을 올려 패스게이트를 열면, 래치의 인버터가 곧바로 비트라인을 끌어당깁니다. 셀 자체가 전류원 역할을 하므로 신호를 따로 만들어낼 준비 단계가 없습니다.
 
@@ -64,7 +64,7 @@ SRAM의 읽기는 **래치가 이미 구동하고 있는 전압을 패스게이�
 
 ---
 
-## 4. 왜 비싼가 / 싼가 — 면적·공정 근거
+## 4. 왜 비싼가 / 싼가 - 면적·공정 근거
 
 ### 4-1. 비트셀과 매크로 밀도는 다른 지표입니다
 
@@ -153,7 +153,9 @@ SRAM의 1차 병목 공정은 **노광과 DTCO**이며, 구체적 난제는 4-2�
 
 미세화가 SRAM에 남긴 문제는 면적만이 아닙니다. 3nm GAA-FET SRAM의 self-heating과 방사선 내성을 다룬 연구가 2026년 7월 발표되었습니다[^01-selfheat]. 공개 확인된 범위가 연구 주제까지이므로 세부 결과와 정량 수치는 이 문서에서 인용하지 않습니다. 다만 이 두 주제가 3nm 세대에서 별도로 제기된다는 사실 자체가, 면적 스케일링이 다시 움직이더라도 **신뢰성 쪽 청구서가 따로 발행된다**는 뜻입니다.
 
-그 청구서는 공정이 아니라 아키텍처 쪽에서 결제됩니다. SRAM에는 쓰기 마모가 없는 대신 입자 하나가 저장 노드를 뒤집는 soft error가 남고, 그래서 프로세서는 모든 SRAM을 똑같이 보호하지 않습니다 — Arm Cortex-A78 TRM(2020)과 Neoverse N1 TRM(2019) 기준으로 L1 명령 캐시는 패리티만 두고 오류를 만나면 라인을 무효화한 뒤 하위 메모리에서 다시 fetch하지만, 하위 메모리에 원본이 없는 dirty 라인을 담는 L1 데이터 캐시와 L2는 SECDED로 그 자리에서 정정합니다[^01-cache-protect]. 분기 예측기(BTB·GHB·BIM·PHT)는 아예 보호하지 않습니다. 틀려도 예측이 빗나가 성능만 손해이기 때문입니다. 규칙은 한 줄로 요약됩니다 — **복구 경로가 있으면 검출만 하고, 없으면 정정합니다.** 다만 위 값은 특정 코어의 특정 리비전을 기술한 것이며 구현별로 다릅니다.
+그 청구서는 공정이 아니라 아키텍처 쪽에서 결제됩니다. SRAM에는 쓰기 마모가 없는 대신 입자 하나가 저장 노드를 뒤집는 soft error가 남고, 그래서 프로세서는 모든 SRAM을 똑같이 보호하지 않습니다. Arm Cortex-A78 TRM(2020)과 Neoverse N1 TRM(2019) 기준으로 L1 명령 캐시는 패리티만 두고 오류를 만나면 라인을 무효화한 뒤 하위 메모리에서 다시 fetch하지만, 하위 메모리에 원본이 없는 dirty 라인을 담는 L1 데이터 캐시와 L2는 SECDED로 그 자리에서 정정합니다[^01-cache-protect]. 분기 예측기(BTB·GHB·BIM·PHT)는 아예 보호하지 않습니다. 틀려도 예측이 빗나가 성능만 손해이기 때문입니다.
+
+규칙은 한 줄로 요약됩니다. **복구 경로가 있으면 검출만 하고, 없으면 정정합니다.** 다만 위 값은 특정 코어의 특정 리비전을 기술한 것이며 구현별로 다릅니다.
 
 → 캐시 보호 계층과 soft error 상세: [07-reliability.md](07-reliability.md) (5절)
 
@@ -189,7 +191,7 @@ SRAM의 한계는 속도도 대역폭도 아닌 **용량 단 하나**입니다.
 
 7절에서 본 대로 이 간격이 시간이 지나면서 좁혀질 것이라고 기대하기도 어렵습니다. 로직 대비 SRAM의 스케일링 열세가 이어지는 한, 노드가 진행되어도 **온다이 캐시 용량은 비용에 비례해서만 늘어납니다.** 6T 셀을 유지하는 이상 이 제약은 구조적입니다.
 
-따라서 다음 질문은 자연스럽게 정해집니다. **트랜지스터 6개로 비트 하나를 저장하는 방식을 포기하면 무엇을 얻고 무엇을 잃는가.** 셀을 트랜지스터 1개와 커패시터 1개로 줄이면 면적은 크게 작아지지만, 2-2절에서 SRAM이 공짜로 얻었던 두 가지 — 리프레시 불필요와 비파괴 읽기 — 를 모두 내놓아야 합니다.
+따라서 다음 질문은 자연스럽게 정해집니다. **트랜지스터 6개로 비트 하나를 저장하는 방식을 포기하면 무엇을 얻고 무엇을 잃는가.** 셀을 트랜지스터 1개와 커패시터 1개로 줄이면 면적은 크게 작아지지만, 2-2절에서 SRAM이 공짜로 얻었던 두 가지(리프레시 불필요와 비파괴 읽기)를 모두 내놓아야 합니다.
 
 → 5축 밖에 있는 제약, 즉 soft error와 캐시 보호 계층은 [07-reliability.md](07-reliability.md)에서 다룹니다.
 
@@ -201,7 +203,7 @@ SRAM의 한계는 속도도 대역폭도 아닌 **용량 단 하나**입니다.
 
 - 노드별 SRAM 비트셀·매크로 밀도: TSMC N2 / N5 / N3E, Intel 18A / Intel 4 관련 T1·T3 공개 자료 및 ISSCC 2025 Advance Program. 상세 인덱스는 [SOURCES.md](SOURCES.md) 참조
 - M. Ha, E. Kim, H. Kim, "H³: Hybrid Architecture using High Bandwidth Memory and High Bandwidth Flash for Cost-Efficient LLM Inference," *IEEE Computer Architecture Letters*, 2026. DOI: 10.1109/LCA.2026.3660969 (T2)
-- 3nm GAA-FET SRAM self-heating 및 방사선 내성 연구 (SJSU / Sandia National Laboratories), 2026-07 (T2) — **원문 미확인**
+- 3nm GAA-FET SRAM self-heating 및 방사선 내성 연구 (SJSU / Sandia National Laboratories), 2026-07 (T2) - **원문 미확인**
 - Arm Cortex-A78 Technical Reference Manual (문서번호 101430_0101_05_en, Copyright 2018–2020) / Arm Neoverse N1 Technical Reference Manual (문서번호 100616_0400_00_en, Copyright 2016–2019), 캐시 보호 표 (T1)
 - 캐시 보호 계층과 soft error 상세: [07-reliability.md](07-reliability.md)
 - 계층별 공정 병목 요약: [06-process.md](06-process.md) (7절)
@@ -223,11 +225,11 @@ SRAM의 한계는 속도도 대역폭도 아닌 **용량 단 하나**입니다.
 
 [^01-density-2d]: SRAM 0.038 Gb/mm²는 셀을 한 층만 배치한 2D 구조의 값입니다. 3D 적층된 NAND의 면적당 밀도와 직접 비교할 때 발생하는 왜곡과 층당 환산 처리는 [00-memory-hierarchy.md](00-memory-hierarchy.md)에서 다룹니다. 확인 2026-07-28.
 
-[^01-bottleneck]: 계층별 공정 병목 요약의 SRAM 행 — 1차 병목 공정은 노광과 DTCO, 난제는 비트셀이 로직만큼 축소되지 않는 점, 해법은 GAA·BSPDN·DTCO·3D 적층 캐시입니다. 상세는 [06-process.md](06-process.md)의 7절. 확인 2026-07-28.
+[^01-bottleneck]: 계층별 공정 병목 요약의 SRAM 행 - 1차 병목 공정은 노광과 DTCO, 난제는 비트셀이 로직만큼 축소되지 않는 점, 해법은 GAA·BSPDN·DTCO·3D 적층 캐시입니다. 상세는 [06-process.md](06-process.md)의 7절. 확인 2026-07-28.
 
-[^01-selfheat]: 3nm GAA-FET SRAM의 self-heating 및 방사선 내성 연구(SJSU / Sandia National Laboratories), 2026-07 발표. T2. **원문 미확인** — 2026-07-29 재조사에서도 원문을 확보하지 못했습니다. 연구의 존재가 반박된 것도 아니고 내용이 검증된 것도 아니므로, 이 문서는 연구 주제가 제기되었다는 사실만 서술하고 세부 결과·정량 수치는 인용하지 않습니다. 확인 2026-07-29.
+[^01-selfheat]: 3nm GAA-FET SRAM의 self-heating 및 방사선 내성 연구(SJSU / Sandia National Laboratories), 2026-07 발표. T2. **원문 미확인** - 2026-07-29 재조사에서도 원문을 확보하지 못했습니다. 연구의 존재가 반박된 것도 아니고 내용이 검증된 것도 아니므로, 이 문서는 연구 주제가 제기되었다는 사실만 서술하고 세부 결과·정량 수치는 인용하지 않습니다. 확인 2026-07-29.
 
-[^01-cache-protect]: Arm Cortex-A78 TRM(문서번호 101430_0101_05_en, Copyright 2018–2020)과 Arm Neoverse N1 TRM(문서번호 100616_0400_00_en, Copyright 2016–2019)의 캐시 보호 표. T1. SECDED는 Single Error Correct, Double Error Detect입니다. TRM은 **특정 코어의 특정 리비전**을 기술한 문서이며 아키텍처 전반의 규정이 아닙니다 — 두 코어는 L1 명령 캐시 tag의 protection granule이 31비트(A78)와 39비트(N1)로 다르고, A78은 L1 보호를 "optional"로 기술합니다. 캐시별 granule·오버헤드 전체 표와 soft error rate 정량은 [07-reliability.md](07-reliability.md)의 5절을 참조하십시오. 확인 2026-07-29.
+[^01-cache-protect]: Arm Cortex-A78 TRM(문서번호 101430_0101_05_en, Copyright 2018–2020)과 Arm Neoverse N1 TRM(문서번호 100616_0400_00_en, Copyright 2016–2019)의 캐시 보호 표. T1. SECDED는 Single Error Correct, Double Error Detect입니다. TRM은 **특정 코어의 특정 리비전**을 기술한 문서이며 아키텍처 전반의 규정이 아닙니다 - 두 코어는 L1 명령 캐시 tag의 protection granule이 31비트(A78)와 39비트(N1)로 다르고, A78은 L1 보호를 "optional"로 기술합니다. 캐시별 granule·오버헤드 전체 표와 soft error rate 정량은 [07-reliability.md](07-reliability.md)의 5절을 참조하십시오. 확인 2026-07-29.
 
 [^01-hbf-spec]: HBF는 2026-07 기준 OCP 워크스트림에서 표준화가 진행 중이며, 확정된 T0 원문 사양이 없습니다. 본문의 접근 지연 약 10–20 µs는 SanDisk가 공개한 Gen1 목표 스펙(T1)이고, 패키징 규격·전기 인터페이스·컨트롤러 분담·쓰기 내구성 등은 **[미공개]** (2026-07 기준)입니다. 이 값은 공개 발표와 벤더 로드맵을 종합한 것으로 최종 확정 사양과 다를 수 있습니다. 상세는 [04-hbf.md](04-hbf.md) 참조. 확인 2026-07-28.
 
