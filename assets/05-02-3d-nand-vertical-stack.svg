@@ -27,7 +27,7 @@
   </pattern>
 </defs>
 
-<!-- 상단 라벨 : 셀 어레이 웨이퍼 x130~480, 채널 홀 중심 x=247 -->
+<!-- 상단 라벨 : 셀 어레이 웨이퍼 x130–480, 채널 홀 중심 x=247 -->
 <text class="t14" x="130" y="20">셀 어레이 웨이퍼</text>
 <text class="t11 end" x="480" y="20">면적 밀도 29 Gb/mm² 초과</text>
 <text class="t12 mid" x="247" y="38">채널 홀</text>
@@ -50,7 +50,7 @@
 <line class="h" x1="110" y1="50" x2="110" y2="370" marker-start="url(#ar)" marker-end="url(#ar)"/>
 <text class="t12 mid" x="100" y="130" transform="rotate(-90 100 130)">332층 (BiCS10)</text>
 
-<!-- ===== 셀 어레이 상부 구간 y 50~196 : 워드라인 판 6장 + 층간 절연막 ===== -->
+<!-- ===== 셀 어레이 상부 구간 y 50–196 : 워드라인 판 6장 + 층간 절연막 ===== -->
 <path class="s" d="M130,196 L130,50 L480,50 L480,196"/>
 <rect x="130" y="64" width="350" height="12" fill="url(#hatch)"/>
 <rect x="130" y="88" width="350" height="12" fill="url(#hatch)"/>
@@ -70,7 +70,7 @@
 <polyline class="s" points="130,212 155,224 180,212 205,224 230,212 255,224 280,212 305,224 330,212 355,224 380,212 405,224 430,212 455,224 480,212"/>
 <text class="t11 end" x="104" y="214">층 축약 — 절단 표시</text>
 
-<!-- ===== 셀 어레이 하부 구간 y 224~370 ===== -->
+<!-- ===== 셀 어레이 하부 구간 y 224–370 ===== -->
 <path class="s" d="M130,224 L130,370 L480,370 L480,224"/>
 <rect x="130" y="224" width="350" height="12" fill="url(#hatch)"/>
 <rect x="130" y="248" width="350" height="12" fill="url(#hatch)"/>
@@ -97,7 +97,7 @@
 <line class="k-emph d" stroke-width="2" fill="none" x1="240" y1="224" x2="240" y2="370"/>
 <line class="k-emph d" stroke-width="2" fill="none" x1="254" y1="224" x2="254" y2="370"/>
 
-<!-- ===== 본딩 계면 y 370~398 ===== -->
+<!-- ===== 본딩 계면 y 370–398 ===== -->
 <rect class="k-emph d" fill="none" stroke-width="2" x="130" y="370" width="350" height="28"/>
 <rect class="s" x="162" y="378" width="16" height="12"/>
 <rect class="s" x="216" y="378" width="16" height="12"/>
@@ -108,7 +108,7 @@
 <text class="t12 end" x="124" y="388">미세 구리 패드</text>
 <line class="h" x1="128" y1="384" x2="160" y2="384"/>
 
-<!-- ===== CMOS 주변회로 웨이퍼 y 398~470 (로직 공정 — NAND색 미사용) ===== -->
+<!-- ===== CMOS 주변회로 웨이퍼 y 398–470 (로직 공정 — NAND색 미사용) ===== -->
 <rect class="s" x="130" y="398" width="350" height="72"/>
 <text class="t12 mid" x="305" y="438">CMOS 주변회로 웨이퍼</text>
 <text class="t12 mid" x="305" y="492">CBA (CMOS Bonded to Array) / 삼성 CoP (Cell-on-Periphery)</text>

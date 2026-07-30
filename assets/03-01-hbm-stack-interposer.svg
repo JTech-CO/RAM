@@ -39,7 +39,7 @@
 <path class="s" d="M126,340 L126,348 L364,348 L364,340"/>
 <path class="s" d="M122,340 L122,352 L368,352 L368,340"/>
 
-<!-- ===== 좌측 상세 HBM 스택 : x 60~200 ===== -->
+<!-- ===== 좌측 상세 HBM 스택 : x 60–200 ===== -->
 <!-- 로직 base die (강조색 + 45도 해칭) -->
 <rect class="f-emph" fill-opacity="0.15" x="60" y="324" width="140" height="12"/>
 <rect fill="url(#hatch)" x="60" y="324" width="140" height="12"/>
@@ -99,7 +99,7 @@
 <line class="s" x1="144" y1="132" x2="144" y2="340"/>
 <line class="s" x1="172" y1="132" x2="172" y2="340"/>
 
-<!-- ===== 우측 약식 HBM 스택 : x 520~660, 좌측과 동일 높이/폭 ===== -->
+<!-- ===== 우측 약식 HBM 스택 : x 520–660, 좌측과 동일 높이/폭 ===== -->
 <rect class="f-emph" fill-opacity="0.15" x="520" y="324" width="140" height="12"/>
 <rect fill="url(#hatch)" x="520" y="324" width="140" height="12"/>
 <rect class="k-emph" fill="none" stroke-width="2" x="520" y="324" width="140" height="12"/>
@@ -161,7 +161,7 @@
 <text class="t11" x="380" y="264">pad pitch 10 µm</text>
 
 <text class="t12" x="214" y="300">로직 base die</text>
-<text class="t11" x="214" y="316">4~5 nm 로직 공정</text>
+<text class="t11" x="214" y="316">4–5 nm 로직 공정</text>
 
 <text class="t14 mid" x="360" y="316">GPU 다이</text>
 <text class="t11 mid" x="495" y="322">수 mm</text>

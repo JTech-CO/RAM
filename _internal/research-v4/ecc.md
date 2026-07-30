@@ -23,12 +23,12 @@
 | 실제 제품의 ECS 기능 | "ECS Writeback Suppression" 및 "x4 RMW Suppression" 기능 지원 명시 | T1 | micron16gb_ddr5.txt L1330, L1334 (Micron 16Gb DDR5 SDRAM **Die Rev D**, doc rev F 04/2024) | ECS 라이트백·x4 read-modify-write가 실제 양산 다이에 존재함을 확인 |
 | 삼성 DDR5 UDIMM 기능 목록 | "On-Die ECC", "ECC Transparency and Error Scrub", "CRC (Cyclic Redundancy Check)" 각각 **별도 항목**으로 병기 | T1 | samsung_ddr5_udimm.txt L72-74 | 온다이 ECC와 링크 CRC가 **서로 다른 기능**임을 제조사 문서가 구분 |
 | DDR5 RDIMM 모듈 폭 | **x80** (32GB, ECC, DR 288-pin DDR5 RDIMM) | T1 | micron_32gb_rdimm.txt L3 등 | DDR5는 40비트 서브채널 2개 = 80비트. DDR4 ECC DIMM의 x72와 대비 |
-| **schroeder09 FIT율** | **25,000 ~ 70,000 FIT/Mbit** (failures in time per billion device hours) | T2 | schroeder09.txt L132-134 | **2009년 논문 / 2006.1~2008.6 측정. 현행 세대에 그대로 적용 금지** |
+| **schroeder09 FIT율** | **25,000 – 70,000 FIT/Mbit** (failures in time per billion device hours) | T2 | schroeder09.txt L132-134 | **2009년 논문 / 2006.1–2008.6 측정. 현행 세대에 그대로 적용 금지** |
 | schroeder09 DIMM 영향률 | 연간 **8.2%**의 DIMM이 정정가능오류(CE) 경험 (전체 fleet) | T2 | schroeder09.txt L520-521 | 동상 |
-| schroeder09 DIMM당 CE 수 | 평균 DIMM이 연간 **약 4,000회** CE. 플랫폼별 **3,351~4,530회/년** | T2 | schroeder09.txt L521-522, L529-531 | 동상 |
-| schroeder09 UE 발생률 | 연간 **1.3%**의 머신이 정정불가오류(UE) 경험 (플랫폼에 따라 **2~4%**) | T2 | schroeder09.txt L511-513 | 동상 |
-| schroeder09 DIMM 기준 UE | 플랫폼 A·E는 연간 **0.05~0.08%**의 DIMM, 플랫폼 C·D는 **약 0.3%** | T2 | schroeder09.txt L526-529 | 동상 |
-| schroeder09 연구 범위 | Google 서버 fleet, **2006년 1월 ~ 2008년 6월(약 2.5년)**, 6개 하드웨어 플랫폼, 수백만 DIMM-day | T2 | schroeder09.txt L21-23, L209-213 | |
+| schroeder09 DIMM당 CE 수 | 평균 DIMM이 연간 **약 4,000회** CE. 플랫폼별 **3,351–4,530회/년** | T2 | schroeder09.txt L521-522, L529-531 | 동상 |
+| schroeder09 UE 발생률 | 연간 **1.3%**의 머신이 정정불가오류(UE) 경험 (플랫폼에 따라 **2–4%**) | T2 | schroeder09.txt L511-513 | 동상 |
+| schroeder09 DIMM 기준 UE | 플랫폼 A·E는 연간 **0.05–0.08%**의 DIMM, 플랫폼 C·D는 **약 0.3%** | T2 | schroeder09.txt L526-529 | 동상 |
+| schroeder09 연구 범위 | Google 서버 fleet, **2006년 1월 – 2008년 6월(약 2.5년)**, 6개 하드웨어 플랫폼, 수백만 DIMM-day | T2 | schroeder09.txt L21-23, L209-213 | |
 | schroeder09 핵심 결론 1 | 메모리 오류는 소프트 에러가 아니라 **하드 에러가 지배적** | T2 | schroeder09.txt L135-137 | |
 | schroeder09 핵심 결론 2 | DIMM 세대가 신형이라고 해서 DIMM당 오류율이 증가한다는 증거는 **관측되지 않음** | T2 | schroeder09.txt L139-141, L1810-1814 | **셀 미세화→오류율 증가 서사를 이 논문으로 뒷받침할 수 없음.** §3 참조 |
 | SECDED 정의 (해당 논문) | 단일 비트 오류는 정정, 다중 비트 오류는 **검출만 가능하고 정정 불가** | T2 | schroeder09.txt L150-154 | |
@@ -161,7 +161,7 @@ RAM-source-pack.md를 ECC/ECS/scrub/SECDED/Chipkill/parity 키워드로 grep한 
 2. **JEDEC 인용 시 반드시 "위원회 초안"임을 표기할 것.** 로컬 jesd79_5.txt는 Rev0.1 회람본이며, ECS 임계값이 "TBD", MR15 OP[4:0]이 "RFU"로 남아 있는 **미완성 문서**입니다. "JESD79-5 표준에 따르면"이라고 단정하지 말고 "DDR5 사양 초안(JC42.3 회람본) 기준"으로 쓸 것.
 3. **온다이 ECC를 "SECDED"라고 쓰지 말 것.** 1차 자료는 일관되게 **SEC**이며 Micron은 DED가 **불가능**하다고 명시합니다. SECDED는 시스템 ECC 쪽 용어로만 사용할 것.
 4. **"DDR5 온다이 ECC는 호스트에 오류를 전혀 보고하지 않는다"고 단정하지 말 것.** 확인된 보고 경로는 ECS 완료 후의 집계(카운트 + 최다 오류 행, 임계값 초과 시)뿐이지만, 삼성 문서의 "ECC Transparency" 기능 내용을 확인하지 못했습니다. 안전한 표현: **"실시간·주소 단위 CE 보고는 확인되지 않았고, 확인된 보고는 ECS 완료 후의 임계값 기반 집계 정보뿐"**.
-5. **schroeder09 수치를 쓸 때는 반드시 "2009년 발표, 2006년 1월~2008년 6월 Google fleet 측정"을 함께 적을 것.** DDR5는커녕 DDR3도 아닌 시기의 데이터입니다. "현재 DRAM은 연간 8%가 오류를 낸다" 식으로 현재형 서술 금지.
+5. **schroeder09 수치를 쓸 때는 반드시 "2009년 발표, 2006년 1월–2008년 6월 Google fleet 측정"을 함께 적을 것.** DDR5는커녕 DDR3도 아닌 시기의 데이터입니다. "현재 DRAM은 연간 8%가 오류를 낸다" 식으로 현재형 서술 금지.
 6. **schroeder09를 "미세화 → 오류율 증가"의 근거로 절대 인용하지 말 것.** 이 논문은 정반대로 **신세대 DIMM에서 오류율 증가 증거를 찾지 못했다**고 결론냅니다. 인용하면 논문 결론을 뒤집는 오인용이 됩니다.
 7. **schroeder09의 또 다른 핵심 — "하드 에러 지배적"을 빠뜨리지 말 것.** 우주선(soft error) 중심의 통념을 이 논문이 반박했다는 점이 ECC 필요성 논의에서 중요합니다(하드 에러는 스크럽으로 안 없어지고 반복되며, 그래서 CE 발생 이력이 DIMM 교체 신호가 됩니다).
 8. **"온다이 ECC가 필수가 된 이유 = 셀 미세화"를 수치로 뒷받침하려 하지 말 것.** 이 조사에서 정량 근거를 **확보하지 못했습니다**(§4-7). 서술한다면 "표준·제조사 문서가 밝힌 도입 취지"까지만 쓰고, 미세화 인과는 정성적 추정임을 표시할 것.
@@ -182,6 +182,6 @@ RAM-source-pack.md를 ECC/ECS/scrub/SECDED/Chipkill/parity 키워드로 grep한 
 | micron16gb_ddr5.txt (로컬) | T1 | Micron 16Gb DDR5 SDRAM **Die Rev D** Function Matrix (문서 rev F, 2024-04) — ECS Writeback Suppression / x4 RMW Suppression 기능 확인 | 2026-07-29 |
 | micron_32gb_rdimm.txt (로컬) | T1 | Micron 32GB (**x80, ECC**, DR) 288-Pin DDR5 RDIMM 데이터시트 | 2026-07-29 |
 | samsung_ddr5_udimm.txt (로컬) | T1 | 삼성 DDR5 UDIMM 자료 — 기능 목록에서 On-Die ECC / ECC Transparency and Error Scrub / CRC 구분 확인 | 2026-07-29 |
-| schroeder09.txt (로컬) | T2 | Schroeder, Pinheiro, Weber, "DRAM Errors in the Wild: A Large-Scale Field Study", SIGMETRICS 2009. **측정 기간 2006-01~2008-06** | 2026-07-29 |
+| schroeder09.txt (로컬) | T2 | Schroeder, Pinheiro, Weber, "DRAM Errors in the Wild: A Large-Scale Field Study", SIGMETRICS 2009. **측정 기간 2006-01–2008-06** | 2026-07-29 |
 | JEDEC 보도자료 (웹) | T0 (보도자료, **규격 원문 아님**) | "JEDEC Publishes HBM3 Update to High Bandwidth Memory (HBM) Standard" (JESD238, 2022-01) — https://www.jedec.org/news/pressreleases/jedec-publishes-hbm3-update-high-bandwidth-memory-hbm-standard | 2026-07-29 |
 | ~~ocp_ras.pdf / ocp17.pdf / mdpi_hbm.pdf~~ | — | **사용 불가.** 실제 내용은 Cloudflare "Just a moment..." 챌린지 페이지 및 Akamai "Access Denied" HTML. PDF 아님 | 2026-07-29 |

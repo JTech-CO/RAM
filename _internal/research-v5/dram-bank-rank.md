@@ -19,22 +19,22 @@
 
 | 다이 밀도 | 구성 | BG 수 | BG 주소 | BG 내 뱅크 주소 | Row 주소 | Column 주소 | 페이지 크기 |
 |---|---|---|---|---|---|---|---|
-| 2Gb | 512Mb x4 | 4 | BG0~BG1 | BA0~BA1 | A0~A14 | A0~A9 | 512B |
-| 2Gb | 256Mb x8 | 4 | BG0~BG1 | BA0~BA1 | A0~A13 | A0~A9 | 1KB |
-| 2Gb | 128Mb x16 | **2** | BG0 | BA0~BA1 | A0~A13 | A0~A9 | 2KB |
-| 4Gb | 1Gb x4 | 4 | BG0~BG1 | BA0~BA1 | A0~A15 | A0~A9 | 512B |
-| 4Gb | 512Mb x8 | 4 | BG0~BG1 | BA0~BA1 | A0~A14 | A0~A9 | 1KB |
-| 4Gb | 256Mb x16 | **2** | BG0 | BA0~BA1 | A0~A14 | A0~A9 | 2KB |
-| 8Gb | 2Gb x4 | 4 | BG0~BG1 | BA0~BA1 | A0~A16 | A0~A9 | 512B |
-| 8Gb | 1Gb x8 | 4 | BG0~BG1 | BA0~BA1 | A0~A15 | A0~A9 | 1KB |
-| 8Gb | 512Mb x16 | **2** | BG0 | BA0~BA1 | A0~A15 | A0~A9 | 2KB |
-| 16Gb | 4Gb x4 | 4 | BG0~BG1 | BA0~BA1 | A0~A17 | A0~A9 | 512B |
-| 16Gb | 2Gb x8 | 4 | BG0~BG1 | BA0~BA1 | A0~A16 | A0~A9 | 1KB |
-| 16Gb | 1Gb x16 | **2** | BG0 | BA0~BA1 | A0~A16 | A0~A9 | 2KB |
+| 2Gb | 512Mb x4 | 4 | BG0–BG1 | BA0–BA1 | A0–A14 | A0–A9 | 512B |
+| 2Gb | 256Mb x8 | 4 | BG0–BG1 | BA0–BA1 | A0–A13 | A0–A9 | 1KB |
+| 2Gb | 128Mb x16 | **2** | BG0 | BA0–BA1 | A0–A13 | A0–A9 | 2KB |
+| 4Gb | 1Gb x4 | 4 | BG0–BG1 | BA0–BA1 | A0–A15 | A0–A9 | 512B |
+| 4Gb | 512Mb x8 | 4 | BG0–BG1 | BA0–BA1 | A0–A14 | A0–A9 | 1KB |
+| 4Gb | 256Mb x16 | **2** | BG0 | BA0–BA1 | A0–A14 | A0–A9 | 2KB |
+| 8Gb | 2Gb x4 | 4 | BG0–BG1 | BA0–BA1 | A0–A16 | A0–A9 | 512B |
+| 8Gb | 1Gb x8 | 4 | BG0–BG1 | BA0–BA1 | A0–A15 | A0–A9 | 1KB |
+| 8Gb | 512Mb x16 | **2** | BG0 | BA0–BA1 | A0–A15 | A0–A9 | 2KB |
+| 16Gb | 4Gb x4 | 4 | BG0–BG1 | BA0–BA1 | A0–A17 | A0–A9 | 512B |
+| 16Gb | 2Gb x8 | 4 | BG0–BG1 | BA0–BA1 | A0–A16 | A0–A9 | 1KB |
+| 16Gb | 1Gb x16 | **2** | BG0 | BA0–BA1 | A0–A16 | A0–A9 | 2KB |
 
 **핵심 관찰**
-- 뱅크 그룹 수와 그룹당 뱅크 수는 **밀도와 무관하게 고정**입니다. 밀도가 커지면 **Row 주소 비트만 1개씩 늘어납니다**(2Gb x4 A0~A14 → 16Gb x4 A0~A17).
-- **Column 주소는 전 밀도·전 폭에서 A0~A9 (10비트, 1024열) 고정**입니다. 페이지 크기 차이는 오직 DQ 폭에서 나옵니다.
+- 뱅크 그룹 수와 그룹당 뱅크 수는 **밀도와 무관하게 고정**입니다. 밀도가 커지면 **Row 주소 비트만 1개씩 늘어납니다**(2Gb x4 A0–A14 → 16Gb x4 A0–A17).
+- **Column 주소는 전 밀도·전 폭에서 A0–A9 (10비트, 1024열) 고정**입니다. 페이지 크기 차이는 오직 DQ 폭에서 나옵니다.
 - 페이지 크기 = 2^(컬럼비트 수) × (DQ 폭 / 8). x4=512B, x8=1KB, x16=2KB.
   - Micron 데이터시트가 이 공식을 명시: "Page size = 2^COLBITS × ORG/8" (T1, micron_ddr4_16gb.txt L116-117)
 
@@ -55,8 +55,8 @@
 | x16 총 뱅크 | 8 (2 BG × 4) | **16 (4 BG × 4)** | 역시 2배 |
 | x4 페이지 | 512B | **1KB** | 컬럼 비트 10→11 (C0-C10) |
 | x8 페이지 | 1KB | 1KB | 동일 |
-| x4 Row 비트 | 18 (A0~A17) | **16 (R0-R15)** | 행 수는 줄고 열 수가 늘어남 |
-| BG 주소 폭 | BG0~BG1 (2bit) | **BG0-BG2 (3bit)** | |
+| x4 Row 비트 | 18 (A0–A17) | **16 (R0-R15)** | 행 수는 줄고 열 수가 늘어남 |
+| BG 주소 폭 | BG0–BG1 (2bit) | **BG0-BG2 (3bit)** | |
 
 > **주의**: DDR5 x4가 x8보다 컬럼 비트가 **1개 더 많습니다**(C0-C10 vs C0-C9). 그래서 x4와 x8이 **같은 1KB 페이지**를 갖습니다. DDR4에서는 x4가 512B였습니다. 즉 DDR5는 x4에서 페이지 크기를 유지하기 위해 컬럼을 늘렸습니다. (T1, micron16gb_ddr5.txt L102-109)
 
@@ -67,28 +67,28 @@
 
 | 다이 밀도 | 구성 | BG 수 | BG 주소 | BG당 뱅크 주소 | **BG당 뱅크 수** | **총 뱅크 수** | Row | Column | 페이지 |
 |---|---|---|---|---|---|---|---|---|---|
-| **8Gb** | 2Gb x4 | 8 | BG0~BG2 | **BA0 (1비트)** | **2** | **16** | R0~R15 | C0~C10 | 1KB |
-| **8Gb** | 1Gb x8 | 8 | BG0~BG2 | **BA0** | **2** | **16** | R0~R15 | C0~C9 | 1KB |
-| **8Gb** | 512Mb x16 | 4 | BG0~BG1 | **BA0** | **2** | **8** | R0~R15 | C0~C9 | 2KB |
-| **16Gb** | 4Gb x4 | 8 | BG0~BG2 | BA0~BA1 | 4 | **32** | R0~R15 | C0~C10 | 1KB |
-| **16Gb** | 2Gb x8 | 8 | BG0~BG2 | BA0~BA1 | 4 | **32** | R0~R15 | C0~C9 | 1KB |
-| **16Gb** | 1Gb x16 | 4 | BG0~BG1 | BA0~BA1 | 4 | **16** | R0~R15 | C0~C9 | 2KB |
-| **24Gb** | 6Gb x4 | 8 | BG0~BG2 | BA0~BA1 | 4 | 32 | R0~R16* | C0~C10 | 1KB |
-| **24Gb** | 3Gb x8 | 8 | BG0~BG2 | BA0~BA1 | 4 | 32 | R0~R16* | C0~C9 | 1KB |
-| **24Gb** | 1.5Gb x16 | 4 | BG0~BG1 | BA0~BA1 | 4 | 16 | R0~R16* | C0~C9 | 2KB |
-| **32Gb** | 8Gb x4 | 8 | BG0~BG2 | BA0~BA1 | 4 | 32 | R0~R16 | C0~C10 | 1KB |
-| **32Gb** | 4Gb x8 | 8 | BG0~BG2 | BA0~BA1 | 4 | 32 | R0~R16 | C0~C9 | 1KB |
-| **32Gb** | 2Gb x16 | 4 | BG0~BG1 | BA0~BA1 | 4 | 16 | R0~R16 | C0~C9 | 2KB |
-| **64Gb** | 16Gb x4 | 8 | BG0~BG2 | BA0~BA1 | 4 | 32 | R0~R17 | C0~C10 | 1KB |
-| **64Gb** | 8Gb x8 | 8 | BG0~BG2 | BA0~BA1 | 4 | 32 | R0~R17 | C0~C9 | 1KB |
-| **64Gb** | 4Gb x16 | 4 | BG0~BG1 | BA0~BA1 | 4 | 16 | R0~R17 | C0~C9 | 2KB |
+| **8Gb** | 2Gb x4 | 8 | BG0–BG2 | **BA0 (1비트)** | **2** | **16** | R0–R15 | C0–C10 | 1KB |
+| **8Gb** | 1Gb x8 | 8 | BG0–BG2 | **BA0** | **2** | **16** | R0–R15 | C0–C9 | 1KB |
+| **8Gb** | 512Mb x16 | 4 | BG0–BG1 | **BA0** | **2** | **8** | R0–R15 | C0–C9 | 2KB |
+| **16Gb** | 4Gb x4 | 8 | BG0–BG2 | BA0–BA1 | 4 | **32** | R0–R15 | C0–C10 | 1KB |
+| **16Gb** | 2Gb x8 | 8 | BG0–BG2 | BA0–BA1 | 4 | **32** | R0–R15 | C0–C9 | 1KB |
+| **16Gb** | 1Gb x16 | 4 | BG0–BG1 | BA0–BA1 | 4 | **16** | R0–R15 | C0–C9 | 2KB |
+| **24Gb** | 6Gb x4 | 8 | BG0–BG2 | BA0–BA1 | 4 | 32 | R0–R16* | C0–C10 | 1KB |
+| **24Gb** | 3Gb x8 | 8 | BG0–BG2 | BA0–BA1 | 4 | 32 | R0–R16* | C0–C9 | 1KB |
+| **24Gb** | 1.5Gb x16 | 4 | BG0–BG1 | BA0–BA1 | 4 | 16 | R0–R16* | C0–C9 | 2KB |
+| **32Gb** | 8Gb x4 | 8 | BG0–BG2 | BA0–BA1 | 4 | 32 | R0–R16 | C0–C10 | 1KB |
+| **32Gb** | 4Gb x8 | 8 | BG0–BG2 | BA0–BA1 | 4 | 32 | R0–R16 | C0–C9 | 1KB |
+| **32Gb** | 2Gb x16 | 4 | BG0–BG1 | BA0–BA1 | 4 | 16 | R0–R16 | C0–C9 | 2KB |
+| **64Gb** | 16Gb x4 | 8 | BG0–BG2 | BA0–BA1 | 4 | 32 | R0–R17 | C0–C10 | 1KB |
+| **64Gb** | 8Gb x8 | 8 | BG0–BG2 | BA0–BA1 | 4 | 32 | R0–R17 | C0–C9 | 1KB |
+| **64Gb** | 4Gb x16 | 4 | BG0–BG1 | BA0–BA1 | 4 | 16 | R0–R17 | C0–C9 | 2KB |
 
 \* 24Gb 각주 1 (jesd79_5.txt L946): "Row address R[16:15]가 00b, 01b, 10b는 유효. **11b는 무효**." — 비2의거듭제곱 밀도(24Gb)를 행 주소 공간의 3/4만 쓰는 방식으로 구현.
 
 > **"DDR5 = 32뱅크"는 16Gb 이상 x4/x8에만 맞습니다.**
 > - **8Gb DDR5는 BG당 뱅크가 2개뿐이라 총 16뱅크**입니다 (BA0 1비트만 사용). BG 수는 8로 같습니다.
 > - **x16은 전 밀도에서 BG가 절반(4개)** 이라 16Gb 이상이라도 총 16뱅크입니다.
-> - **BG 수(8 또는 4)는 밀도와 무관하고 오직 DQ 폭이 결정**합니다. 밀도가 늘면 늘어나는 것은 (a) BG당 뱅크 수(8Gb→16Gb 구간에서 2→4) 와 (b) Row 주소 비트(16Gb R0~R15 → 32Gb R0~R16 → 64Gb R0~R17)입니다.
+> - **BG 수(8 또는 4)는 밀도와 무관하고 오직 DQ 폭이 결정**합니다. 밀도가 늘면 늘어나는 것은 (a) BG당 뱅크 수(8Gb→16Gb 구간에서 2→4) 와 (b) Row 주소 비트(16Gb R0–R15 → 32Gb R0–R16 → 64Gb R0–R17)입니다.
 > - 이 8Gb n=2 / 16Gb n=4 구조는 기존 v4 addendum의 REFsb 항목("n = 뱅크 그룹당 뱅크 수, 8Gb: n=2, 16Gb: n=4", samsung_ddr5_udimm.txt 출처)과 **일치**합니다. 서로 다른 두 자료가 교차 확인됩니다.
 
 **Micron 16Gb DDR5 vs JEDEC 초안 16Gb**: 완전 일치(8/4/32, BG0-BG2, BA0-BA1, R0-R15, C0-C10 또는 C0-C9, 1KB/1KB/2KB).
@@ -138,7 +138,7 @@
 - **tCCD_L_WR**(같은 뱅크 그룹 내 WRITE→WRITE)이 DDR5에서 신설됐습니다. 값이 max(32 nCK, 20 ns)로 tCCD_L의 4배입니다. **쓰기가 같은 뱅크 그룹에 연달아 몰리면 페널티가 매우 큽니다.**
 
 > **초안 한계**: DDR5 MR12(MA[7:0]=0Ch)가 tCCD_L 전용 레지스터로 잡혀 있으나(OP[3:0] = tCCD_L, OP[7:4] = RFU), 초안 §3.5.14는 **"No Ballot"이고 인코딩 값 표가 비어 있습니다** (jesd79_5.txt L2615-2635). 즉 DDR5 tCCD_L의 실제 nCK 인코딩은 이 초안으로 확정할 수 없습니다.
-> **DDR5-4800 / 5600 / 6400의 tCCD_L·tRRD·tFAW 실제 값은 로컬 자료에서 확인 실패**입니다. 초안 목차에는 §10.5~10.8에 DDR5-5200/5600/6400 speed bin 절이 잡혀 있으나 값이 채워져 있지 않습니다.
+> **DDR5-4800 / 5600 / 6400의 tCCD_L·tRRD·tFAW 실제 값은 로컬 자료에서 확인 실패**입니다. 초안 목차에는 §10.5–10.8에 DDR5-5200/5600/6400 speed bin 절이 잡혀 있으나 값이 채워져 있지 않습니다.
 
 ### 1.5 tRRD / tFAW — 연속 ACTIVATE 제약
 
@@ -147,7 +147,7 @@
 - tRRD_L: **같은 뱅크 그룹 내 서로 다른 뱅크**로 가는 연속 ACTIVATE 간 최소 간격 (long)
 - tFAW: Four Activate Window
 
-**DDR4-1600 ~ DDR4-2400 (T1, micron_ddr4_16gb.txt Table 160, L37280-37425)**
+**DDR4-1600 – DDR4-2400 (T1, micron_ddr4_16gb.txt Table 160, L37280-37425)**
 | 파라미터 | DDR4-1600 | DDR4-1866 | DDR4-2133 | DDR4-2400 |
 |---|---|---|---|---|
 | tRRD_S (1/2KB) | max(4CK, 5 ns) | max(4CK, 4.2 ns) | max(4CK, 3.7 ns) | max(4CK, 3.3 ns) |
@@ -160,7 +160,7 @@
 | **tFAW (1KB)** | max(20CK, **25 ns**) | max(20CK, **23 ns**) | max(20CK, **21 ns**) | max(20CK, **21 ns**) |
 | **tFAW (2KB)** | max(28CK, **35 ns**) | max(28CK, **30 ns**) | max(28CK, **30 ns**) | max(28CK, **30 ns**) |
 
-**DDR4-2666 ~ DDR4-3200 (T1, micron_ddr4_16gb.txt Table 161, L38594-38599 헤더 / L39312-39416)**
+**DDR4-2666 – DDR4-3200 (T1, micron_ddr4_16gb.txt Table 161, L38594-38599 헤더 / L39312-39416)**
 | 파라미터 | DDR4-2666 | DDR4-2933 | DDR4-3200 |
 |---|---|---|---|
 | tRRD_S (1/2KB) | max(4CK, 3.0 ns) | max(4CK, 2.7 ns) | max(4CK, **2.5 ns**) |
@@ -261,7 +261,7 @@
 | **뱅크** | 뱅크 그룹의 로컬 I/O | **행 버퍼(센스앰프)** — 뱅크마다 행 하나를 open 유지 | 데이터 경로 |
 | **행/열** | 뱅크의 센스앰프 | 없음 — 순차 | 전부 |
 
-Micron의 x4/x8 블록도(micron_ddr4_16gb.txt L16417-16453, Figure 118)가 이 구조를 그대로 보여 줍니다. 각 뱅크 그룹 = {Bank 0~3, 각각 Memory Array + Sense amplifiers} + **Local I/O gating** 하나. 그 위에 **Global I/O gating** 하나, 그 위에 CMD/ADDR register와 Data I/O. **뱅크 그룹의 물리적 실체는 "로컬 I/O 게이팅을 공유하는 4개 뱅크 묶음"입니다.**
+Micron의 x4/x8 블록도(micron_ddr4_16gb.txt L16417-16453, Figure 118)가 이 구조를 그대로 보여 줍니다. 각 뱅크 그룹 = {Bank 0–3, 각각 Memory Array + Sense amplifiers} + **Local I/O gating** 하나. 그 위에 **Global I/O gating** 하나, 그 위에 CMD/ADDR register와 Data I/O. **뱅크 그룹의 물리적 실체는 "로컬 I/O 게이팅을 공유하는 4개 뱅크 묶음"입니다.**
 
 ### 2.2 뱅크 그룹은 왜 생겼는가 — 이것이 핵심
 
@@ -269,7 +269,7 @@ DDR3까지 프리페치는 8n이었고, 64비트 채널 × BL8 = 64B 캐시라�
 
 문제는 8n 프리페치에서 **tCCD = 4 클럭**이라는 점입니다. 데이터율이 올라갈수록 4 클럭이라는 실시간(ns)은 짧아지는데, **DRAM 코어(센스앰프 → 로컬 I/O → 글로벌 I/O 경로)는 그만큼 빨라지지 않습니다.** 코어가 4 클럭 간격으로 연속 CAS를 소화할 수 없게 되는 순간이 옵니다.
 
-**뱅크 그룹은 이 벽을 우회하는 트릭입니다.** 뱅크를 4개 묶음으로 나누고 **묶음마다 별도의 로컬 I/O 경로**를 주면, 서로 다른 묶음으로 가는 두 CAS는 서로 다른 하드웨어를 쓰므로 **4 클럭 간격으로 낼 수 있습니다(tCCD_S = 4)**. 같은 묶음으로 갈 때만 코어의 진짜 한계인 **tCCD_L**(5~8 클럭)을 지키면 됩니다.
+**뱅크 그룹은 이 벽을 우회하는 트릭입니다.** 뱅크를 4개 묶음으로 나누고 **묶음마다 별도의 로컬 I/O 경로**를 주면, 서로 다른 묶음으로 가는 두 CAS는 서로 다른 하드웨어를 쓰므로 **4 클럭 간격으로 낼 수 있습니다(tCCD_S = 4)**. 같은 묶음으로 갈 때만 코어의 진짜 한계인 **tCCD_L**(5–8 클럭)을 지키면 됩니다.
 
 Micron 자신의 표현이 정확합니다: **"DDR4가 프리페치를 8n에서 16n으로 늘리지 않았음을 고려하면, 8n 프리페치에 머문 데 따른 페널티가 뱅크 그룹 사용으로 상당히 완화되었다."** (micron_ddr4_16gb.txt L16384-16387)
 
@@ -389,7 +389,7 @@ Micron 백서가 이 인과를 그대로 씁니다: "**버스트 길이 증가�
 ## 4. 확인 실패 항목
 
 1. **tFAW의 전력 근거.** 로컬 자료(JESD79-4, JESD79-5 초안, Micron DDR4/DDR5 데이터시트·백서, Samsung UDIMM) 어디에도 **"tFAW는 전류 피크/전원 임피던스 때문에 존재한다"**는 명시적 서술이 없습니다. 정의는 "Four Activate Window"라는 이름과 수치뿐입니다. **"전력 피크 때문"이라는 설명은 업계 통설이지만 본 조사의 1차 자료로는 뒷받침되지 않습니다.** 집필 시 반드시 근거를 별도로 확보하거나, "널리 이렇게 설명되지만 JEDEC 사양은 이유를 명시하지 않는다"고 쓰십시오.
-2. **DDR5-4800 / 5600 / 6400의 tCCD_L, tRRD_S/L, tFAW 실제 값.** jesd79_5.txt Table 130은 **DDR5-3200/3600/4000만** 담고 있습니다. 목차의 §10.5~10.8(DDR5-5200/5600/6400 speed bin)은 값이 없습니다. micron16gb_ddr5.txt(46KB 요약본)에도 tFAW/tRRD/tCCD 항목 자체가 없습니다.
+2. **DDR5-4800 / 5600 / 6400의 tCCD_L, tRRD_S/L, tFAW 실제 값.** jesd79_5.txt Table 130은 **DDR5-3200/3600/4000만** 담고 있습니다. 목차의 §10.5–10.8(DDR5-5200/5600/6400 speed bin)은 값이 없습니다. micron16gb_ddr5.txt(46KB 요약본)에도 tFAW/tRRD/tCCD 항목 자체가 없습니다.
 3. **DDR5 tCCD_L의 nCK 인코딩(MR12 값 표).** 초안에 비어 있음(§3.5.14, "No Ballot").
 4. **랭크 전환 페널티의 구체적 클럭 수.** DDR5 초안에 Different Ranks 턴어라운드 그림 3개가 있으나 "모든 타이밍은 참고용이며 변경될 수 있다"(L19468). tRTRS 같은 파라미터명 자체가 jesd79_4.txt/jesd79_5.txt에 **0건**.
 5. **물리 주소 → 채널/랭크/BG/뱅크/행/열 매핑 표.** 로컬 자료 전체에 없음. **JEDEC 사양의 범위 밖(컨트롤러 설계 영역)이기 때문**입니다. "Address Mapping"이라는 절 자체가 존재하지 않습니다.
@@ -410,7 +410,7 @@ Micron 백서가 이 인과를 그대로 씁니다: "**버스트 길이 증가�
    → **RDIMM에 한정된 사실입니다.** Samsung DDR5 **ECC UDIMM**은 채널당 **CB0–CB3 (4비트)** 이므로 (32+4)×2 = **72비트, 체크비트 12.5%**입니다 (T1, samsung_ddr5_udimm.txt L290-295, L122-125 "2Gx72 Module ... 2Gx8 × 10개"). **"DDR5는 체크비트가 25%"라고 일반화하면 UDIMM에 대해 틀립니다.** 또한 addendum이 "32 data + 8 ECC 문자열 미확인, 산술 유도"라고 단 유보는 여전히 유효합니다 — 본 조사에서도 RDIMM의 40 = 32+8 분해를 명시한 문자열은 확인하지 못했습니다. 다만 **UDIMM 쪽은 CB0_A–CB3_A라는 핀 이름으로 "채널당 4 ECC 비트"가 직접 확인됩니다.**
 
 2. **RAM-source-pack-v4-addendum.md L551**: "tREFIsb 계산식 ... n = 뱅크 그룹당 뱅크 수 (8Gb: n=2, 16Gb: n=4)"
-   → 본 조사가 **독립적으로 교차 확인**했습니다. JESD79-5 초안 어드레싱 표에서 8Gb는 BG당 뱅크 주소가 **BA0 한 비트**(= 2뱅크), 16Gb 이상은 **BA0~BA1**(= 4뱅크)입니다 (jesd79_5.txt L871-873 vs L901-903). **충돌 아님, 강화.**
+   → 본 조사가 **독립적으로 교차 확인**했습니다. JESD79-5 초안 어드레싱 표에서 8Gb는 BG당 뱅크 주소가 **BA0 한 비트**(= 2뱅크), 16Gb 이상은 **BA0–BA1**(= 4뱅크)입니다 (jesd79_5.txt L871-873 vs L901-903). **충돌 아님, 강화.**
 
 ## 6. 집필 시 주의 (서술 규칙 제안)
 
@@ -438,9 +438,9 @@ Micron 백서가 이 인과를 그대로 씁니다: "**버스트 길이 증가�
 ## 7. 출처 목록
 | 출처 | 등급 | 제목 | 확인일 |
 |---|---|---|---|
-| jesd79_4.txt | **T0** | JEDEC Standard No. 79-4, DDR4 SDRAM — **2012-09 원판**. §2.7 Addressing(L850-975), MR6/Table 13 tCCD_L(L2627-2700), tCCD_S/L·tRRD·tFAW 정의(L9356-9448), AC Timing DDR4-1600~2133(L24164-24245), DDR4-2400~3200(L25380-25491, **2666/3200 전부 TBD**) | 2026-07-29 |
-| jesd79_5.txt | **T0 (위원회 초안)** | "Proposed DDR5 Full spec (79-5)" Rev0.1 회람본. §2.7 Addressing 8~64Gb(L855-1005, `Q2'17 Item#1830.36B`), §3.5.14 MR12 tCCD_L(L2615-2635, **No Ballot, 값 없음**), CS_n 정의(L733-737), §5.3.2 Different Ranks 턴어라운드(L19463-19478), §12.2.1 Table 130 DDR5-3200~4000 타이밍(L22887-23064, `Q4'16 Ballot 1830.44A`). **"sub-channel" 0건** | 2026-07-29 |
-| micron_ddr4_16gb.txt | **T1** | Micron 16Gb DDR4 SDRAM (x4/x8/x16), 16gb_ddr4_dram.pdf **Rev. H 8/2021**. Table 2 Addressing(L119-151), 뱅크 구성 서술(L2765-2766), CS_n/랭크 정의(L2125-2129), 스택/DDP 구분(L2091-2098), ACTIVATE·tRRD·tFAW 서술(L11984-12002), **Bank Access Operation + Figure 118 블록도**(L16374-16453), Table 70 참고표(L16388-16493, 정확도 미검증 단서 L16463-16464), **Table 160 AC Timing DDR4-1600~2400**(L36501~, tCCD L37540-37580, tRRD/tFAW L37280-37425), **Table 161 AC Timing DDR4-2666/2933/3200**(L38594-38599 헤더, tCCD L39523-39550, tRRD/tFAW L39312-39416) | 2026-07-29 |
+| jesd79_4.txt | **T0** | JEDEC Standard No. 79-4, DDR4 SDRAM — **2012-09 원판**. §2.7 Addressing(L850-975), MR6/Table 13 tCCD_L(L2627-2700), tCCD_S/L·tRRD·tFAW 정의(L9356-9448), AC Timing DDR4-1600–2133(L24164-24245), DDR4-2400–3200(L25380-25491, **2666/3200 전부 TBD**) | 2026-07-29 |
+| jesd79_5.txt | **T0 (위원회 초안)** | "Proposed DDR5 Full spec (79-5)" Rev0.1 회람본. §2.7 Addressing 8–64Gb(L855-1005, `Q2'17 Item#1830.36B`), §3.5.14 MR12 tCCD_L(L2615-2635, **No Ballot, 값 없음**), CS_n 정의(L733-737), §5.3.2 Different Ranks 턴어라운드(L19463-19478), §12.2.1 Table 130 DDR5-3200–4000 타이밍(L22887-23064, `Q4'16 Ballot 1830.44A`). **"sub-channel" 0건** | 2026-07-29 |
+| micron_ddr4_16gb.txt | **T1** | Micron 16Gb DDR4 SDRAM (x4/x8/x16), 16gb_ddr4_dram.pdf **Rev. H 8/2021**. Table 2 Addressing(L119-151), 뱅크 구성 서술(L2765-2766), CS_n/랭크 정의(L2125-2129), 스택/DDP 구분(L2091-2098), ACTIVATE·tRRD·tFAW 서술(L11984-12002), **Bank Access Operation + Figure 118 블록도**(L16374-16453), Table 70 참고표(L16388-16493, 정확도 미검증 단서 L16463-16464), **Table 160 AC Timing DDR4-1600–2400**(L36501~, tCCD L37540-37580, tRRD/tFAW L37280-37425), **Table 161 AC Timing DDR4-2666/2933/3200**(L38594-38599 헤더, tCCD L39523-39550, tRRD/tFAW L39312-39416) | 2026-07-29 |
 | micron16gb_ddr5.txt | **T1** | Micron 16Gb DDR5 SDRAM **Die Rev D**, 16gb_ddr5_sdram_dierevD.pdf **Rev. F 04/2024**. Table 1 Addressing(L78-113), 16n prefetch(L22), 어드레싱 표기 규약(L370) | 2026-07-29 |
 | micron_ddr5_wp.txt / micron_ddr5.txt | **T1** | Micron White Paper, DDR5 (동일 내용 2부). 뱅크 그룹 2배(L18-21), tCCD_L≈2×tCCD_S(L23-27), **BL16 → dual sub-channel 인과**(L36-44), REFsb(L46-63), 성능 시뮬레이션 조건(L110-113), on-die ECC 128+8=136비트 SEC(L118-124) | 2026-07-29 |
 | micron_32gb_rdimm.txt | **T1** | Micron 32GB (x80, ECC, DR) 288-Pin DDR5 RDIMM, mtc20f2085s1rc_drx8_3112_rdimm.pdf **Rev. F 12/2022**, 16Gb Die Rev A. Features(L22-27: 288핀 registered, PC5-4800, 4Gig x80, **Dual-rank**, 32뱅크 = 8 BG × 4), Table 1 Addressing(L70-84: **Module rank address = 2 (CS0_n, CS1_n)**), 부품 목록 U_RCD1(L67), 대역폭 38.4 GB/s @ 4800 MT/s(L95-100), 핀아웃 Channel A/B(L854, L922) | 2026-07-29 |

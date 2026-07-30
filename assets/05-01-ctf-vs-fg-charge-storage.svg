@@ -27,7 +27,7 @@
   </pattern>
 </defs>
 
-<!-- 열 제목 : 좌 FG (films x120~390, center 255) / 우 CTF (films x420~690, center 555) -->
+<!-- 열 제목 : 좌 FG (films x120–390, center 255) / 우 CTF (films x420–690, center 555) -->
 <text class="t14 mid" x="255" y="36">FG (Floating Gate)</text>
 <text class="t14 mid" x="555" y="36">CTF (Charge Trap Flash)</text>
 

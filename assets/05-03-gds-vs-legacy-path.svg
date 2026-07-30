@@ -35,7 +35,7 @@
 <text class="t11 mid" x="245" y="372">약 7 GB/s (PCIe 4.0급)</text>
 <text class="t11 mid" x="245" y="390">수십 cm 이상</text>
 
-<!-- ===== 상단 행 : 전통 경로 (y 80~180) ===== -->
+<!-- ===== 상단 행 : 전통 경로 (y 80–180) ===== -->
 <text class="t14" x="20" y="66">전통 경로</text>
 <rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="60" y="80" width="140" height="100"/>
 <text class="t12 mid" x="130" y="135">SSD (NVMe)</text>
@@ -52,7 +52,7 @@
 <path class="k-emph d" fill="none" stroke-width="2" d="M336,180 L336,198 L384,198 L384,182" marker-end="url(#ar)"/>
 <text class="t12 mid" x="360" y="214">중간 복사</text>
 
-<!-- ===== 하단 행 : GDS 경로 (y 250~350, 상단과 동일 열 좌표·동일 상자 크기) ===== -->
+<!-- ===== 하단 행 : GDS 경로 (y 250–350, 상단과 동일 열 좌표·동일 상자 크기) ===== -->
 <text class="t14" x="20" y="236">GPU Direct Storage (GDS)</text>
 <text class="t11 mid" x="360" y="242">호스트 DRAM 경유 제거</text>
 <rect class="f-nand k-nand" fill-opacity="0.15" stroke-width="2" x="60" y="250" width="140" height="100"/>

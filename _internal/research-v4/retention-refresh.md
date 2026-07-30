@@ -10,14 +10,14 @@
 | DDR4 tREFI(base), 2/4/8/16Gb 공통 | 7.8 µs | T0 | jesd79_4.txt L4383-4388 (JESD79-4, Table 23) | 16Gb 열은 원문에서 `TBD` |
 | DDR4 1X 모드 tREFI1, 0 ≤ Tcase ≤ 85°C | tREFI(base) = 7.8 µs | T0 | jesd79_4.txt L4389-4396 | |
 | DDR4 1X 모드 tREFI1, 85 < Tcase ≤ 95°C | tREFI(base)/2 = 3.9 µs | T0 | jesd79_4.txt L4397-4402 | **85°C 초과 시 절반**의 표준 근거 |
-| DDR4 2X 모드 tREFI2 (0~85°C / 85~95°C) | tREFI(base)/2 / tREFI(base)/4 | T0 | jesd79_4.txt L4409-4422 | |
-| DDR4 4X 모드 tREFI4 (0~85°C / 85~95°C) | tREFI(base)/4 / tREFI(base)/8 | T0 | jesd79_4.txt L4429-4442 | |
+| DDR4 2X 모드 tREFI2 (0–85°C / 85–95°C) | tREFI(base)/2 / tREFI(base)/4 | T0 | jesd79_4.txt L4409-4422 | |
+| DDR4 4X 모드 tREFI4 (0–85°C / 85–95°C) | tREFI(base)/4 / tREFI(base)/8 | T0 | jesd79_4.txt L4429-4442 | |
 | DDR5 Normal 모드 tREFI1, 0 ≤ Tcase ≤ 85°C | tREFI = **3.9 µs** | T0(초안) | jesd79_5.txt L11466-11479 (DDR5 Full Spec **Draft Rev0.1**, Table 24) | DDR4의 절반 |
 | DDR5 Normal 모드 tREFI1, 85 < Tcase ≤ 95°C | tREFI/2 = **1.95 µs** | T0(초안) | jesd79_5.txt L11480-11483 | |
-| DDR5 FGR 모드 tREFI2, 0~85°C | tREFI/2 = 1.95 µs | T0(초안) | jesd79_5.txt L11484-11489 | |
-| DDR5 FGR 모드 tREFI2, 85~95°C | tREFI/4 = **0.975 µs** | T0(초안) | jesd79_5.txt L11490-11493 | |
+| DDR5 FGR 모드 tREFI2, 0–85°C | tREFI/2 = 1.95 µs | T0(초안) | jesd79_5.txt L11484-11489 | |
+| DDR5 FGR 모드 tREFI2, 85–95°C | tREFI/4 = **0.975 µs** | T0(초안) | jesd79_5.txt L11490-11493 | |
 | DDR5 16Gb 실제품: 32 ms 내 8,192 REF → tREFI 3.9 µs | 8192 REF / 32 ms | T1 | micron16gb_ddr5.txt L405-407 (Micron 16Gb DDR5 Die Rev D, Rev.F 04/2024) | **DDR5의 refresh window는 32 ms** (DDR4의 64 ms가 아님) |
-| DDR5 16Gb 실제품: 85~95°C 구간 8,192 REF / 16 ms → tREFI 1.95 µs | 8192 REF / 16 ms | T1 | micron16gb_ddr5.txt L406-407 | |
+| DDR5 16Gb 실제품: 85–95°C 구간 8,192 REF / 16 ms → tREFI 1.95 µs | 8192 REF / 16 ms | T1 | micron16gb_ddr5.txt L406-407 | |
 
 ### 1-2. tRFC (refresh cycle time) — 다이 용량별
 
@@ -44,7 +44,7 @@
 | LPDDR3 (tREFI 3.9 µs, **tREFW 32 ms**) tRFCab | — | — | 130 ns | 210 ns | TBD | TBD |
 | LPDDR3 tRFCpb (per-bank) | — | — | 60 ns | 90 ns | TBD | TBD |
 
-- DDR4 JEDEC 원문 값과 일치 (2Gb 160 → 4Gb 260 → 8Gb 350 ns). 용량 2배마다 약 +90~100 ns.
+- DDR4 JEDEC 원문 값과 일치 (2Gb 160 → 4Gb 260 → 8Gb 350 ns). 용량 2배마다 약 +90–100 ns.
 - DDR5: 8Gb 195 → 16Gb 295 ns (T0 초안). 용량 2배에 +100 ns.
 - **Mukundan et al. (MICRO 2013) 외삽치** (T2, mukundan.txt L109-132) — 원문이 "Values for large chips are **extrapolated**"라고 명시:
 
@@ -61,7 +61,7 @@
 | 항목 | 값 | 등급 | 출처 | 비고 |
 |---|---|---|---|---|
 | 32Gb 디바이스 사용 시 refresh가 DRAM 에너지의 20% 초과, 시스템 성능 30% 초과 저하 | >20% 에너지 / >30% 성능 | T2 | jacob_refresh.txt L45-49 | 시뮬레이션 기반 |
-| 32Gb 디바이스, LOW-bandwidth 워크로드에서 refresh가 DRAM 에너지의 25~30% | 25~30% | T2 | jacob_refresh.txt L672-676 | |
+| 32Gb 디바이스, LOW-bandwidth 워크로드에서 refresh가 DRAM 에너지의 25–30% | 25–30% | T2 | jacob_refresh.txt L672-676 | |
 | 32Gb 디바이스, HIGH-bandwidth 워크로드(libquantum, mcf)에서 IPC 저하 30% 초과 | >30% | T2 | jacob_refresh.txt L678-681 | 워크로드 특정 필요 |
 | 디바이스 속도 변화 시 HIGH-bandwidth 워크로드 IPC 손실 | 최대 11.4% | T2 | jacob_refresh.txt L657-659 | |
 | refresh로 인한 throughput loss = tRFC / tREFI (정의) | — | T2 | raidr.txt L377-381 | 계산 규칙 |
@@ -90,12 +90,12 @@
 |---|---|---|---|---|
 | VRT 최초 보고 시점 | **1987년** | T2 | avatar_vrt.txt L346 (Qureshi et al., AVATAR, DSN 2015) | 원출처는 AVATAR 참고문헌 [45] |
 | VRT 물리 기전 | **GIDL(gate-induced drain leakage) 전류의 요동**. 게이트 영역 근처의 트랩(trap)이 무작위로 점유/해제되면서 누설 전류가 변동 | T2 | avatar_vrt.txt L345-355 | 메커니즘 서술의 핵심 |
-| 2GB 메모리의 Active-VRT Pool (AVP), 15분 구간 평균 | **350~500 셀** | T2 | avatar_vrt.txt L153-155 | 24개 상용 DRAM 칩 실험. 단일 출처 |
+| 2GB 메모리의 Active-VRT Pool (AVP), 15분 구간 평균 | **350–500 셀** | T2 | avatar_vrt.txt L153-155 | 24개 상용 DRAM 칩 실험. 단일 출처 |
 | Active-VRT Injection (AVI) rate | 15분당 **약 1개**의 새 셀 | T2 | avatar_vrt.txt L155-157 | 단일 출처 |
 | 초기 테스트에서 검출된 weak cell 수 (2GB DIMM, 벤더 3사) | A: 27,841 / B: 24,503 / C: 22,414 | T2 | avatar_vrt.txt L438-440 | Slow Refresh 320 ms 기준 |
-| 그 결과 Fast Refresh로 지정되는 행 비율 | 전체 행의 **약 9~10%** (2GB DIMM, 256K rows, 8KB/row) | T2 | avatar_vrt.txt L443-446 | |
+| 그 결과 Fast Refresh로 지정되는 행 비율 | 전체 행의 **약 9–10%** (2GB DIMM, 256K rows, 8KB/row) | T2 | avatar_vrt.txt L443-446 | |
 | weak cell의 공간 분포 | weak row 수 ≈ weak cell 수 → weak cell이 메모리 전체에 **무작위로 흩어져 있음** | T2 | avatar_vrt.txt L449-452 | |
-| ECC DIMM(SECDED)만으로 multirate refresh를 쓸 때 | 소프트에러가 전혀 없어도 **6~8개월에 한 번 정정 불가 오류** 발생 | T2 | avatar_vrt.txt L168-173 | AVATAR의 문제제기 |
+| ECC DIMM(SECDED)만으로 multirate refresh를 쓸 때 | 소프트에러가 전혀 없어도 **6–8개월에 한 번 정정 불가 오류** 발생 | T2 | avatar_vrt.txt L168-173 | AVATAR의 문제제기 |
 | AVATAR 효과 | 기존 multirate refresh 대비 신뢰성 **100배** 개선, TTF를 수개월 → 수십 년 | T2 | avatar_vrt.txt L190-193 | 제안 기법 결과 |
 | VRT가 데이터 오류를 일으키는 조건 | 셀이 **고(高)리텐션 영역 → 저(低)리텐션 영역**으로 이동할 때만. 리텐션이 늘어나는 방향의 VRT는 무해 | T2 | avatar_vrt.txt L370-400 | |
 | 삼성·인텔 공동 논문이 VRT를 미세화 스케일링의 최대 난제 중 하나로 지목 | — | T2 (재인용) | avatar_vrt.txt L366-369 (참고문헌 [18]) | **재인용**. 원문 미확인 |
@@ -108,10 +108,10 @@
 |---|---|---|---|---|
 | DDR4/DDR5 공통: Tcase > 85°C에서 refresh 주기 **1/2** | tREFI/2 | T0 / T0(초안) | jesd79_4.txt L4397-4402, jesd79_5.txt L11480-11483 | 표준 근거 |
 | Micron 16Gb DDR5: 85°C 초과 시 refresh window 32 ms → **16 ms** | 16 ms / 8192 REF | T1 | micron16gb_ddr5.txt L405-407 | |
-| Industrial Temperature(IT) 옵션: Tc −40~95°C, 85°C 초과 시 refresh rate 2배 + high-temp self-refresh 필수 | 2X | T1 | micron16gb_ddr5.txt L408-414 | |
-| Automotive Temperature(AT) 옵션: Tc −40~105°C, **85°C 이상 2X, 105°C 이상 4X** | 2X / 4X | T1 | micron16gb_ddr5.txt L415-419 | 4X 규정의 유일한 로컬 근거 |
+| Industrial Temperature(IT) 옵션: Tc −40–95°C, 85°C 초과 시 refresh rate 2배 + high-temp self-refresh 필수 | 2X | T1 | micron16gb_ddr5.txt L408-414 | |
+| Automotive Temperature(AT) 옵션: Tc −40–105°C, **85°C 이상 2X, 105°C 이상 4X** | 2X / 4X | T1 | micron16gb_ddr5.txt L415-419 | 4X 규정의 유일한 로컬 근거 |
 | 실험적 온도 환산: 45°C에서 4초 리텐션 = 85°C에서 **328 ms** | 4 s @45°C ↔ 328 ms @85°C | T2 | avatar_vrt.txt L405-410 | **실험 가정치**, 40°C 차이에 약 12배. 표준 값 아님 |
-| 서버·데스크톱 실제 동작 온도 (100% 사용률에서도) | **40~60°C** | T2 (재인용) | avatar_vrt.txt L411-414 | 논문이 선행연구 [9,25]를 인용 |
+| 서버·데스크톱 실제 동작 온도 (100% 사용률에서도) | **40–60°C** | T2 (재인용) | avatar_vrt.txt L411-414 | 논문이 선행연구 [9,25]를 인용 |
 | DDR4 Temperature Controlled Refresh(TCR) 모드 사용 제약 | TCR 활성 시 **Fixed 1x 모드만 허용** (2x/4x/on-the-fly 금지) | T0 | jesd79_4.txt L4372-4375 | |
 | DDR4 TCR: 45°C 미만에서는 SDRAM이 내부 refresh 주기를 tREFI보다 **길게** 조정(스킵) 가능 | — | T0 | jesd79_4.txt L4154-4166 | Normal / Extended 두 모드 존재 |
 
@@ -124,7 +124,7 @@
 | DDR5 FGR 정의 | tRFC2는 짧아지지만 REFab를 2배 자주 발행 (tREFI2 = tREFI1/2) | T0(초안) | jesd79_5.txt L11338-11340 | |
 | DDR5 **REFsb (Same-Bank Refresh)** 신규 도입 | 모든 뱅크 그룹의 동일 번호 뱅크만 refresh. 나머지 뱅크는 **접근 가능** | T0(초안) / T1 | jesd79_5.txt L11406-11423, micron_ddr5.txt L46-63 | DDR5의 핵심 신규 기능 |
 | REFsb 사용 제약 | **FGR 모드에서만** 발행 가능. 각 뱅크가 평균 1.95 µs마다 REFsb를 받아야 함 | T1 | micron_ddr5.txt L59-61 | |
-| REFsb tREFIsb 계산식 | tREFI/(2n) (0~85°C), tREFI/(4n) (85~95°C). n = 뱅크 그룹당 뱅크 수 (8Gb: n=2, 16Gb: n=4) | T1 | samsung_ddr5_udimm.txt L1106-1180 (Samsung DDR5 UDIMM, Rev 1.0 / Mar. 2021) | |
+| REFsb tREFIsb 계산식 | tREFI/(2n) (0–85°C), tREFI/(4n) (85–95°C). n = 뱅크 그룹당 뱅크 수 (8Gb: n=2, 16Gb: n=4) | T1 | samsung_ddr5_udimm.txt L1106-1180 (Samsung DDR5 UDIMM, Rev 1.0 / Mar. 2021) | |
 | 16Gb DDR5 REFsb 지속시간 | **130 ns** (REFab 295 ns 대비) | T1 | micron_ddr5.txt L60-61 | JEDEC 초안값과 일치 |
 | REFsb burst 제약 | 각 burst는 4 × (tRFCsb + [(n−1) × tRRD_L])로 규정 | T0(초안) | jesd79_5.txt L11423 | |
 | DDR5 refresh 스케줄링 유연성 (Normal) | 최대 **4개** postpone / 4개 pull-in, 최대 간격 **5 × tREFI1** | T0(초안) | jesd79_5.txt L11534-11544 | |
@@ -154,7 +154,7 @@ DDR5의 tRFC1은 16Gb에서 295 ns로, DDR4 8Gb의 350 ns보다 오히려 짧다
 FGR/2x/4x 모드는 tRFC를 줄이는 대신 refresh 명령 발행 빈도를 늘린다. 총 refresh 작업량은 오히려 늘어난다 — DDR4 8Gb 기준 1x는 350 ns를 7.8 µs마다(듀티 4.5%), 4x는 160 ns를 1.95 µs마다(듀티 8.2%)이다 (jesd79_4.txt Table 23 값으로 계산). FGR가 주는 것은 **평균 접근 지연의 개선(긴 블로킹 구간 제거)**이지 refresh 총량의 절감이 아니다. mukundan.txt가 AR(Adaptive Refresh)로 워크로드별로 모드를 골라야 한다고 주장하는 이유가 이것이며, 나아가 DCE/PCD를 붙이면 FGR가 대부분의 경우 불필요해진다고 결론짓는다 (mukundan.txt L154-158).
 
 **(7) VRT — 프로파일링을 원리적으로 무력화하는 현상**
-retention-aware refresh는 "어느 행이 weak인지 미리 알아낸다"를 전제로 한다. VRT는 이 전제를 깬다. 게이트 근처 트랩이 무작위로 점유·해제되면서 GIDL 전류가 요동치고, **같은 셀이 시점에 따라 다른 리텐션 상태를 오간다** (avatar_vrt.txt L335-355). VRT는 1987년에 처음 보고됐고 (L346), 후공정 테스트 이후에도 발생하므로 제조사가 선별할 수 없다 (L358-360). AVATAR의 측정에서 2GB 메모리는 15분 구간마다 평균 350~500개의 활성 VRT 셀을 갖고, 15분당 약 1개의 새로운 VRT 셀이 나타난다 (L153-157). 여기에 **데이터 패턴 의존성(DPD)**이 겹친다 — 단일 데이터 패턴으로 한 번 테스트해서는 전체 weak cell의 15% 미만만 검출된다 (isca13_retention.txt L96-103). 결론적으로 리텐션 프로파일링은 1회성 테스트로 완결될 수 없고, 런타임 ECC + 스크러빙과 결합돼야 한다.
+retention-aware refresh는 "어느 행이 weak인지 미리 알아낸다"를 전제로 한다. VRT는 이 전제를 깬다. 게이트 근처 트랩이 무작위로 점유·해제되면서 GIDL 전류가 요동치고, **같은 셀이 시점에 따라 다른 리텐션 상태를 오간다** (avatar_vrt.txt L335-355). VRT는 1987년에 처음 보고됐고 (L346), 후공정 테스트 이후에도 발생하므로 제조사가 선별할 수 없다 (L358-360). AVATAR의 측정에서 2GB 메모리는 15분 구간마다 평균 350–500개의 활성 VRT 셀을 갖고, 15분당 약 1개의 새로운 VRT 셀이 나타난다 (L153-157). 여기에 **데이터 패턴 의존성(DPD)**이 겹친다 — 단일 데이터 패턴으로 한 번 테스트해서는 전체 weak cell의 15% 미만만 검출된다 (isca13_retention.txt L96-103). 결론적으로 리텐션 프로파일링은 1회성 테스트로 완결될 수 없고, 런타임 ECC + 스크러빙과 결합돼야 한다.
 
 **(8) 온도**
 누설은 온도에 지수적으로 민감하다. 표준은 이를 이산적으로 반영해 Tcase가 85°C를 넘으면 tREFI를 절반으로 줄이도록 규정한다 (jesd79_4.txt L4397-4402, jesd79_5.txt L11480-11483). 자동차용 옵션은 105°C 이상에서 4배까지 간다 (micron16gb_ddr5.txt L415-419). 반대 방향으로, DDR4의 Temperature Controlled Refresh는 45°C 미만에서 내부 refresh 주기를 tREFI보다 **늘릴 수** 있게 한다 (jesd79_4.txt L4154-4166). 실험 논문에서 쓰는 환산은 45°C에서 4초 ≈ 85°C에서 328 ms 수준이다 (avatar_vrt.txt L405-410) — 이는 **연구용 가정치이지 표준 규정이 아니다**.
@@ -166,7 +166,7 @@ retention-aware refresh는 "어느 행이 weak인지 미리 알아낸다"를 전
 | DDR4 16Gb tRFC1 | **480 ns** — Mukundan et al. MICRO 2013 (mukundan.txt L121-124), T2 | **TBD** — JESD79-4 원문 (jesd79_4.txt L4407), jacob_refresh.txt L506도 TBD | Mukundan은 본문에서 "large chips are **extrapolated**"라고 명시. **외삽치를 실측치로 인용하면 안 됨.** 최종 비준본 JESD79-4B의 실제 값은 로컬 자료로 **확인 실패** |
 | DDR3 4Gb tRFC | **300 ns** (jacob_refresh.txt L496) | **260 ns** (DDR4 4Gb, jesd79_4.txt L4405) | 세대가 다르므로 상충 아님. 다만 "4Gb tRFC"라고만 쓰면 혼동되므로 반드시 세대 병기 |
 | refresh 스케줄링 postpone/pull-in 한도 | **8개** (DDRx 일반, jacob_refresh.txt L470-471, T2) | **4개** (DDR5 Normal 모드, jesd79_5.txt L11538-11540, T0 초안) | 세대 차이로 보이나 DDR4 원문 확인은 못 함. **DDR5는 4개**로 특정해 쓸 것 |
-| refresh가 차지하는 DRAM 에너지 비율 | **15%** (4Gb DDR3, Liu et al. 재인용, rtc_refresh.txt L251) / **20% 초과·25~30%** (32Gb, jacob_refresh.txt L47, L675) / **50%** (64Gb 전망, rtc_refresh.txt L253) | **40%** (조건 미상, rtc_refresh.txt L14) | 40%는 rtc_refresh 초록의 요약치로 **어느 밀도·워크로드인지 불명**. 인용 시 15%(4Gb DDR3) → 25~30%(32Gb) → 50%(64Gb 전망) 계열을 쓰고, 40%는 피할 것 |
+| refresh가 차지하는 DRAM 에너지 비율 | **15%** (4Gb DDR3, Liu et al. 재인용, rtc_refresh.txt L251) / **20% 초과·25–30%** (32Gb, jacob_refresh.txt L47, L675) / **50%** (64Gb 전망, rtc_refresh.txt L253) | **40%** (조건 미상, rtc_refresh.txt L14) | 40%는 rtc_refresh 초록의 요약치로 **어느 밀도·워크로드인지 불명**. 인용 시 15%(4Gb DDR3) → 25–30%(32Gb) → 50%(64Gb 전망) 계열을 쓰고, 40%는 피할 것 |
 | DDR5의 refresh window | **32 ms** (8192 REF × 3.9 µs, micron16gb_ddr5.txt L405-407, T1) | DDR4/DDR3는 **64 ms** (isca13_retention.txt L259-261, T2) | 상충 아님. **DDR5에서 window가 절반으로 줄었다**는 것이 사실. "DRAM은 64 ms마다 refresh한다"는 서술은 DDR4 이전에만 유효 |
 
 ## 4. 확인 실패 항목

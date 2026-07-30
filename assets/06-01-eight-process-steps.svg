@@ -32,7 +32,7 @@
 <text class="t14 mid" x="330" y="40">전공정 (Fab)</text>
 <text class="t14 mid" x="778" y="40">후공정</text>
 
-<!-- 단계 상자 8개 : 폭 92, 높이 60, y 70~130 (전부 동일 크기) -->
+<!-- 단계 상자 8개 : 폭 92, 높이 60, y 70–130 (전부 동일 크기) -->
 <rect class="s" x="24"  y="70" width="92" height="60" rx="2"/>
 <rect class="s" x="128" y="70" width="92" height="60" rx="2"/>
 <rect class="s" x="680" y="70" width="92" height="60" rx="2"/>

@@ -31,13 +31,13 @@
 <rect class="h d" x="42" y="170" width="616" height="70"/>
 <text class="t12 mid" x="430" y="164">일관성 도메인</text>
 
-<!-- 호스트 열 : x 36~184 -->
+<!-- 호스트 열 : x 36–184 -->
 <rect class="s" x="36" y="76" width="148" height="210"/>
 <text class="t14 mid" x="110" y="66">호스트 (Host)</text>
 <rect class="s" x="48" y="176" width="124" height="46"/>
 <text class="t12 mid" x="110" y="203">호스트 캐시</text>
 
-<!-- 디바이스 열 : x 516~664 -->
+<!-- 디바이스 열 : x 516–664 -->
 <rect class="s" x="516" y="76" width="148" height="210"/>
 <text class="t14 mid" x="590" y="66">디바이스 (Device)</text>
 <rect class="s" x="528" y="176" width="124" height="46"/>

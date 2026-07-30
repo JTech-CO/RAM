@@ -1,6 +1,6 @@
 <svg viewBox="0 0 960 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
 <title id="ttl">그림 0-1. 5계층과 5개 정렬 축의 좌표계</title>
-<desc id="dsc">관례적 5단 피라미드(SRAM·HBM·DRAM·HBF·NAND)와 A1~A5 다섯 정렬 축의 좌표값을 같은 행에 정렬해, 피라미드의 상하 순서가 어느 단일 축으로도 재현되지 않음을 보입니다. HBF 행의 값은 SanDisk 공개분 기반 벤더 목표치이며 비트당 비용 실측치는 미공개(2026-07 기준)입니다.</desc>
+<desc id="dsc">관례적 5단 피라미드(SRAM·HBM·DRAM·HBF·NAND)와 A1–A5 다섯 정렬 축의 좌표값을 같은 행에 정렬해, 피라미드의 상하 순서가 어느 단일 축으로도 재현되지 않음을 보입니다. HBF 행의 값은 SanDisk 공개분 기반 벤더 목표치이며 비트당 비용 실측치는 미공개(2026-07 기준)입니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }
   @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
@@ -27,7 +27,7 @@
   </pattern>
 </defs>
 
-<!-- ================= 좌 패널 : 관례 피라미드 (x 0~250) ================= -->
+<!-- ================= 좌 패널 : 관례 피라미드 (x 0–250) ================= -->
 <path d="M95,70 L155,70 L173,138 L77,138 Z"    class="f-sram k-sram" fill-opacity="0.15" stroke-width="2"/>
 <path d="M77,142 L173,142 L191,210 L59,210 Z"  class="f-hbm k-hbm"   fill-opacity="0.15" stroke-width="2"/>
 <path d="M59,214 L191,214 L209,282 L41,282 Z"  class="f-dram k-dram" fill-opacity="0.15" stroke-width="2"/>
@@ -47,7 +47,7 @@
 
 <text class="t14 mid" x="125" y="452" fill="var(--hint)">관례 피라미드</text>
 
-<!-- ================= 우 패널 : A1~A5 5축 좌표 (x 270~940) ================= -->
+<!-- ================= 우 패널 : A1–A5 5축 좌표 (x 270–940) ================= -->
 
 <!-- 열 헤더 : 축 이름 2줄(12px) + 단위(11px) -->
 <text class="t12 mid" x="337" y="16">A1 접근 지연</text>
@@ -55,10 +55,10 @@
 <text class="t11 mid" x="337" y="46">ns / µs</text>
 <text class="t12 mid" x="471" y="16">A2 대역폭</text>
 <text class="t12 mid" x="471" y="31">(Bandwidth)</text>
-<text class="t11 mid" x="471" y="46">GB/s ~ TB/s</text>
+<text class="t11 mid" x="471" y="46">GB/s – TB/s</text>
 <text class="t12 mid" x="605" y="16">A3 용량</text>
 <text class="t12 mid" x="605" y="31">(Capacity)</text>
-<text class="t11 mid" x="605" y="46">MB ~ TB</text>
+<text class="t11 mid" x="605" y="46">MB – TB</text>
 <text class="t12 mid" x="739" y="16">A4 비트당 비용</text>
 <text class="t12 mid" x="739" y="31">(Cost per bit)</text>
 <text class="t11 mid" x="739" y="46">$/GB</text>
@@ -94,25 +94,25 @@
 <rect x="280" y="226" width="110" height="36" fill="url(#hatch)"/>
 
 <!-- 셀 값 25개 -->
-<text class="t11 mid" x="337" y="108">~1 ns 이하</text>
+<text class="t11 mid" x="337" y="108">약 1 ns 이하</text>
 <text class="t11 mid" x="471" y="108">수 TB/s (온칩)</text>
-<text class="t11 mid" x="605" y="108">수 MB ~ 수십 MB</text>
+<text class="t11 mid" x="605" y="108">수 MB – 수십 MB</text>
 <text class="t11 mid" x="739" y="108">매우 높음</text>
 <text class="t11 mid" x="873" y="108">온다이</text>
 
-<text class="t11 mid" x="337" y="180">10~100 ns</text>
-<text class="t11 mid" x="471" y="180">~2 TB/s (HBM4 스택)</text>
-<text class="t11 mid" x="605" y="180">36~48 GB (스택)</text>
+<text class="t11 mid" x="337" y="180">10–100 ns</text>
+<text class="t11 mid" x="471" y="180">약 2 TB/s (HBM4 스택)</text>
+<text class="t11 mid" x="605" y="180">36–48 GB (스택)</text>
 <text class="t11 mid" x="739" y="180">높음</text>
 <text class="t11 mid" x="873" y="180">인터포저 (수 mm)</text>
 
-<text class="t11 mid" x="337" y="252">10~100 ns</text>
-<text class="t11 mid" x="471" y="252">~50 GB/s (모듈)</text>
-<text class="t11 mid" x="605" y="252">수 GB ~ 수십 GB</text>
+<text class="t11 mid" x="337" y="252">10–100 ns</text>
+<text class="t11 mid" x="471" y="252">약 50 GB/s (모듈)</text>
+<text class="t11 mid" x="605" y="252">수 GB – 수십 GB</text>
 <text class="t11 mid" x="739" y="252">중간</text>
 <text class="t11 mid" x="873" y="252">PCB (수십 cm)</text>
 
-<text class="t11 mid" x="337" y="316">10~20 µs</text>
+<text class="t11 mid" x="337" y="316">10–20 µs</text>
 <text class="t11 mid" x="337" y="331">[벤더 목표치]</text>
 <text class="t11 mid" x="471" y="316">1.6 TB/s (Gen1)</text>
 <text class="t11 mid" x="471" y="331">[벤더 목표치]</text>
@@ -122,8 +122,8 @@
 <text class="t11 mid" x="739" y="331">[미공개]</text>
 <text class="t11 mid" x="873" y="324">인터포저 / D2D</text>
 
-<text class="t11 mid" x="337" y="396">50~100 µs</text>
-<text class="t11 mid" x="471" y="396">~7 GB/s</text>
+<text class="t11 mid" x="337" y="396">50–100 µs</text>
+<text class="t11 mid" x="471" y="396">약 7 GB/s</text>
 <text class="t11 mid" x="605" y="396">수 TB</text>
 <text class="t11 mid" x="739" y="396">매우 낮음</text>
 <text class="t11 mid" x="873" y="396">PCIe (수십 cm+)</text>

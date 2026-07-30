@@ -52,7 +52,7 @@
 | 항목 | 값 | 등급 | 출처 | 비고 |
 |---|---|---|---|---|
 | RAA | Rolling Accumulated ACT — bank별 ACT 횟수 누산 카운터 | T2/T3 | RogueRFM, arXiv:2501.06646 / PROTRR (IEEE S&P 2022), https://comsec.ethz.ch/wp-content/files/protrr_sp22.pdf | |
-| **RAAIMT** (RAA Initial Management Threshold) | **32 ~ 80, 8 단위** | T3 `단일 출처`(2차) | JESD79-5 해설 문헌 경유 | JEDEC 원문 미확인 → 인용 시 "2차 출처" 표기 |
+| **RAAIMT** (RAA Initial Management Threshold) | **32 – 80, 8 단위** | T3 `단일 출처`(2차) | JESD79-5 해설 문헌 경유 | JEDEC 원문 미확인 → 인용 시 "2차 출처" 표기 |
 | **RAAMMT** (RAA Maximum Management Threshold) | 벤더 지정. **read-only MR58 opcode bit[7:5]** 에 기록 | T3 `단일 출처`(2차) | 동상 | JEDEC 원문 미확인 |
 | RFM 명령 효과 | `RFMab` = 전 bank의 RAA를 RAAIMT만큼 감산(최소 0). `RFMsb` = BA[1:0]로 지정된 bank(전 bank group 공통)만 감산 | T3(2차) | 동상 | |
 | 강제 조항 | RAA가 RAAMMT에 도달하면 **REF 또는 RFM으로 카운터를 낮추기 전까지 해당 bank에 추가 ACT 불가** | T3(2차) | 동상 | RFM의 핵심 강제 메커니즘 |
@@ -66,7 +66,7 @@
 | PRAC slowdown의 속도 의존성 | **3200 MT/s에서 2.2% → 8000 MT/s에서 14%** | T2 `단일 출처` | 검색 경유(PRAC 평가 논문 계열, 개별 논문 미특정) | 고속일수록 tRRD·tFAW가 짧아 ACT 빈도가 올라가며 고정 타이밍 페널티가 자주 노출됨. **논문 특정 실패** |
 | QPRAC 계열 오버헤드 | QPRAC-NoOp 12.4%, QPRAC 0.8%, QPRAC+Proactive 계열 사실상 0 | T2 | QPRAC, arXiv:2501.18861 | *제안 기법*의 값이지 JEDEC PRAC 자체 값이 아님 |
 | PRAC 타이밍 파라미터 변화 | **tRP 15 ns → 36 ns** (per-row 카운터 RMW 수용 목적) | T2 | PRACtical, arXiv:2507.18581 | 아래 §3 주의 |
-| ABO 프로토콜 타이밍 | 경보 후 약 **180 ns**의 pre-recovery 구간, `RFMab` 1회당 복구 **350 ns**, ABO 간격 350 ns ~ 1500 ns | T2 `단일 출처` | PRACtical, arXiv:2507.18581 | 단일 논문 서술. JEDEC 원문 대조 실패 |
+| ABO 프로토콜 타이밍 | 경보 후 약 **180 ns**의 pre-recovery 구간, `RFMab` 1회당 복구 **350 ns**, ABO 간격 350 ns – 1500 ns | T2 `단일 출처` | PRACtical, arXiv:2507.18581 | 단일 논문 서술. JEDEC 원문 대조 실패 |
 
 ### 1-F. TRR (Target Row Refresh)
 | 항목 | 값 | 등급 | 출처 | 비고 |
@@ -80,9 +80,9 @@
 ### 1-G. 로컬 표준 문서의 시기적 한계 (직접 확인한 음성 결과)
 | 항목 | 값 | 등급 | 출처 | 비고 |
 |---|---|---|---|---|
-| 로컬 `jesd79_4.txt` 판본 | **JESD79-4, 2012년 9월 원판** | T0 | 로컬 파일 3~8행 헤더 | Kim et al. ISCA 2014보다 **앞선 문서** |
+| 로컬 `jesd79_4.txt` 판본 | **JESD79-4, 2012년 9월 원판** | T0 | 로컬 파일 3–8행 헤더 | Kim et al. ISCA 2014보다 **앞선 문서** |
 | 그 결과 | 이 판본에는 MAC / tMAW / TRR 조항이 **존재하지 않음**(검색 0건) | T0 | 로컬 grep | MAC은 이후 개정판·SPD Annex L에서 등장 |
-| 로컬 `jesd79_5.txt` 판본 | DDR5 Full Spec **Draft Rev0.1** 위원회 회람본 | T0(초안) | 로컬 파일 3~13행 | RFM 조항 **없음**(검색 0건) |
+| 로컬 `jesd79_5.txt` 판본 | DDR5 Full Spec **Draft Rev0.1** 위원회 회람본 | T0(초안) | 로컬 파일 3–13행 | RFM 조항 **없음**(검색 0건) |
 
 ### 1-H. 연구 계보 (서지)
 | 논문 | 서지 | 등급 | 확인 경로 |
@@ -118,8 +118,8 @@ RowPress(Luo et al., ISCA 2023, T2)는 aggressor row를 **오래 열어 두는(k
 ## 3. 상충·불확실
 | 쟁점 | 값 A (출처) | 값 B (출처) | 판단 |
 |---|---|---|---|
-| DDR3 세대 임계값 | **69.2K** — 2010–2013년 제조 칩 실측 N_RH (ABACuS/Olgun 계열, T2) | **139K~140K** (PRACtical arXiv:2507.18581은 "약 140K", 다른 2차 인용은 "139K", 또 다른 서술은 "100K 이상") | **양쪽 모두 기록할 것.** 차이의 원인은 (i) 측정 대상 칩의 제조 시기·벤더가 다르고 (ii) "첫 비트플립 기준(HC_first)"인지 "특정 비율의 셀 실패 기준"인지 정의가 다르기 때문으로 보이나, **본 조사에서 확정하지 못했다.** 하나만 골라 쓰지 말 것 |
-| PRAC 평균 성능 오버헤드 | **8%** (Counterpoint, DRAMSec 2025, T2) | **6%**, 최대 약 20% (PRACtical, arXiv:2507.18581, T2) | 둘 다 T2. 워크로드 셋·시뮬레이터·가정 임계값이 달라 직접 비교 불가. **"논문에 따라 6~8% 수준으로 보고된다"** 식으로 범위 서술 권장 |
+| DDR3 세대 임계값 | **69.2K** — 2010–2013년 제조 칩 실측 N_RH (ABACuS/Olgun 계열, T2) | **139K–140K** (PRACtical arXiv:2507.18581은 "약 140K", 다른 2차 인용은 "139K", 또 다른 서술은 "100K 이상") | **양쪽 모두 기록할 것.** 차이의 원인은 (i) 측정 대상 칩의 제조 시기·벤더가 다르고 (ii) "첫 비트플립 기준(HC_first)"인지 "특정 비율의 셀 실패 기준"인지 정의가 다르기 때문으로 보이나, **본 조사에서 확정하지 못했다.** 하나만 골라 쓰지 말 것 |
+| PRAC 평균 성능 오버헤드 | **8%** (Counterpoint, DRAMSec 2025, T2) | **6%**, 최대 약 20% (PRACtical, arXiv:2507.18581, T2) | 둘 다 T2. 워크로드 셋·시뮬레이터·가정 임계값이 달라 직접 비교 불가. **"논문에 따라 6–8% 수준으로 보고된다"** 식으로 범위 서술 권장 |
 | PRAC 오버헤드의 속도 의존 | 3200 MT/s에서 2.2% | 8000 MT/s에서 14% | 상충이 아니라 **같은 논문 내 조건 차이**로 보이나 **출처 논문을 특정하지 못했다.** 인용 시 "출처 미특정" 표기 필수 |
 | PRAC 적용 시 코어 타이밍 | tRP 15 ns → **36 ns** (PRACtical Table 1 추출값) | 같은 추출에서 tRAS 32→16 ns, tRC 47→52 ns 도 함께 나왔는데 **tRC = tRAS + tRP 관계가 성립하지 않아 산술적으로 모순** | **tRP 15→36 ns만 조건부로 사용하고, tRAS/tRC 값은 사용 금지.** PDF 텍스트 추출 오류 가능성이 높다. 원문 Table 1 재확인 필요 |
 | LPDDR6 PRAC "LPDDR5X 대비 5배" | 기술 매체(T3) 다수가 동일 문구를 반복 | 원 논문·JEDEC 원문 미확인 | **단일 계열 출처. 수치로 인용하지 말고 정성 서술로 낮출 것** 권장 |
@@ -134,7 +134,7 @@ RowPress(Luo et al., ISCA 2023, T2)는 aggressor row를 **오래 열어 두는(k
 2. **DDR5 세대의 실측 rowhammer 임계값 확인 실패.** on-die ECC와 내장 완화 로직 때문에 외부 관측이 어렵다는 서술만 확보(DRAM-Profiler, arXiv:2404.18396, T2). **"DDR5는 N천 회"류 수치를 쓰지 말 것.**
 3. **JESD79-5C 원문(T0) 직접 확인 실패.** JEDEC 보도자료 페이지가 HTTP 403, businesswire 미러도 연결 실패. PRAC 관련 T0 근거는 **보도자료를 인용한 T3 매체 경유**로만 확보했다. 조항 번호·MR 비트·정확한 임계 설정 방식은 미확인.
 4. **JESD209-6(LPDDR6) 원문(T0) 직접 확인 실패.** LPDDR6의 per-row activation counting이 rowhammer 대응이라는 것은 다수 T3 매체가 일치하나, **JEDEC 원문 문구는 확보하지 못했다.**
-5. **RFM의 RAAIMT 32~80(8 단위)·RAAMMT(MR58 opcode 7:5) 값의 T0 확인 실패.** 2차 해설 문헌 경유. JESD79-5B 원문 대조 필요.
+5. **RFM의 RAAIMT 32–80(8 단위)·RAAMMT(MR58 opcode 7:5) 값의 T0 확인 실패.** 2차 해설 문헌 경유. JESD79-5B 원문 대조 필요.
 6. **arXiv/vusec PDF 직접 파싱 실패**(QPRAC 2501.18861, TRRespass PDF): PDF 스트림이 텍스트로 변환되지 않았다. 해당 논문 수치는 HTML판·검색 요약·교차 인용으로 보완했으며, **verbatim 인용은 하지 않았다.**
 7. **삼성/SK하이닉스/마이크론의 벤더별 TRR 구현 세부**(T1 공식 문서) 확인 실패. 벤더들이 공개하지 않는다.
 8. **row hammer의 지배적 물리 메커니즘 확정 실패** (§2-1 (a)/(b)).
@@ -153,10 +153,10 @@ RowPress(Luo et al., ISCA 2023, T2)는 aggressor row를 **오래 열어 두는(k
 2. **로컬 `jesd79_4.txt`도 2012년 9월 원판**이다. MAC/TRR 근거로 쓸 수 없다.
 3. **MAC과 HC_first를 섞지 말 것.** MAC은 JEDEC이 정의한 *스펙상 보장 한도*, HC_first/N_RH는 *논문의 실측 값*이다. "MAC이 4.8K로 떨어졌다"는 틀린 문장이다.
 4. **임계값에는 반드시 "제조 시기"와 "규격"을 붙일 것.** 4.8K는 **LPDDR4, 2019–2020년 제조 칩**의 실측 최소값이지 "요즘 DRAM 일반"이 아니다. 10K는 **DDR4, 2019–2020년 제조 칩**이다.
-5. **DDR3 임계값은 단일 수치로 쓰지 말 것.** 69.2K와 139K~140K가 병존한다(§3). "수만~십수만 회 수준"이라고 범위로 쓰거나 두 값을 병기할 것.
+5. **DDR3 임계값은 단일 수치로 쓰지 말 것.** 69.2K와 139K–140K가 병존한다(§3). "수만–십수만 회 수준"이라고 범위로 쓰거나 두 값을 병기할 것.
 6. **DDR5 임계값은 쓰지 말 것.** 확인 실패다(§4-2).
 7. **"JESD79-5C가 PRAC을 도입했다"와 "DDR5 제품이 PRAC을 쓴다"는 다른 문장이다.** 전자만 근거가 있다.
-8. **PRAC 오버헤드는 범위로.** "6~8%(논문·워크로드에 따라 다름, 최대 20%대 사례 보고)"가 안전하다. 단일 수치 확정 서술 금지.
+8. **PRAC 오버헤드는 범위로.** "6–8%(논문·워크로드에 따라 다름, 최대 20%대 사례 보고)"가 안전하다. 단일 수치 확정 서술 금지.
 9. **TRR을 "실패한 기술"로 단정하는 것은 과하다.** TRRespass가 보인 것은 "42개 중 13개 모듈에서 우회 가능"이지 "TRR이 무용지물"이 아니다. 수치를 정확히 인용할 것.
 10. **row hammer와 RowPress를 구분할 것**(§2-2).
 11. **보안 서술은 한두 문장으로 제한.** 이 문서 모음집의 목적이 아니다.
@@ -179,8 +179,8 @@ RowPress(Luo et al., ISCA 2023, T2)는 aggressor row를 **오래 열어 두는(k
 | DOI 10.1145/3579371.3589063 (arXiv:2306.17061) | T2 | Luo et al., "RowPress: Amplifying Read Disturbance in Modern DRAM Chips," ISCA 2023 | 2026-07-29 |
 | ISCA 2014 / SIGARCH Comput. Archit. News 42(3):361–372 | T2 | Kim et al., "Flipping Bits in Memory Without Accessing Them" (최초 보고) | 2026-07-29 |
 | https://www.usenix.org/system/files/sec23winter-prepub-21-olgun.pdf | T2 | Olgun et al., "ABACuS: All-Bank Activation Counters…," USENIX Security 2024 — 69.2K/10K/4.8K 임계 추이 | 2026-07-29 |
-| https://arxiv.org/pdf/2404.18396 | T2 | DRAM-Profiler — DDR3 ~100K, DDR4 4.8K, DDR5 평가 곤란 서술 | 2026-07-29 |
-| https://arxiv.org/html/2507.18581 | T2 | PRACtical — PRAC 동작·ABO 타이밍·오버헤드 6%(최대 ~20%)·tRP 15→36 ns | 2026-07-29 |
+| https://arxiv.org/pdf/2404.18396 | T2 | DRAM-Profiler — DDR3 –100K, DDR4 4.8K, DDR5 평가 곤란 서술 | 2026-07-29 |
+| https://arxiv.org/html/2507.18581 | T2 | PRACtical — PRAC 동작·ABO 타이밍·오버헤드 6%(최대 –20%)·tRP 15→36 ns | 2026-07-29 |
 | https://dramsec.ethz.ch/dramsec25-papers/counterpoint-dramsec25.pdf | T2 | Counterpoint (DRAMSec 2025) — PRAC 8%, PRAC-Ideal 0.9% | 2026-07-29 |
 | https://arxiv.org/pdf/2501.18861 | T2 | QPRAC — PRAC 카운터+ABO 구조, QPRAC 계열 오버헤드. **PDF 파싱 실패, 검색 요약 경유** | 2026-07-29 |
 | https://ar5iv.labs.arxiv.org/html/2501.06646 | T2 | RogueRFM — RFM을 이용한 covert-channel/DoS | 2026-07-29 |

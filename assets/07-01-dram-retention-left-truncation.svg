@@ -27,7 +27,7 @@
   </pattern>
 </defs>
 
-<!-- 데이터 부재 구간: 축 왼쪽 끝(64 ms의 1/2) ~ 64 ms -->
+<!-- 데이터 부재 구간: 축 왼쪽 끝(64 ms의 1/2) – 64 ms -->
 <rect x="88" y="44" width="99" height="300" fill="url(#hatch)"/>
 <path d="M88,44 H187 V344 H88" class="h k-emph d"/>
 

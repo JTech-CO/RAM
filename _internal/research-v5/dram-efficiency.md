@@ -12,7 +12,7 @@
 
 | 항목 | 값 | 등급 | 출처 | 비고 |
 |---|---|---|---|---|
-| DDR4 16Gb 뱅크 구성 | x4/x8: 4 뱅크그룹 × 4 뱅크 = **16 뱅크** / x16: 2 BG × 4 = **8 뱅크** | T1 | micron_ddr4_16gb.txt (16Gb x4/x8/x16 DDR4 SDRAM, Rev. H 8/2021) — "Bank Group 0~3", 각 BG에 Bank 0~3 블록도 L16440~16460 | 페이지 크기: x4=512B(1/2KB), x8=1KB, x16=2KB |
+| DDR4 16Gb 뱅크 구성 | x4/x8: 4 뱅크그룹 × 4 뱅크 = **16 뱅크** / x16: 2 BG × 4 = **8 뱅크** | T1 | micron_ddr4_16gb.txt (16Gb x4/x8/x16 DDR4 SDRAM, Rev. H 8/2021) — "Bank Group 0–3", 각 BG에 Bank 0–3 블록도 L16440–16460 | 페이지 크기: x4=512B(1/2KB), x8=1KB, x16=2KB |
 | DDR5 16Gb 뱅크 구성 | x4: 8 BG × 4 = **32 뱅크** / x8: 8 BG × 4 = **32 뱅크** / x16: 4 BG × 4 = **16 뱅크** | T1 | micron16gb_ddr5.txt L78-89 (Table 1: 16Gb Addressing, Micron 16Gb DDR5 Die Rev D, 2024-04) | 페이지 크기 x4=1KB. **DDR4 대비 뱅크그룹 2배, 뱅크 총수 2배** |
 | DDR5 뱅크 증설의 목적 (제조사 서술) | "뱅크그룹 수를 2배로 늘리고 BG당 뱅크 수는 유지 → 동시에 열어 둘 수 있는 페이지가 늘고, **짧은 타이밍(tCCD_S/tRRD_S/tWTR_S)이 쓰일 확률이 올라감**" | T1 | micron_ddr5.txt L17-27 (Micron DDR5 백서, "Overall Bank Increase") | 백서 원문: "tCCD_L can be nearly double tCCD_S" |
 | DDR5 32GB RDIMM 랭크 | 2랭크(DR), x80 모듈 폭, 구성 부품 16Gb(2Gb x8), **32 banks** | T1 | micron_32gb_rdimm.txt L82 | 소스팩 v4 L816과 일치 |
@@ -23,18 +23,18 @@
 
 | 파라미터 | DDR4-2666 | DDR4-2933 | DDR4-3200 | 출처 라인 |
 |---|---|---|---|---|
-| tCCD_S (다른 BG 간 CAS→CAS) | 4nCK | 4nCK | 4nCK | micron_ddr4_16gb.txt L16390~16400 (Table 70 예시표는 1600/2133/2400) |
-| tCCD_L (같은 BG 내 CAS→CAS) | **1600: max(4nCK, 6.25ns) / 2133: max(4nCK, 5.355ns) / 2400: max(4nCK, 5ns)** | — | — | 같은 표. **2666~3200 열의 tCCD_L 값은 텍스트 추출 깨짐으로 확인 실패** (아래 §4) |
-| tRRD_S (1/2KB 페이지) | max(4CK, 3.0ns) | max(4CK, 2.7ns) | max(4CK, 2.5ns) | L39312~39340 |
+| tCCD_S (다른 BG 간 CAS→CAS) | 4nCK | 4nCK | 4nCK | micron_ddr4_16gb.txt L16390–16400 (Table 70 예시표는 1600/2133/2400) |
+| tCCD_L (같은 BG 내 CAS→CAS) | **1600: max(4nCK, 6.25ns) / 2133: max(4nCK, 5.355ns) / 2400: max(4nCK, 5ns)** | — | — | 같은 표. **2666–3200 열의 tCCD_L 값은 텍스트 추출 깨짐으로 확인 실패** (아래 §4) |
+| tRRD_S (1/2KB 페이지) | max(4CK, 3.0ns) | max(4CK, 2.7ns) | max(4CK, 2.5ns) | L39312–39340 |
 | tRRD_S (1KB) | max(4CK, 3.0ns) | max(4CK, 2.7ns) | max(4CK, 2.5ns) | L39322~ |
 | tRRD_S (2KB) | max(4CK, 5.3ns) | max(4CK, 5.3ns) | max(4CK, 5.3ns) | L39332~ |
-| tRRD_L (1/2KB, 1KB) | max(4CK, 4.9ns) | max(4CK, 4.9ns) | max(4CK, 4.9ns) | L39344~39370 |
+| tRRD_L (1/2KB, 1KB) | max(4CK, 4.9ns) | max(4CK, 4.9ns) | max(4CK, 4.9ns) | L39344–39370 |
 | tRRD_L (2KB) | max(4CK, 6.4ns) | max(4CK, 6.4ns) | max(4CK, 6.4ns) | L39372~ |
-| **tFAW (1/2KB)** | max(16CK, 12ns) | max(16CK, 10.875ns) | max(16CK, **10ns**) | L39388~39400 |
-| **tFAW (1KB)** | max(20CK, 21ns) | max(20CK, 21ns) | max(20CK, **21ns**) | L39402~39410 |
-| **tFAW (2KB)** | max(28CK, 30ns) | max(28CK, 30ns) | max(28CK, **30ns**) | L39412~39420 |
-| **tWTR_L** (WRITE→READ, 같은 BG) | max(4CK, 7.5ns) | max(4CK, 7.5ns) | max(4CK, 7.5ns) | L37451~ ("tWTR_L1ck MIN = greater of 4CK or 7.5ns") |
-| **tWTR_S** (WRITE→READ, 다른 BG) | max(2CK, 2.5ns) | max(2CK, 2.5ns) | max(2CK, 2.5ns) | L16485~16490 (Table 70; 1600/2133/2400 열 전부 동일 값) — **2666~3200 열 직접 확인은 못했으나 JEDEC상 값이 속도무관 고정** |
+| **tFAW (1/2KB)** | max(16CK, 12ns) | max(16CK, 10.875ns) | max(16CK, **10ns**) | L39388–39400 |
+| **tFAW (1KB)** | max(20CK, 21ns) | max(20CK, 21ns) | max(20CK, **21ns**) | L39402–39410 |
+| **tFAW (2KB)** | max(28CK, 30ns) | max(28CK, 30ns) | max(28CK, **30ns**) | L39412–39420 |
+| **tWTR_L** (WRITE→READ, 같은 BG) | max(4CK, 7.5ns) | max(4CK, 7.5ns) | max(4CK, 7.5ns) | L37451– ("tWTR_L1ck MIN = greater of 4CK or 7.5ns") |
+| **tWTR_S** (WRITE→READ, 다른 BG) | max(2CK, 2.5ns) | max(2CK, 2.5ns) | max(2CK, 2.5ns) | L16485–16490 (Table 70; 1600/2133/2400 열 전부 동일 값) — **2666–3200 열 직접 확인은 못했으나 JEDEC상 값이 속도무관 고정** |
 | tRTP (READ→PRECHARGE) | max(4nCK, 7.5ns) | 〃 | 〃 | L19383 원문: "tRTP (MIN) = MAX (4 nCK, 7.5ns)" |
 | tWR (WRITE recovery) | 15ns | 15ns | 15ns | L37428 "tWR1ck MIN = 15ns" |
 | tRCD / tRP (DDR4-3200) | — | — | **13.75ns** (22-22-22 빈) | L97-106, L34562 등. 스피드빈 표 |
@@ -71,8 +71,8 @@
 | tRFC2 (REFab, FGR) | 130ns | **160ns** | TBD | T0(초안) | L11506-11511 |
 | **tRFCsb (REFsb, Same-Bank)** | 115ns | **130ns** | TBD | T0(초안) | L11512-11517 |
 | tREFSBRD (REFsb→ACT, 다른 뱅크) | 30ns | **30ns** | TBD | T0(초안) | L11524-11529 |
-| tREFI (Normal, 0~85°C) | 3.9µs (85~95°C: 1.95µs) | 〃 | 〃 | T0(초안) | L11474-11483 |
-| tREFI2 (FGR, 0~85°C) | 1.95µs (85~95°C: 0.975µs) | 〃 | 〃 | T0(초안) | L11484-11493 |
+| tREFI (Normal, 0–85°C) | 3.9µs (85–95°C: 1.95µs) | 〃 | 〃 | T0(초안) | L11474-11483 |
+| tREFI2 (FGR, 0–85°C) | 1.95µs (85–95°C: 0.975µs) | 〃 | 〃 | T0(초안) | L11484-11493 |
 
 **32Gb는 TBD입니다. 32Gb DDR5 tRFC를 인용하지 마십시오.**
 
@@ -105,7 +105,7 @@ A Comprehensive Experimental Study"*, **arXiv:1902.07609** (CMU / SFU / ETH Zür
 
 | 워크로드 조건 | row buffer hit rate | 비고 |
 |---|---|---|
-| **단일 스레드 데스크톱·과학 응용 (DDR3)** | **2.4% ~ 53.1%** (응용별 분포) | 원문: "row buffer hit rates falling anywhere between 2.4–53.1%" |
+| **단일 스레드 데스크톱·과학 응용 (DDR3)** | **2.4% – 53.1%** (응용별 분포) | 원문: "row buffer hit rates falling anywhere between 2.4–53.1%" |
 | **멀티프로그램 번들 D9 (DDR3 및 그 밖 모든 DRAM 타입)**, MPKI = 167.4 | **5.6%를 넘지 않음** | 원문: "the row buffer hit rate never exceeds 5.6% on any DRAM type" |
 | **멀티스레드 quicksilver (DDR3)** | **1스레드 83.1% → 32스레드 7.2%** | 스레드 수만 늘려도 hit rate가 12배 붕괴 |
 | **mcf (모든 DRAM 타입)** | 정성 서술 | "대부분의 메모리 요청이 row conflict" |
@@ -185,7 +185,7 @@ tCCD_L은 DDR4-2400에서 max(4nCK, 5ns) = 12 tCK... 아니라 **8 tCK**(tCK=0.8
 **(1) WRITE → READ**: 스펙에 명시적 파라미터가 있습니다.
 - 컨트롤러가 지켜야 하는 총 간격 = `CWL + WBL/2 + tWTR_L` (같은 뱅크그룹) 또는 `CWL + WBL/2 + tWTR_S` (다른 BG).
   출처: micron_ddr4_16gb.txt L16847, L16850 (T1).
-- tWTR_L = max(4CK, **7.5ns**), tWTR_S = max(2CK, **2.5ns**) — DDR4 (micron_ddr4_16gb.txt L37451~, L16485~).
+- tWTR_L = max(4CK, **7.5ns**), tWTR_S = max(2CK, **2.5ns**) — DDR4 (micron_ddr4_16gb.txt L37451 이하, L16485 이하).
 - tWTR_L = **7.5ns**, tWTR_S = **2.5ns** — DDR5-3200/3600/4000 (jesd79_5.txt L23068-23086, T0 초안).
 - 즉 **DDR4→DDR5로 오면서 tWTR의 ns 값은 그대로**입니다. 클럭이 빨라진 만큼 **tCK 단위 페널티는 커집니다.**
   DDR5-4000(tCK=0.5ns) 기준 tWTR_L = 15 tCK. 이 동안 데이터 버스는 비어 있습니다. (유도)
@@ -254,11 +254,11 @@ DDR5가 뱅크그룹을 8개로 늘린 것은 이 세 페널티를 동시에 겨
 
 | 결과 | 값 | 조건 (반드시 병기) | 등급 | 출처 |
 |---|---|---|---|---|
-| refresh로 인한 IPC 손실 (HIGH bandwidth 워크로드) | **최대 11.4%** | 4코어 2GHz OoO, 8GB, **8Gb DDR4 디바이스**, open-page + FR-FCFS, 1채널. 워크로드: libquantum, mcf, mix2. 디바이스 속도 1066~3200 Mbps 스윕. **시뮬레이션** | T2 | jacob_refresh.txt L657-659 |
+| refresh로 인한 IPC 손실 (HIGH bandwidth 워크로드) | **최대 11.4%** | 4코어 2GHz OoO, 8GB, **8Gb DDR4 디바이스**, open-page + FR-FCFS, 1채널. 워크로드: libquantum, mcf, mix2. 디바이스 속도 1066–3200 Mbps 스윕. **시뮬레이션** | T2 | jacob_refresh.txt L657-659 |
 | 디바이스 밀도 증가 시 IPC 손실 | **32Gb 디바이스에서 30% 초과** (libquantum, mcf) | 같은 시뮬레이션 환경, 밀도 1Gb→32Gb 스윕. **32Gb는 당시(2015) 미출시 — 외삽 tRFC 사용** | T2 | jacob_refresh.txt L679-681 |
-| refresh 에너지 비중 | 32Gb, LOW bandwidth 프로그램에서 DRAM 에너지의 **25~30%** | 같은 조건 | T2 | jacob_refresh.txt L675-677 |
+| refresh 에너지 비중 | 32Gb, LOW bandwidth 프로그램에서 DRAM 에너지의 **25–30%** | 같은 조건 | T2 | jacob_refresh.txt L675-677 |
 | LOW bandwidth 워크로드의 평균 지연 열화 | **13% → 23.5%** (속도 증가에 따라) | hmmer, namd, mix1. 시뮬레이션 | T2 | jacob_refresh.txt L668-670 |
-| **REFsb vs REFab 시스템 throughput** | **6~9% 향상** (read/write 명령 비율에 따라) | **마이크론 시뮬레이션.** Figure 4의 y축은 100~110%, x축 Read% = 0/10/33/50/66/90/100 | T1 | micron_ddr5.txt L72-73, L86-101 |
+| **REFsb vs REFab 시스템 throughput** | **6–9% 향상** (read/write 명령 비율에 따라) | **마이크론 시뮬레이션.** Figure 4의 y축은 100–110%, x축 Read% = 0/10/33/50/66/90/100 | T1 | micron_ddr5.txt L72-73, L86-101 |
 | **REFsb의 평균 idle latency adder** | REFab **11.2ns** → REFsb **5.0ns** | **"표준 대기행렬이론(queuing theory) 기반 계산이며, 랜덤 트래픽이 걸리는 단일 뱅크에 적용됨"** — 저자 명시 단서 | T1 | micron_ddr5.txt L74-82 |
 | DDR5 종합 성능 향상 | "2x banks, 2x bank groups, BL16, same-bank refresh를 합쳐 **64B 랜덤 액세스 워크로드**를 시뮬레이션하면 **DDR4 dual-rank 3200 MT/s 모듈 대비 상당한 성능 증가**" | 8채널/시스템, 1DPC 가정. **구체 수치는 Figure 5 이미지에 있어 텍스트 추출 실패** | T1 | micron_ddr5.txt L111-113 |
 | RAIDR의 성능 이득 | 메모리 강도 100% 카테고리에서 평균 **4.8%(단일 코어 9.8%)** | 8코어 4GHz, 32GB DDR3-1333, FR-FCFS + open-page. **시뮬레이션** | T2 | raidr.txt L1170-1174 |
@@ -357,7 +357,7 @@ DDR5가 뱅크그룹을 8개로 늘린 것은 이 세 페널티를 동시에 겨
    - 30%+: **32Gb 디바이스 가정, 2015년 당시 외삽 tRFC 사용** — 실제 32Gb DDR5의 tRFC는 로컬 초안에서
      **TBD**입니다. "32Gb에서 30% 손실"을 현재 제품 이야기처럼 쓰면 오도입니다.
 
-8. **마이크론의 REFsb 수치(6~9%, 11.2ns→5.0ns)는 시뮬레이션·대기행렬 모델값이며 제조사 자체 발표입니다.**
+8. **마이크론의 REFsb 수치(6–9%, 11.2ns→5.0ns)는 시뮬레이션·대기행렬 모델값이며 제조사 자체 발표입니다.**
    "실측"으로 쓰지 마십시오. 11.2/5.0ns는 특히 "**랜덤 트래픽 단일 뱅크**"라는 강한 단순화 위에서 나온 값입니다.
 
 9. **JESD79-5 로컬본은 "Proposed DDR5 Full spec (79-5)" 회람 초안 Rev0.1입니다.** 인용 시
@@ -378,7 +378,7 @@ DDR5가 뱅크그룹을 8개로 늘린 것은 이 세 페널티를 동시에 겨
 
 | 출처 | 등급 | 제목 | 확인일 |
 |---|---|---|---|
-| jesd79_5.txt (로컬) | T0 (**비준 전 초안**) | Proposed DDR5 Full Spec (JESD79-5) Draft Rev0.1 회람본 — §4.10.3 Same Bank Refresh, Table 26, §12.2.1 Timing Parameters (DDR5-3200~4000) | 2026-07-29 |
+| jesd79_5.txt (로컬) | T0 (**비준 전 초안**) | Proposed DDR5 Full Spec (JESD79-5) Draft Rev0.1 회람본 — §4.10.3 Same Bank Refresh, Table 26, §12.2.1 Timing Parameters (DDR5-3200–4000) | 2026-07-29 |
 | jesd79_4.txt (로컬) | T0 | JESD79-4 DDR4 SDRAM (2012-09 원판) — tRTRS 문자열 부재 확인용 | 2026-07-29 |
 | micron_ddr4_16gb.txt (로컬) | T1 | Micron 16Gb: x4/x8/x16 DDR4 SDRAM, Rev. H 8/2021 — Table 70(BG 타이밍), Table 160/161(AC 타이밍), 스피드빈 | 2026-07-29 |
 | micron16gb_ddr5.txt (로컬) | T1 | Micron 16Gb DDR5 SDRAM Die Rev D (2024-04) — Table 1: 16Gb Addressing (뱅크/BG 구성) | 2026-07-29 |

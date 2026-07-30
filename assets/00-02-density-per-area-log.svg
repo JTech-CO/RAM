@@ -35,7 +35,7 @@
 <line class="h" x1="690" y1="80" x2="690" y2="330"/>
 <line class="h" x1="150" y1="330" x2="690" y2="330"/>
 
-<!-- 계층명 (좌측 라벨 열 x 20~145, 우측 정렬) -->
+<!-- 계층명 (좌측 라벨 열 x 20–145, 우측 정렬) -->
 <text class="t12 end" x="145" y="114">SRAM</text>
 <text class="t12 end" x="145" y="184">DRAM</text>
 <text class="t12 end" x="145" y="254">NAND</text>
@@ -56,7 +56,7 @@
 <!-- 값 라벨 · 차원 배지 -->
 <text class="t11" x="236.3" y="106">0.038 Gb/mm² (38.1 Mb/mm²)</text>
 <text class="t11" x="236.3" y="121">2D (셀 1층)</text>
-<text class="t11" x="379.2" y="176">0.435 Gb/mm² (범위 0.43~0.45)</text>
+<text class="t11" x="379.2" y="176">0.435 Gb/mm² (범위 0.43–0.45)</text>
 <text class="t11" x="379.2" y="191">2D (셀 1층)</text>
 <text class="t11" x="625.4" y="246">29 Gb/mm² 초과</text>
 <text class="t11" x="625.4" y="261">3D (332층 적층)</text>

@@ -1,6 +1,6 @@
 <svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl dsc">
 <title id="ttl">그림 A-2. CXL 1.1 → 2.0 → 3.x의 3단계 확장 구조</title>
-<desc id="dsc">세 패널의 호스트 행·스위치 행·메모리 장치 행을 같은 y 좌표로 정렬해 연결 방식의 진화를 비교합니다. 2.0의 MLD는 논리 chunk 하나마다 실선이 정확히 하나만 닿는 동적 할당이고, 3.x의 GFAM에는 실선 셋이 같은 블록으로 수렴하는 동시 접근입니다. 3.x 패널의 점선 외곽은 표준은 확정이나 실리콘 배치가 후행함을 뜻합니다. 각 패널의 호스트 2~3개와 패브릭 노드 4개는 개념 표현용 최소 개수이며 실제 규모가 아닙니다.</desc>
+<desc id="dsc">세 패널의 호스트 행·스위치 행·메모리 장치 행을 같은 y 좌표로 정렬해 연결 방식의 진화를 비교합니다. 2.0의 MLD는 논리 chunk 하나마다 실선이 정확히 하나만 닿는 동적 할당이고, 3.x의 GFAM에는 실선 셋이 같은 블록으로 수렴하는 동시 접근입니다. 3.x 패널의 점선 외곽은 표준은 확정이나 실리콘 배치가 후행함을 뜻합니다. 각 패널의 호스트 2–3개와 패브릭 노드 4개는 개념 표현용 최소 개수이며 실제 규모가 아닙니다.</desc>
 <style>
   :root{ --stroke:#1F2328; --hint:#8B949E; }
   @media (prefers-color-scheme:dark){ :root{ --stroke:#E6EDF3; } }
@@ -34,7 +34,7 @@
 <line class="h" x1="302" y1="170" x2="338" y2="170" marker-end="url(#ar)"/>
 <line class="h" x1="622" y1="170" x2="658" y2="170" marker-end="url(#ar)"/>
 
-<!-- ============ 패널 1 : CXL 1.1 (x 20~320) ============ -->
+<!-- ============ 패널 1 : CXL 1.1 (x 20–320) ============ -->
 <text class="t14 mid" x="170" y="40">CXL 1.1</text>
 <text class="t12 mid" x="170" y="60">단일 노드 용량 확장</text>
 
@@ -51,7 +51,7 @@
 <rect class="f-dram k-dram" fill-opacity="0.15" stroke-width="2" x="180" y="300" width="110" height="50"/>
 <text class="t12 mid" x="235" y="330">CXL 디바이스</text>
 
-<!-- ============ 패널 2 : CXL 2.0 (x 340~640) ============ -->
+<!-- ============ 패널 2 : CXL 2.0 (x 340–640) ============ -->
 <text class="t14 mid" x="490" y="40">CXL 2.0</text>
 <text class="t12 mid" x="490" y="60">스위치와 메모리 풀링</text>
 
@@ -88,7 +88,7 @@
 <rect class="s" x="405" y="396" width="170" height="22"/>
 <text class="t11 mid" x="490" y="411">2026년 현재 양산 제품 대부분</text>
 
-<!-- ============ 패널 3 : CXL 3.x (x 660~940) ============ -->
+<!-- ============ 패널 3 : CXL 3.x (x 660–940) ============ -->
 <text class="t14 mid" x="800" y="40">CXL 3.x</text>
 <text class="t12 mid" x="800" y="60">패브릭과 다중 호스트 동시 접근</text>
 <text class="t11 mid" x="800" y="78">3.0 (2022) · 3.1 (2023) · 3.2 (2024)</text>
