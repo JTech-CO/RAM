@@ -1,4 +1,4 @@
-# RAM — Revealing Anatomy of Memory
+# RAM - Revealing Anatomy of Memory
 
 > **최종 검증: 2026-07-29**
 > 반도체 기초 지식이 있는 독자를 위한 메모리 계층 해부 문서 모음집.
