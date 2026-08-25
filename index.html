@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAM - Revealing Anatomy of Memory</title>
+
+<meta name="description" content="SRAM부터 NAND까지, 메모리 계층을 접근 지연·대역폭·용량·비트당 비용·결합도 다섯 축으로 다시 그린 해부 문서 모음집. 문서 14편, 도해 33건, 모든 수치에 출처 등급과 확인일.">
+<meta name="author" content="JTech-CO">
+<link rel="canonical" href="https://jtech-co.github.io/RAM/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RAM - Revealing Anatomy of Memory">
+<meta property="og:title" content="RAM - Revealing Anatomy of Memory">
+<meta property="og:description" content="SRAM부터 NAND까지, 메모리 계층을 다섯 축으로 다시 그린 해부 문서 모음집. 문서 14편, 도해 33건, 모든 수치에 출처 등급과 확인일.">
+<meta property="og:url" content="https://jtech-co.github.io/RAM/">
+<meta property="og:image" content="https://jtech-co.github.io/RAM/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="원형 실리콘 웨이퍼의 구조 추상화와 RAM - Revealing Anatomy of Memory 제목">
+<meta property="og:locale" content="ko_KR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RAM - Revealing Anatomy of Memory">
+<meta name="twitter:description" content="SRAM부터 NAND까지, 메모리 계층을 다섯 축으로 다시 그린 해부 문서 모음집.">
+<meta name="twitter:image" content="https://jtech-co.github.io/RAM/assets/og-image.png">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%238B949E' stroke-width='2'/%3E%3Crect x='8' y='8' width='7' height='7' fill='%230072B2'/%3E%3Crect x='17' y='8' width='7' height='7' fill='%2356B4E9'/%3E%3Crect x='8' y='17' width='7' height='7' fill='%23E69F00'/%3E%3Crect x='17' y='17' width='7' height='7' fill='%23009E73'/%3E%3C/svg%3E">
+
+<style>
+:root{
+  --bg:#ffffff; --surface:#f6f8fa; --surface2:#eef1f4;
+  --text:#1F2328; --muted:#59636e; --border:#d1d9e0;
+  --sram:#0072B2; --dram:#009E73; --hbm:#56B4E9;
+  --hbf:#CC79A7; --nand:#E69F00; --emph:#D55E00;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0d1117; --surface:#151b23; --surface2:#1c232c;
+    --text:#f0f6fc; --muted:#9198a1; --border:#3d444d;
+  }
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font:400 17px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+.wrap{max-width:860px; margin:0 auto; padding:0 24px;}
+a{color:inherit;}
+img{max-width:100%;}
+
+/* 히어로 */
+.hero{padding:64px 0 8px; text-align:center;}
+.hero img{width:100%; height:auto; display:block;}
+.hero h1{
+  font-size:clamp(30px,5.5vw,44px); line-height:1.25; margin:8px 0 14px;
+  letter-spacing:-0.01em; font-weight:700;
+}
+.hero .lede{font-size:clamp(17px,2.4vw,20px); color:var(--muted); margin:0 auto 32px; max-width:640px;}
+.hero .lede b{color:var(--text); font-weight:600;}
+.cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:8px;}
+.btn{
+  display:inline-block; padding:11px 22px; border:1px solid var(--border);
+  border-radius:6px; text-decoration:none; font-size:15px; font-weight:600;
+  background:var(--surface);
+}
+.btn:hover{background:var(--surface2);}
+.btn.primary{background:var(--text); color:var(--bg); border-color:var(--text);}
+.btn.primary:hover{opacity:.86;}
+.meta{margin-top:20px; font-size:13.5px; color:var(--muted);}
+.nb{white-space:nowrap;}
+
+hr{border:0; border-top:1px solid var(--border); margin:56px 0;}
+
+section{padding:8px 0;}
+h2{
+  font-size:clamp(22px,3.2vw,28px); line-height:1.35; margin:0 0 6px;
+  letter-spacing:-0.01em; font-weight:700;
+}
+h2 + .sub{color:var(--muted); margin:0 0 28px; font-size:16px;}
+h3{font-size:19px; margin:36px 0 10px; font-weight:600;}
+p{margin:0 0 18px;}
+.small{font-size:14.5px; color:var(--muted);}
+
+/* 도해 */
+figure{margin:26px 0; padding:0;}
+figure img{width:100%; height:auto; display:block;}
+figcaption{
+  margin-top:10px; font-size:13.5px; color:var(--muted);
+  padding-left:12px; border-left:2px solid var(--border);
+}
+
+/* 명제 카드 */
+.claims{display:grid; gap:14px; margin:0 0 8px;}
+.claim{
+  border:1px solid var(--border); border-left-width:4px; border-radius:6px;
+  padding:16px 18px; background:var(--surface);
+}
+.claim h4{margin:0 0 6px; font-size:16.5px; font-weight:650; line-height:1.5;}
+.claim p{margin:0; font-size:15px; color:var(--muted); line-height:1.7;}
+.claim .src{display:inline-block; margin-top:8px; font-size:13px; text-decoration:none; border-bottom:1px solid var(--border);}
+.c-hbm{border-left-color:var(--hbm);}
+.c-dram{border-left-color:var(--dram);}
+.c-nand{border-left-color:var(--nand);}
+.c-sram{border-left-color:var(--sram);}
+.c-hbf{border-left-color:var(--hbf);}
+.c-emph{border-left-color:var(--emph);}
+
+/* 표 */
+.tablewrap{overflow-x:auto; margin:22px 0;}
+table{border-collapse:collapse; width:100%; font-size:15px;}
+th,td{border:1px solid var(--border); padding:9px 13px; text-align:left; vertical-align:top;}
+th{background:var(--surface); font-weight:650; white-space:nowrap;}
+td code{font-size:13.5px;}
+code{
+  background:var(--surface2); padding:1px 6px; border-radius:4px;
+  font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Consolas,monospace; font-size:14px;
+}
+
+/* 문서 목록 */
+.docs{display:grid; gap:9px; margin:22px 0;}
+.doc{
+  display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:baseline;
+  padding:11px 14px; border:1px solid var(--border); border-radius:6px;
+  text-decoration:none; background:var(--surface);
+}
+.doc:hover{background:var(--surface2);}
+.doc .no{font-weight:700; font-size:14px; color:var(--muted); font-variant-numeric:tabular-nums;}
+.doc .t{font-weight:600; font-size:16px;}
+.doc .d{display:block; font-weight:400; font-size:14.5px; color:var(--muted); margin-top:2px; line-height:1.6;}
+
+/* 배지 */
+.badges{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 24px;}
+.badge{
+  font-size:13.5px; padding:4px 11px; border-radius:999px;
+  border:1px dashed var(--emph); color:var(--emph); white-space:nowrap;
+}
+
+/* 갤러리 */
+.gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; margin:24px 0;}
+.gallery figure{margin:0; display:flex; flex-direction:column;}
+.gallery img{
+  width:100%; height:132px; object-fit:contain; display:block;
+  border:1px solid var(--border); border-radius:6px; padding:10px; background:var(--surface);
+}
+.gallery figcaption{border:0; padding-left:0; margin-top:8px; font-size:12.5px;}
+
+/* 갱신 */
+.log{list-style:none; padding:0; margin:22px 0;}
+.log li{
+  padding:14px 0 14px 20px; border-left:2px solid var(--border);
+  position:relative; font-size:15.5px;
+}
+.log li::before{
+  content:""; position:absolute; left:-5px; top:22px;
+  width:8px; height:8px; border-radius:50%; background:var(--border);
+}
+.log li:first-child::before{background:var(--emph);}
+.log .date{font-weight:650; font-size:14px; color:var(--muted); display:block; margin-bottom:3px;}
+
+/* 인용 */
+blockquote{
+  margin:24px 0; padding:14px 20px; border-left:3px solid var(--border);
+  background:var(--surface); color:var(--muted); font-size:15.5px;
+}
+blockquote p:last-child{margin:0;}
+
+footer{padding:44px 0 72px; font-size:14px; color:var(--muted); text-align:center;}
+footer a{text-decoration:none; border-bottom:1px solid var(--border);}
+footer .fl{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:16px;}
+
+@media (max-width:560px){
+  body{font-size:16px;}
+  .wrap{padding:0 18px;}
+  .hero{padding:36px 0 4px;}
+  .doc{grid-template-columns:1fr; gap:2px;}
+  .gallery{grid-template-columns:1fr 1fr; gap:12px;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="hero">
+  <img src="assets/thumbnail.svg" alt="원형 실리콘 웨이퍼의 구조 추상화. 정사각 다이가 스크라이브 레인을 두고 격자로 배열되고 회절색이 대각 색대를 이룬다">
+  <h1>메모리 계층을 다섯 축으로 다시 그렸습니다</h1>
+  <p class="lede">
+    SRAM부터 NAND까지, 각 계층이 <b>왜 그렇게 생겼고 왜 그 자리에 있는지</b>를
+    셀 구조와 면적, 공정, 표준의 물리적 근거로 설명합니다.
+    "위로 갈수록 빠르고 비싸다"에서 멈추지 않는 것이 목표입니다.
+  </p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/JTech-CO/RAM">저장소로 가기</a>
+    <a class="btn" href="https://github.com/JTech-CO/RAM/blob/main/00-memory-hierarchy.md">00번 문서부터 읽기</a>
+  </div>
+  <p class="meta"><span class="nb">문서 14편</span> · <span class="nb">도해 33건</span> · <span class="nb">MIT 라이선스</span> · <span class="nb">최종 검증 2026-08-25</span></p>
+</header>
+
+<hr>
+
+<section>
+  <h2>피라미드 하나로는 설명되지 않습니다</h2>
+  <p class="sub">이 모음집의 출발점</p>
+
+  <p>
+    메모리 계층은 보통 피라미드 한 장으로 설명됩니다. 위로 갈수록 빠르고 비싸고 작다는 것입니다.
+    이 설명은 HBM 앞에서 무너집니다. HBM은 DRAM보다 위에 놓이지만 셀은 같은 1T1C이고 접근 지연도 동급입니다.
+    상위인 근거는 대역폭과 결합도 두 축뿐이고, 용량과 비트당 비용에서는 오히려 DRAM에 밀립니다.
+  </p>
+  <p>
+    HBF는 더 극단적입니다. 접근 지연으로 정렬하면 NAND 옆에, 대역폭으로 정렬하면 HBM 옆에 놓입니다.
+    한 계층이 정렬 기준에 따라 다른 칸으로 이동한다면, 이상한 쪽은 계층이 아니라
+    <b>정렬이 1차원이라는 가정</b>입니다.
+  </p>
+  <p>
+    그래서 이 모음집은 계층을 다섯 축의 복합으로 정의합니다.
+    접근 지연(A1), 대역폭(A2), 용량(A3), 비트당 비용(A4), 프로세서 결합도(A5)입니다.
+    이후 모든 문서가 이 좌표를 공유합니다.
+  </p>
+
+  <figure>
+    <img src="assets/00-01-five-layer-five-axis.svg" alt="다섯 계층을 다섯 축으로 배치한 좌표 도해" loading="lazy">
+    <figcaption>그림 1-1. 다섯 계층과 다섯 축. 열 순서가 지연 순도 용량 순도 아니라는 어긋남 자체가 00번 문서의 출발점입니다.</figcaption>
+  </figure>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>축</th><th>단위</th><th>무엇이 지배하는가</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>A1</b> 접근 지연</td><td>ns / µs</td><td><b>셀 구조.</b> 패키징으로 바꿀 수 없음</td></tr>
+        <tr><td><b>A2</b> 대역폭</td><td>GB/s – TB/s</td><td>버스 폭 × 전송률. <b>패키징으로 개선 가능</b></td></tr>
+        <tr><td><b>A3</b> 용량</td><td>MB – TB</td><td>셀 밀도와 적층 수</td></tr>
+        <tr><td><b>A4</b> 비트당 비용</td><td>$/GB</td><td>셀 면적, 공정 난도, 수율, 패키징 비용의 합</td></tr>
+        <tr><td><b>A5</b> 결합도</td><td>온다이 / 인터포저 / PCB / PCIe</td><td>물리적 거리. 지연과 전력, 신호 무결성에 동시 작용</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote>
+    <p>A1은 셀 구조가 지배하므로 패키징으로 바꿀 수 없고, A2와 A5는 패키징으로 바꿀 수 있습니다.
+    HBM은 이 대비를 정면으로 이용한 계층이고, HBF는 같은 전략을 NAND 셀에 적용한 뒤
+    A1이 끝내 따라오지 않아 생긴 문제를 다루는 계층입니다.</p>
+  </blockquote>
+</section>
+
+<hr>
+
+<section>
+  <h2>통설과 다르게 서술한 지점</h2>
+  <p class="sub">각 항목은 해당 문서에서 근거와 함께 전개됩니다</p>
+
+  <div class="claims">
+    <div class="claim c-hbm">
+      <h4>HBM은 빠른 DRAM이 아니라 넓은 DRAM입니다</h4>
+      <p>셀은 동일한 1T1C이고 지연도 동급입니다. 대역폭 격차 약 40배 중 핀당 전송률 차이는 1.3배 남짓이고,
+      나머지는 전부 버스 폭 32배에서 나옵니다. 신호를 더 빨리 보내는 기술이 아니라 더 많은 선으로 동시에 보내는 기술입니다.</p>
+      <a class="src" href="https://github.com/JTech-CO/RAM/blob/main/03-hbm.md">03-hbm.md</a>
+    </div>
+    <div class="claim c-dram">
+      <h4>DRAM 셀에 25 fF가 필요하다는 서술은 레거시입니다</h4>
+      <p>ITRS 시절 가정치입니다. 현행 D1z와 D1a는 10 fF 미만이고 D1c는 5 – 6 fF 전망입니다.
+      과거에는 약 30 fF를 세대와 무관하게 유지하는 것이 원칙이었으나, 업계는 커패시턴스 자체를 낮추는 쪽으로 선회했습니다.</p>
+      <a class="src" href="https://github.com/JTech-CO/RAM/blob/main/02-dram.md">02-dram.md</a>
+    </div>
+    <div class="claim c-nand">
+      <h4>적층 층수와 면적당 비트 밀도는 별개 지표입니다</h4>
+      <p>FMS 2026에서 확인됐습니다. 같은 TLC로 비교하면 332층 BiCS10이 29.1 Gb/mm²,
+      400층 이상인 삼성 V10이 약 28 Gb/mm²입니다. 층수가 17% 적은 쪽이 밀도에서 4% 앞섭니다.</p>
+      <a class="src" href="https://github.com/JTech-CO/RAM/blob/main/05-nand.md">05-nand.md</a>
+    </div>
+    <div class="claim c-sram">
+      <h4>DDR5에 온다이 ECC가 있어도 서버 ECC는 필요합니다</h4>
+      <p>온다이 ECC는 SEC이지 SECDED가 아닙니다. 1차 자료는 일관되게 단일 정정만을 말하고,
+      표준 자신이 앨리어싱 규정으로 시스템 ECC의 존재를 전제합니다.</p>
+      <a class="src" href="https://github.com/JTech-CO/RAM/blob/main/07-reliability.md">07-reliability.md</a>
+    </div>
+    <div class="claim c-emph">
+      <h4>64 ms는 물리 상수가 아니라 수율 선별 기준입니다</h4>
+      <p>못 버티는 다이는 출하되지 않으므로 공개된 리텐션 분포는 좌측이 잘려 있습니다.
+      공정이 좋아지면 64 ms가 늘어난다는 기대는 여기서 어긋납니다. 그리고 DDR5는 64 ms가 아니라 32 ms입니다.</p>
+      <a class="src" href="https://github.com/JTech-CO/RAM/blob/main/07-reliability.md">07-reliability.md</a>
+    </div>
+    <div class="claim c-hbf">
+      <h4>다섯 계층이 모두 웨이퍼를 붙이는 기술로 수렴하고 있습니다</h4>
+      <p>SRAM의 3D 적층 캐시, DRAM의 3D 전환, HBM의 하이브리드 본딩, HBF의 CBA, NAND의 CBA와 BV 구조.
+      2026년 메모리 공정의 단일 서사가 이것입니다.</p>
+      <a class="src" href="https://github.com/JTech-CO/RAM/blob/main/06-process.md">06-process.md</a>
+    </div>
+  </div>
+
+  <h3>버스 폭이 만든 격차</h3>
+  <figure>
+    <img src="assets/03-02-bus-width-comparison.svg" alt="DDR5와 HBM3E, HBM4의 버스 폭 비교 도해" loading="lazy">
+    <figcaption>그림 3-2. DDR5·HBM3E·HBM4의 버스 폭 비교. 64-bit에서 2048-bit로 32배입니다.</figcaption>
+  </figure>
+
+  <h3>셀 커패시턴스는 유지되지 않았습니다</h3>
+  <figure>
+    <img src="assets/02-03-cell-capacitance-trend.svg" alt="DRAM 셀 커패시턴스의 세대별 추이와 일정 유지 원칙이 깨지는 변곡점" loading="lazy">
+    <figcaption>그림 2-3. DRAM 셀 커패시턴스 추이. "일정 유지" 원칙이 깨지는 변곡점이 보입니다.</figcaption>
+  </figure>
+
+  <h3>NAND의 밀도 우위는 셀이 작아서가 아닙니다</h3>
+  <figure>
+    <img src="assets/00-02-density-per-area-log.svg" alt="SRAM과 DRAM, NAND의 면적당 비트 밀도를 로그 축으로 비교하고 NAND의 층당 환산치를 병기한 도해" loading="lazy">
+    <figcaption>그림 1-2. 면적당 밀도 배율은 약 1 : 11 : 760입니다. 다만 NAND의 층당 환산치 0.087 Gb/mm²는 DRAM의 0.435보다 오히려 낮습니다. 앞서는 이유는 NAND만 3차원으로 확장했기 때문입니다.</figcaption>
+  </figure>
+
+  <h3>수율은 곱셈으로 무너집니다</h3>
+  <figure>
+    <img src="assets/08-03-compound-stack-yield.svg" alt="개별 다이 수율과 적층 단수에 따른 스택 수율을 로그 축으로 나타낸 도해" loading="lazy">
+    <figcaption>그림 8-3. 개별 다이 수율이 1%p 떨어지면 16단 스택 수율은 10%p 이상 떨어집니다. HBM이 비싼 구조적 이유가 여기 있습니다. 순수 산술 계산값이며 실제 제품 수율이 아닙니다.</figcaption>
+  </figure>
+</section>
+
+<hr>
+
+<section>
+  <h2>문서 구성</h2>
+  <p class="sub">계층 문서 여섯 편, 횡단 챕터 세 편, 부록 셋, 그리고 출처 인덱스</p>
+
+  <p>
+    00을 건너뛰지 마십시오. 나머지 문서가 전부 여기서 정의한 다섯 축을 좌표로 씁니다.
+    계층 문서는 동일한 10항목 템플릿을 따르므로, 특정 관심사만 비교하려면 각 문서의 같은 번호 절을 가로로 읽으면 됩니다.
+  </p>
+
+  <div class="docs">
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/00-memory-hierarchy.md"><span class="no">00</span><span class="t">메모리 계층<span class="d">축의 정의. 나머지 전부의 전제입니다</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/01-sram.md"><span class="no">01</span><span class="t">SRAM<span class="d">6T 셀 / 스케일링 정체 / SRAM 중심 가속기</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/02-dram.md"><span class="no">02</span><span class="t">DRAM<span class="d">1T1C / refresh와 restore / 커패시턴스 축소 / 코어 타이밍 / 4F²와 3D 로드맵</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/03-hbm.md"><span class="no">03</span><span class="t">HBM<span class="d">TSV와 인터포저 / 2048-bit / base die 로직화 / SPHBM4 / Rubin</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/04-hbf.md"><span class="no">04</span><span class="t">HBF<span class="d">CBA / 3대 약점 / OCP 표준화 / H³ / 반론 축</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/05-nand.md"><span class="no">05</span><span class="t">NAND<span class="d">FG에서 CTF로 / 3D 적층 경쟁 / 층수 대 밀도 / AI 서버 역할</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/06-process.md"><span class="no">06</span><span class="t">공정<span class="d">횡단 챕터 1. EUV / HAR 식각 / DRAM 셀 형성 / 본딩</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/07-reliability.md"><span class="no">07</span><span class="t">신뢰성<span class="d">횡단 챕터 2. refresh / Row Hammer / ECC / 계층별 실패 양식</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/08-test-yield.md"><span class="no">08</span><span class="t">테스트와 수율<span class="d">횡단 챕터 3. EDS / 리던던시와 리페어 / 적층 수율 / KGD</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/appendix-a-cxl.md"><span class="no">부록 A</span><span class="t">CXL<span class="d">.io와 .cache와 .mem / Type 1·2·3 / 1.1에서 3.x까지</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/appendix-b-workloads.md"><span class="no">부록 B</span><span class="t">워크로드<span class="d">LLM 추론이 각 계층에 요구하는 것</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/appendix-c-industry.md"><span class="no">부록 C</span><span class="t">산업과 시장<span class="d">시황을 격리한 구역. 절마다 검증 시점을 따로 표기합니다</span></span></a>
+    <a class="doc" href="https://github.com/JTech-CO/RAM/blob/main/SOURCES.md"><span class="no">출처</span><span class="t">SOURCES<span class="d">전체 출처 인덱스와 등급, 확인일, 미확정 추적 목록</span></span></a>
+  </div>
+
+  <p class="small">
+    06과 07, 08은 앞의 다섯 문서가 남긴 것이 모이는 세 횡단 챕터입니다.
+    세 챕터가 묻는 것은 각각 "왜 만들기 어려운가", "무엇이 어떻게 틀리는가", "만든 것 중 무엇을 파는가"입니다.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>근거를 다루는 방식</h2>
+  <p class="sub">이 모음집이 가장 공을 들인 부분</p>
+
+  <p>
+    반도체 수치는 6개월이면 낡습니다. 그래서 모든 수치에 출처 등급과 확인일을 붙이고,
+    확정된 사실과 그렇지 않은 것을 문장 단위로 구분합니다.
+  </p>
+
+  <h3>출처 등급</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>등급</th><th>정의</th><th>집필 시 취급</th></tr></thead>
+      <tbody>
+        <tr><td><code>T0</code></td><td>표준화 기구 원문 (JEDEC, OCP, CXL Consortium)</td><td>무조건 우선. 단 유료 문서 제약이 있음</td></tr>
+        <tr><td><code>T1</code></td><td>제조사와 장비사 공식 발표</td><td>마케팅 표현을 걷어내고 수치만 사용</td></tr>
+        <tr><td><code>T2</code></td><td>동료평가 논문과 학회 발표</td><td>DOI 또는 arXiv ID 명시</td></tr>
+        <tr><td><code>T2.5</code></td><td>TechInsights 다이 분석</td><td>수치 근거로는 T1급 신뢰. 상당수가 유료</td></tr>
+        <tr><td><code>T3</code></td><td>분석기관과 기술 매체</td><td>교차 확인 후 사용</td></tr>
+        <tr><td><code>T4</code></td><td>개인과 기업 블로그, 위키</td><td>구조 이해용 참고만. <b>수치 인용 금지</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">
+    등급만으로 부족할 때는 한정 표기를 함께 답니다.
+    <code>T0 (초안)</code>, <code>T1 (특허)</code>, <code>단일 출처</code>, <code>2차 인용</code>,
+    <code>스니펫</code>, <code>원문 미확인</code>입니다.
+  </p>
+
+  <h3>상태 배지</h3>
+  <p>수치 옆에 배지가 있으면 그 값은 아직 확정이 아닙니다. 배지는 아래 다섯 종만 씁니다.</p>
+  <div class="badges">
+    <span class="badge">[미확정]</span>
+    <span class="badge">[미비준]</span>
+    <span class="badge">[초안 목표]</span>
+    <span class="badge">[벤더 목표치]</span>
+    <span class="badge">[미공개]</span>
+  </div>
+
+  <h3>확인되지 않은 것을 감추지 않습니다</h3>
+  <p>
+    확보하지 못한 근거는 공백으로 명시합니다.
+    DRAM 커패시터의 세대별 종횡비는 공개 자료가 없고, 셀 커패시턴스와 리텐션 마진을 잇는 정량 관계도 확보하지 못했습니다.
+    수율 쪽은 공백이 더 넓어서, DRAM 예비 행과 열의 비율, HBM 실제 스택 수율, 번인 조건은 제조사 공식 수치가 아예 없습니다.
+  </p>
+  <blockquote>
+    <p>그럴듯한 값으로 채우는 대신 목록으로 남겼습니다.
+    어느 수치가 단일 출처인지, 원문을 못 봤는지, 위원회 초안인지도 각주에 표시되어 있습니다.</p>
+  </blockquote>
+  <p class="small">
+    <a href="https://github.com/JTech-CO/RAM/blob/main/SOURCES.md">SOURCES.md</a>의 9절에
+    미확정과 추적 항목 전체가 정리되어 있고, 각 행에 마지막 재확인 날짜가 붙어 있습니다.
+    널리 인용되지만 원문과 어긋나는 사례를 모은 <b>오인용 함정</b> 표도 같은 문서에 있습니다.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>도해 33건을 코드로 작성했습니다</h2>
+  <p class="sub">확산 모델을 쓰지 않은 이유</p>
+
+  <p>
+    이 모음집에는 그림의 수치가 본문과 글자 단위로 일치해야 한다는 규약이 있습니다.
+    확산 모델은 <code>13.75 ns</code>나 <code>0.087 Gb/mm²/층</code> 같은 라벨을 정확히 렌더링하지 못하고,
+    로그 스케일 위치를 계산으로 맞춰 주지도 못합니다. 그래서 33건 전부를 플랫 벡터 SVG로 직접 작성했습니다.
+  </p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>규약</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>테마 대응</td><td>배경이 투명하고 다크와 라이트 모드에 자동 대응합니다</td></tr>
+        <tr><td>계층색 고정</td><td>같은 계층은 어느 그림에서나 같은 색입니다. 비교가 성립하려면 필요한 조건입니다</td></tr>
+        <tr><td>색각 대응</td><td>적록과 청황 색각 이상에서 구분되는 팔레트를 쓰고, 색만으로 정보를 전달하지 않습니다</td></tr>
+        <tr><td>불확실성 표기</td><td>미확정과 미공개, 벤더 목표치는 그림에서도 점선 테두리와 배지로 구분합니다</td></tr>
+        <tr><td>없는 데이터</td><td>확인되지 않은 값은 그리지 않습니다. Row Hammer 추이 그림에 DDR5가 없는 이유입니다</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="gallery">
+    <figure>
+      <img src="assets/01-01-6t-sram-cell.svg" alt="6T SRAM 셀 회로도" loading="lazy">
+      <figcaption>6T SRAM 셀</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/02-02-dram-cell-cross-section.svg" alt="1T1C DRAM 셀의 수직 단면" loading="lazy">
+      <figcaption>1T1C 셀 단면</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/06-04-capacitor-mold-removal.svg" alt="커패시터 몰드의 형성과 제거 과정" loading="lazy">
+      <figcaption>커패시터 몰드 제거</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/05-02-3d-nand-vertical-stack.svg" alt="3D NAND의 수직 적층 단면과 채널 홀 종횡비" loading="lazy">
+      <figcaption>3D NAND 채널 홀</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/07-01-dram-retention-left-truncation.svg" alt="DRAM 셀 리텐션 시간 분포와 64 ms 절단선" loading="lazy">
+      <figcaption>리텐션 좌측 절단</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/08-01-eds-flow.svg" alt="EDS의 기능 흐름과 리페어 후 재검증" loading="lazy">
+      <figcaption>EDS 흐름</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/06-07-die-stack-bonding-three.svg" alt="TC-NCF와 MR-MUF, 하이브리드 본딩 세 방식의 단면 비교" loading="lazy">
+      <figcaption>본딩 3종 비교</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/08-04-wafer-map-repair.svg" alt="리페어 전후의 웨이퍼 맵 대비" loading="lazy">
+      <figcaption>리페어 전후 웨이퍼 맵</figcaption>
+    </figure>
+  </div>
+
+  <p class="small">
+    제작 규약은 <a href="https://github.com/JTech-CO/RAM/blob/main/assets/IMAGE-GUIDELINE.md">IMAGE-GUIDELINE.md</a>,
+    건별 제작 사양은 <a href="https://github.com/JTech-CO/RAM/blob/main/assets/IMAGE-MANIFEST.md">IMAGE-MANIFEST.md</a>에 있습니다.
+    제조사 이미지나 논문 도판을 전재하거나 트레이스하지 않았습니다.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>갱신 기록</h2>
+  <p class="sub">반도체 수치는 6개월이면 낡습니다. 이 모음집은 그 전제 위에서 설계되었습니다</p>
+
+  <ul class="log">
+    <li>
+      <span class="date">2026-08-25</span>
+      <b>Hot Chips 2026 반영.</b> 삼성이 base die를 3단계로 확장하는 로드맵과 zHBM을,
+      SK하이닉스가 CoWoS와 Intel EMIB를 비교한 패키징 로드맵을 냈습니다.
+      같은 병목을 놓고 한쪽은 인터포저를 없애려 하고 다른 쪽은 고르려 합니다.
+      HBF 튜토리얼에서 나온 제3자 반론도 반론 축에 추가했습니다.
+      근거가 전부 학회 현장 보도여서 <code>2차 인용</code>으로 표기했습니다.
+    </li>
+    <li>
+      <span class="date">2026-08-22</span>
+      추적 항목 열 건 재확인. 상태가 바뀐 항목이 없었습니다.
+      부록 C에 2027년 DRAM과 NAND의 전망 분기, 설비투자 승인에서 첫 클린룸까지 약 3년이 걸린 사례를 추가했습니다.
+    </li>
+    <li>
+      <span class="date">2026-08-12</span>
+      <b>표준 두 건 확정 반영.</b> JEDEC SPHBM4(JESD330-4)가 공표되어 03번 문서에 절을 신설했고,
+      HBF의 첫 OCP 기술 사양이 나와 04번 문서 6절을 재작성했습니다.
+      FMS 2026에서 3사가 V10 세대를 공개해 NAND 적층 표를 갱신하고,
+      BiCS10 밀도를 셀 타입별로 분리했습니다.
+    </li>
+    <li>
+      <span class="date">2026-07-30</span>
+      초판 공개. 문서 13편과 도해 33건.
+    </li>
+  </ul>
+
+  <p class="small">
+    각 문서 상단에 <code>최종 검증</code> 날짜가 있습니다. 인용 전에 날짜부터 확인하십시오.
+    시황과 가격, 시장 규모는 본문에서 배제하고 부록 C로 격리했으므로, 부록이 낡아도 본문 00부터 08까지는 유효합니다.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>범위 밖</h2>
+  <p class="sub">의도적으로 다루지 않은 주제</p>
+  <p class="small">
+    PIM과 NMP는 계층 축과 직교하는 별개 주제여서 제외했습니다.
+    MRAM과 ReRAM, PCM 같은 신소자는 현행 다섯 계층 상용 제품으로 범위를 한정하느라 뺐습니다.
+    컨트롤러 펌웨어와 FTL 내부 알고리즘은 소자와 패키징에 초점을 맞추면서 제외했고,
+    개별 제품 벤치마크는 제품 리뷰가 아니라 구조 설명이 목적이므로 다루지 않습니다.
+  </p>
+</section>
+
+<hr>
+
+<footer>
+  <div class="fl">
+    <a href="https://github.com/JTech-CO/RAM">GitHub 저장소</a>
+    <a href="https://github.com/JTech-CO/RAM/blob/main/README.md">README</a>
+    <a href="https://github.com/JTech-CO/RAM/blob/main/SOURCES.md">출처 인덱스</a>
+    <a href="https://github.com/JTech-CO/RAM/blob/main/LICENSE">MIT 라이선스</a>
+  </div>
+  <p>
+    기술 참고 자료이며 어떠한 보증도 하지 않습니다.
+    실무 적용 전에 각 문서의 최종 검증 날짜를 확인하고 1차 출처를 직접 대조하십시오.
+  </p>
+  <p>인용된 원문과 수치의 권리는 각 원저작자에게 있으며, 상표는 각 권리자의 것입니다.</p>
+</footer>
+
+</div>
+</body>
+</html>
