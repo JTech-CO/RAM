@@ -1,0 +1,27 @@
+# 출처가 확인되지 않은 참고 사진은 공개 저장소에 포함하지 않음.
+# 도해 #33(assets/08-04-wafer-map-repair.svg)과 썸네일(assets/thumbnail.svg)은
+# 이 사진에서 구조만 참고했을 뿐 재현하거나 트레이스하지 않고 코드로 작성했음.
+_internal/웨이퍼-참고.jpg
+
+# 이미지 원본 일반 (도해는 SVG로만 관리)
+*.psd
+*.ai
+*.sketch
+
+# OS 부산물
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# 편집기
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 임시
+*.tmp
+*.bak
