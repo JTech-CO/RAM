@@ -1,0 +1,12 @@
+# 줄바꿈을 LF로 통일
+* text=auto eol=lf
+
+*.md   text eol=lf
+*.svg  text eol=lf
+
+*.jpg  binary
+*.png  binary
+*.pdf  binary
+
+# GitHub 언어 통계에서 SVG 제외
+*.svg linguist-documentation
