@@ -199,7 +199,7 @@ footer .fl{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margi
     <a class="btn primary" href="https://github.com/JTech-CO/RAM">저장소로 가기</a>
     <a class="btn" href="https://github.com/JTech-CO/RAM/blob/main/00-memory-hierarchy.md">00번 문서부터 읽기</a>
   </div>
-  <p class="meta"><span class="nb">문서 14편</span> · <span class="nb">도해 33건</span> · <span class="nb">MIT 라이선스</span> · <span class="nb">최종 검증 2026-08-25</span></p>
+  <p class="meta"><span class="nb">문서 14편</span> · <span class="nb">도해 33건</span> · <span class="nb">MIT 라이선스</span> · <span class="nb">최종 검증 2026-09-01</span></p>
 </header>
 
 <hr>
@@ -486,6 +486,18 @@ footer .fl{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margi
   <p class="sub">반도체 수치는 6개월이면 낡습니다. 이 모음집은 그 전제 위에서 설계되었습니다</p>
 
   <ul class="log">
+    <li>
+      <span class="date">2026-09-01</span>
+      <b>학회가 끝난 뒤 원문을 다시 찾았습니다.</b> 직전 회차는 Hot Chips가 진행 중일 때 작성되어
+      근거가 첫날 보도뿐이었습니다. OCP HBF 사양 원문 130쪽과 발표 슬라이드 세 벌을 확보해 대조한 결과,
+      <b>이전 판의 서술 다섯 건이 틀렸음을 확인하고 정정했습니다.</b>
+      추적 항목 아홉 건이 해소되었고, 그중 하나는 상충이 아니라
+      <b>발표자가 애초에 세대를 지목하지 않았던 것</b>, 다른 하나는
+      <b>다른 제품의 수치가 섞여 들어온 것</b>이었습니다.
+      HBF의 비휘발성에는 조건이 붙었습니다. 사양이 24시간 리텐션과 주기적 리프레시를 규정합니다.
+      메모리 월 수치는 학회 보도 대신 <b>원 논문</b>으로 교체했고, 20년간 가장 느리게 자란 것이
+      인터커넥트 대역폭(30배)이라는 사실이 다섯 축 중 A5를 세운 근거가 되었습니다.
+    </li>
     <li>
       <span class="date">2026-08-25</span>
       <b>Hot Chips 2026 반영.</b> 삼성이 base die를 3단계로 확장하는 로드맵과 zHBM을,
