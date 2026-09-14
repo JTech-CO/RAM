@@ -1,6 +1,6 @@
 # 04. HBF - 축마다 소속이 갈리는 계층
 
-> **최종 검증: 2026-09-01**
+> **최종 검증: 2026-09-15**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
 > 반도체 수치는 6개월이면 낡습니다. 인용 전 검증일을 확인하십시오.
 
@@ -245,7 +245,7 @@ HBF의 표준화는 JEDEC이 아니라 **OCP(Open Compute Project)의 전용 워
 
 > "The reliability characteristics of HBF are like those of non-volatile memory (NVM) technologies such as SSD and UFS. Unlike HBM, HBF is subject to endurance limitations. ... **Power On data retention is guaranteed for 24 hours at 85°C** ... **In Power Off, HBF may not retain data after the specific duration, equivalent to HBM. For permanent data storage, persistent storage devices such as SSDs are recommended.**"
 >
-> OCP HBF Architecture Specification v0.7.0, 9절
+> OCP HBF High-Level Base Die Specification v0.7.0, 9절
 
 | 항목 | 규정값 |
 |---|---|
@@ -279,6 +279,16 @@ HBF의 표준화는 JEDEC이 아니라 **OCP(Open Compute Project)의 전용 워
 샘플 출하와 수요 본격화 사이에 약 3–4년의 간격이 놓여 있다는 점이 이 표의 핵심입니다. HBF는 2026년 시점에 구매 가능한 부품이 아니라, 표준화와 시스템 소프트웨어 정비가 병행되어야 성립하는 계층입니다.
 
 **2026-08 갱신.** Hot Chips 2026의 HBF 튜토리얼이 이 점을 학회 자리에서 그대로 확인했습니다. **아직 HBF 제품이 존재하지 않으므로** 발표는 시뮬레이션과 전망, 그리고 소프트웨어가 어떻게 적응해야 하는지에 집중했습니다[^04-hotchips]. 첫 사양이 나온 뒤에도 논의의 무게가 소자가 아니라 소프트웨어 쪽에 있다는 사실이, 6-3절에서 사양이 소프트웨어 가이드까지 규정한 이유를 다시 설명합니다.
+
+### 6-4-1. 제조사 포트폴리오에 이름이 올라왔습니다 (2026-09-15 신규)
+
+**표준 문서가 아니라 사업 전략 문서에 HBF가 등장한 첫 사례입니다.** SK하이닉스가 2026-09-08 자사 행사에서 **'Full-Stack AI Memory'** 전략을 발표하면서, 워크로드별로 조합할 메모리 종류를 **"3D 적층 DRAM, HBM, 그리고 HBF"** 로 나열했습니다[^04-skh-ff]. 발표자는 솔루션AT담당 임의철 부사장입니다.
+
+**왜 이것이 별도로 기록할 만한가.** 지금까지 HBF가 등장한 자리는 세 종류였습니다. 표준화 문서(OCP 사양), 학회 발표(Hot Chips 튜토리얼), 그리고 공동 개발 발표(샌디스크·SK하이닉스)입니다. 셋 다 **"이런 것을 만들고 있다"** 의 자리입니다. 이번 것은 제조사가 **자사 제품 구성을 설명하는 자리에서 HBM과 나란히** 놓았다는 점이 다릅니다.
+
+> **그러나 이것으로 바뀌는 수치는 하나도 없습니다.** 이 발표에는 용량도, 대역폭도, 시점도, 제품명도 없습니다. 6-4절의 일정표는 그대로입니다. 이 항목이 말하는 것은 **HBF의 상태가 "연구 중"에서 "포트폴리오에 이름이 있음"으로 옮겨갔다**는 것뿐이며, 그것을 **출하 계획으로 읽으면 안 됩니다.**
+
+같은 행사에서 3D 기술의 방향으로 제시된 **"DRAM 주변 회로의 로직 파운드리화"** 는 9-3절이 다루는 "용도가 좁아질수록 base die가 커스텀이 된다"와 방향이 겹칩니다. 다만 이 역시 방향 진술이며 HBF base die를 특정해 말한 것이 아닙니다.
 
 ### 6-5. 남은 공백 (2026-08 기준)
 
@@ -512,6 +522,8 @@ sparse attention 계열의 상세, MoE offloading 논쟁의 전개, 서빙 프�
     **발표자 표기가 자료마다 다릅니다.** 학회 공식 프로그램은 두 사람 모두 "Anurag Agrawal & Radhakrishna Giduthuri, **Oxmiq Labs**"로 적지만, **발표 표지 슬라이드 자체는** Anurag Agrawal을 OXMIQ Labs(System Architecture), Radhakrishna Giduthuri를 **PRAXMATI**(Software Architecture)로 나누어 적습니다. 이 문서는 슬라이드 원문을 따릅니다. 이름 철자도 공식 프로그램·슬라이드는 **Agrawal**이나 복수 매체가 Agarwal로 적으므로 인용 시 주의가 필요합니다. **이전 판이 이 튜토리얼을 SanDisk 발표로 읽힐 수 있게 적은 것은 부정확합니다.** HBF를 제안한 것은 SanDisk이나 이 발표의 주체는 아닙니다.
     슬라이드로 확인된 내용은 (1) 2026-08 기준 HBF 제품이 존재하지 않아 발표가 시뮬레이션·전망·소프트웨어 적응 중심이라는 것, (2) 사양 규정 접근 단위(읽기 64 B – 4 KiB / 쓰기 4 KiB)와 **최대 대역폭용 권고 청크(읽기 64 KB / 쓰기 1 MB, 64 KB 정렬)가 서로 다른 슬라이드에 나뉘어 제시**된다는 것, (3) 소프트웨어가 DMA로 HBF와 DRAM 사이를 옮겨야 하고 GPU 캐시 계층을 겨냥해 설계되지 않았다는 것, (4) 용량당 비용은 유리하나 대역폭당 비용은 HBM보다 불리하다는 것, (5) 72-GPU 랙 시뮬레이션에서 HBF 전용 구성이 용량 14배(20.7 → 294.9 TB)를 얻는 대신 총 대역폭은 0.6배(1,584 → 922 TB/s)로 줄어든다는 것입니다.
     **권고 청크 64 KB / 1 MB에 붙은 출처 표기에 문제가 있습니다.** 슬라이드는 이 값의 출처를 "OCP HBF Architecture Specification v0.7.0"으로 적었으나, 사양 원문 130쪽의 **텍스트 레이어에 "64KB" 문자열이 0회** 등장합니다. 사양에 래스터 그림이 55개 있어 그림 내부 문자는 확인 범위 밖이므로 "사양에 없다"고 단정하지 않되, **본문 조항에 없는 값이 사양 출처로 표기되었다**는 사실을 기록합니다. 확인 2026-09-01.
+
+[^04-skh-ff]: SK하이닉스 뉴스룸 "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum"(T1), 행사일 2026-09-08, 게재 2026-09-09, `news.skhynix.com/en/future-forum-2026/`. 본문 전문 확인 2026-09-11. 원문: "The core idea is to combine a range of memory - including **3D stacked DRAM, HBM, and HBF** - to suit the characteristics of each workload…". **이 글 전체에 정량 수치가 없습니다.** 같은 사실을 [02-dram.md](02-dram.md) 9-4절이 다른 맥락(방열·공정 복잡도)에서 인용합니다.
 
 [^04-ocp-spec-t0]: **High Bandwidth Flash (HBF™) High-Level Base Die Specification**, **VERSION 0.7.0**, DATE **August 3, 2026**, 130쪽, PDF 약 4.67 MB. 저자 Chinnakrishnan Ballapuram(Sandisk) · Dongsop Lee(SK hynix). 등급 **T0**(표준화 기구 원문).
     **제목 표기에 주의하십시오.** 다운로드 URL의 슬러그는 "architecture specification"이지만 **문서 표지의 정식 제목은 "High-Level Base Die Specification"** 입니다. 이 문서의 직전 판은 URL 쪽 표기를 따랐으며 여기서 정정합니다.

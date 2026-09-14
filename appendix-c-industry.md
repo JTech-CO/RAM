@@ -1,6 +1,6 @@
 # 부록 C. 산업·시장 컨텍스트
 
-> **최종 검증: 2026-09-01**
+> **최종 검증: 2026-09-15**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
 > 반도체 수치는 6개월이면 낡습니다. 인용 전 검증일을 확인하십시오.
 
@@ -65,6 +65,23 @@ HBM 시장 규모는 2025년 약 380억 달러에서 2026년 546억 달러 또�
 실무적 결론은 단순합니다. **단일 숫자를 인용하지 말고 범위와 기관명을 함께 쓰십시오.** "2026년 HBM 시장은 546억 달러"라고 쓴 문장은 출처를 지운 순간 검증할 수 없게 되며, 다른 기관의 580억 달러와 마주쳤을 때 어느 쪽이 틀렸는지 판정할 근거가 남지 않습니다.
 
 HBM4의 기술 사양, 세대별 대역폭, base die 로직화, NVIDIA Rubin 실측 사양은 이 부록이 아니라 [03-hbm.md](03-hbm.md)에 있습니다. 이 절은 03이 다루지 않는 금액만 담습니다.
+
+### 2-1. 고객 쪽에서 나온 금액 - 삼성·브로드컴 MOU (2026-09-15 신규)
+
+**이 모음집이 놓치고 있던 발표입니다.** 발표일은 2026-07-25로 이번 조사 구간보다 앞서지만, 2026-09-15 회차에서 제조사 뉴스룸의 관련 기사 링크를 따라가다 확인했습니다. 삼성전자와 브로드컴이 메모리·파운드리 전반의 협력 확대를 담은 **양해각서(MOU)** 를 체결했습니다[^c-samsung-broadcom].
+
+| 항목 | 원문 내용 |
+|---|---|
+| 문서 성격 | **양해각서(MOU)** - 공급 계약이 아닙니다 |
+| 메모리 쪽 | 브로드컴 차세대 AI 가속기용 **HBM을 포함한** 메모리 공급 협력 추진 |
+| 파운드리 쪽 | 삼성 **2 nm 이하** 공정, 2.3D·2.5D 패키징 |
+| 금액 | "**2030년까지 향후 5년간** 메모리와 파운드리를 합쳐 **2,000억 달러 이상으로 추정**" |
+
+**이 금액을 바로 위 시장 규모 표와 나란히 놓으면 안 됩니다.** 이유가 셋입니다.
+
+첫째, **메모리와 파운드리의 합산**이며 원문은 둘의 비중을 나누지 않습니다. HBM 몫이 얼마인지 알 수 없습니다. 둘째, **5년 누적**입니다. 위 표의 시장 규모는 연간 값이므로 단위가 다릅니다. 셋째, 원문 동사가 "**추정된다(estimated)**"이고 문서 자체가 **MOU**입니다. 확정 계약 금액이 아니라 양사가 기대하는 협력 규모입니다.
+
+> 원문은 **HBM 세대도 명시하지 않습니다.** "HBM을 포함한 업계 선도 메모리 솔루션"까지만 적으므로, 이를 "HBM4 공급 계약" 또는 "HBM4E 공급 계약"으로 옮긴 서술은 근거가 없습니다.
 
 ---
 
@@ -356,6 +373,8 @@ SK하이닉스가 1a에서 1c로 가며 DRAM의 EUV 레이어 수를 늘려 온 
 - **일본 반도체 시장·정부 지원·소재 점유율·Rapidus** - U.S. Department of Commerce, International Trade Administration, *Japan Country Commercial Guide: Semiconductors*, `trade.gov/country-commercial-guides/japan-semiconductors` (2025-11-20 갱신). 소재 점유율은 원문이 2024-06 Brookings 자료를 인용 (T0)
 
 전체 출처 인덱스와 등급 정의는 [SOURCES.md](SOURCES.md)를 참조하십시오.
+
+[^c-samsung-broadcom]: 삼성전자 글로벌 뉴스룸 "Samsung Electronics and Broadcom Expand Strategic Collaboration Across Memory and Foundry Technologies"(T1), 게재 **2026-07-25**(페이지 메타데이터 datePublished 2026-07-25T14:32+09:00), 본문 확인 2026-09-15. 원문: "The companies expect the collaboration to be **estimated at more than $200 billion across memory and foundry** over the next five years through 2030." 및 "Samsung and Broadcom plan to pursue a strategic collaboration for the supply of industry-leading memory solutions, **including High Bandwidth Memory (HBM)**, supporting Broadcom's next-generation AI accelerators." 샌프란시스코 AI Summit 행사장에서 한국 정부 관계자가 참석한 가운데 발표되었습니다. **메모리·파운드리 비중과 HBM 세대는 원문에 없습니다.**
 
 [^c-hbm-market]: 2026년 HBM 시장 규모 전망 546억 달러(FinancialContent) / 580억 달러(Introl), 2025년 약 380억 달러. 소스 팩 3-3절 및 7절 상충 항목 #6에서 "기관명 병기"로 처리 확정된 항목(T3). 확인 2026-07-28. 두 기관은 소스 팩 2절 등급표에 개별 등재되어 있지 않아 전문 분석기관 기준인 T3로 표기했습니다. 상세는 [SOURCES.md](SOURCES.md) 참조.
 
