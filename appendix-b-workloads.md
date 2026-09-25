@@ -1,6 +1,6 @@
 # 부록 B. LLM 추론이 각 계층에 요구하는 것
 
-> **최종 검증: 2026-09-15**
+> **최종 검증: 2026-09-26**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
 > 반도체 수치는 6개월이면 낡습니다. 인용 전 검증일을 확인하십시오.
 
@@ -175,6 +175,17 @@ PCIe P2P DMA로 NVMe 컨트롤러와 GPU가 직접 전송하며, 호스트 DRAM 
 **구조적 한계**
 GDS는 경유를 없앨 뿐 링크 자체를 바꾸지 못합니다. Flash에서 GPU로 가는 경로가 PCIe를 거쳐야 하고, PCIe 대역폭은 HBM 대비 낮습니다. SSD 대역폭이 약 7 GB/s, PCIe Gen5 x16이 단방향 약 64 GB/s인 반면 HBM4 스택은 2 TB/s 이상입니다[^apxb-pcie]. 경로 최적화로 좁힐 수 있는 격차가 아니며, 이것이 HBF가 인터포저 인접 배치를 택하는 이유입니다. 동시에 HBF의 인터페이스 선택지 중 PCIe 기반 안이 TB/s 목표에 물리적으로 도달하지 못하는 이유이기도 합니다[^apxb-hbf-spec].
 
+**제조사가 이 배치를 솔루션으로 내놓기 시작했습니다 (2026-09-26 신규)**
+위 경로들은 서빙 프레임워크나 드라이버 층위의 기법입니다. 2026-09-15 – 17 AI Infra Summit 2026에서 SK하이닉스가 **SALT-KV**(Semantic-Aware Lifecycle Tiering for KV Cache)를 전시하며 같은 일을 **메모리 제조사의 솔루션**으로 제시했습니다[^apxb-saltkv]. 공식 기사가 밝힌 동작은 이렇습니다.
+
+- LLM의 KV 캐시를 **문맥 기반 구간(context-based segments)** 으로 나눕니다.
+- 각 구간의 **재사용 가치와 저장 비용**을 함께 평가합니다.
+- 그 평가에 따라 **HBM, DRAM, SSD 중 가장 적합한 계층**에 배치합니다.
+
+**읽어야 할 지점은 판정 기준입니다.** §3이 정리한 세 조건은 "이 워크로드가 아래쪽 계층에 맞는가"를 묻습니다. SALT-KV는 그 질문을 **KV 캐시 구간 단위로 쪼개서** 묻습니다. 세션 전체를 내리는 vLLM식 swap-out과 달리, 같은 세션 안에서도 재사용 가치가 낮은 구간만 아래로 보내는 구조입니다. 이 부록의 명제("워크로드가 계층 선택을 결정한다")가 워크로드 단위에서 **구간 단위로 내려온** 형태로 볼 수 있습니다.
+
+> **정량 근거가 없습니다.** 공개된 기사에 처리량·지연·적중률·용량 절감 수치가 **한 건도 없고**, 논문이나 기술 문서도 확인하지 못했습니다. 전시에서 eSSD 탑재 서버와 시연이 있었다는 사실까지만 확인됩니다. 따라서 이 항목은 **접근 방식의 등장**으로만 기록하며, 성능 주장으로 쓰면 안 됩니다. 같은 행사에서 HBF는 **구조 모형**으로만 전시되었습니다([04-hbf.md](04-hbf.md) 6-4-1절).
+
 ---
 
 ## 9. CXL과의 접점
@@ -246,6 +257,8 @@ CXL의 프로토콜 구성, Type 1/2/3 분류, 버전별 진화, 지연 비용�
 [^apxb-moe]: K. Kyung, S. Yun, J. H. Ahn (서울대학교), "SSD Offloading for LLM Mixture-of-Experts Weights Considered Harmful in Energy Efficiency," IEEE Computer Architecture Letters, 2025. arXiv:2508.06978 (T2). 대상은 SSD offloading이며, HBF 논의의 반대 축으로 참조한 문헌입니다. 확인 2026-07-28.
 
 [^apxb-haven]: HAVEN, arXiv:2603.01175 (T2). 확인 2026-07-28.
+
+[^apxb-saltkv]: SK하이닉스 뉴스룸 "SK hynix Presents 'New Spectrum' for AI Infrastructure at 'AI Infra Summit 2026'"(T1), 행사 2026-09-15 – 17, 게재 2026-09-17, `news.skhynix.com/en/ai-infra-summit-2026/`. 본문 확인 2026-09-26. 원문: "SALT-KV (Semantic-Aware Lifecycle Tiering for KV Cache) divides an LLM's KV cache into context-based segments and comprehensively assesses their reuse value and storage cost. Based on this, it places data in the most suitable storage tier among **HBM, DRAM, and SSD**, raising utilization efficiency within limited memory resources." **정량 수치는 이 기사에 없습니다.** 논문·기술 문서도 확인하지 못했습니다.
 
 [^apxb-gds]: NVIDIA GPUDirect Storage 공식 문서(T1). PCIe P2P DMA로 NVMe 컨트롤러와 GPU가 직접 전송하며 호스트 DRAM 경유를 제거합니다. 확인 2026-07-28.
 

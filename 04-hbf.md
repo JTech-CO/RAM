@@ -1,6 +1,6 @@
 # 04. HBF - 축마다 소속이 갈리는 계층
 
-> **최종 검증: 2026-09-15**
+> **최종 검증: 2026-09-26**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
 > 반도체 수치는 6개월이면 낡습니다. 인용 전 검증일을 확인하십시오.
 
@@ -290,6 +290,26 @@ HBF의 표준화는 JEDEC이 아니라 **OCP(Open Compute Project)의 전용 워
 
 같은 행사에서 3D 기술의 방향으로 제시된 **"DRAM 주변 회로의 로직 파운드리화"** 는 9-3절이 다루는 "용도가 좁아질수록 base die가 커스텀이 된다"와 방향이 겹칩니다. 다만 이 역시 방향 진술이며 HBF base die를 특정해 말한 것이 아닙니다.
 
+**2026-09-26 보강 - 전시장에서의 상태가 확인되었습니다.** SK하이닉스가 2026-09-15 – 17 AI Infra Summit 2026(산타클라라)에 참가해 HBF를 전시했습니다[^04-skh-ais]. 이 항목이 중요한 이유는 **전시 형태** 때문입니다.
+
+| 항목 | 전시 내용 |
+|---|---|
+| HBF | **구조 모형(structural model)과 소개 영상** |
+| PIM | AiM 칩, **AiMX 카드**, AiMX 카드 탑재 서버, LLM 시연 |
+| SALT-KV | eSSD 탑재 서버와 실제 데이터 시연 |
+
+**PIM과 SALT-KV는 동작하는 하드웨어와 시연이 있었고, HBF만 모형이었습니다.** 공식 기사 표현으로 "product mock-up"입니다. 6-4절의 일정표(샘플 2026년 하반기 전망)와 어긋나지 않으며, **2026년 9월 시점에도 HBF는 동작 제품으로 전시되지 않았다**는 사실을 기록해 둡니다. 이 기사에도 **정량 수치가 0건**입니다(행사 참관객 약 6,000명이라는 행사 통계가 유일한 숫자입니다).
+
+**워크로드 대응이 제조사 입으로 갈렸습니다.** 같은 행사 세션에서 솔루션AT담당 임의철 부사장이 발표한 내용입니다.
+
+| 기술 | 겨냥한 워크로드 |
+|---|---|
+| **HBF** | 대역폭과 대용량을 함께 써야 하는 **long-context** 워크로드, 비용 효율이 중요한 구간 |
+| **PIM** | 프리미엄 서비스의 **빠른 디코딩(fast-decoding)** 워크로드 |
+| **SALT-KV** | KV 캐시의 특성과 재사용성을 따져 처리 효율을 올리는 소프트웨어 계층 |
+
+발표 제목은 "Beyond One-Size-Fits-All"이었고, 본문에 "기존 GPU-HBM 구조만으로는 새 요구를 충족하기 어려워지고 있다"는 진술이 함께 실렸습니다. 8-4절이 정리한 "HBF에 맞는 워크로드 세 조건"과 **방향은 같으나**, 이 발표는 조건을 수치로 제시하지 않았습니다. [부록 B](appendix-b-workloads.md)가 SALT-KV를 별도로 다룹니다.
+
 ### 6-5. 남은 공백 (2026-08 기준)
 
 이 문서의 이전 판은 여섯 항목을 **[미공개]**로 두었습니다. 첫 사양 공표로 상태가 셋으로 갈렸습니다.
@@ -522,6 +542,8 @@ sparse attention 계열의 상세, MoE offloading 논쟁의 전개, 서빙 프�
     **발표자 표기가 자료마다 다릅니다.** 학회 공식 프로그램은 두 사람 모두 "Anurag Agrawal & Radhakrishna Giduthuri, **Oxmiq Labs**"로 적지만, **발표 표지 슬라이드 자체는** Anurag Agrawal을 OXMIQ Labs(System Architecture), Radhakrishna Giduthuri를 **PRAXMATI**(Software Architecture)로 나누어 적습니다. 이 문서는 슬라이드 원문을 따릅니다. 이름 철자도 공식 프로그램·슬라이드는 **Agrawal**이나 복수 매체가 Agarwal로 적으므로 인용 시 주의가 필요합니다. **이전 판이 이 튜토리얼을 SanDisk 발표로 읽힐 수 있게 적은 것은 부정확합니다.** HBF를 제안한 것은 SanDisk이나 이 발표의 주체는 아닙니다.
     슬라이드로 확인된 내용은 (1) 2026-08 기준 HBF 제품이 존재하지 않아 발표가 시뮬레이션·전망·소프트웨어 적응 중심이라는 것, (2) 사양 규정 접근 단위(읽기 64 B – 4 KiB / 쓰기 4 KiB)와 **최대 대역폭용 권고 청크(읽기 64 KB / 쓰기 1 MB, 64 KB 정렬)가 서로 다른 슬라이드에 나뉘어 제시**된다는 것, (3) 소프트웨어가 DMA로 HBF와 DRAM 사이를 옮겨야 하고 GPU 캐시 계층을 겨냥해 설계되지 않았다는 것, (4) 용량당 비용은 유리하나 대역폭당 비용은 HBM보다 불리하다는 것, (5) 72-GPU 랙 시뮬레이션에서 HBF 전용 구성이 용량 14배(20.7 → 294.9 TB)를 얻는 대신 총 대역폭은 0.6배(1,584 → 922 TB/s)로 줄어든다는 것입니다.
     **권고 청크 64 KB / 1 MB에 붙은 출처 표기에 문제가 있습니다.** 슬라이드는 이 값의 출처를 "OCP HBF Architecture Specification v0.7.0"으로 적었으나, 사양 원문 130쪽의 **텍스트 레이어에 "64KB" 문자열이 0회** 등장합니다. 사양에 래스터 그림이 55개 있어 그림 내부 문자는 확인 범위 밖이므로 "사양에 없다"고 단정하지 않되, **본문 조항에 없는 값이 사양 출처로 표기되었다**는 사실을 기록합니다. 확인 2026-09-01.
+
+[^04-skh-ais]: SK하이닉스 뉴스룸 "SK hynix Presents 'New Spectrum' for AI Infrastructure at 'AI Infra Summit 2026'"(T1), 행사 **2026-09-15 – 17**(현지 시간, 산타클라라), 게재 2026-09-17, `news.skhynix.com/en/ai-infra-summit-2026/`. 본문은 뉴스룸 WordPress API로 확보해 확인 2026-09-26. 원문: HBF 세션은 "an introduction video and an HBF structural model"로 구성되었고 방문객이 "the product mock-up" 앞에 머물렀다고 적습니다. 임의철 부사장 세션 제목은 "Beyond One-Size-Fits-All: PIM, HBF and More for the New Spectrum of AI Serving"이며, 인용한 진술의 원문은 "the conventional GPU-HBM architecture alone is increasingly unable to meet new requirements"입니다. **정량 수치는 행사 참관객 수(about 6,000)뿐이며 제품 수치는 0건입니다** - 숫자 정규식으로 대조했습니다.
 
 [^04-skh-ff]: SK하이닉스 뉴스룸 "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum"(T1), 행사일 2026-09-08, 게재 2026-09-09, `news.skhynix.com/en/future-forum-2026/`. 본문 전문 확인 2026-09-11. 원문: "The core idea is to combine a range of memory - including **3D stacked DRAM, HBM, and HBF** - to suit the characteristics of each workload…". **이 글 전체에 정량 수치가 없습니다.** 같은 사실을 [02-dram.md](02-dram.md) 9-4절이 다른 맥락(방열·공정 복잡도)에서 인용합니다.
 

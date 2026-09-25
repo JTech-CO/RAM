@@ -1,6 +1,6 @@
 # 02. DRAM - 커패시터 한 개에 걸린 산업
 
-> **최종 검증: 2026-09-15**
+> **최종 검증: 2026-09-26**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
 > 반도체 수치는 6개월이면 낡습니다. 인용 전 검증일을 확인하십시오.
 
@@ -477,6 +477,34 @@ MRDIMM은 6-1에서 정리한 명제의 연장선입니다. 셀 물리를 건드
 
 **확인하지 못한 것.** 규격 본문(전송률 규정값, 핀 수, 최대 용량 구성, 기계적 치수), **양산 제품의 공표 JESD328 준수 여부**, SK하이닉스 양산 물량, 삼성 제품의 용량과 양산 여부입니다.
 
+### 6-3-2. 512 GB RDIMM - 용량 축을 TSV로 미는 쪽 (2026-09-26 신규)
+
+**6-3절과 6-3-1절이 대역폭과 전력을 모듈 형상으로 풀었다면, 이쪽은 용량입니다.** 마이크론이 2026-09-15에 **512 GB DDR5 RDIMM**을 복수 서버 플랫폼에서 실증했다고 발표했습니다[^02-mu512].
+
+| 항목 | 값 | 성격 |
+|---|---|---|
+| 모듈 용량 | **512 GB** DDR5 RDIMM | 실증 |
+| 구현 방식 | DRAM 다이를 **TSV로 수직 적층**해 패키지 내 밀도를 높임 | 실증 |
+| 전송률 | 최대 **9,200 MT/s** | "제공할 것" |
+| 시스템 용량 | 24슬롯 2소켓 서버에서 **최대 12 TB** | 계산값 |
+| 검증 주체 | **AMD와 인텔이 검증 진행 중** | 실증 |
+| 양산 | **2027년 하반기** 목표, "고객 수요에 맞춰" | **[벤더 목표치]** |
+
+**용량 축을 미는 방식이 6-3절과 반대입니다.** 6-3절이 소개한 Tall MRDIMM은 "**3DS 적층 없이** 모듈당 다이 수를 2배로" 늘리는 계획입니다. 이 제품은 반대로 **TSV 수직 적층 자체를 수단으로** 씁니다. 같은 목표를 놓고 적층을 피하는 길과 적층으로 가는 길이 함께 진행되고 있는 셈입니다. 어느 쪽이 우세한지는 이 자료로 판정할 수 없습니다.
+
+**그리고 이 보도자료는 앞 절의 반례입니다.** 6-3-1절은 SOCAMM2 수치들의 기준선이 빠져 있거나 바뀐다는 점을 다뤘습니다. 같은 회사의 이 발표는 다르게 적었습니다.
+
+| 수치 | 원문이 밝힌 기준선 |
+|---|---|
+| 동작 전력 **60% 이상** 절감 | "**512 GB 모듈 1장 16.0 W** 대 **128 GB 모듈 4장 합계 44.2 W**" |
+| Spark SVM 분석에서 **최대 1.4배** 성능 | **256 GB DDR5 구성** 대비 |
+
+전력 쪽은 **절대 와트를 둘 다 제시**하고, 비교 대상의 **총용량이 512 GB로 맞습니다**(128 GB × 4장). 6-3-1절의 마이크론 SOCAMM2 각주가 128 GB 모듈 1장을 128 GB RDIMM 2장과 비교해 총용량이 어긋났던 것과 대비됩니다. 16.0 ÷ 44.2 = 0.362이므로 "60% 이상"도 검산과 맞습니다.
+
+> **그래서 이 모음집의 규칙은 "제조사 수치를 쓰지 말라"가 아닙니다.** 같은 회사가 한 발표에서는 기준선을 비우고 다른 발표에서는 절대값까지 적습니다. 판단 대상은 회사가 아니라 **각 수치에 붙은 기준선**입니다.
+
+**남는 유보.** 적층 단수와 다이 개수, 다이 용량, 패키지 높이, 전력 측정 조건(워크로드·온도)이 공개되지 않았습니다. 1.4배는 **Spark SVM 한 종목**의 값이며 다른 워크로드로 일반화할 근거가 없습니다. 무엇보다 이것은 **실증이지 출하가 아닙니다.** 양산 목표가 2027년 하반기이므로 [벤더 목표치]로만 기록합니다.
+
 ### 6-4. DDR6 - **[미비준]**
 
 **2026년 7월 현재 DDR6는 JEDEC 비준 전 상태입니다.** JC-42.3 소위에서 타이밍·시그널링 파라미터를 조율 중입니다[^02-ddr6-source].
@@ -893,6 +921,8 @@ Hot Chips 2026 메모리 튜토리얼의 여섯 발표 중 하나가 **3D DRAM �
 [^02-mrcd-t0]: JEDEC 공표 문서 목록(jedec.org 「Recently Published Documents」)에서 직접 확인했습니다(T0, 확인 2026-09-11, 목록 재확인 2026-09-15). **JESD82-542** "DDR5MRCD02 Multiplexed Rank Registering Clock Driver", 2026년 9월 공표, 위원회 JC-40 / JC-40.4. 초록 원문: "…for driving address and control nets on MRDIMM applications. The MRCD02 Device ID is DID = 0x0542." **JESD82-543** "DDR5MRCD03…", 2026년 9월 공표, DID = 0x0543. **JESD82-553** "DDR5MDB03 Multiplexed Rank Data Buffer", 2026년 8월 공표. **규격 본문은 로그인 벽 뒤이며 이 모음집이 확보한 것은 공표 목록의 서지 정보와 초록까지입니다.** 전송률·타이밍 등 내부 수치는 인용하지 않습니다.
 
 [^02-socamm2-t0]: JEDEC 공표 문서 페이지 `jedec.org/standards-documents/docs/jesd328` 와 「Recently Published Documents」 목록에서 직접 확인했습니다(T0, 확인 2026-09-11). 표준 번호 JESD328, 공표 2026년 6월, 위원회 JC-45. 명칭·용도·범주 설명은 공개 초록 원문이며, **"SOCAMM"은 범주, SOCAMM2는 JEDEC 표준판**이라는 구분도 초록에 직접 적혀 있습니다. SPD·9.6 Gb/s·"교체 가능"은 **공표 8개월 전인 2025-10-20 JEDEC 보도자료**("JEDEC's SOCAMM2: Low Power Compact LPDDR5X Modules Poised to Power Next-Gen AI Servers", ARLINGTON, Va., 2025-10-20)에서 나온 값이며, 그 글은 **"nearing completion"** 상태를 알리는 예고문으로 "is forecast to support", "As planned" 같은 미래형을 씁니다. 인용문 "JEDEC 회원사가 AI 데이터센터용 차세대 모듈을 규정할 표준을 만들고 있다"는 **Mian Quddus, JEDEC 이사회 및 JC-45 위원장** 발언입니다. 트레이 등록 `CO-043A`(Item #: 11.5-1106, 모듈용)·`CO-044A`(Item #: 11.5-1095A, 커넥터용)는 같은 목록에서 2026년 8월자로 확인했습니다. **규격 본문은 등록·로그인 뒤에 있어 미확인입니다.**
+
+[^02-mu512]: 마이크론 공식 보도자료 "Micron Advances Memory Innovation With the World's First Ultra-Dense Module for Next-Generation Servers"(T1), BOISE, Idaho, **2026-09-15**, `investors.micron.com` 게재본 전문 확인 2026-09-26. 원문: "the successful demonstration of the world's first 512GB DDR5 module on multiple server platforms", "Leading semiconductor enablers, AMD and Intel, are both actively validating the module, which will deliver speeds up to 9,200 MT/s", "vertically stacks DRAM dies interconnected by through-silicon vias (TSVs)", "enables up to 12TB of DDR5 DRAM in a single 24-slot dual-socket server", "reducing operating power by more than 60% compared with four 128GB RDIMMs", "can deliver up to 1.4 times higher performance compared to 256GB DDR5 configurations", "Micron expects 512GB RDIMMs to be in volume production sometime in the **second half of 2027** aligned to customer needs." 전력 각주 원문: "Based on **16.0W for one 512GB module** compared with the **44.2W total for four 128GB modules**." **적층 단수·다이 개수·다이 용량·패키지 높이·전력 측정 워크로드는 원문에 없습니다.**
 
 [^02-socamm2-mu]: 마이크론 공식 보도자료 "Micron Delivers Industry's Highest Capacity SOCAMM2 for Low-Power DRAM in the AI Data Center"(T1), BOISE, Idaho, **2025-10-22**, `investors.micron.com` 게재본 전문 확인 2026-09-11. 본문 수치와 각주 5개를 모두 대조했습니다. 각주 원문: (1) "Performance improvement validated by Micron internal testing: Llama 3 70B model inference with OSL=128 on GH200 NVL2 (288GB HBM3E + 1TB LPDDR5x) using LMCache." (2) "Compared to Micron's previous generation LPDDR5X." (3) "Figure based on announced capacity of NVL144 rack systems." (4) "Calculated based on power used in watts by one 128GB, 128-bit bus width SOCAMM2 module compared to two 128GB, 128-bit bus width DDR5 RDIMMs." (5) "Calculation compares SOCAMM2 area (14 x 90mm) versus a standard server RDIMM." **본문이 내세운 제품은 192 GB인데 각주 4의 계산 근거는 128 GB이고 모듈 수가 1 대 2입니다.** 이 각주들을 떼고 인용하는 2차 보도가 많으므로 주의해야 합니다.
 

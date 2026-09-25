@@ -1,6 +1,6 @@
 # 05. NAND - 3차원으로 도망친 메모리
 
-> **최종 검증: 2026-09-15**
+> **최종 검증: 2026-09-26**
 > 출처 등급 체계와 전체 출처 인덱스는 [SOURCES.md](SOURCES.md)를 참조하십시오.
 > 반도체 수치는 6개월이면 낡습니다. 인용 전 검증일을 확인하십시오.
 
@@ -261,7 +261,18 @@ NAND의 인터페이스는 두 층위로 나뉘며, 두 값을 섞으면 안 됩
 
 BiCS10은 PCIe 5.0 및 PCIe 6.0 데이터센터 SSD를 타깃으로 발표되었습니다[^05-bics10-density]. 다이 전송률 개선(+33%)이 곧바로 호스트 체감 대역폭 개선으로 이어지지는 않으며, 사이에 컨트롤러와 시스템 인터페이스 세대가 놓입니다.
 
-DRAM 계열의 세대가 JEDEC 표준 번호(JESD270-4, JESD209-6 등)로 정의되는 것과 달리, 이 문서의 소스 범위에서 NAND 인터페이스에 대응하는 표준 문서 번호와 세부 프로토콜 사양은 확인되지 않았습니다. 따라서 이 절은 **전송률 수준과 시스템 인터페이스 세대까지만** 기술하며, 그 이상은 서술하지 않습니다.
+**2026-09-26 갱신 - 표준 문서 번호를 확인했습니다.** 이전 판은 "이 문서의 소스 범위에서 NAND 인터페이스에 대응하는 표준 문서 번호가 확인되지 않았다"고 적었습니다. 그 칸이 채워졌습니다. **JESD230**입니다[^05-jesd230].
+
+| 항목 | 값 |
+|---|---|
+| 표준 번호 | **JESD230G.02** (2026년 9월 공표) |
+| 제목 | NAND Flash Interface Interoperability |
+| 개발 주체 | **JEDEC과 ONFI(Open NAND Flash Interface Workgroup) 공동** |
+| 규정 대상 | Asynchronous SDR, Synchronous DDR, **Toggle DDR** 세 방식의 **상호운용성** |
+
+**이 표준의 성격을 정확히 읽어야 합니다.** 제목이 "Interface"가 아니라 **"Interface Interoperability"** 입니다. 초록이 밝히는 목적은 새 전송 방식을 정의하는 것이 아니라, **JEDEC 회원사 구현과 ONFI 회원사 구현이 서로 호환되도록** 하나의 시스템이 세 방식을 모두 지원할 수 있게 만드는 것입니다. DRAM 쪽 JESD270-4나 JESD209-6이 소자 규격 자체인 것과 층위가 다릅니다.
+
+> **규격 본문은 확인하지 못했습니다.** 확보한 것은 공표 목록의 서지 정보와 초록까지이며 로그인 벽 뒤입니다. 따라서 이 절은 **여전히 전송률 수준과 시스템 인터페이스 세대까지만** 기술합니다. 위 표의 세 방식 이름도 초록에 나열된 그대로이며, BiCS10이 쓰는 **Toggle DDR6.0**의 세부 규정이 이 문서에 있는지는 **확인하지 않았습니다.** 방식 계열 이름이 같다는 것을 버전 일치로 읽으면 안 됩니다.
 
 한편 NAND 셀을 인터포저 위로 올리는 HBF의 표준화는 JEDEC이 아니라 OCP 워크스트림에서 진행되고 있으며, 세부 사양은 **[미공개]** (2026-07 기준)입니다[^05-hbf-spec]. 이 선택의 의미는 [04-hbf.md](04-hbf.md)에서 다룹니다.
 
@@ -390,6 +401,8 @@ NAND가 틀리는 방식도 셀 설계로 지워지지 않습니다. 마모는 �
 [^05-bics10-gain]: BiCS8(218층) 대비 면적 밀도 +59%, 전송 속도 +33%, 읽기 지연 약 4 µs(약 10%) 단축, 읽기 전력 약 100 mJ/GB → 약 75 mJ/GB(-29%). 개선 원리는 긴 워드라인 체인을 매 사이클 VSS↔VREAD로 완전 충방전하는 대신 중간 전압까지만 낮췄다 복원해 스윙 폭을 줄이는 방식. Kioxia/SanDisk 발표 기준(T1). 확인 2026-07-28.
 
 [^05-msa-cba]: MSA-CBA를 1,000층 기술에 적용하는 내용이 VLSI 2026에서 발표되었습니다(T3). 발표 단계이며 양산 사양이 아닙니다. 확인 2026-07-28.
+
+[^05-jesd230]: JEDEC 공표 문서 목록(`jedec.org/recently-published`)에서 직접 확인했습니다(T0, 확인 2026-09-26). 문서 번호 **JESD230G.02**, 제목 "NAND Flash Interface Interoperability", 공표 **2026년 9월**. 초록 원문: "This standard was jointly developed by JEDEC and the Open NAND Flash Interface Workgroup, hereafter referred to as ONFI. This standard defines a standard NAND flash device interface interoperability standard that provides means for system be designed that can support **Asynchronous SDR, Synchronous DDR and Toggle DDR** NAND flash devices that are interoperable between JEDEC and ONFI member implementations."(원문의 문법 오류까지 그대로 옮겼습니다.) **규격 본문은 등록·로그인 뒤에 있어 미확인이며**, 전송률·타이밍 등 내부 수치는 인용하지 않습니다. 이전 판이 "표준 문서 번호 미확인"으로 두었던 항목을 대체합니다.
 
 [^05-hbf-spec]: HBF 표준화는 JEDEC이 아니라 OCP(Open Compute Project) 전용 워크스트림에서 진행 중입니다(T1, 2026-02 킥오프). 다만 OCP·JEDEC의 관련 표준 원문은 회원 전용 또는 유료 공개이며, HBF의 패키징 규격·전기 인터페이스·컨트롤러 분담·쓰기 내구성 정량 스펙은 2026-07 기준 **[미공개]** 입니다. 따라서 이 문서의 HBF 관련 서술은 공개 보도 및 벤더 발표를 종합한 것으로 최종 사양과 다를 수 있으며, 미공개 항목에 대한 추정 서술은 두지 않았습니다. 상세는 [04-hbf.md](04-hbf.md) 참조. 확인 2026-07-28.
 
